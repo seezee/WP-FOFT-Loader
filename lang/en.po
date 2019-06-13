@@ -1,0 +1,425 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP FOFT Loader\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-foft-loader\n"
+"POT-Creation-Date: 2019-06-13 18:13:29+00:00\n"
+"PO-Revision-Date: 2019-06-13 13:17-0500\n"
+"Last-Translator: \n"
+"Language-Team: info@messengerwebdesign.com\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __(;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: includes/class-wp-foft-loader-head.php:260
+#: includes/class-wp-foft-loader-head.php:269
+#: includes/class-wp-foft-loader-mimes.php:89
+#: includes/class-wp-foft-loader-mimes.php:98
+#: includes/class-wp-foft-loader-settings.php:521
+#: includes/class-wp-foft-loader-settings.php:530
+#: includes/class-wp-foft-loader-upload.php:77
+#: includes/class-wp-foft-loader-upload.php:86
+#: includes/class-wp-foft-loader.php:243 includes/class-wp-foft-loader.php:252
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:70
+msgid "WP FOFT Loader Settings"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:70
+msgid "WP FOFT Loader"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:93
+msgid "Settings"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:105
+msgid "Upload"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:106
+msgid ""
+"\n"
+"<p>Upload two files for each web font: a WOFF file and a WOFF2 file. We "
+"recommend you use <a href=\"https://www.fontsquirrel.com/tools/webfont-"
+"generator\" target=\"_blank\" rel=\"external noreferrer noopener\">Font "
+"Squirrel’s Webfont Generator</a> to generate the files. Recommended Font "
+"Squirrel settings are:</p>\n"
+"<pre>Select \"Expert\"\n"
+"Font Formats:\t\t\"WOFF\"\n"
+"\t\t\t\"WOFF2\"\n"
+"Truetype Hinting:\t\"Font Squirrel\"\n"
+"Rendering:\t\t\"Fix GASP Table\"\n"
+"Vertical Metrics:\t\"Auto-Adjust Vertical Metrics\"\n"
+"Fix Missing Glyphs:\t\"Spaces\"\n"
+"\t\t\t\"Hyphens\"\n"
+"X-height Matching:\t\"Georgia\" (for serif fonts)\n"
+"\t\t\t\"Verdana\" (for sans-serif fonts)\n"
+"\t\t\t\"Courier\" (for monospaced fonts)\n"
+"Protection:\t\t\"WebOnly™\"\n"
+"Subsetting:\t\t\"Basic Subsetting\"\n"
+"OpenType Features:\tYour choice, but we like \"Keep All Features\"\n"
+"OpenType Flattening:\tNone\n"
+"CSS:\t\t\tNone\n"
+"Advanced Options:\t\"Font Name Suffix\" = -webfont\n"
+"\t\t\t\"Em Square Value\"  = 2048\n"
+"\t\t\t\"Adjust Glyph Spacing\"  = 0\n"
+"Shortcuts:\t\t\"Remember My Settings\"</pre>\n"
+"<p><strong>Filenames must follow the proper naming convention:</strong> "
+"<code>$family</code>-<code>$weight&amp;style</code>-webfont-<code>$filetype</"
+"code>, e.g., for the bold weight italic style of Times New Roman, rename the "
+"files to <code>timenewroman-boldItalic-webfont.woff</code> and "
+"<code>timesnewroman-boldItalic-webfont.woff2</code>. For small caps style "
+"families, append <code>SC</code> (case-sensitive) to the family name, e.g., "
+"<code>playfairdisplaySC-bold-webfont.woff</code>.</p>\n"
+"<p><strong>Weights and styles are case-sensitive!</strong> Allowed weights "
+"and styles and their CSS mappings are:</p>\n"
+"<ul style=\"columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;\">\n"
+"  <li>thin | hairline (maps to 100)</li>\n"
+"  <li>extraLight | ultraLight (maps to 200)</li>\n"
+"  <li>light (maps to 300)</li>\n"
+"  <li>regular | normal (maps to 400)</li>\n"
+"  <li>medium (maps to 500)</li>\n"
+"  <li>demiBold | semiBold (maps to 600)</li>\n"
+"  <li>bold (maps to 700)</li>\n"
+"  <li>extraBold | ultraBold (maps to 800)</li>\n"
+"  <li>black | heavy (maps to 900)</li>\n"
+"  <li>thinItalic (maps to 100)</li>\n"
+"  <li>hairlineItalic | extraLightItalic (maps to 200)</li>\n"
+"  <li>ultraLightItalic | lightItalic (maps to 300)</li>\n"
+"  <li>italic (maps to 400)</li>\n"
+"  <li>mediumItalic (maps to 500)</li>\n"
+"  <li>demiBoldItalic | semiBoldItalic (maps to 600)</li>\n"
+"  <li>boldItalic (maps to 700)</li>\n"
+"  <li>extraBoldItalic | ultraBoldItalic (maps to 800)</li>\n"
+"  <li>blackItalic | heavyItalic (maps to 900)</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:153
+msgid "Upload Fonts"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:154
+msgid ""
+"This will upload a font file to your media library and store the attachment "
+"ID in the option field. Once you have uploaded a font the thumbnail will "
+"display above these buttons."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:163
+msgid "Optimize"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:164
+msgid ""
+"\n"
+"<p>Load small subsetted font files before the page fully loads to improve "
+"performance. <em>This setting works with the Base64 settings in the next tab."
+"</em> All of the fields are optional, but if you fill out any of them you "
+"should also fill out the corresponding Base64 settings field.</p>\n"
+"<p>Enter the names of your Base64 subsetted fonts below. Only the family "
+"name is needed, not the style. Names are case-insensitive. Hyphens and "
+"underscores are allowed, <em>but spaces are not</em>.<p>\n"
+"<dl>\n"
+"\t<dt>Correct:</dt>\n"
+"\t<dd><strong>playfairdisplay</strong> (all lowercase)</dd>\n"
+"\t<dd><strong>playfair-display</strong> (hyphens and underscores allowed)</"
+"dd>\n"
+"\t<dd><strong>PlayfairDisplay</strong> (mixed case allowed)</dd>\n"
+"\t<dt>Incorrect:</dt>\n"
+"\t<dd><strong>playfairdisplay-bold</strong> (use the family name only; omit "
+"the style, <abbr>i.e.</abbr>, &ldquo;bold&rdquo;)</dd>\n"
+"\t<dd><strong>playfair display</strong> (spaces prohibited)</dd>\n"
+"\t<dd><strong>Playfair Display</strong> (spaces prohibited)</dd>\n"
+"</dl>"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:180
+#: includes/class-wp-foft-loader-settings.php:246
+#: includes/class-wp-foft-loader-settings.php:345
+msgid "Headings"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:181
+msgid ""
+"Optimize the display font used for high-level headings (H1, H2, &amp; H3)."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:184
+msgid "e.g., playfairdisplay"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:188
+#: includes/class-wp-foft-loader-settings.php:253
+#: includes/class-wp-foft-loader-settings.php:352
+msgid "Body"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:189
+msgid "Optimize body text. This can be a serif or sans-serif font."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:192
+msgid "e.g., timesnewroman"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:196
+#: includes/class-wp-foft-loader-settings.php:260
+#: includes/class-wp-foft-loader-settings.php:359
+msgid "Other elements"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:197
+msgid ""
+"Optimize non-body elements, <abbr>e.g.</abbr>, navigation labels, button "
+"labels, <abbr>etc.</abbr> A sans-serif font works best for this."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:200
+msgid "e.g., latosans"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:204
+#: includes/class-wp-foft-loader-settings.php:267
+#: includes/class-wp-foft-loader-settings.php:366
+msgid "Monospaced"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:205
+msgid ""
+"Optimize monospaced fonts. Used for code examples, preformatted text, and "
+"tabular data."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:208
+msgid "e.g., couriernew"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:214
+msgid "Base64"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:215
+msgid ""
+"\n"
+"<p>This setting inlines Base64 encoded font in the document head to improve "
+"font loading speeds. <em>This setting works with the Optimize settings in "
+"the previous tab.</em> All of the fields are optional, but if you fill out "
+"any of them you should also fill out the corresponding Optimize settings "
+"field.</p>\n"
+"<p>Fonts must be subsetted and encoded to Base64. To subset and encode your "
+"fonts, we recommend you use <a href=\"https://www.fontsquirrel.com/tools/"
+"webfont-generator\" target=\"_blank\" rel=\"external noreferrer noopener"
+"\">Font Squirrel’s Webfont Generator</a>. Recommended Font Squirrel settings "
+"are:</p>\n"
+"<pre>Select \"Expert\"\n"
+"Font Formats:\t\tNone\n"
+"Truetype Hinting:\t\"Font Squirrel\"\n"
+"Rendering:\t\t\"Fix GASP Table\"\n"
+"Vertical Metrics:\t\"Auto-Adjust Vertical Metrics\"\n"
+"Fix Missing Glyphs:\tNone\n"
+"X-height Matching:\t\"Georgia\" (for serif fonts)\n"
+"\t\t\t\"Verdana\" (for sans-serif fonts)\n"
+"\t\t\t\"Courier\" (for monospaced fonts)\n"
+"Protection:\t\t\"WebOnly™\"\n"
+"Subsetting:\t\t\"Custom Subsetting\" with the Unicode Ranges "
+"<code>0030-0039,0041-005A,0061-007A</code>\n"
+"\t\t\tLeave everything else unchecked\n"
+"OpenType Features:\tNone\n"
+"OpenType Flattening:\tNone\n"
+"CSS:\t\t\t\"Base64 Encode\"\n"
+"Advanced Options:\t\"Font Name Suffix\" = -webfont\n"
+"\t\t\t\"Em Square Value\"  = 2048\n"
+"\t\t\t\"Adjust Glyph Spacing\"  = 0\n"
+"Shortcuts:\t\t\"Remember My Settings\"</pre>\n"
+"<p>The generator will produce a file that looks something like this:</p>\n"
+"<pre><code>@font-face{\n"
+"  font-family: Merriweather;\n"
+"  src: url(data:application/font-woff; charset=utf-8; base64, "
+"d09GRgABAAAAAB4UABAAAAAAMpAAA…) format(\"woff\");\n"
+" }</code></pre>\n"
+"<p>Copy and paste the part the part between <pre><code>src:url (data:"
+"application/font-woff; charset=utf-8; base64, </code></pre> and <pre><code>) "
+"format(\"woff\");</code></pre> into the appropriate field below. In this "
+"example that would be <code>d09GRgABAAAAAB4UABAAAAAAMpAAA…</code>.</p>"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:247
+msgid "Display font for high-level headings (H1, H2, &amp; H3)."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:254
+msgid "Body text. This can be a serif or sans-serif font."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:261
+msgid ""
+"Non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, "
+"<abbr>etc.</abbr> A sans-serif font works best for this."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:268
+msgid ""
+"Monospaced fonts. Used for code examples, preformatted text, and tabular "
+"data."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:276
+msgid "CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:277
+msgid ""
+"\n"
+"\n"
+"</style>\n"
+"<p>@import rules are automatically handled by this plugin. You may manually "
+"inline your font-related <abbr>CSS</abbr> in the document <code>&lt;head&gt;"
+"</code> here. Place rules pertaining only to the <code>font-family</code>, "
+"<code>font-weight</code>, <code>font-style</code>, and <code>font-variation</"
+"code> properties here.</p>\n"
+"<p><em>Use only the family name</em>; <strong>omit weights and styles from "
+"the font name</strong>.</p>\n"
+"<p><strong>All declarations must start with the</strong>  <code>fonts-"
+"stage-2</code> <strong>class.</strong></p>\n"
+"<dl style=\"columns: 2 15rem; column-gap: 2rem; column-rule: 1px solid\">\n"
+"  <dt>Incorrect:</dt>\n"
+"    <dd><pre><code>p { // Missing class: .fonts-stage-2\n"
+"  font-family: lato, sans-serif;\n"
+"  font-weight: 400;\n"
+"  font-style: normal;\n"
+"}\n"
+"\n"
+"strong { // Missing class: .fonts-stage-2\n"
+"  font-family: lato-bold, serif; // Don&rsquo;t include style in font name. "
+"Better yet, omit declaration altogether.\n"
+"  font-weight: 700;\n"
+"}\n"
+"</code></pre></dd>\n"
+"<dt>Correct:</dt>\n"
+"  <dd><pre><code>.fonts-stage-2 p {\n"
+"  font-family: lato, sans-serif;\n"
+"  font-weight: 400;\n"
+"  font-style: normal;\n"
+"}\n"
+"\n"
+".fonts-stage-2 strong {\n"
+"  // No need to redeclare the font-family &mdash; all weights map to a "
+"single family name\n"
+"  font-weight: 700; // This will use the lato-bold font\n"
+"}\n"
+"</code></pre></dd>\n"
+"</dl><p>For best performance, please <a href=\"//cssminifier.com\" rel="
+"\"external noreferrer noopener\">minify your <abbr>CSS</abbr></a> before "
+"pasting it into the form."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:312
+msgid "Plugin CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:313
+msgid "The plugin loads some <abbr>CSS</abbr> by default."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:323
+msgid "Custom CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:324
+msgid "Place <abbr>CSS</abbr> font declarations here."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:327
+msgid ""
+"Example:\n"
+".fonts-stage-2 body {\n"
+"  font-family: merriweather, \"Century Schoolbook L\", Georgia, serif;\n"
+"}\n"
+".fonts-stage-2 strong {\n"
+"  font-weight: 700;\n"
+"}"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:339
+msgid "Font Stack"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:340
+msgid ""
+"\n"
+"<p>Change the default font fallbacks in case your custom fonts don&rsquo;t "
+"load. <strong>Don&rsquo;t include the names of your default custom fonts "
+"here</strong>.</p>"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:346
+msgid ""
+"Font stack for display font. Applies to high-level headings (H1, H2, &amp; "
+"H3)."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:353
+msgid "Font stack for body text. This can be a serif or sans-serif font."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:360
+msgid ""
+"Font stack for non-body elements, <abbr>e.g.</abbr>, navigation labels, "
+"button labels, <abbr>etc.</abbr> A sans-serif font works best for this."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:367
+msgid ""
+"Font stack for monospaced fonts. Used for code examples, preformatted text, "
+"and tabular data."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:438
+msgid "WP <abbr>FOFT</abbr> Loader Settings"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:438
+msgid ""
+"Automates <a href=\"https://www.zachleat.com/web/comprehensive-webfonts/"
+"#critical-foft-data-uri\" rel=\"external noreferrer noopener"
+"\"><strong>Critical <abbr title=\"Flash of Faux Text\">FOFT</abbr> with Data "
+"<abbr title=\"Uniform Resourse Identifier\">URI</abbr></a></strong> to speed "
+"up font loading while eliminating Flash of Unstyled Text <abbr>FOUT</abbr>. "
+"Based on the work of <span class=\"h-card\"><a class=\"p-name u-url\" href="
+"\"https://www.zachleat.com/\">Zach Leatherman</a></span>. "
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:438
+msgid ""
+"Please <strong>save your changes</strong> before navigating to the next tab. "
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:490
+msgid "Save Settings"
+msgstr ""
+
+#: includes/lib/class-wp-foft-loader-admin-api.php:163
+msgid "Upload an image"
+msgstr ""
+
+#: includes/lib/class-wp-foft-loader-admin-api.php:163
+msgid "Use image"
+msgstr ""
+
+#: includes/lib/class-wp-foft-loader-admin-api.php:163
+msgid "Upload new font"
+msgstr ""
+
+#: includes/lib/class-wp-foft-loader-admin-api.php:164
+msgid "Remove font"
+msgstr ""
