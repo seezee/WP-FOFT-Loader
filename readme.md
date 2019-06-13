@@ -1,12 +1,12 @@
-=== WP FOFT Loader ===
-Contributors: Chris J. Zähller
-Donate link: https://messengerwebdesign.com/donate
-Tags: wordpress, plugin, fonts, performance
-Requires at least: 3.9
-Tested up to: 5.2.1
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+=== WP FOFT Loader ===  
+Contributors: Chris J. Zähller  
+Donate link: https://messengerwebdesign.com/donate  
+Tags: wordpress, plugin, fonts, performance  
+Requires at least: 3.9  
+Tested up to: 5.2.1  
+Stable tag: 1.0  
+License: GPLv2 or later  
+License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
 == Description ==
 
@@ -25,7 +25,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 	Select "Expert"
 	Font Formats:			"WOFF"
-						"WOFF2"
+					"WOFF2"
 	Advanced Options:		"Font Name Suffix" = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
@@ -82,10 +82,10 @@ Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, 
 	Select "Expert"
 	Font Formats:			None
 	Fix Missing Glyphs:		None
-	Subsetting:				"Custom Subsetting" with the Unicode Ranges 0030-0039,0041-005A,0061-007A
-						Leave everything else unchecked  
+	Subsetting:			"Custom Subsetting" with the Unicode Ranges 0030-0039,0041-005A,0061-007A
+					Leave everything else unchecked  
 	OpenType Features:		None
-	OpenType Flattening:	None
+	OpenType Flattening:		None
 	CSS:					"Base64 Encode"
 	Advanced Options:		"Font Name Suffix" = -webfont
 
@@ -172,6 +172,10 @@ Feel free to send a donation to my Paypal account: chris AT messengerwebdesign D
 
 == Changelog ==
 
+= 1.0.3 =
+* 2019-06-13
+* Further README formatting improvements
+
 = 1.0.2 =
 * 2019-06-13
 * Fixed README formatting & added Pros & Cons to FAQ
@@ -186,6 +190,6 @@ Feel free to send a donation to my Paypal account: chris AT messengerwebdesign D
 
 == Upgrade Notice ==
 
-= 1.0.2 =
+= 1.0.3 =
 * 2019-06-13
-* Fixed README formatting & added Pros & Cons to FAQ
+* Further README formatting improvements
