@@ -80,7 +80,7 @@ class WP_FOFT_Loader_Settings {
     	// We're including the WP media scripts here because they're needed for the image upload field
     	wp_enqueue_media();
 
-    	wp_register_script( $this->parent->_token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', array( 'jquery' ), '1.0.0' );
+    	wp_register_script( $this->parent->_token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', array( 'jquery' ), '1.0.1' );
     	wp_enqueue_script( $this->parent->_token . '-settings-js' );
 	}
 

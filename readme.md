@@ -141,12 +141,6 @@ For best performance, please minify your CSS (https://cssminifier.com/) before p
 
 Change the default font fallbacks in case your custom fonts don’t load. Don’t include the names of your default custom fonts here.
 
-## == Screenshots  (Pending) ==
-
-## 1. Description of first screenshot named screenshot-1
-## 2. Description of second screenshot named screenshot-2
-## 3. Description of third screenshot named screenshot-3
-
 == Frequently Asked Questions ==
 
 = What is the plugin for? =
@@ -167,12 +161,16 @@ Feel free to send a donation to my Paypal account: chris AT messengerwebdesign D
 
 == Changelog ==
 
+= 1.0.1 =
+* 2019-06-13
+* Removed trailing comma if font stack is not set
+
 = 1.0 =
 * 2019-06-13
 * Initial release
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.1 =
 * 2019-06-13
-* Initial release
+* Removed trailing comma if font stack is not set
