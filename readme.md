@@ -86,7 +86,7 @@ Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, 
 					Leave everything else unchecked  
 	OpenType Features:		None
 	OpenType Flattening:		None
-	CSS:					"Base64 Encode"
+	CSS:				"Base64 Encode"
 	Advanced Options:		"Font Name Suffix" = -webfont
 
 
@@ -172,6 +172,10 @@ Feel free to send a donation to my Paypal account: chris AT messengerwebdesign D
 
 == Changelog ==
 
+= 1.0.4 =
+* 2019-06-13
+* README formatting fix
+
 = 1.0.3 =
 * 2019-06-13
 * Further README formatting improvements
@@ -190,6 +194,6 @@ Feel free to send a donation to my Paypal account: chris AT messengerwebdesign D
 
 == Upgrade Notice ==
 
-= 1.0.3 =
+= 1.0.4 =
 * 2019-06-13
-* Further README formatting improvements
+* README formatting fix
