@@ -6,7 +6,7 @@ Requires at least: 3.9
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
 Stable tag: 1.0.10  
-License: GPLv2 or later  
+License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
 == Description ==
@@ -187,6 +187,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.12 =
+* 2019-06-14
+* Corrected GPL License info
+
 = 1.0.11 =
 * 2019-06-14
 * Corrected version numbering error
@@ -241,7 +245,6 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.11 =
+= 1.0.12 =
 * 2019-06-14
-* Corrected version numbering error
-* Fixed typo in README description
+* Corrected GPL License info
