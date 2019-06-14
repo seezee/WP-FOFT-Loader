@@ -1,11 +1,11 @@
 === WP FOFT Loader ===  
-Contributors: Chris J. Zähller  
+Contributors: seezee  
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.8  
+Stable tag: 1.0.9  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -187,6 +187,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.9 =
+* 2019-06-14
+* Corrected Contributers username
+
 = 1.0.8 =
 * 2019-06-14
 * Add Requires PHP to README
@@ -228,9 +232,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.8 =
+= 1.0.9 =
 * 2019-06-14
-* Add Requires PHP to README
+* Corrected Contributers username
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
