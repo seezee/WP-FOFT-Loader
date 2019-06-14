@@ -215,7 +215,3 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 * 2019-06-14
 * Create readme.txt
 * Add comments to readme.md
-
-[//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
-
-[//]: # (This syntax works like a comment, and won't appear in any output.)
