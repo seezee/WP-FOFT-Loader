@@ -4,7 +4,8 @@ Donate link: https://messengerwebdesign.com/donate
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.1  
-Stable tag: 1.0.7  
+Requires PHP: 7.0  
+Stable tag: 1.0.8  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -186,6 +187,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.8 =
+* 2019-06-14
+* Add Requires PHP to README
+
 = 1.0.7 =
 * 2019-06-14
 * Add screenshots
@@ -223,6 +228,6 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.7 =
+= 1.0.8 =
 * 2019-06-14
-* Add screenshots
+* Add Requires PHP to README
