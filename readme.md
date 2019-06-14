@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.10  
+Stable tag: 1.0.13  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -187,6 +187,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.13 =
+* 2019-06-14
+* Added plugin banner & icon
+
 = 1.0.12 =
 * 2019-06-14
 * Corrected GPL License info
@@ -245,9 +249,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.12 =
+= 1.0.13 =
 * 2019-06-14
-* Corrected GPL License info
+* Added plugin banner & icon
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
