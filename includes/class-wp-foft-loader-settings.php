@@ -345,28 +345,35 @@ strong { // Missing class: .fonts-stage-2
 					'label'			=> __( 'Headings' , 'wpfoft' ),
 					'description'	=> __( 'Font stack for display font. Applies to high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
 					'type'			=> 'textarea',
-					'default'		=> '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif'
+					'default'		=> '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
+					'placeholder'	=> ''
 				),
 				array(
 					'id' 			=> 'fstack-body',
 					'label'			=> __( 'Body' , 'wpfoft' ),
 					'description'	=> __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wpfoft' ),
 					'type'			=> 'textarea',
-					'default'		=> '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif'
+					'default'		=> '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
+					'placeholder'	=> ''
+
 				),
 				array(
 					'id' 			=> 'fstack-alt',
 					'label'			=> __( 'Other elements' , 'wpfoft' ),
 					'description'	=> __( 'Font stack for non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
 					'type'			=> 'textarea',
-					'default'		=> '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+					'default'		=> '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+					'placeholder'	=> ''
+
 				),
 				array(
 					'id' 			=> 'fstack-mono',
 					'label'			=> __( 'Monospaced' , 'wpfoft' ),
 					'description'	=> __( 'Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
 					'type'			=> 'textarea',
-					'default'		=> 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace'
+					'default'		=> 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace',
+					'placeholder'	=> ''
+
 				)
 			)
 		);

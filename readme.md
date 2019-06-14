@@ -12,6 +12,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin template implements and automates [Zach Leatherman's Cricital FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
+== Acknowledgement ==
+
+This plugin is based on [KnowTheCode's Starter Plugin](https://github.com/KnowTheCode/starter-plugin), a WordPress plugin boilerplate that emphasizes code quality.
+
+The boilerplate provides you with a solid foundation to rapidly start your custom plugin development project. It's fully compliant with PHPCS and WPCS coding standards. It's modular in design. Emphasis is given to SOLID principles. Validators are built right into the plugin, pre-configured and pre-wired for you to use.
+
 == Installation ==
 
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
@@ -168,9 +174,13 @@ I'm looking for collaborators to improve the code. If you are an experienced Wor
 
 = I'd like to do even more =
 
-Feel free to send a donation to my Paypal account: chris AT messengerwebdesign DOT com. Or buy me a beer if you're in town.
+Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you're in town.
 
 == Changelog ==
+
+= 1.0.5 =
+* 2019-06-13
+* Upgrade license from GNU GPL 2 to GNU GPL 3
 
 = 1.0.4 =
 * 2019-06-13
@@ -194,6 +204,8 @@ Feel free to send a donation to my Paypal account: chris AT messengerwebdesign D
 
 == Upgrade Notice ==
 
-= 1.0.4 =
+= 1.0.5 =
 * 2019-06-13
-* README formatting fix
+* Upgrade license from GNU GPL 2 to GNU GPL 3
+* Fix Undefined index: placeholder in class-wp-foft-loader-admin-api.php
+* Add acknowledgement to README
