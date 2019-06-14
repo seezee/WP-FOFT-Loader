@@ -4,7 +4,7 @@ Donate link: https://messengerwebdesign.com/donate
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.1  
-Stable tag: 1.0.6  
+Stable tag: 1.0.7  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -147,6 +147,14 @@ For best performance, please [minify your CSS](https://cssminifier.com/) before 
 
 Change the default font fallbacks in case your custom fonts don’t load. Don’t include the names of your default custom fonts here.
 
+== Screenshots ==
+
+1. Uploads screen: upload your custom web fonts here
+2. Optimize screen: tells fontobserver.js which fonts to load for stage 1
+3. Base64 screen: inlines Base64 data URI for subsetted stage 1 fonts
+4. CSS screen: all font-related CSS goes here so it can be inlined.
+5. Font Stacks screen: sets the default font stacks
+
 == Frequently Asked Questions ==
 
 = What is the plugin for? =
@@ -178,13 +186,17 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.7 =
+* 2019-06-14
+* Add screenshots
+
 = 1.0.6 =
 * 2019-06-14
 * Create readme.txt
 * Add comments to readme.md
 
 = 1.0.5 =
-* 2019-06-13
+* 2019-06-14
 * Upgrade license from GNU GPL 2 to GNU GPL 3
 * Fix Undefined index: placeholder in class-wp-foft-loader-admin-api.php
 * Add acknowledgement to README
@@ -211,10 +223,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.6 =
+= 1.0.7 =
 * 2019-06-14
-* Create readme.txt
-* Add comments to readme.md
+* Add screenshots
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
