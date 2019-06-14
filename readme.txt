@@ -5,13 +5,13 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.1.0  
+Stable tag: 1.0.10  
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
 == Description ==
 
-This plugin template implements and automates [Zach Leatherman's Cricital FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
+This plugin implements and automates [Zach Leatherman's Cricital FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
 == Acknowledgement ==
 
@@ -187,7 +187,12 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
-= 1.1.0 =
+= 1.0.11 =
+* 2019-06-14
+* Corrected version numbering error
+* Fixed typo in README description
+
+= 1.0.10 =
 * 2019-06-14
 * Corrected license URI
 
@@ -236,6 +241,7 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.1.0 =
+= 1.0.11 =
 * 2019-06-14
-* Corrected license URI
+* Corrected version numbering error
+* Fixed typo in README description
