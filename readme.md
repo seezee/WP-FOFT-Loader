@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.16  
+Stable tag: 1.0.17  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -187,6 +187,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.17 =
+* 2019-06-15
+* Reverted recommended Em Square Value setting
+
 = 1.0.16 =
 * 2019-06-15
 * Corrected font weight mapping in README & upload instructions
@@ -262,10 +266,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.16 =
+= 1.0.17 =
 * 2019-06-15
-* Corrected font weight mapping in README & upload instructions
-* Updated recommended Font Squirrel Generator settings
+* Reverted recommended Em Square Value setting
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

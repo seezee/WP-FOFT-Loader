@@ -119,7 +119,7 @@ OpenType Features:	Your choice, but we like "Keep All Features"
 OpenType Flattening:	None
 CSS:			None
 Advanced Options:	"Font Name Suffix" = -webfont
-			Leave "Em Square Value" blank
+			"Em Square Value" = 2048
 			"Adjust Glyph Spacing"  = 0
 Shortcuts:		"Remember My Settings"</pre>
 <p><strong>Filenames must follow the proper naming convention:</strong> <code>$family</code>-<code>$weight&amp;style</code>-webfont-<code>$filetype</code>, e.g., for the bold weight italic style of Times New Roman, rename the files to <code>timenewroman-boldItalic-webfont.woff</code> and <code>timesnewroman-boldItalic-webfont.woff2</code>. For small caps style families, append <code>SC</code> (case-sensitive) to the family name, e.g., <code>playfairdisplaySC-bold-webfont.woff</code>.</p>
@@ -226,7 +226,7 @@ OpenType Features:	None
 OpenType Flattening:	None
 CSS:			"Base64 Encode"
 Advanced Options:	"Font Name Suffix" = -webfont
-			Leave "Em Square Value" blank
+			"Em Square Value" = 2048
 			"Adjust Glyph Spacing"  = 0
 Shortcuts:		"Remember My Settings"</pre>
 <p>The generator will produce a file that looks something like this:</p>
