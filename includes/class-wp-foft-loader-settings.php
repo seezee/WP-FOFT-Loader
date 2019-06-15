@@ -102,27 +102,24 @@ class WP_FOFT_Loader_Settings {
 	private function settings_fields () {
 
 		$settings['upload'] = array(
-			'title'					=> __( 'Upload', 'wpfoft' ),
-			'description'			=> __( '
+			'title'                 => __( 'Upload', 'wpfoft' ),
+			'description'           => __( '
 <p>Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s Webfont Generator</a> to generate the files. Recommended Font Squirrel settings are:</p>
 <pre>Select "Expert"
 Font Formats:		"WOFF"
 			"WOFF2"
-Truetype Hinting:	"Font Squirrel"
-Rendering:		"Fix GASP Table"
-Vertical Metrics:	"Auto-Adjust Vertical Metrics"
+Truetype Hinting:	"Keep Existing"
+Rendering:		Default options (leave both unchecked)
+Vertical Metrics:	"No Adjustment"
 Fix Missing Glyphs:	"Spaces"
 			"Hyphens"
-X-height Matching:	"Georgia" (for serif fonts)
-			"Verdana" (for sans-serif fonts)
-			"Courier" (for monospaced fonts)
-Protection:		"WebOnly™"
-Subsetting:		"Basic Subsetting"
+X-height Matching:	None
+Protection:		Select "WebOnly™" if you are using a commercially licensed font
 OpenType Features:	Your choice, but we like "Keep All Features"
 OpenType Flattening:	None
 CSS:			None
 Advanced Options:	"Font Name Suffix" = -webfont
-			"Em Square Value"  = 2048
+			Leave "Em Square Value" blank
 			"Adjust Glyph Spacing"  = 0
 Shortcuts:		"Remember My Settings"</pre>
 <p><strong>Filenames must follow the proper naming convention:</strong> <code>$family</code>-<code>$weight&amp;style</code>-webfont-<code>$filetype</code>, e.g., for the bold weight italic style of Times New Roman, rename the files to <code>timenewroman-boldItalic-webfont.woff</code> and <code>timesnewroman-boldItalic-webfont.woff2</code>. For small caps style families, append <code>SC</code> (case-sensitive) to the family name, e.g., <code>playfairdisplaySC-bold-webfont.woff</code>.</p>
@@ -137,9 +134,9 @@ Shortcuts:		"Remember My Settings"</pre>
   <li>bold (maps to 700)</li>
   <li>extraBold | ultraBold (maps to 800)</li>
   <li>black | heavy (maps to 900)</li>
-  <li>thinItalic (maps to 100)</li>
-  <li>hairlineItalic | extraLightItalic (maps to 200)</li>
-  <li>ultraLightItalic | lightItalic (maps to 300)</li>
+  <li>thinItalic | hairlineItalic (maps to 100)</li>
+  <li>extraLightItalic | ultraLightItalic (maps to 200)</li>
+  <li>lightItalic (maps to 300)</li>
   <li>italic (maps to 400)</li>
   <li>mediumItalic (maps to 500)</li>
   <li>demiBoldItalic | semiBoldItalic (maps to 600)</li>
@@ -147,21 +144,21 @@ Shortcuts:		"Remember My Settings"</pre>
   <li>extraBoldItalic | ultraBoldItalic (maps to 800)</li>
   <li>blackItalic | heavyItalic (maps to 900)</li>
 </ul>', 'wpfoft' ),
-			'fields'				=> array(
+			'fields'                => array(
 				array(
-					'id' 			=> 'font',
-					'label'			=> __( 'Upload Fonts' , 'wpfoft' ),
-					'description'	=> __( 'This will upload a font file to your media library and store the attachment ID in the option field. Once you have uploaded a font the thumbnail will display above these buttons.', 'wpfoft' ),
-					'type'			=> 'font',
-					'default'		=> '',
-					'placeholder'	=> ''
+					'id'            => 'font',
+					'label'         => __( 'Upload Fonts' , 'wpfoft' ),
+					'description'   => __( 'This will upload a font file to your media library and store the attachment ID in the option field. Once you have uploaded a font the thumbnail will display above these buttons.', 'wpfoft' ),
+					'type'          => 'font',
+					'default'       => '',
+					'placeholder'   => ''
 				)
 			)
 		);
 
 		$settings['optimize'] = array(
-			'title'					=> __( 'Optimize', 'wpfoft' ),
-			'description'			=> __( '
+			'title'                 => __( 'Optimize', 'wpfoft' ),
+			'description'           => __( '
 <p>Load small subsetted font files before the page fully loads to improve performance. <em>This setting works with the Base64 settings in the next tab.</em> All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Base64 settings field.</p>
 <p>Enter the names of your Base64 subsetted fonts below. Only the family name is needed, not the style. Names are case-insensitive. Hyphens and underscores are allowed, <em>but spaces are not</em>.<p>
 <dl>
@@ -174,64 +171,62 @@ Shortcuts:		"Remember My Settings"</pre>
 	<dd><strong>playfair display</strong> (spaces prohibited)</dd>
 	<dd><strong>Playfair Display</strong> (spaces prohibited)</dd>
 </dl>', 'wpfoft' ),
-			'fields'				=> array(
+			'fields'                => array(
 				array(
-					'id' 			=> 's1-heading',
-					'label'			=> __( 'Headings' , 'wpfoft' ),
-					'description'	=> __( 'Optimize the display font used for high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'e.g., playfairdisplay', 'wpfoft' )
+					'id'            => 's1-heading',
+					'label'         => __( 'Headings' , 'wpfoft' ),
+					'description'   => __( 'Optimize the display font used for high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
+					'type'          => 'text',
+					'default'       => '',
+					'placeholder'   => __( 'e.g., playfairdisplay', 'wpfoft' )
 				),
 				array(
-					'id' 			=> 's1-body',
-					'label'			=> __( 'Body' , 'wpfoft' ),
-					'description'	=> __( 'Optimize body text. This can be a serif or sans-serif font.', 'wpfoft' ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'e.g., timesnewroman', 'wpfoft' )
+					'id'            => 's1-body',
+					'label'         => __( 'Body' , 'wpfoft' ),
+					'description'   => __( 'Optimize body text. This can be a serif or sans-serif font.', 'wpfoft' ),
+					'type'          => 'text',
+					'default'       => '',
+					'placeholder'   => __( 'e.g., timesnewroman', 'wpfoft' )
 				),
 				array(
-					'id' 			=> 's1-alt',
-					'label'			=> __( 'Other elements' , 'wpfoft' ),
-					'description'	=> __( 'Optimize non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'e.g., latosans', 'wpfoft' )
+					'id'            => 's1-alt',
+					'label'         => __( 'Other elements' , 'wpfoft' ),
+					'description'   => __( 'Optimize non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
+					'type'          => 'text',
+					'default'       => '',
+					'placeholder'   => __( 'e.g., latosans', 'wpfoft' )
 				),
 				array(
-					'id' 			=> 's1-mono',
-					'label'			=> __( 'Monospaced' , 'wpfoft' ),
-					'description'	=> __( 'Optimize monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'e.g., couriernew', 'wpfoft' )
+					'id'            => 's1-mono',
+					'label'         => __( 'Monospaced' , 'wpfoft' ),
+					'description'   => __( 'Optimize monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
+					'type'          => 'text',
+					'default'       => '',
+					'placeholder'   => __( 'e.g., couriernew', 'wpfoft' )
 				)
 			)
 		);
 
 		$settings['base64'] = array(
-			'title'					=> __( 'Base64', 'wpfoft' ),
-			'description'			=> __( '
+			'title'	                => __( 'Base64', 'wpfoft' ),
+			'description'           => __( '
 <p>This setting inlines Base64 encoded font in the document head to improve font loading speeds. <em>This setting works with the Optimize settings in the previous tab.</em> All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field.</p>
 <p>Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s Webfont Generator</a>. Recommended Font Squirrel settings are:</p>
 <pre>Select "Expert"
 Font Formats:		None
-Truetype Hinting:	"Font Squirrel"
-Rendering:		"Fix GASP Table"
-Vertical Metrics:	"Auto-Adjust Vertical Metrics"
+Truetype Hinting:	"Keep Existing"
+Rendering:		Default options (leave both uncheckedd)
+Vertical Metrics:	"No Adjustment"
 Fix Missing Glyphs:	None
-X-height Matching:	"Georgia" (for serif fonts)
-			"Verdana" (for sans-serif fonts)
-			"Courier" (for monospaced fonts)
-Protection:		"WebOnly™"
+X-height Matching:	None
+Protection:		Select "WebOnly™" if you are using a commercially licensed font
 Subsetting:		"Custom Subsetting" with the Unicode Ranges <code>0030-0039,0041-005A,0061-007A</code>
 			Leave everything else unchecked
 OpenType Features:	None
 OpenType Flattening:	None
 CSS:			"Base64 Encode"
 Advanced Options:	"Font Name Suffix" = -webfont
-			"Em Square Value"  = 2048
+			Leave "Em Square Value" blank
 			"Adjust Glyph Spacing"  = 0
 Shortcuts:		"Remember My Settings"</pre>
 <p>The generator will produce a file that looks something like this:</p>
@@ -240,41 +235,41 @@ Shortcuts:		"Remember My Settings"</pre>
   src: url(data:application/font-woff; charset=utf-8; base64, d09GRgABAAAAAB4UABAAAAAAMpAAA…) format("woff");
  }</code></pre>
 <p>Copy and paste the part the part between <pre><code>src:url (data:application/font-woff; charset=utf-8; base64, </code></pre> and <pre><code>) format("woff");</code></pre> into the appropriate field below. In this example that would be <code>d09GRgABAAAAAB4UABAAAAAAMpAAA…</code>.</p>', 'wpfoft' ),
-			'fields'				=> array(
+			'fields'                => array(
 				array(
-					'id' 			=> 'b64-heading',
-					'label'			=> __( 'Headings' , 'wpfoft' ),
-					'description'	=> __( 'Display font for high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> ''
+					'id'            => 'b64-heading',
+					'label'         => __( 'Headings' , 'wpfoft' ),
+					'description'   => __( 'Display font for high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => ''
 				),
 				array(
-					'id' 			=> 'b64-body',
-					'label'			=> __( 'Body' , 'wpfoft' ),
-					'description'	=> __( 'Body text. This can be a serif or sans-serif font.', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> ''
+					'id'            => 'b64-body',
+					'label'         => __( 'Body' , 'wpfoft' ),
+					'description'   => __( 'Body text. This can be a serif or sans-serif font.', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => ''
 				),
 				array(
-					'id' 			=> 'b64-alt',
-					'label'			=> __( 'Other elements' , 'wpfoft' ),
-					'description'	=> __( 'Non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> ''
+					'id'            => 'b64-alt',
+					'label'         => __( 'Other elements' , 'wpfoft' ),
+					'description'   => __( 'Non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => ''
 				),
 				array(
-					'id' 			=> 'b64-mono',
-					'label'			=> __( 'Monospaced' , 'wpfoft' ),
-					'description'	=> __( 'Monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> ''
+					'id'            => 'b64-mono',
+					'label'         => __( 'Monospaced' , 'wpfoft' ),
+					'description'   => __( 'Monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => ''
 				)
 			)
 		);
 
 		$settings['css'] = array(
-			'title'					=> __( 'CSS', 'wpfoft' ),
-			'description'			=> __( '
+			'title'	                => __( 'CSS', 'wpfoft' ),
+			'description'           => __( '
 
 </style>
 <p>@import rules are automatically handled by this plugin. You may manually inline your font-related <abbr>CSS</abbr> in the document <code>&lt;head&gt;</code> here. Place rules pertaining only to the <code>font-family</code>, <code>font-weight</code>, <code>font-style</code>, and <code>font-variation</code> properties here.</p>
@@ -306,25 +301,25 @@ strong { // Missing class: .fonts-stage-2
 }
 </code></pre></dd>
 </dl><p>For best performance, please <a href="//cssminifier.com" rel="external noreferrer noopener">minify your <abbr>CSS</abbr></a> before pasting it into the form.', 'wpfoft' ),
-			'fields'				=> array(
+			'fields'                => array(
 				array(
-					'id' 			=> 'default_css',
-					'label'			=> __( 'Plugin CSS', 'wpfoft' ),
-					'description'	=> __( 'The plugin loads some <abbr>CSS</abbr> by default.', 'wpfoft' ),
-					'type'			=> 'radio',
-					'options'		=> array(
+					'id'            => 'default_css',
+					'label'         => __( 'Plugin CSS', 'wpfoft' ),
+					'description'   => __( 'The plugin loads some <abbr>CSS</abbr> by default.', 'wpfoft' ),
+					'type'          => 'radio',
+					'options'       => array(
 						'off' => 'Default <abbr>CSS</abbr> Off',
-						'on' => 'Default <abbr>CSS</abbr> On'
+						'on'  => 'Default <abbr>CSS</abbr> On'
 					),
 					'default'       => 'on'
 				),
 				array(
-					'id' 			=> 'custom_css',
-					'label'			=> __( 'Custom CSS' , 'wpfoft' ),
-					'description'	=> __( 'Place <abbr>CSS</abbr> font declarations here.', 'wpfoft' ),
-					'type'			=> 'textarea_large',
-					'default'		=> '',
-					'placeholder'	=> __( 'Example:
+					'id'            => 'custom_css',
+					'label'         => __( 'Custom CSS' , 'wpfoft' ),
+					'description'   => __( 'Place <abbr>CSS</abbr> font declarations here.', 'wpfoft' ),
+					'type'          => 'textarea_large',
+					'default'       => '',
+					'placeholder'   => __( 'Example:
 .fonts-stage-2 body {
   font-family: merriweather, "Century Schoolbook L", Georgia, serif;
 }
@@ -336,43 +331,43 @@ strong { // Missing class: .fonts-stage-2
 		);
 
 		$settings['fstack'] = array(
-			'title'					=> __( 'Font Stack', 'wpfoft' ),
-			'description'			=> __( '
+			'title'	                => __( 'Font Stack', 'wpfoft' ),
+			'description'           => __( '
 <p>Change the default font fallbacks in case your custom fonts don&rsquo;t load. <strong>Don&rsquo;t include the names of your default custom fonts here</strong>.</p>', 'wpfoft' ),
-			'fields'				=> array(
+			'fields'                => array(
 				array(
-					'id' 			=> 'fstack-heading',
-					'label'			=> __( 'Headings' , 'wpfoft' ),
-					'description'	=> __( 'Font stack for display font. Applies to high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
-					'placeholder'	=> ''
+					'id'            => 'fstack-heading',
+					'label'         => __( 'Headings' , 'wpfoft' ),
+					'description'   => __( 'Font stack for display font. Applies to high-level headings (H1, H2, &amp; H3).', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
+					'placeholder'   => ''
 				),
 				array(
-					'id' 			=> 'fstack-body',
-					'label'			=> __( 'Body' , 'wpfoft' ),
-					'description'	=> __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
-					'placeholder'	=> ''
+					'id'            => 'fstack-body',
+					'label'         => __( 'Body' , 'wpfoft' ),
+					'description'   => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
+					'placeholder'   => ''
 
 				),
 				array(
-					'id' 			=> 'fstack-alt',
-					'label'			=> __( 'Other elements' , 'wpfoft' ),
-					'description'	=> __( 'Font stack for non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-					'placeholder'	=> ''
+					'id'            => 'fstack-alt',
+					'label'         => __( 'Other elements' , 'wpfoft' ),
+					'description'   => __( 'Font stack for non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+					'placeholder'   => ''
 
 				),
 				array(
-					'id' 			=> 'fstack-mono',
-					'label'			=> __( 'Monospaced' , 'wpfoft' ),
-					'description'	=> __( 'Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
-					'type'			=> 'textarea',
-					'default'		=> 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace',
-					'placeholder'	=> ''
+					'id'            => 'fstack-mono',
+					'label'         => __( 'Monospaced' , 'wpfoft' ),
+					'description'   => __( 'Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wpfoft' ),
+					'type'          => 'textarea',
+					'default'       => 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace',
+					'placeholder'   => ''
 
 				)
 			)

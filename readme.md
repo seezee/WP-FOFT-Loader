@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.15  
+Stable tag: 1.0.16  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -50,9 +50,9 @@ demiBold | semiBold (maps to 600)
 bold (maps to 700)  
 extraBold | ultraBold (maps to 800)  
 black | heavy (maps to 900)  
-thinItalic (maps to 100)  
-hairlineItalic | extraLightItalic (maps to 200)  
-ultraLightItalic | lightItalic (maps to 300)  
+thinItalic | hairlineItalic(maps to 100)  
+extraLightItalic | ultraLightItalic (maps to 200)  
+lightItalic (maps to 300)  
 italic (maps to 400)  
 mediumItalic (maps to 500)  
 demiBoldItalic | semiBoldItalic (maps to 600)  
@@ -187,6 +187,11 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.16 =
+* 2019-06-15
+* Corrected font weight mapping in README & upload instructions
+* Updated recommended Font Squirrel Generator settings
+
 = 1.0.15 =
 * 2019-06-14
 * Added missing change to changelog & re-assigned version numbers
@@ -257,9 +262,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.15 =
-* 2019-06-14
-* Added missing change to changelog & re-assigned version numbers
+= 1.0.16 =
+* 2019-06-15
+* Corrected font weight mapping in README & upload instructions
+* Updated recommended Font Squirrel Generator settings
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
