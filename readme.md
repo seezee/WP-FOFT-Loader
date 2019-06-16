@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.19  
+Stable tag: 1.0.20  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -204,6 +204,11 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.20 =
+* 2019-06-16
+* Add font-display option to CSS Settings screen
+* Update .pot, .po, & .mo language files
+
 = 1.0.19 =
 * 2019-06-16
 * Improve file-naming convention documentation
@@ -295,8 +300,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.19 =
+= 1.0.20 =
 * 2019-06-16
+* Add font-display option to CSS Settings screen
 * Update .pot, .po, & .mo language files
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

@@ -45,32 +45,34 @@
 			$arr = array(); // Use this with wp_kses. Don't allow any HTML.
 
 
-			$heading  = get_option( 'wpfl_s1-heading' );
-			$body     = get_option( 'wpt_s1-body' );
-			$alt      = get_option( 'wpt_s1-alt' );
-			$mono     = get_option( 'wpt_s1-mono' );
+			$heading   = get_option( 'wpfl_s1-heading' );
+			$body      = get_option( 'wpt_s1-body' );
+			$alt       = get_option( 'wpt_s1-alt' );
+			$mono      = get_option( 'wpt_s1-mono' );
 
 			$heading64 = get_option( 'wpfl_b64-heading' );
 			$body64    = get_option( 'wpfl_b64-body' );
 			$alt64     = get_option( 'wpfl_b64-alt' );
 			$mono64    = get_option( 'wpfl_b64-mono' );
 
+			$fdisplay  = get_option ( 'wpfl_font_display' );
+
 			if( !is_null($body) || !is_null($body64) ) {
-				echo '<link rel="preload" href="' . wp_kses($font_path, $arr) . wp_kses($body, $arr) . '-regular-webfont.woff2" as="font" type="font/woff2" crossorigin><style type="text/css">@font-face{font-family:' . wp_kses($body, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($body64, $arr) . ') format("woff");' . esc_html('font-display:swap;font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
+				echo '<link rel="preload" href="' . wp_kses($font_path, $arr) . wp_kses($body, $arr) . '-regular-webfont.woff2" as="font" type="font/woff2" crossorigin><style type="text/css">@font-face{font-family:' . wp_kses($body, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($body64, $arr) . ') format("woff");' . esc_html('font-display:' . wp_kses($fdisplay, $arr) . ';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
 			};
 
 			if( !is_null($heading) || !is_null($heading64) ) {
-				echo '@font-face{font-family:' . wp_kses($heading, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($heading64, $arr) . ') format("woff");' . esc_html('font-display:swap;font-weight:400;font-style:normal;unicode-range:u+0026,U+0030-0039,U+0041-005A,U+0061-007A}');
+				echo '@font-face{font-family:' . wp_kses($heading, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($heading64, $arr) . ') format("woff");' . esc_html('font-display:' . wp_kses($fdisplay, $arr) . ';font-weight:400;font-style:normal;unicode-range:u+0026,U+0030-0039,U+0041-005A,U+0061-007A}');
 
 			};
 
 			if( !is_null($alt) || !is_null($alt64) ) {
-				echo '@font-face{font-family:' . wp_kses($alt, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($alt64, $arr) . ') format("woff");' . esc_html('font-display:swap;font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
+				echo '@font-face{font-family:' . wp_kses($alt, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($alt64, $arr) . ') format("woff");' . esc_html('font-display:' . wp_kses($fdisplay, $arr) . ';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
 
 			};
 
 			if( !is_null($mono) || !is_null($mono64) ) {
-				echo '@font-face{font-family:' . wp_kses($mono, $arr) . 'Subset;src: url(data:application/font-woff;charset=utf-8;base64,' . wp_kses($mono64, $arr) . ') format("woff");' . esc_html('font-display:swap;font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
+				echo '@font-face{font-family:' . wp_kses($mono, $arr) . 'Subset;src: url(data:application/font-woff;charset=utf-8;base64,' . wp_kses($mono64, $arr) . ') format("woff");' . esc_html('font-display:' . wp_kses($fdisplay, $arr) . ';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
 			};
 
 			$suffix = '-webfont';
@@ -130,7 +132,7 @@
 				echo esc_html('font-variant:small-caps;');
 				}
 
-				echo esc_html('font-display:swap;}' );
+				echo esc_html('font-display:' . wp_kses($fdisplay, $arr) . ';}' );
 
 				/*
 

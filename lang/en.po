@@ -4,23 +4,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP FOFT Loader 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader\n"
-"POT-Creation-Date: 2019-06-16 19:38:58+00:00\n"
+"POT-Creation-Date: 2019-06-16 22:24:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-06-16 15:12-0500\n"
+"PO-Revision-Date: 2019-06-16 17:26-0500\n"
 "Language-Team: \n"
 "X-Generator: Poedit 2.2.3\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 
-#: includes/class-wp-foft-loader-head.php:264
-#: includes/class-wp-foft-loader-head.php:273
+#: includes/class-wp-foft-loader-head.php:266
+#: includes/class-wp-foft-loader-head.php:275
 #: includes/class-wp-foft-loader-mimes.php:89
 #: includes/class-wp-foft-loader-mimes.php:98
-#: includes/class-wp-foft-loader-settings.php:584
-#: includes/class-wp-foft-loader-settings.php:593
+#: includes/class-wp-foft-loader-settings.php:598
+#: includes/class-wp-foft-loader-settings.php:607
 #: includes/class-wp-foft-loader-upload.php:77
 #: includes/class-wp-foft-loader-upload.php:86
 #: includes/class-wp-foft-loader.php:217 includes/class-wp-foft-loader.php:226
@@ -169,7 +169,7 @@ msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:224
 #: includes/class-wp-foft-loader-settings.php:302
-#: includes/class-wp-foft-loader-settings.php:401
+#: includes/class-wp-foft-loader-settings.php:415
 msgid "Headings"
 msgstr ""
 
@@ -184,7 +184,7 @@ msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:232
 #: includes/class-wp-foft-loader-settings.php:309
-#: includes/class-wp-foft-loader-settings.php:409
+#: includes/class-wp-foft-loader-settings.php:423
 msgid "Body"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:240
 #: includes/class-wp-foft-loader-settings.php:316
-#: includes/class-wp-foft-loader-settings.php:418
+#: includes/class-wp-foft-loader-settings.php:432
 msgid "Other elements"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:248
 #: includes/class-wp-foft-loader-settings.php:323
-#: includes/class-wp-foft-loader-settings.php:427
+#: includes/class-wp-foft-loader-settings.php:441
 msgid "Monospaced"
 msgstr ""
 
@@ -369,14 +369,26 @@ msgid "The plugin loads some <abbr>CSS</abbr> by default."
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:379
-msgid "Custom CSS"
+msgid "Font Display"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:380
+msgid ""
+"Override the <code>font-display</code> property here. The plugin uses <a "
+"href=\"//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display\" "
+"rel=\"external noopener noreferrer\"><code>font-display: swap</code></a> by "
+"default."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:393
+msgid "Custom CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:394
 msgid "Place <abbr>CSS</abbr> font declarations here."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:383
+#: includes/class-wp-foft-loader-settings.php:397
 msgid ""
 "Example:\n"
 ".fonts-stage-2 body {\n"
@@ -387,11 +399,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:395
+#: includes/class-wp-foft-loader-settings.php:409
 msgid "Font Stack"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:396
+#: includes/class-wp-foft-loader-settings.php:410
 msgid ""
 "\n"
 "<p>Change the default font fallbacks in case your custom fonts don&rsquo;t "
@@ -399,33 +411,33 @@ msgid ""
 "here</strong>.</p>"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:402
+#: includes/class-wp-foft-loader-settings.php:416
 msgid ""
 "Font stack for display font. Applies to high-level headings (H1, H2, &amp; "
 "H3)."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:410
+#: includes/class-wp-foft-loader-settings.php:424
 msgid "Font stack for body text. This can be a serif or sans-serif font."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:419
+#: includes/class-wp-foft-loader-settings.php:433
 msgid ""
 "Font stack for non-body elements, <abbr>e.g.</abbr>, navigation labels, "
 "button labels, <abbr>etc.</abbr> A sans-serif font works best for this."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:428
+#: includes/class-wp-foft-loader-settings.php:442
 msgid ""
 "Font stack for monospaced fonts. Used for code examples, preformatted text, "
 "and tabular data."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:501
+#: includes/class-wp-foft-loader-settings.php:515
 msgid "WP <abbr>FOFT</abbr> Loader Settings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:501
+#: includes/class-wp-foft-loader-settings.php:515
 msgid ""
 "Automates <a href=\"https://www.zachleat.com/web/comprehensive-webfonts/"
 "#critical-foft-data-uri\" rel=\"external noreferrer noopener"
@@ -436,12 +448,12 @@ msgid ""
 "\"https://www.zachleat.com/\">Zach Leatherman</a></span>. "
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:501
+#: includes/class-wp-foft-loader-settings.php:515
 msgid ""
 "Please <strong>save your changes</strong> before navigating to the next tab. "
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:553
+#: includes/class-wp-foft-loader-settings.php:567
 msgid "Save Settings"
 msgstr ""
 
