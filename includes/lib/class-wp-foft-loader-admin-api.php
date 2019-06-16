@@ -70,28 +70,7 @@ class WP_FOFT_Loader_Admin_API {
 		switch( $field['type'] ) {
 
 			case 'text':
-			case 'url':
-			case 'email':
 				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . "\n";
-			break;
-
-			case 'password':
-			case 'number':
-			case 'hidden':
-				$min = '';
-				if ( isset( $field['min'] ) ) {
-					$min = ' min="' . esc_attr( $field['min'] ) . '"';
-				}
-
-				$max = '';
-				if ( isset( $field['max'] ) ) {
-					$max = ' max="' . esc_attr( $field['max'] ) . '"';
-				}
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '"' . $min . '' . $max . '/>' . "\n";
-			break;
-
-			case 'text_secret':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="" />' . "\n";
 			break;
 
 			case 'textarea':
@@ -100,24 +79,6 @@ class WP_FOFT_Loader_Admin_API {
 
 			case 'textarea_large':
 				$html .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="35" cols="100" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . $data . '</textarea><br/>'. "\n";
-			break;
-
-			case 'checkbox':
-				$checked = '';
-				if ( $data && 'on' == $data ) {
-					$checked = 'checked="checked"';
-				}
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" ' . $checked . '/>' . "\n";
-			break;
-
-			case 'checkbox_multi':
-				foreach ( $field['options'] as $k => $v ) {
-					$checked = false;
-					if ( in_array( $k, (array) $data ) ) {
-						$checked = true;
-					}
-					$html .= '<p><label for="' . esc_attr( $field['id'] . '_' . $k ) . '" class="checkbox_multi"><input type="checkbox" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '[]" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label></p> ';
-				}
 			break;
 
 			case 'radio':
@@ -130,62 +91,22 @@ class WP_FOFT_Loader_Admin_API {
 				}
 			break;
 
-			case 'select':
-				$html .= '<select name="' . esc_attr( $option_name ) . '" id="' . esc_attr( $field['id'] ) . '">';
-				foreach ( $field['options'] as $k => $v ) {
-					$selected = false;
-					if ( $k == $data ) {
-						$selected = true;
-					}
-					$html .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
-				}
-				$html .= '</select> ';
-			break;
-
-			case 'select_multi':
-				$html .= '<select name="' . esc_attr( $option_name ) . '[]" id="' . esc_attr( $field['id'] ) . '" multiple="multiple">';
-				foreach ( $field['options'] as $k => $v ) {
-					$selected = false;
-					if ( in_array( $k, (array) $data ) ) {
-						$selected = true;
-					}
-					$html .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
-				}
-				$html .= '</select> ';
-			break;
-
 			case 'font':
-				$image_thumb = '';
+/*				$image_thumb = '';
 				if ( $data ) {
 					$image_thumb = wp_get_attachment_thumb_url( $data );
 				}
-				$html .= '<img id="' . $option_name . '_preview" class="image_preview" src="' . $image_thumb . '" /><br/>' . "\n";
-				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload an image' , 'wpfoft' ) . '" data-uploader_button_text="' . __( 'Use image' , 'wpfoft' ) . '" class="image_upload_button button" value="'. __( 'Upload new font' , 'wpfoft' ) . '" />' . "\n";
-				$html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wpfoft' ) . '" />' . "\n";
+				$html .= '<img id="' . $option_name . '_preview" class="image_preview" src="' . $image_thumb . '" /><br/>' . "\n"; */
+				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font' , 'wpfoft' ) . '" data-uploader_button_text="' . __( 'Use font' , 'wpfoft' ) . '" class="image_upload_button button" value="'. __( 'Upload new font' , 'wpfoft' ) . '" />' . "\n";
+//				$html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wpfoft' ) . '" />' . "\n";
 				$html .= '<input id="' . $option_name . '" class="image_data_field" type="hidden" name="' . $option_name . '" value="' . $data . '"/><br/>' . "\n";
-			break;
-
-			case 'color':
-				?><div class="color-picker" style="position:relative;">
-			        <input type="text" name="<?php esc_attr_e( $option_name ); ?>" class="color" value="<?php esc_attr_e( $data ); ?>" />
-			        <div style="position:absolute;background:#FFF;z-index:99;border-radius:100%;" class="colorpicker"></div>
-			    </div>
-			    <?php
-			break;
-			
-			case 'editor':
-				wp_editor($data, $option_name, array(
-					'textarea_name' => $option_name
-				) );
 			break;
 
 		}
 
 		switch( $field['type'] ) {
 
-			case 'checkbox_multi':
 			case 'radio':
-			case 'select_multi':
 				$html .= '<br/><span class="description">' . $field['description'] . '</span>';
 			break;
 
@@ -220,8 +141,6 @@ class WP_FOFT_Loader_Admin_API {
 
 		switch( $type ) {
 			case 'text': $data = esc_attr( $data ); break;
-			case 'url': $data = esc_url( $data ); break;
-			case 'email': $data = is_email( $data ); break;
 		}
 
 		return $data;

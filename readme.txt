@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.17  
+Stable tag: 1.0.18  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -37,9 +37,26 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 For detailed recommended settings, see the plugin Upload options screen.
 
-**Filenames must follow the proper naming convention:** `$family`-`$weight&style`-webfont-`$filetype`, e.g., for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2. For small caps style families, append SC (case-sensitive) to the family name, e.g., playfairdisplaySC-bold-webfont.woff.
+**Filenames must follow the proper naming convention:** `$family`SC-`$weight&style`-webfont-`$filetype`.
 
-**Weights and styles are case-sensitive!** Allowed weights and styles and their CSS mappings are:
+**$family**
+: The font family base name without style. Case-insensitive.
+
+**SC**
+: Small caps identifier. *Optional*. Append to $family only if it is a small caps variant. *Case-sensitive*.
+
+**$weight&style**
+: The font style. Can be weight, style, or a combination of both. *Case-sensitive*.
+
+**-webfont-**
+: Mandatory suffix. Append to $weight&style.
+
+**$filetype**
+: The file type, i.e., "woff" or "woff2".
+
+**Example**: for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2. For small caps style families, append SC (case-sensitive) to the family name, e.g., playfairdisplaySC-bold-webfont.woff.
+
+Allowed weights and styles and their CSS mappings are:
 
 thin | hairline (maps to 100)  
 extraLight | ultraLight (maps to 200)  
@@ -187,6 +204,14 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.18 =
+* 2019-06-16
+* Improve file-naming convention documentation
+* Use definition list for Font Squirrel suggested settings
+* Open media uploader in Upload view instead of Library view
+* Trim unused code from class-wp-foft-loader-admin-api.php
+* Update .pot, .po, & .mo language files
+
 = 1.0.17 =
 * 2019-06-15
 * Reverted recommended Em Square Value setting
@@ -266,6 +291,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.17 =
-* 2019-06-15
-* Reverted recommended Em Square Value setting
+= 1.0.18 =
+* 2019-06-16
+* Improve file-naming convention documentation
+* Use definition list for Font Squirrel suggested settings
+* Open media uploader in Upload view instead of Library view
+* Trim unused code from class-wp-foft-loader-admin-api.php
+* Update .pot, .po, & .mo language files

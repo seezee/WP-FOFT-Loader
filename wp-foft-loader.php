@@ -37,7 +37,7 @@ require_once( 'includes/lib/class-wp-foft-loader-admin-api.php' );
  * @return object WP_FOFT_Loader
  */
 function WP_FOFT_Loader () {
-	$instance = WP_FOFT_Loader::instance( __FILE__, '1.0.1' );
+	$instance = WP_FOFT_Loader::instance( __FILE__, '1.0.18' );
 
 	if ( is_null( $instance->settings ) ) {
 		$instance->settings = WP_FOFT_Loader_Settings::instance( $instance );

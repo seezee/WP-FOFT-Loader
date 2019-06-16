@@ -38,13 +38,13 @@ jQuery(document).ready(function($) {
         file_frame.open();
     }
 
-    jQuery('.image_upload_button').click(function() {
+    jQuery('.font_upload_button').click(function() {
         jQuery.fn.uploadMediaFile( jQuery(this), true );
     });
 
-    jQuery('.image_delete_button').click(function() {
-        jQuery(this).closest('td').find( '.image_data_field' ).val( '' );
-        jQuery(this).closest('td').find( '.image_preview' ).remove();
+    jQuery('.font_delete_button').click(function() {
+        jQuery(this).closest('td').find( '.font_data_field' ).val( '' );
+        jQuery(this).closest('td').find( '.font_preview' ).remove();
         return false;
     });
 

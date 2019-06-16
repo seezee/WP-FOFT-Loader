@@ -82,7 +82,7 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function __construct ( $file = '', $version = '1.0.1' ) {
+	public function __construct ( $file = '', $version = '1.0.18' ) {
 		$this->_version = $version;
 		$this->_token = 'wp_foft_loader';
 
@@ -95,10 +95,6 @@ class WP_FOFT_Loader {
 		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		register_activation_hook( $this->file, array( $this, 'install' ) );
-
-		// Load frontend JS & CSS
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
 
 		// Load admin JS & CSS
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
@@ -147,28 +143,6 @@ class WP_FOFT_Loader {
 
 		return $taxonomy;
 	}
-
-	/**
-	 * Load frontend CSS.
-	 * @access  public
-	 * @since   1.0.0
-	 * @return void
-	 */
-	public function enqueue_styles () {
-		wp_register_style( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'css/frontend.css', array(), $this->_version );
-		wp_enqueue_style( $this->_token . '-frontend' );
-	} // End enqueue_styles ()
-
-	/**
-	 * Load frontend Javascript.
-	 * @access  public
-	 * @since   1.0.0
-	 * @return  void
-	 */
-	public function enqueue_scripts () {
-		wp_register_script( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'js/frontend' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
-		wp_enqueue_script( $this->_token . '-frontend' );
-	} // End enqueue_scripts ()
 
 	/**
 	 * Load admin CSS.
@@ -227,7 +201,7 @@ class WP_FOFT_Loader {
 	 * @see WP_FOFT_Loader()
 	 * @return Main WP_FOFT_Loader instance
 	 */
-	public static function instance ( $file = '', $version = '1.0.1' ) {
+	public static function instance ( $file = '', $version = '1.0.18' ) {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self( $file, $version );
 		}

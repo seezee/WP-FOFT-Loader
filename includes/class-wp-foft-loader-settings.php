@@ -52,6 +52,8 @@ class WP_FOFT_Loader_Settings {
 
 		// Add settings link to plugins page
 		add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ) , array( $this, 'add_settings_link' ) );
+      
+        add_action( 'admin_footer', array( $this, 'upload_media_manager_by_default' ) );
 	}
 
 	/**
@@ -80,7 +82,7 @@ class WP_FOFT_Loader_Settings {
     	// We're including the WP media scripts here because they're needed for the image upload field
     	wp_enqueue_media();
 
-    	wp_register_script( $this->parent->_token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', array( 'jquery' ), '1.0.1' );
+    	wp_register_script( $this->parent->_token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', array( 'jquery' ), '1.0.18' );
     	wp_enqueue_script( $this->parent->_token . '-settings-js' );
 	}
 
@@ -96,6 +98,24 @@ class WP_FOFT_Loader_Settings {
 	}
 
 	/**
+	 * Open media uploader on Upload tab instead of Library view
+	 */
+
+	function upload_media_manager_by_default() {
+	  if ( did_action( 'wp_enqueue_media' ) ) {
+		?>
+		<script type="text/javascript">
+		  jQuery( document ).ready( function ( $ ) {
+			wp.media.controller.Library.prototype.defaults.contentUserSetting = false;
+			wp.media.controller.FeaturedImage.prototype.defaults.contentUserSetting = false;
+		  });
+		</script>
+	  <?php
+	  }
+	}
+
+
+	/**
 	 * Build settings fields
 	 * @return array Fields to be displayed on settings page
 	 */
@@ -105,25 +125,52 @@ class WP_FOFT_Loader_Settings {
 			'title'                 => __( 'Upload', 'wpfoft' ),
 			'description'           => __( '
 <p>Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s Webfont Generator</a> to generate the files. Recommended Font Squirrel settings are:</p>
-<pre>Select "Expert"
-Font Formats:		"WOFF"
-			"WOFF2"
-Truetype Hinting:	"Keep Existing"
-Rendering:		Default options (leave both unchecked)
-Vertical Metrics:	"No Adjustment"
-Fix Missing Glyphs:	"Spaces"
-			"Hyphens"
-X-height Matching:	None
-Protection:		Select "WebOnly™" if you are using a commercially licensed font
-OpenType Features:	Your choice, but we like "Keep All Features"
-OpenType Flattening:	None
-CSS:			None
-Advanced Options:	"Font Name Suffix" = -webfont
-			"Em Square Value" = 2048
-			"Adjust Glyph Spacing"  = 0
-Shortcuts:		"Remember My Settings"</pre>
-<p><strong>Filenames must follow the proper naming convention:</strong> <code>$family</code>-<code>$weight&amp;style</code>-webfont-<code>$filetype</code>, e.g., for the bold weight italic style of Times New Roman, rename the files to <code>timenewroman-boldItalic-webfont.woff</code> and <code>timesnewroman-boldItalic-webfont.woff2</code>. For small caps style families, append <code>SC</code> (case-sensitive) to the family name, e.g., <code>playfairdisplaySC-bold-webfont.woff</code>.</p>
-<p><strong>Weights and styles are case-sensitive!</strong> Allowed weights and styles and their CSS mappings are:</p>
+<dl style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;">
+  <dt>Font Formats</dt>
+  <dd>&ldquo;WOFF&rdquo;</dd>
+  <dd>&ldquo;WOFF2&rdquo;</dd>
+  <dt>Truetype Hinting</dt>
+  <dd>&ldquo;Keep Existing&rdquo;</dd>
+  <dt>Rendering</dt>
+  <dd>Default options (leave unchecked)</dd>
+  <dt>Vertical Metrics</dt>
+  <dd>&ldquo;No Adjustment&rdquo;</dd>
+  <dt>Fix Missing Glyphs</dt>
+  <dd>Default options (leave unchecked)</dd>
+  <dt>X-height Matching</dt>
+  <dd>&ldquo;None&rdquo;</dd>
+  <dt>Protection</dt>
+  <dd>Select &ldquo;WebOnly™&rdquo; if you are using a commercially licensed font</dd>
+  <dt>Subsetting</dt>
+  <dd>&ldquo;Basic Subsetting&rdquo;</dd>
+  <dt>OpenType Features</dt>
+  <dd>Your choice, but we like &ldquo;Keep All Features&rdquo;</dd>
+  <dt>OpenType Flattening</dt>
+  <dd>None</dd>
+  <dt><abbr>CSS</abbr></dt>
+  <dd>None</dd>
+  <dt>Advanced Options</dt>
+  <dd>&ldquo;Font Name Suffix&rdquo; = -webfont</dd>
+  <dd>&ldquo;Em Square Value&rdquo; = 2048</dd>
+  <dd>&ldquo;Adjust Glyph Spacing&rdquo; = 0</dd>
+  <dt>Shortcuts</dt>
+  <dd>&ldquo;Remember My Settings&rdquo;</dd>
+</dl>
+<p><strong>Filenames must follow the proper naming convention:</strong> <code>$family</code>SC-<code>$weight&amp;style</code>-webfont-<code>$filetype</code>.</p>
+<dl>
+<dt>$family</dt>
+<dd>The font family base name without style. Case-insensitive.</dd>
+<dt>SC</dt>
+<dd>Small caps identifier. <em>Optional</em>. Append to $family only if it is a small caps variant. <em>Case-sensitive</em>.</dd>
+<dt>$weight&style</dt>
+<dd>The font style. Can be weight, style, or a combination of both. <em>Case-sensitive</em>.</dd>
+<dt>-webfont-</dt>
+<dd>Mandatory suffix. Append to $weight&style.</dd>
+<dt>$filetype</dt>
+<dd>The file type, i.e., &ldquo;woff&rdquo; or &ldquo;woff2&rdquo;.</dd>
+</dl>
+<p><strong>Example</strong>: for the bold weight italic style of Times New Roman, rename the files to <code>timenewroman-boldItalic-webfont.woff</code> and <code>timesnewroman-boldItalic-webfont.woff2</code>. For small caps style families, append <code>SC</code> (case-sensitive) to the family name, e.g., <code>playfairdisplaySC-bold-webfont.woff</code>.</p>
+<p>Allowed weights and styles and their CSS mappings are:</p>
 <ul style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;">
   <li>thin | hairline (maps to 100)</li>
   <li>extraLight | ultraLight (maps to 200)</li>
@@ -148,7 +195,7 @@ Shortcuts:		"Remember My Settings"</pre>
 				array(
 					'id'            => 'font',
 					'label'         => __( 'Upload Fonts' , 'wpfoft' ),
-					'description'   => __( 'This will upload a font file to your media library and store the attachment ID in the option field. Once you have uploaded a font the thumbnail will display above these buttons.', 'wpfoft' ),
+					'description'   => __( 'This will upload a font file to your media library and store the attachment ID in the option field.', 'wpfoft' ),
 					'type'          => 'font',
 					'default'       => '',
 					'placeholder'   => ''
@@ -212,23 +259,37 @@ Shortcuts:		"Remember My Settings"</pre>
 			'description'           => __( '
 <p>This setting inlines Base64 encoded font in the document head to improve font loading speeds. <em>This setting works with the Optimize settings in the previous tab.</em> All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field.</p>
 <p>Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s Webfont Generator</a>. Recommended Font Squirrel settings are:</p>
-<pre>Select "Expert"
-Font Formats:		None
-Truetype Hinting:	"Keep Existing"
-Rendering:		Default options (leave both uncheckedd)
-Vertical Metrics:	"No Adjustment"
-Fix Missing Glyphs:	None
-X-height Matching:	None
-Protection:		Select "WebOnly™" if you are using a commercially licensed font
-Subsetting:		"Custom Subsetting" with the Unicode Ranges <code>0030-0039,0041-005A,0061-007A</code>
-			Leave everything else unchecked
-OpenType Features:	None
-OpenType Flattening:	None
-CSS:			"Base64 Encode"
-Advanced Options:	"Font Name Suffix" = -webfont
-			"Em Square Value" = 2048
-			"Adjust Glyph Spacing"  = 0
-Shortcuts:		"Remember My Settings"</pre>
+<dl style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;">
+  <dt>Font Formats</dt>
+  <dd>None</dd>
+  <dt>Truetype Hinting</dt>
+  <dd>&ldquo;Keep Existing&rdquo;</dd>
+  <dt>Rendering</dt>
+  <dd>Default options (leave unchecked)</dd>
+  <dt>Vertical Metrics</dt>
+  <dd>&ldquo;No Adjustment&rdquo;</dd>
+  <dt>Fix Missing Glyphs</dt>
+  <dd>Default options (leave unchecked)</dd>
+  <dt>X-height Matching</dt>
+  <dd>&ldquo;None&rdquo;</dd>
+  <dt>Protection</dt>
+  <dd>Select &ldquo;WebOnly™&rdquo; if you are using a commercially licensed font</dd>
+  <dt>Subsetting</dt>
+  <dd>"Custom Subsetting" with the Unicode Ranges 0030-0039,0041-005A,0061-007A</dd>
+  <dd>Leave everything else unchecked or blank</dd>
+  <dt>OpenType Features</dt>
+  <dd>None</dd>
+  <dt>OpenType Flattening</dt>
+  <dd>None</dd>
+  <dt><abbr>CSS</abbr></dt>
+  <dd>&ldquo;Base64 Encode&rdquo;</dd>
+  <dt>Advanced Options</dt>
+  <dd>&ldquo;Font Name Suffix&rdquo; = (leave blank)</dd>
+  <dd>&ldquo;Em Square Value&rdquo; = 2048</dd>
+  <dd>&ldquo;Adjust Glyph Spacing&rdquo; = 0</dd>
+  <dt>Shortcuts</dt>
+  <dd>&ldquo;Remember My Settings&rdquo;</dd>
+</dl>
 <p>The generator will produce a file that looks something like this:</p>
 <pre><code>@font-face{
   font-family: Merriweather;
