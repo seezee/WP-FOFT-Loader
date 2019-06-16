@@ -1,5 +1,9 @@
 /* CSS document */
 
+.description code {
+  font-style: normal;
+}
+
 pre {
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
@@ -15,7 +19,7 @@ dt {
 }
 
 dd {
-
   -webkit-column-break-before: avoid;
-                 break-before: avoid
+                 -webkit-column-break-after: avoid;
+                         break-after: avoid
 }

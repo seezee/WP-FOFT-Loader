@@ -375,6 +375,20 @@ strong { // Missing class: .fonts-stage-2
 					'default'       => 'on'
 				),
 				array(
+					'id'            => 'font_display',
+					'label'         => __( 'Font Display', 'wpfoft' ),
+					'description'   => __( 'Override the <code>font-display</code> property here. The plugin uses <a href="//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display" rel="external noopener noreferrer"><code>font-display: swap</code></a> by default.', 'wpfoft' ),
+					'type'          => 'radio',
+					'options'       => array(
+						'swap' => 'Swap',
+						'auto' => 'Auto',
+						'block' => 'Block',
+						'fallback' => 'Fallback',
+						'optional'  => 'Optional'
+					),
+					'default'       => 'swap'
+				),
+				array(
 					'id'            => 'custom_css',
 					'label'         => __( 'Custom CSS' , 'wpfoft' ),
 					'description'   => __( 'Place <abbr>CSS</abbr> font declarations here.', 'wpfoft' ),
