@@ -3,13 +3,13 @@
  * Plugin Name: WP FOFT Loader
  * Version: 1.0
  * Plugin URI: https://github.com/seezee/WP-FOFTLoader/
- * Description: Implements and automates Zach Leatherman's Cricital FOFT with Data URI (see https://www.zachleat.com/web/comprehensive-webfonts/)
+ * Description: Implements and automates Zach Leatherman's Critical FOFT with Data URI (see https://www.zachleat.com/web/comprehensive-webfonts/)
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: http://messengerwebdesign.com/
  * Requires at least: 4.0
  * Tested up to: 5.2.1
  *
- * Text Domain: wpfoft
+ * Text Domain: wp-foft-loader
  * Domain Path: /lang/
  *
  * @package WordPress
@@ -26,6 +26,8 @@ require_once( 'includes/class-wp-foft-loader-settings.php' );
 require_once( 'includes/class-wp-foft-loader-mimes.php' );
 require_once( 'includes/class-wp-foft-loader-upload.php' );
 require_once( 'includes/class-wp-foft-loader-head.php' );
+require_once( 'includes/htmlpurifier/library/HTMLPurifier.auto.php' );
+require_once( 'includes/csstidy/class.csstidy.php' );
 
 // Load plugin library
 require_once( 'includes/lib/class-wp-foft-loader-admin-api.php' );

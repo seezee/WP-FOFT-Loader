@@ -97,8 +97,8 @@ class WP_FOFT_Loader_Admin_API {
 					$image_thumb = wp_get_attachment_thumb_url( $data );
 				}
 				$html .= '<img id="' . $option_name . '_preview" class="image_preview" src="' . $image_thumb . '" /><br/>' . "\n"; */
-				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font' , 'wpfoft' ) . '" data-uploader_button_text="' . __( 'Use font' , 'wpfoft' ) . '" class="image_upload_button button" value="'. __( 'Upload new font' , 'wpfoft' ) . '" />' . "\n";
-//				$html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wpfoft' ) . '" />' . "\n";
+				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font' , 'wp-foft-loader' ) . '" data-uploader_button_text="' . __( 'Use font' , 'wp-foft-loader' ) . '" class="image_upload_button button" value="'. __( 'Upload new font' , 'wp-foft-loader' ) . '" />' . "\n";
+//				$html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wp-foft-loader' ) . '" />' . "\n";
 				$html .= '<input id="' . $option_name . '" class="image_data_field" type="hidden" name="' . $option_name . '" value="' . $data . '"/><br/>' . "\n";
 			break;
 

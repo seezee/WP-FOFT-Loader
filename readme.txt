@@ -5,13 +5,13 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.21  
+Stable tag: 1.0.23  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
 == Description ==
 
-This plugin implements and automates [Zach Leatherman's Cricital FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
+This plugin implements and automates [Zach Leatherman's Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
 == Acknowledgement ==
 
@@ -177,12 +177,12 @@ Change the default font fallbacks in case your custom fonts don’t load. Don’
 
 = What is the plugin for? =
 
-This plugin template implements and automates [Zach Leatherman's Cricital FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
+This plugin template implements and automates [Zach Leatherman's Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
 
 **PROS**
 
 * All the existing Pros of the [Critical FOFT approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
-* Eliminates FOIT and greatly reduces FOUT for the roman font. A small reflow will occur for additional characters loaded in the second stage and when the other weights and styles are loaded, but it will have a much smaller impact.
+* Eliminates Flash of Invisible Text (FOIT) and greatly reduces Flash of Unstyled Text (FOUT) for the roman font. A small reflow will occur for additional characters loaded in the second stage and when the other weights and styles are loaded, but it will have a much smaller impact.
 
 **CONS**
 
@@ -203,6 +203,15 @@ I'm looking for collaborators to improve the code. If you are an experienced Wor
 Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you're in town.
 
 == Changelog ==
+
+= 1.0.23 =
+* 2019-06-18
+* Use HTMLPurifier & CSSTidy to sanitize user input custom CSS
+
+= 1.0.22 =
+* 2019-06-17
+* Improve introductory microcopy on Settings page
+* Bugfix: fixed incorrect textdomain
 
 = 1.0.21 =
 * 2019-06-17
@@ -305,7 +314,6 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.21 =
-* 2019-06-17
-* Update custom CSS output in /includes/class-wp-foft-loader-head.php (convert `&lt;` back to `>` child selector after sanitizing)
-* Update default CSS output in /includes/class-wp-foft-loader-head.php (don't escape `>`)
+= 1.0.23 =
+* 2019-06-18
+* Use HTMLPurifier & CSSTidy to sanitize user input custom CSS

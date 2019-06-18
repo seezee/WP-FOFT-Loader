@@ -173,7 +173,7 @@ class WP_FOFT_Loader {
 	 * @return  void
 	 */
 	public function load_localisation () {
-		load_plugin_textdomain( 'wpfoft', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
+		load_plugin_textdomain( 'wp-foft-loader', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
 	} // End load_localisation ()
 
 	/**
@@ -183,7 +183,7 @@ class WP_FOFT_Loader {
 	 * @return  void
 	 */
 	public function load_plugin_textdomain () {
-	    $domain = 'wpfoft';
+	    $domain = 'wp-foft-loader';
 
 	    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 

@@ -57,7 +57,7 @@
 
 			$fdisplay  = get_option ( 'wpfl_font_display' );
 
-			if( !is_null($body) || !is_null($body64) ) {
+			if( !is_null($body) || !is_null($body64) ) { // Styles start
 				echo '<link rel="preload" href="' . wp_kses($font_path, $arr) . wp_kses($body, $arr) . '-regular-webfont.woff2" as="font" type="font/woff2" crossorigin><style type="text/css">@font-face{font-family:' . wp_kses($body, $arr) . esc_html('Subset;src:url(data:application/font-woff;charset=utf-8;base64,') . wp_kses($body64, $arr) . ') format("woff");' . esc_html('font-display:' . wp_kses($fdisplay, $arr) . ';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}');
 			};
 
@@ -151,9 +151,6 @@
 			}
 
 			$default_css = get_option ( 'wpfl_default_css' );
-			$css = get_option ( 'wpfl_custom_css' );
-			$css_clean = wp_kses($css, $arr);
-			$css_out = htmlspecialchars_decode($css_clean);
 
 			echo esc_html('body{font-family:serif;font-weight:400;font-style:normal}.fonts-stage-1 button,.fonts-stage-1 input,.fonts-stage-1 nav,.fonts-stage-1 optgroup,.fonts-stage-1 select,.fonts-stage-1 textarea{font-family:') . wp_kses($alt, $arr) . esc_html('Subset,sans-serif}.fonts-stage-1 h1,.fonts-stage-1 h2,.fonts-stage-1 h3,.fonts-stage-1 h4,.fonts-stage-1 h5,.fonts-stage-1 h6{font-family:') . wp_kses($heading, $arr) . esc_html('Subset,serif;font-weight:400}.fonts-stage-1 code{font-family:') . wp_kses($mono, $arr) . esc_html('Subset,monospace}');
 
@@ -167,12 +164,30 @@
 			$fs_mono = ',' . $fs_mono;
 
 			if (isset($default_css)) {
-			if ($default_css == 'on') {
-				echo esc_html('.fonts-stage-2 body,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6{font-family:') . wp_kses($body, $arr) . wp_kses($fs_body, $arr) . esc_html('}.fonts-stage-2 h1,.fonts-stage-2 h2,.fonts-stage-2 h3{font-family:') . wp_kses($heading, $arr) . wp_kses($fs_heading, $arr) . esc_html(';font-weight:400}.fonts-stage-2 code strong,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6,.fonts-stage-2 strong,.fonts-stage-2 strong code{font-weight:700}.fonts-stage-2 h1 strong,.fonts-stage-2 h2 strong,.fonts-stage-2 h3 strong,.fonts-stage-2 strong h1,.fonts-stage-2 strong h2,.fonts-stage-2 strong h3{font-weight:900}.fonts-stage-2 em strong h1,.fonts-stage-2 h1 em strong,.fonts-stage-2 h1 strong em,.fonts-stage-2 strong em h1{font-weight:900;font-style:italic}.fonts-stage-2 abbr{font-weight:700;font-variant:small-caps;padding:0 .13333rem 0 0;letter-spacing:.06667rem;text-transform:lowercase}.fonts-stage-2 code{font-family:') . wp_kses($mono, $arr) . wp_kses($fs_mono, $arr) . esc_html('}.fonts-stage-2 cite') . '>' . esc_html('em,.fonts-stage-2 cite') . '>' . esc_html('q,.fonts-stage-2 em') . '>' . esc_html('cite,.fonts-stage-2 em') . '>' . esc_html('em,.fonts-stage-2 em') . '>' . esc_html('q,.fonts-stage-2 figcaption') . '>' . esc_html('cite,.fonts-stage-2 figcaption') . '>' . esc_html('em,.fonts-stage-2 q') . '>' . esc_html('cite,.fonts-stage-2 q') .'>' . esc_html('em{font-style:normal}.fonts-stage-2 code em,.fonts-stage-2 em,.fonts-stage-2 em code,.fonts-stage-2 figcaption,.fonts-stage-2 h2,.fonts-stage-2 h3{font-style:italic}.fonts-stage-2 code em strong,.fonts-stage-2 code strong em,.fonts-stage-2 em code strong,.fonts-stage-2 em strong,.fonts-stage-2 em strong code,.fonts-stage-2 strong code em,.fonts-stage-2 strong em,.fonts-stage-2 strong em code{font-weight:700;font-style:italic},.fonts-stage-2 button,.fonts-stage-2 input,.fonts-stage-2 nav,.fonts-stage-2 optgroup,.fonts-stage-2 select,.fonts-stage-2 textarea{font-family:') . wp_kses($alt, $arr) . wp_kses($fs_alt, $arr) . esc_html(';font-weight:400}');
-			}
+				if ($default_css == 'on') {
+					echo esc_html('.fonts-stage-2 body,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6{font-family:') . wp_kses($body, $arr) . wp_kses($fs_body, $arr) . esc_html('}.fonts-stage-2 h1,.fonts-stage-2 h2,.fonts-stage-2 h3{font-family:') . wp_kses($heading, $arr) . wp_kses($fs_heading, $arr) . esc_html(';font-weight:400}.fonts-stage-2 code strong,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6,.fonts-stage-2 strong,.fonts-stage-2 strong code{font-weight:700}.fonts-stage-2 h1 strong,.fonts-stage-2 h2 strong,.fonts-stage-2 h3 strong,.fonts-stage-2 strong h1,.fonts-stage-2 strong h2,.fonts-stage-2 strong h3{font-weight:900}.fonts-stage-2 em strong h1,.fonts-stage-2 h1 em strong,.fonts-stage-2 h1 strong em,.fonts-stage-2 strong em h1{font-weight:900;font-style:italic}.fonts-stage-2 abbr{font-weight:700;font-variant:small-caps;padding:0 .13333rem 0 0;letter-spacing:.06667rem;text-transform:lowercase}.fonts-stage-2 code{font-family:') . wp_kses($mono, $arr) . wp_kses($fs_mono, $arr) . esc_html('}.fonts-stage-2 cite') . '>' . esc_html('em,.fonts-stage-2 cite') . '>' . esc_html('q,.fonts-stage-2 em') . '>' . esc_html('cite,.fonts-stage-2 em') . '>' . esc_html('em,.fonts-stage-2 em') . '>' . esc_html('q,.fonts-stage-2 figcaption') . '>' . esc_html('cite,.fonts-stage-2 figcaption') . '>' . esc_html('em,.fonts-stage-2 q') . '>' . esc_html('cite,.fonts-stage-2 q') .'>' . esc_html('em{font-style:normal}.fonts-stage-2 code em,.fonts-stage-2 em,.fonts-stage-2 em code,.fonts-stage-2 figcaption,.fonts-stage-2 h2,.fonts-stage-2 h3{font-style:italic}.fonts-stage-2 code em strong,.fonts-stage-2 code strong em,.fonts-stage-2 em code strong,.fonts-stage-2 em strong,.fonts-stage-2 em strong code,.fonts-stage-2 strong code em,.fonts-stage-2 strong em,.fonts-stage-2 strong em code{font-weight:700;font-style:italic},.fonts-stage-2 button,.fonts-stage-2 input,.fonts-stage-2 nav,.fonts-stage-2 optgroup,.fonts-stage-2 select,.fonts-stage-2 textarea{font-family:') . wp_kses($alt, $arr) . wp_kses($fs_alt, $arr) . esc_html(';font-weight:400}');
+				}
 			};
 
-			echo $css_out . '</style>';
+			// User input custom CSS. Sanitize with HTMLPurifier + CSSTidy
+			$css_dirty = get_option ( 'wpfl_custom_css' );
+
+			// Create a new configuration object
+			$config = HTMLPurifier_Config::createDefault();
+			$config->set('Filter.ExtractStyleBlocks', TRUE);
+
+			// Create a new purifier instance
+			$purifier = new HTMLPurifier($config);
+
+			// Wrap our CSS in style tags and pass to purifier. 
+			// we're not actually interested in the html response though
+			$html = $purifier->purify('<style>'.$css_dirty.'</style>');
+
+			// The "style" blocks are stored seperately
+			$clean_css = $purifier->context->get('StyleBlocks');
+
+			// Get the first style block
+			echo $clean_css[0] . '</style>'; // Styles end
 
 			echo '<script>(function(){if(sessionStorage.criticalFoftDataUriFontsLoaded ){document.documentElement.className+=" fonts-stage-1 fonts-stage-2";return;}(function(){function e(e,t){document.addEventListener?e.addEventListener("scroll",t,!1):e.attachEvent("scroll",t)}function t(e){document.body?e():document.addEventListener?document.addEventListener("DOMContentLoaded",function t(){document.removeEventListener("DOMContentLoaded",t),e()}):document.attachEvent("onreadystatechange",function n(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",n),e()})}function n(e){this.a=document.createElement("div"),this.a.setAttribute("aria-hidden","true"),this.a.appendChild(document.createTextNode(e)),this.b=document.createElement("span"),this.c=document.createElement("span"),this.h=document.createElement("span"),this.f=document.createElement("span"),this.g=-1,this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;",this.b.appendChild(this.h),this.c.appendChild(this.f),this.a.appendChild(this.b),this.a.appendChild(this.c)}function r(e,t){e.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+t+";"}function i(e){var t=e.a.offsetWidth,n=t+100;return e.f.style.width=n+"px",e.c.scrollLeft=n,e.b.scrollLeft=e.b.scrollWidth+100,e.g!==t?(e.g=t,!0):!1}function s(t,n){function r(){var e=s;i(e)&&null!==e.a.parentNode&&n(e.g)}var s=t;e(t.b,r),e(t.c,r),i(t)}function o(e,t){var n=t||{};this.family=e,this.style=n.style||"normal",this.weight=n.weight||"normal",this.stretch=n.stretch||"normal"}function l(){if(null===a){var e=document.createElement("div");try{e.style.font="condensed 100px sans-serif"}catch(t){}a=""!==e.style.font}return a}function c(e,t){return[e.style,e.weight,l()?e.stretch:"","100px",t].join(" ")}var u=null,a=null,f=null;o.prototype.load=function(e,i){var o=this,a=e||"BESbswy",l=i||3e3,h=(new Date).getTime();return new Promise(function(e,i){null===f&&(f=!!window.FontFace);if(f){var p=new Promise(function(e,t){function n(){(new Date).getTime()-h>=l?t():document.fonts.load(c(o,o.family),a).then(function(t){1<=t.length?e():setTimeout(n,25)},function(){t()})}n()}),d=new Promise(function(e,t){setTimeout(t,l)});Promise.race([d,p]).then(function(){e(o)},function(){i(o)})}else t(function(){function t(){var t;if(t=-1!=m&&-1!=g||-1!=m&&-1!=S||-1!=g&&-1!=S)(t=m!=g&&m!=S&&g!=S)||(null===u&&(t=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),u=!!t&&(536>parseInt(t[1],10)||536===parseInt(t[1],10)&&11>=parseInt(t[2],10))),t=u&&(m==x&&g==x&&S==x||m==T&&g==T&&S==T||m==N&&g==N&&S==N)),t=!t;t&&(null!==C.parentNode&&C.parentNode.removeChild(C),clearTimeout(L),e(o))}function f(){if((new Date).getTime()-h>=l)null!==C.parentNode&&C.parentNode.removeChild(C),i(o);else{var e=document.hidden;if(!0===e||void 0===e)m=p.a.offsetWidth,g=d.a.offsetWidth,S=v.a.offsetWidth,t();L=setTimeout(f,50)}}var p=new n(a),d=new n(a),v=new n(a),m=-1,g=-1,S=-1,x=-1,T=-1,N=-1,C=document.createElement("div"),L=0;C.dir="ltr",r(p,c(o,"sans-serif")),r(d,c(o,"serif")),r(v,c(o,"monospace")),C.appendChild(p.a),C.appendChild(d.a),C.appendChild(v.a),document.body.appendChild(C),x=p.a.offsetWidth,T=d.a.offsetWidth,N=v.a.offsetWidth,f(),s(p,function(e){m=e,t()}),r(p,c(o,\'"\'+o.family+\'",sans-serif\' )),s(d,function(e){g=e,t()}),r(d,c(o,\'"\'+o.family+\'",serif\' )),s(v,function(e){S=e,t()}),r(v,c(o,\'"\'+o.family+\'",monospace\' ))})})},"undefined"!=typeof module?module.exports=o:(window.FontFaceObserver=o,window.FontFaceObserver.prototype.load=o.prototype.load)})();var fontASubset=new FontFaceObserver(\'';
 
