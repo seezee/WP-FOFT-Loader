@@ -12,13 +12,39 @@ pre {
   word-wrap: break-word
 }
 
-dt {
-  font-weight: bold;
-  -webkit-column-break-after: avoid;
-                 break-after: avoid
+ul.wpfl {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
-dd {
-  -webkit-column-break-before: avoid;
-                 break-after: avoid
+ol.wpfl {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+ul.wpfl ul,
+ol.wpfl ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+
+ol.wpfl ol,
+ul.wpfl ol {
+  list-style-type: lower-latin;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd,
+dt,
+span.nobreak {
+  -webkit-column-break-after: avoid;
+  break-after: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
 }

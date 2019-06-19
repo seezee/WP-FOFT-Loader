@@ -3,9 +3,9 @@ Contributors: seezee
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
-Tested up to: 5.2.1  
+Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.23  
+Stable tag: 1.0.24  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -24,20 +24,20 @@ The boilerplate provides you with a solid foundation to rapidly start your custo
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
 2. Upload the ZIP file through the 'Plugins > Add New > Upload' screen in your WordPress dashboard
 3. Activate the plugin through the 'Plugins' menu in WordPress
-4. Go to the 'WP FOFT Loader Settings' page, upload your fonts, and configure the settings. See detailed instructions below.
+4. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings. See detailed instructions below.
 
 == Generating and Uploading the Font Files ==
 
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
-	Select "Expert"
-	Font Formats:			"WOFF"
-					"WOFF2"
-	Advanced Options:		"Font Name Suffix" = -webfont
+	Select “Expert”
+	Font Formats:			“WOFF”
+					“WOFF2”
+	Advanced Options:		“Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
 
-**Filenames must follow the proper naming convention:** `$family`SC-`$weight&style`-webfont-`$filetype`.
+**Filenames must follow the proper naming convention:** `$family`SC-`$variant`-webfont-`$filetype`.
 
 **$family**
 : The font family base name without style. Case-insensitive.
@@ -45,14 +45,14 @@ For detailed recommended settings, see the plugin Upload options screen.
 **SC**
 : Small caps identifier. *Optional*. Append to $family only if it is a small caps variant. *Case-sensitive*.
 
-**$weight&style**
+**$variant**
 : The font style. Can be weight, style, or a combination of both. *Case-sensitive*.
 
 **-webfont-**
-: Mandatory suffix. Append to $weight&style.
+: Mandatory suffix. Append to $variant.
 
 **$filetype**
-: The file type, i.e., "woff" or "woff2".
+: The file type, i.e., “woff” or “woff2”.
 
 **Example**: for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2. For small caps style families, append SC (case-sensitive) to the family name, e.g., playfairdisplaySC-bold-webfont.woff.
 
@@ -103,58 +103,114 @@ This setting inlines Base64 encoded font in the document head to improve font lo
 
 Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
-	Select "Expert"
+	Select “Expert”
 	Font Formats:			None
 	Fix Missing Glyphs:		None
-	Subsetting:			"Custom Subsetting" with the Unicode Ranges 0030-0039,0041-005A,0061-007A
+	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
 					Leave everything else unchecked  
 	OpenType Features:		None
 	OpenType Flattening:		None
-	CSS:				"Base64 Encode"
-	Advanced Options:		"Font Name Suffix" = -webfont
-
+	CSS:				“Base64 Encode”
 
 For detailed recommended settings, see the plugin Base64 options screen. The generator will produce a file that looks something like this:
 
 	@font-face{  
 	  font-family: Merriweather;  
-	  src: url(data:application/font-woff; charset=utf-8; base64,   d09GRgABAAAAAB4UABAAAAAAMpAAA…) format("woff");  
+	  src: url(data:application/font-woff; charset=utf-8; base64,   d09GRgABAAAAAB4UABAAAAAAMpAAA…) format(“woff”);  
 	 }
  
-Copy and paste the part the part between `src:url (data:application/font-woff; charset=utf-8; base64,` and `) format("woff");` into the appropriate field below. In this example that would be `d09GRgABAAAAAB4UABAAAAAAMpAAA…`.
+Copy and paste the part the part between `src:url (data:application/font-woff; charset=utf-8; base64,` and `) format(“woff”);` into the appropriate field below. In this example that would be `d09GRgABAAAAAB4UABAAAAAAMpAAA…`.
 
 = CSS =
 
-@import rules are automatically handled by this plugin. You may manually inline your font-related CSS in the document <head> here. Place rules pertaining only to the font-family, font-weight, font-style, and font-variation properties here.
+@import rules are automatically handled by this plugin. You may manually inline your font-related CSS in the document `<head>` here. Place rules pertaining only to the font-family, font-weight, font-style, and font-variation properties here.
+
+**Plugin CSS**
 
 The plugin loads some CSS by default. You may disable it from this screen.
 
-Use only the family name; omit weights and styles from the font name.
+**Font Display**
 
-All declarations must start with the fonts-stage-2 class.
+The plugin uses `font-display: swap` by default. You can override the [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) property here.
 
-**Incorrect:**
+**CSS Stage 1**
 
-	p { // Missing class: .fonts-stage-2
-	  font-family: lato, sans-serif;
+Declarations placed in this field will load the Base64 subset as a placeholder while the external fonts load.
+
+* Use only the family name followed by Subset(case-insensitive)
+* Family names must match the names you input on the “Optimize” screen.
+* Omit weights and styles from the font name
+* All declarations must start with the fonts-stage-1 class
+* See the Documentation screen to view the Stage 1 CSS that this plugin loads by default.
+
+Incorrect:
+
+	.nav-primary { // Missing prefix: .fonts-stage-1
+	  font-family: latoSubset, sans-serif;
+	}
+
+	.fonts-stage-1 #footer-primary {
+	  font-family: lato-boldSubset, san-serif; // Don’t include the weight or style
+	}
+
+	.fonts-stage-1 #footer-secondary {
+	  font-family: lato, san-serif; // Missing “Subset” suffix
+	}
+
+	.fonts-stage-1 div.callout {
+	  font-family: lato-Subset, san-serif;
+	  font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
+					   // and “font-variant” rules only
+	}
+	
+Correct:
+
+	.fonts-stage-1 .nav-primary {
+	  font-family: latoSubset, sans-serif;
+	}
+
+	.fonts-stage-1 dl.glossary {
+	  font-family: latosubset, san-serif; // Suffix is case-insensitive
+	}
+
+**CSS Stage 2**
+
+* Use only the family name
+* Family names must match the file names for the fonts you uploaded on the “Upload” screen.
+* Omit weights and styles from the font name
+* All declarations must start with the fonts-stage-2 class
+* For best performance, please minify your CSS before pasting it into the form.
+* See the Documentation screen to view the Stage 2 CSS that this plugin loads by default.
+
+Incorrect:
+
+	tbody { // Missing class: .fonts-stage-2
+	  font-family: lato, Corbel, "Lucida Grande", sans-serif;
 	  font-weight: 400;
 	  font-style: normal;
 	}
 
-	strong { // Missing class: .fonts-stage-2
-	  font-family: lato-bold, serif; // Don’t include style in font name. Better yet, omit declaration altogether.
+	.fonts-stage-2 span.bolder {
+	  font-family: lato-bold, Corbel, "Lucida Grande", sans-serif; // Don’t include style in font name.
+	  // Better yet, omit declaration altogether.
 	  font-weight: 700;
 	}
 
-**Correct:**
+	.fonts-stage-2 div.callout {
+	  font-family: lato-regular, Corbel, "Lucida Grande", san-serif;
+	  font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
+					   // and “font-variant” rules only
+	}
 
-	.fonts-stage-2 p {
-	  font-family: lato, sans-serif;
+Correct:
+
+	.fonts-stage-2 div.callout {
+	  font-family: lato, Corbel, "Lucida Grande", sans-serif;
 	  font-weight: 400;
 	  font-style: normal;
 	}
 
-	.fonts-stage-2 strong {
+	.fonts-stage-2 div.callout {
 	  // No need to redeclare the font-family — all weights map to a single family name
 	  font-weight: 700; // This will use the lato-bold font
 	}
@@ -164,6 +220,10 @@ For best performance, please [minify your CSS](https://cssminifier.com/) before 
 = Font Stacks =
 
 Change the default font fallbacks in case your custom fonts don’t load. Don’t include the names of your default custom fonts here.
+
+== Further Documentation ==
+
+See the Documentation screen to view the CSS this plugin loads by default and to view video tutorials.
 
 == Screenshots ==
 
@@ -203,6 +263,14 @@ I'm looking for collaborators to improve the code. If you are an experienced Wor
 Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you're in town.
 
 == Changelog ==
+
+= 1.0.24 =
+* 2019-06-19
+* Bugfixes: fixed typos in output CSS
+* Separated Stage 1 and Stage 2 CSS in CSS screen
+* Added Documentation screen
+* Major edits to body copy
+* Removed internationalization where it’s not needed
 
 = 1.0.23 =
 * 2019-06-18
@@ -314,9 +382,13 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.23 =
-* 2019-06-18
-* Use HTMLPurifier & CSSTidy to sanitize user input custom CSS
+= 1.0.24 =
+* 2019-06-19
+* Bugfixes: fixed typos in output CSS
+* Separated Stage 1 and Stage 2 CSS in CSS screen
+* Added Documentation screen
+* Major edits to body copy
+* Removed internationalization where it’s not needed
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
