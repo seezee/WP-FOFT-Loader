@@ -48,3 +48,37 @@ span.nobreak {
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
 }
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  margin-bottom: 0 1em 1em 1em;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.col-2 {
+  -webkit-columns: 2 15rem;
+          columns: 2 15rem;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  -webkit-column-rule: 1px solid;
+          column-rule: 1px solid
+}
+
+.col-3 {
+  -webkit-columns: 3 15rem;
+          columns: 3 15rem;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  -webkit-column-rule: 1px solid;
+          column-rule: 1px solid;
+}

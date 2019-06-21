@@ -150,10 +150,6 @@
 				*/
 			}
 
-			$default_css = get_option ( 'wpfl_default_css' );
-
-			echo 'body{font-family:serif;font-weight:400;font-style:normal}.fonts-stage-1 body{font-family:' . wp_kses($body, $arr) . 'Subset,serif}.fonts-stage-1 button,.fonts-stage-1 input,.fonts-stage-1 nav,.fonts-stage-1 optgroup,.fonts-stage-1 select,.fonts-stage-1 textarea{font-family:' . wp_kses($alt, $arr) . 'Subset,sans-serif}.fonts-stage-1 h1,.fonts-stage-1 h2,.fonts-stage-1 h3,.fonts-stage-1 h4,.fonts-stage-1 h5,.fonts-stage-1 h6{font-family:' . wp_kses($heading, $arr) . 'Subset,serif}.fonts-stage-1 code{font-family:' . wp_kses($mono, $arr) . 'Subset,monospace}';
-
 			$fs_heading = get_option ( 'wpfl_fstack-heading' );
 			$fs_heading = ',' . $fs_heading;
 			$fs_body = get_option ( 'wpfl_fstack-body' );
@@ -163,9 +159,48 @@
 			$fs_mono = get_option ( 'wpfl_fstack-mono' );
 			$fs_mono = ',' . $fs_mono;
 
+			echo 'body{font-family:serif;font-weight:400;font-style:normal}';
+						
+			$default_css = get_option ( 'wpfl_default_css' );
+
+			if( !is_null($body) && !is_null($fs_body) ) {
+				echo '.fonts-stage-1 body{font-family:' . wp_kses($body, $arr) . 'Subset,serif}';
+			}
+
+			if( !is_null($alt) && !is_null($fs_alt) ) {
+				echo '.fonts-stage-1 button,.fonts-stage-1 input,.fonts-stage-1 nav,.fonts-stage-1 optgroup,.fonts-stage-1 select,.fonts-stage-1 textarea{font-family:' . wp_kses($alt, $arr) . 'Subset,sans-serif}';
+			}
+
+			if( !is_null($heading) && !is_null($fs_heading) ) {
+				echo '.fonts-stage-1 h1,.fonts-stage-1 h2,.fonts-stage-1 h3,.fonts-stage-1 h4,.fonts-stage-1 h5,.fonts-stage-1 h6{font-family:' . wp_kses($heading, $arr) . 'Subset,serif}';
+			}
+
+			if ( !is_null($mono) && !is_null($fs_mono) ) {
+				echo '.fonts-stage-1 code{font-family:' . wp_kses($mono, $arr) . 'Subset,monospace}';
+			}
+
 			if (isset($default_css)) {
 				if ($default_css == 'on') {
-					echo '.fonts-stage-2 body,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6{font-family:' . wp_kses($body, $arr) . wp_kses($fs_body, $arr) . '}.fonts-stage-2 h1,.fonts-stage-2 h2,.fonts-stage-2 h3{font-family:' . wp_kses($heading, $arr) . wp_kses($fs_heading, $arr) . ';font-weight:400}.fonts-stage-2 code strong,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6,.fonts-stage-2 strong,.fonts-stage-2 strong code{font-weight:700}.fonts-stage-2 h1 strong,.fonts-stage-2 h2 strong,.fonts-stage-2 h3 strong,.fonts-stage-2 strong h1,.fonts-stage-2 strong h2,.fonts-stage-2 strong h3{font-weight:900}.fonts-stage-2 em strong h1,.fonts-stage-2 h1 em strong,.fonts-stage-2 h1 strong em,.fonts-stage-2 strong em h1{font-weight:900;font-style:italic}.fonts-stage-2 abbr{font-weight:700;font-variant:small-caps;padding:0 .13333rem 0 0;letter-spacing:.06667rem;text-transform:lowercase}.fonts-stage-2 code{font-family:' . wp_kses($mono, $arr) . wp_kses($fs_mono, $arr) . '}.fonts-stage-2 cite>em,.fonts-stage-2 cite>q,.fonts-stage-2 em>cite,.fonts-stage-2 em>em,.fonts-stage-2 em>q,.fonts-stage-2 figcaption>cite,.fonts-stage-2 figcaption>em,.fonts-stage-2 q>cite,.fonts-stage-2 q>em{font-style:normal}.fonts-stage-2 code em,.fonts-stage-2 em,.fonts-stage-2 em code,.fonts-stage-2 figcaption,.fonts-stage-2 h2,.fonts-stage-2 h3{font-style:italic}.fonts-stage-2 code em strong,.fonts-stage-2 code strong em,.fonts-stage-2 em code strong,.fonts-stage-2 em strong,.fonts-stage-2 em strong code,.fonts-stage-2 strong code em,.fonts-stage-2 strong em,.fonts-stage-2 strong em code{font-weight:700;font-style:italic},.fonts-stage-2 button,.fonts-stage-2 input,.fonts-stage-2 nav,.fonts-stage-2 optgroup,.fonts-stage-2 select,.fonts-stage-2 textarea{font-family:' . wp_kses($alt, $arr) . wp_kses($fs_alt, $arr) . ';font-weight:400}';
+					if( !is_null($body) ) {
+						echo '.fonts-stage-2 body,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6{font-family:' . wp_kses($body, $arr) . wp_kses($fs_body, $arr) . '}';
+					}
+
+					if( !is_null($heading) ) {
+						echo '.fonts-stage-2 h1,.fonts-stage-2 h2,.fonts-stage-2 h3{font-family:' . wp_kses($heading, $arr) . wp_kses($fs_heading, $arr) . ';font-weight:400}';
+					}
+
+					
+					echo '.fonts-stage-2 code strong,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6,.fonts-stage-2 strong,.fonts-stage-2 strong code{font-weight:700}.fonts-stage-2 h1 strong,.fonts-stage-2 h2 strong,.fonts-stage-2 h3 strong,.fonts-stage-2 strong h1,.fonts-stage-2 strong h2,.fonts-stage-2 strong h3{font-weight:900}.fonts-stage-2 em strong h1,.fonts-stage-2 h1 em strong,.fonts-stage-2 h1 strong em,.fonts-stage-2 strong em h1{font-weight:900;font-style:italic}.fonts-stage-2 abbr{font-weight:700;font-variant:small-caps;padding:0 .13333rem 0 0;letter-spacing:.06667rem;text-transform:lowercase}';
+
+					if( !is_null($mono) ) {
+						echo '.fonts-stage-2 code{font-family:' . wp_kses($mono, $arr) . wp_kses($fs_mono, $arr) . '}';
+					}
+
+					echo '.fonts-stage-2 cite>em,.fonts-stage-2 cite>q,.fonts-stage-2 em>cite,.fonts-stage-2 em>em,.fonts-stage-2 em>q,.fonts-stage-2 figcaption>cite,.fonts-stage-2 figcaption>em,.fonts-stage-2 q>cite,.fonts-stage-2 q>em{font-style:normal}.fonts-stage-2 code em,.fonts-stage-2 em,.fonts-stage-2 em code,.fonts-stage-2 figcaption,.fonts-stage-2 h2,.fonts-stage-2 h3{font-style:italic}.fonts-stage-2 code em strong,.fonts-stage-2 code strong em,.fonts-stage-2 em code strong,.fonts-stage-2 em strong,.fonts-stage-2 em strong code,.fonts-stage-2 strong code em,.fonts-stage-2 strong em,.fonts-stage-2 strong em code{font-weight:700;font-style:italic}';
+					
+					if ( !is_null($alt) ) {
+						echo '.fonts-stage-2 button,.fonts-stage-2 input,.fonts-stage-2 nav,.fonts-stage-2 optgroup,.fonts-stage-2 select,.fonts-stage-2 textarea{font-family:' . wp_kses($alt, $arr) . wp_kses($fs_alt, $arr) . ';font-weight:400}';
+					}
 				}
 			};
 

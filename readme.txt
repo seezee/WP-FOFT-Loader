@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.24  
+Stable tag: 1.0.25  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -40,7 +40,7 @@ For detailed recommended settings, see the plugin Upload options screen.
 **Filenames must follow the proper naming convention:** `$family`SC-`$variant`-webfont-`$filetype`.
 
 **$family**
-: The font family base name without style. Case-insensitive.
+: The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces.
 
 **SC**
 : Small caps identifier. *Optional*. Append to $family only if it is a small caps variant. *Case-sensitive*.
@@ -232,6 +232,8 @@ See the Documentation screen to view the CSS this plugin loads by default and to
 3. Base64 screen: inlines Base64 data URI for subsetted stage 1 fonts
 4. CSS screen: all font-related CSS goes here so it can be inlined.
 5. Font Stacks screen: sets the default font stacks
+6. Documentation (1): Information about the CSS that the plugin loads by default
+7. Documentation (2): Video tutorials
 
 == Frequently Asked Questions ==
 
@@ -263,6 +265,13 @@ I'm looking for collaborators to improve the code. If you are an experienced Wor
 Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you're in town.
 
 == Changelog ==
+
+= 1.0.25 =
+* 2019-06-21
+* Additional NULL value checks before outputting styles
+* Other code improvements
+* Numerous documentation improvements
+* Added first two video tutorials (more to come)
 
 = 1.0.24 =
 * 2019-06-19
@@ -382,10 +391,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.24 =
-* 2019-06-19
-* Bugfixes: fixed typos in output CSS
-* Separated Stage 1 and Stage 2 CSS in CSS screen
-* Added Documentation screen
-* Major edits to body copy
-* Removed internationalization where it’s not needed
+= 1.0.25 =
+* 2019-06-21
+* Additional NULL value checks before outputting styles
+* Other code improvements
+* Numerous documentation improvements
+* Added first two video tutorials (more to come)

@@ -124,8 +124,8 @@ class WP_FOFT_Loader_Settings {
 		$settings['upload'] = array(
 			'title'                 => __( 'Upload', 'wp-foft-loader' ),
 			'description'           => '<p>' . __( '
-Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator' , 'wp-foft-loader' ) . '</a>' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
-<dl style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;">
+Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator' , 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
+<dl class="col-3">
   <dt>' . __( 'Font Formats', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;<abbr>WOFF</abbr>&rdquo;</dd>
   <dd>&ldquo;<abbr>WOFF2</abbr>&rdquo;</dd>
@@ -159,7 +159,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 <p><strong>' . __( 'Filenames must follow the proper naming convention:', 'wp-foft-loader' ) . '</strong> <code>$family</code>SC-<code>$variant</code>-webfont-<code>$filetype</code>.</p>
 <dl>
 <dt>$family</dt>
-<dd>' . __( 'The font family base name without style. Case-insensitive.', 'wp-foft-loader' ) . '</dd>
+<dd>' . __( 'The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but', 'wp-foft-loader') . ' <em>' . __('no hyphens or spaces', 'wp-foft-loader'). '</em>.</dd>
 <dt>SC</dt>
 <dd>'. __( 'Small caps identifier', 'wp-foft-loader' ) . '. <em>' . __( 'Optional', 'wp-foft-loader' ) . '</em>. ' .__( 'Append to $family only if it is a small caps variant.', 'wp-foft-loader' ) . ' <em>' . __( 'Case-sensitive', 'wp-foft-loader' ) . '</em>.</dd>
 <dt>$variant</dt>
@@ -171,7 +171,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 </dl>
 <p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'for the bold weight, italic style of', 'wp-foft-loader' ) . ' Times New Roman, ' . __( 'rename the files to', 'wp-foft-loader' ) . ' <code>timenewroman-boldItalic-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff2</code>. ' . __( 'For small caps style families, append', 'wp-foft-loader' ) . ' <code>SC</code> (' . __( 'case-sensitive', 'wp-foft-loader' ) . ') ' . __( 'to the family name,', 'wp-foft-loader' ) . ' e.g., <code>playfairdisplaySC-regular-webfont.woff</code>.</p>
 <p>' . __( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '</p>
-<ul style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;">
+<ul class="col-3">
   <li>thin | hairline (' . __( 'maps to', 'wp-foft-loader' ) . ' 100)</li>
   <li>extraLight | ultraLight (' . __( 'maps to', 'wp-foft-loader' ) . ' 200)</li>
   <li>light (' . __( 'maps to', 'wp-foft-loader' ) . ' 300)</li>
@@ -224,7 +224,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'label'         => __( 'Headings' , 'wp-foft-loader' ),
 					'description'   => __( 'Optimize the display font used for high-level headings', 'wp-foft-loader' ) . '(H1, H2, &amp; H3)',
 					'type'          => 'text',
-					'default'       => '',
+					'default'       => NULL,
 					'placeholder'   => 'e.g., playfairdisplay'
 				),
 				array(
@@ -232,7 +232,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'label'         => __( 'Body' , 'wp-foft-loader' ),
 					'description'   => __( 'Optimize body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
 					'type'          => 'text',
-					'default'       => '',
+					'default'       => NULL,
 					'placeholder'   => 'e.g., timesnewroman'
 				),
 				array(
@@ -240,7 +240,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'label'         => __( 'Other elements' , 'wp-foft-loader' ),
 					'description'   => __( 'Optimize non-body elements', 'wp-foft-loader' ) . ', <abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.' , 'wp-foft-loader' ),
 					'type'          => 'text',
-					'default'       => '',
+					'default'       => NULL,
 					'placeholder'   => 'e.g., latosans'
 				),
 				array(
@@ -248,7 +248,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'label'         => __( 'Monospaced' , 'wp-foft-loader' ),
 					'description'   => __( 'Optimize monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wp-foft-loader' ),
 					'type'          => 'text',
-					'default'       => '',
+					'default'       => NULL,
 					'placeholder'   => 'e.g., couriernew'
 				)
 			)
@@ -259,7 +259,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			'description'           => '
 <p>' . __( 'This setting inlines Base64 encoded font in the document head to improve font loading speeds.' , 'wp-foft-loader' ) . ' <em>' . __( 'This setting works with the Optimize settings in the previous tab.' , 'wp-foft-loader' ) . '</em>' . __( 'All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field.' , 'wp-foft-loader' ) . '</p>
 <p>' . __( 'Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use' , 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator' , 'wp-foft-loader' ) . '</a>. ' . __( 'Recommended Font Squirrel settings are:' , 'wp-foft-loader' ) . '</p>
-<dl style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;">
+<dl class="col-3">
   <dt>' . __( 'Font Formats' , 'wp-foft-loader' ) . '</dt>
   <dd>' . __( 'None', 'wp-foft-loader' ) . '</dd>
   <dt>' . __( 'Truetype Hinting' , 'wp-foft-loader' ) . '</dt>
@@ -341,7 +341,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 		<li>' . __( 'All declarations must start with the', 'wp-foft-loader' ) . '  <code>fonts-stage-1</code> ' . __( 'class', 'wp-foft-loader' ) . '</li>
 	</ul>
 	<p>' . __('See the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=documentation">' . __('Documentation screen', 'wp-foft-loader' ) . '</a> ' . __('to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
-	<dl style="columns: 2 15rem; column-gap: 2rem; column-rule: 1px solid">
+	<dl class="col-2">
 	  <dt>' . __( 'Incorrect:', 'wp-foft-loader' ) . '</dt>
 		<dd><pre><code>.nav-primary { <mark>// ' . __( 'Missing prefix:', 'wp-foft-loader' ) .' .fonts-stage-1</mark>
   font-family: latoSubset, sans-serif;
@@ -382,7 +382,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 		<li>' . __( 'For best performance, please', 'wp-foft-loader' ) . ' <a href="//cssminifier.com" rel="external noreferrer noopener">' . __( 'minify your <abbr>CSS</abbr></a> before pasting it into the form.', 'wp-foft-loader' ) . '</li>
 	</ul>
 	<p>' . __('See the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=documentation">' . __('Documentation screen', 'wp-foft-loader' ) . '</a> ' . __('to view the Stage 2 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
-	<dl style="columns: 2 15rem; column-gap: 2rem; column-rule: 1px solid">
+	<dl class="col-2">
 		<dt>' . __( 'Incorrect:', 'wp-foft-loader' ) . '</dt>
 		<dd><pre><code>tbody { <mark>// ' . __( 'Missing class:', 'wp-foft-loader' ) .' .fonts-stage-2</mark>
   font-family: lato, Corbel, "Lucida Grande", sans-serif;
@@ -448,7 +448,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'label'         => __( 'Stage 1 CSS' , 'wp-foft-loader' ),
 					'description'   => __( 'Place <abbr>CSS</abbr> font declarations here.', 'wp-foft-loader' ),
 					'type'          => 'textarea',
-					'default'       => '',
+					'default'       => NULL,
 					'placeholder'   => __( 'Example:', 'wp-foft-loader' ) . 
 '.fonts-stage-1 body {
   font-family: merriweatherSubset, serif;
@@ -459,7 +459,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'label'         => __( 'Stage 2 CSS' , 'wp-foft-loader' ),
 					'description'   => __( 'Place <abbr>CSS</abbr> font declarations here.', 'wp-foft-loader' ),
 					'type'          => 'textarea_large',
-					'default'       => '',
+					'default'       => NULL,
 					'placeholder'   => __( 'Example:', 'wp-foft-loader' ) . 
 '.fonts-stage-2 body {
   font-family: merriweather, "Century Schoolbook L", Georgia, serif;
@@ -486,7 +486,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 				array(
 					'id'            => 'fstack-body',
 					'label'         => __( 'Body' , 'wp-foft-loader' ),
-					'description'   => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
+					'descrption'   => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
 					'type'          => 'textarea',
 					'default'       => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
 					'placeholder'   => ''
@@ -517,8 +517,8 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			'title'	                => __( 'Documentation', 'wp-foft-loader' ),
 			'description'           =>'<section>
 	<h3>' . __('Fonts Stage 1', 'wp-foft-loader') . '</h3>
-	<p>' . __('This plugins always loads the following Stage 1 styles. The Stage 1 fonts are inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <$headingSubset>, and <$monoSubset> correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=optimize">' . __('Optimize', 'wp-foft-loader') . '</a> ' . __('and', 'wp-foft-loader') . '  <a href="?page=wp_foft_loader_settings&tab=base64">' . __('Base64', 'wp-foft-loader') . '</a> options screens.</p>
-<pre style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;"><code>body {
+	<p>' . __('This plugin always loads the following Stage 1 styles. The Stage 1 fonts are inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <$headingSubset>, and <$monoSubset> correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=optimize">' . __('Optimize', 'wp-foft-loader') . '</a> ' . __('and', 'wp-foft-loader') . '  <a href="?page=wp_foft_loader_settings&tab=base64">' . __('Base64', 'wp-foft-loader') . '</a> options screens.</p>
+<pre class="col-3"><code>body {
   font-family: serif;
   font-weight: 400;
   font-style: normal
@@ -552,8 +552,8 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 </section>
 <section>
 	<h3>' . __('Fonts Stage 2', 'wp-foft-loader') . '</h3>
-	<p>' . __('This plugins also loads the following Stage 2 styles. You can disable these styles on the <a href="?page=wp_foft_loader_settings&tab=css"><abbr>' . __('CSS', 'wp-foft-loader') . '.</abbr></a> options screen. <$body>, <$alt>, <$heading>, and <$mono> correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=optimize">' . __('Optimize screen', 'wp-foft-loader') . '</a>.</p>
-<pre style="columns: 3 15rem; column-gap: 2rem; column-rule: 1px solid;"><code>.fonts-stage-2 body,
+	<p>' . __('This plugin also loads the following Stage 2 styles. You can disable these styles on the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=css"><abbr>CSS</abbr> ' . __('options screen', 'wp-foft-loader') . '</a>. <$body>, <$alt>, <$heading>, ' . __('and', 'wp-foft-loader') . ' <$mono> ' . __('correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader') . ' <a href="?page=wp_foft_loader_settings&tab=optimize">' . __('Optimize screen', 'wp-foft-loader') . '</a>. '. __('You can change the default font fallbacks on the', 'wp-foftloader') . ' <a href="?page=wp_foft_loader_settings&tab=fstack">' . __('Font Stack settings screen', 'wp-foft-loader') . '</a>.</p>
+<pre class="col-3"><code>.fonts-stage-2 body,
 .fonts-stage-2 h4,
 .fonts-stage-2 h5,
 .fonts-stage-2 h6 {
@@ -648,6 +648,15 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
   font-family: $alt, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 400
 }</code></pre>
+</section>
+<section>
+	<h3>' . __('Video Tutorials', 'wp-foft-loader') . '</h3>
+    <div class="col-2">
+      <div class="video-responsive"><iframe width="560" height="315" src="https://www.youtube.com/embed/0C0lDJ3T12o?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-responsive"><iframe width="560" height="315" src="https://www.youtube.com/embed/-StFYcOSDCU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
 </section>',
 			'fields'                => array(
 			)

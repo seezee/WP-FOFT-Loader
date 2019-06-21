@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP FOFT Loader 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader\n"
-"POT-Creation-Date: 2019-06-19 19:38:49+00:00\n"
+"POT-Creation-Date: 2019-06-21 21:54:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,8 +16,8 @@ msgstr ""
 #: includes/class-wp-foft-loader-head.php:319
 #: includes/class-wp-foft-loader-mimes.php:89
 #: includes/class-wp-foft-loader-mimes.php:98
-#: includes/class-wp-foft-loader-settings.php:803
 #: includes/class-wp-foft-loader-settings.php:812
+#: includes/class-wp-foft-loader-settings.php:821
 #: includes/class-wp-foft-loader-upload.php:77
 #: includes/class-wp-foft-loader-upload.php:86
 #: includes/class-wp-foft-loader.php:217 includes/class-wp-foft-loader.php:226
@@ -193,7 +193,13 @@ msgid "Filenames must follow the proper naming convention:"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:162
-msgid "The font family base name without style. Case-insensitive."
+msgid ""
+"The font family base name without style. Case-insensitive. May contain "
+"letters, numerals, and underscores but"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:162
+msgid "no hyphens or spaces"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:164
@@ -245,6 +251,7 @@ msgstr ""
 #: includes/class-wp-foft-loader-settings.php:298
 #: includes/class-wp-foft-loader-settings.php:333
 #: includes/class-wp-foft-loader-settings.php:520
+#: includes/class-wp-foft-loader-settings.php:555
 msgid "and"
 msgstr ""
 
@@ -696,8 +703,8 @@ msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:520
 msgid ""
-"This plugins always loads the following Stage 1 styles. The Stage 1 fonts "
-"are inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <"
+"This plugin always loads the following Stage 1 styles. The Stage 1 fonts are "
+"inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <"
 "$headingSubset>, and <$monoSubset> correspond to the Body, Other Elements, "
 "Headings, and Monospaced font-families configured on the"
 msgstr ""
@@ -707,14 +714,42 @@ msgid "Fonts Stage 2"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:555
+msgid ""
+"This plugin also loads the following Stage 2 styles. You can disable these "
+"styles on the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:555
+msgid "options screen"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:555
+msgid ""
+"correspond to the Body, Other Elements, Headings, and Monospaced font-"
+"families configured on the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:555
 msgid "Optimize screen"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:720
+#: includes/class-wp-foft-loader-settings.php:555
+msgid "You can change the default font fallbacks on the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:555
+msgid "Font Stack settings screen"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:653
+msgid "Video Tutorials"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:729
 msgid "WP <abbr>FOFT</abbr> Loader Settings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:720
+#: includes/class-wp-foft-loader-settings.php:729
 msgid ""
 "Automates <a href=\"https://www.zachleat.com/web/comprehensive-webfonts/"
 "#critical-foft-data-uri\" rel=\"external noreferrer noopener"
@@ -725,12 +760,12 @@ msgid ""
 "\" href=\"https://www.zachleat.com/\">Zach Leatherman</a></span>. "
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:720
+#: includes/class-wp-foft-loader-settings.php:729
 msgid ""
 "Please <strong>save your changes</strong> before navigating to the next tab. "
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:772
+#: includes/class-wp-foft-loader-settings.php:781
 msgid "Save Settings"
 msgstr ""
 
