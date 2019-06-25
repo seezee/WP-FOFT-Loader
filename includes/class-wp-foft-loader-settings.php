@@ -486,7 +486,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 				array(
 					'id'            => 'fstack-body',
 					'label'         => __( 'Body' , 'wp-foft-loader' ),
-					'descrption'   => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
+					'description'   => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
 					'type'          => 'textarea',
 					'default'       => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
 					'placeholder'   => ''

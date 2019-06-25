@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.25  
+Stable tag: 1.0.26  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -266,6 +266,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Changelog ==
 
+= 1.0.26 =
+* 2019-06-25
+* Minor bugfix (fixed typo in code)
+
 = 1.0.25 =
 * 2019-06-21
 * Additional NULL value checks before outputting styles
@@ -391,12 +395,9 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 == Upgrade Notice ==
 
-= 1.0.25 =
-* 2019-06-21
-* Additional NULL value checks before outputting styles
-* Other code improvements
-* Numerous documentation improvements
-* Added first two video tutorials (more to come)
+= 1.0.26 =
+* 2019-06-25
+* Minor bugfix (fixed typo in code)
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
