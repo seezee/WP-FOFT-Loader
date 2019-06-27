@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"MIME-Version: 1.0.27\n"
+"MIME-Version: 1.0.28\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"

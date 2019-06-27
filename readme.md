@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.27  
+Stable tag: 1.0.28  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -309,12 +309,17 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 ## Changelog
 
+= 1.0.28 =
+* 2019-06-27
+* Create correct icon sizes for WP Plugin Repository
+* Fix readme.txt formatting
+
 = 1.0.27 =
 * 2019-06-27
 * Code formatting now meets Wordpress standards
 * Strict type checking on comparisons
 * Use Yoda case where appropriate
-* Convert unnecessary concantenations to single strings
+* Convert unnecessary concatenations to single strings
 * Added Dutch translation
 
 = 1.0.26 =
@@ -448,13 +453,10 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 [//]: # (*********************************************************************          **********Update version tag in main file at lines _4_ and _45_!*****          *********************************************************************)
 
-= 1.0.27 =
+= 1.0.28 =
 * 2019-06-27
-* Code formatting now meets Wordpress standards
-* Strict type checking on comparisons
-* Use Yoda case where appropriate
-* Convert unnecessary concantenations to single strings
-* Added Dutch translation
+* Create correct icon sizes for WP Plugin Repository
+* Fix readme.txt formatting
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

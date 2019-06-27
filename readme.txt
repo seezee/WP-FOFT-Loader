@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.27  
+Stable tag: 1.0.28  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -74,9 +74,9 @@ The boilerplate provides you with a solid foundation to rapidly start your custo
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:			“WOFF”
-					“WOFF2”
-	Advanced Options:		“Font Name Suffix” = -webfont
+	Font Formats:       “WOFF”
+				        “WOFF2”
+	Advanced Options:   “Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
 
@@ -149,11 +149,11 @@ Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, 
 	Select “Expert”
 	Font Formats:			None
 	Fix Missing Glyphs:		None
-	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
-					Leave everything else unchecked  
+	Subsetting:			    “Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
+					        Leave everything else unchecked  
 	OpenType Features:		None
-	OpenType Flattening:		None
-	CSS:				“Base64 Encode”
+	OpenType Flattening:	None
+	CSS:				    “Base64 Encode”
 
 For detailed recommended settings, see the plugin Base64 options screen. The generator will produce a file that looks something like this:
 
@@ -309,12 +309,17 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 ## Changelog
 
+= 1.0.28 =
+* 2019-06-27
+* Create correct icon sizes for WP Plugin Repository
+* Fix readme.txt formatting
+
 = 1.0.27 =
 * 2019-06-27
 * Code formatting now meets Wordpress standards
 * Strict type checking on comparisons
 * Use Yoda case where appropriate
-* Convert unnecessary concantenations to single strings
+* Convert unnecessary concatenations to single strings
 * Added Dutch translation
 
 = 1.0.26 =
@@ -445,10 +450,7 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 * Initial release
 
 ## Upgrade Notice
-= 1.0.27 =
+= 1.0.28 =
 * 2019-06-27
-* Code formatting now meets Wordpress standards
-* Strict type checking on comparisons
-* Use Yoda case where appropriate
-* Convert unnecessary concantenations to single strings
-* Added Dutch translation
+* Create correct icon sizes for WP Plugin Repository
+* Fix readme.txt formatting

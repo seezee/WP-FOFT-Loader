@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 1.0.27
+ * Version: 1.0.28
  * Plugin URI: https://github.com/seezee/WP-FOFTLoader/
  * Description: Implements and automates Zach Leatherman's
  *              Critical FOFT with Data URI (see
@@ -42,7 +42,7 @@ require_once 'includes/lib/class-wp-foft-loader-admin-api.php';
  * @return object wp_foft_loader
  */
 function wp_foft_loader() {
-	$instance = wp_foft_loader::instance( __FILE__, '1.0.27' );
+	$instance = wp_foft_loader::instance( __FILE__, '1.0.28' );
 
 	if ( is_null( $instance->settings ) ) {
 		$instance->settings = WP_FOFT_Loader_Settings::instance( $instance );
