@@ -1,32 +1,75 @@
-=== WP FOFT Loader ===  
+# WP FOFT Loader  
 Contributors: seezee  
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.26  
+Stable tag: 1.0.27  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
-== Description ==
+[//]: # ( Abbreviations)
+*[FOFT]: Flash of Faux Text
+*[FOIT]: Flash of Invisible Text
+*[FOUT]: Flash of Unstyled Text
+*[FTP]: File Transport Protocol
+*[WOFF]: Web Open Font Format
+*[WOFF2]: Web Open Font Format 2
+*[GPL]: Gnu Public License
+*[PHP]: Pre-Hypertext Processor
+*[URI]: Uniform Resources Identifier
+*[PHPCS]: Pre-Hypertext Processor Code Sniffer
+*[WPCS]: Wordpress Code Sniffer
+*[CSS]: Cascading Style Sheets
 
-This plugin implements and automates [Zach Leatherman's Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
-== Acknowledgement ==
 
-This plugin is based on [KnowTheCode's Starter Plugin](https://github.com/KnowTheCode/starter-plugin), a WordPress plugin boilerplate that emphasizes code quality.
+## Description
 
-The boilerplate provides you with a solid foundation to rapidly start your custom plugin development project. It's fully compliant with PHPCS and WPCS coding standards. It's modular in design. Emphasis is given to SOLID principles. Validators are built right into the plugin, pre-configured and pre-wired for you to use.
+This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
-== Installation ==
+## Acknowledgement
 
+This plugin is based on [KnowTheCode’s Starter Plugin](https://github.com/KnowTheCode/starter-plugin), a WordPress plugin boilerplate that emphasizes code quality.
+
+The boilerplate provides you with a solid foundation to rapidly start your custom plugin development project. It’s fully compliant with PHPCS and WPCS coding standards. It’s modular in design. Emphasis is given to SOLID principles. Validators are built right into the plugin, pre-configured and pre-wired for you to use.
+
+## Installation
+
+### USING THE WORDPRESS DASHBOARD
+1. Navigate to the “Add New” in the plugins dashboard
+2. Search for “WP FOFT Loader”
+2. Search for “WP FOFT Loader”
+2. Search for “WP FOFT Loader”
+3. Click “Install Now”
+4. Activate the plugin on the Plugin dashboard
+5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+
+### UPLOADING IN WORDPRESS DASHBOARD
+1. Navigate to the “Add New” in the plugins dashboard
+2. Navigate to the “Upload” area
+3. Select wp-foft-loader.zip from your computer
+4. Click “Install Now”
+5. Activate the plugin in the Plugin dashboard
+6. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+
+### USING FTP
+1. Download wp-foft-loader.zip
+2. Extract the wp-foft-loader directory to your computer
+3. Upload the wp-foft-loader directory to the `/wp-content/plugins/` directory
+4. Activate the plugin in the Plugin’s dashboard
+5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+
+### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
-2. Upload the ZIP file through the 'Plugins > Add New > Upload' screen in your WordPress dashboard
-3. Activate the plugin through the 'Plugins' menu in WordPress
-4. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings. See detailed instructions below.
+2. Upload the ZIP file from the Wordpress dashboard or by <abbr>FTP</abbr>
+3. Activate the plugin through the ‘Plugins’ menu in WordPress
+4. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings. 
 
-== Generating and Uploading the Font Files ==
+**See detailed setup instructions below.**
+
+## Generating and Uploading the Font Files
 
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
@@ -77,7 +120,7 @@ boldItalic (maps to 700)
 extraBoldItalic | ultraBoldItalic (maps to 800)  
 blackItalic | heavyItalic (maps to 900)  
 
-== Configuration ==
+## Configuration
 
 = Optimize =
 
@@ -97,7 +140,7 @@ Enter the names of your Base64 subsetted fonts below. **Only the family name is 
 `playfair display` (spaces prohibited)  
 `Playfair Display` (spaces prohibited)  
 
-= Base64 =
+### Base64
 
 This setting inlines Base64 encoded font in the document head to improve font loading speeds. This setting works with the Optimize settings in the previous tab. All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field.
 
@@ -121,19 +164,19 @@ For detailed recommended settings, see the plugin Base64 options screen. The gen
  
 Copy and paste the part the part between `src:url (data:application/font-woff; charset=utf-8; base64,` and `) format(“woff”);` into the appropriate field below. In this example that would be `d09GRgABAAAAAB4UABAAAAAAMpAAA…`.
 
-= CSS =
+### CSS
 
 @import rules are automatically handled by this plugin. You may manually inline your font-related CSS in the document `<head>` here. Place rules pertaining only to the font-family, font-weight, font-style, and font-variation properties here.
 
-**Plugin CSS**
+#### Plugin CSS
 
 The plugin loads some CSS by default. You may disable it from this screen.
 
-**Font Display**
+#### Font Display
 
 The plugin uses `font-display: swap` by default. You can override the [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) property here.
 
-**CSS Stage 1**
+#### CSS Stage 1
 
 Declarations placed in this field will load the Base64 subset as a placeholder while the external fonts load.
 
@@ -173,7 +216,7 @@ Correct:
 	  font-family: latosubset, san-serif; // Suffix is case-insensitive
 	}
 
-**CSS Stage 2**
+#### CSS Stage 2
 
 * Use only the family name
 * Family names must match the file names for the fonts you uploaded on the “Upload” screen.
@@ -217,15 +260,15 @@ Correct:
 
 For best performance, please [minify your CSS](https://cssminifier.com/) before pasting it into the form.
 
-= Font Stacks =
+### Font Stacks
 
 Change the default font fallbacks in case your custom fonts don’t load. Don’t include the names of your default custom fonts here.
 
-== Further Documentation ==
+### Further Documentation
 
 See the Documentation screen to view the CSS this plugin loads by default and to view video tutorials.
 
-== Screenshots ==
+## Screenshots
 
 1. Uploads screen: upload your custom web fonts here
 2. Optimize screen: tells fontobserver.js which fonts to load for stage 1
@@ -235,11 +278,11 @@ See the Documentation screen to view the CSS this plugin loads by default and to
 6. Documentation (1): Information about the CSS that the plugin loads by default
 7. Documentation (2): Video tutorials
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= What is the plugin for? =
+### What is the plugin for?
 
-This plugin template implements and automates [Zach Leatherman's Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
+This plugin template implements and automates [Zach Leatherman’s Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
 
 **PROS**
 
@@ -252,19 +295,27 @@ This plugin template implements and automates [Zach Leatherman's Critical Flash 
 * The small inlined Data URI will marginally block initial render. We’re trading this for highly reduced FOUT.
 * Self hosting: Required.
 
-= How may I help improve this plugin? =
+### How may I help improve this plugin?
 
-I'd love to hear your feedback. In particular, tell me about your experience configuring the plugin. Are the instructions clear? Do I need to reword them? Did I leave out something crucial? You get the drift.
+I’d love to hear your feedback. In particular, tell me about your experience configuring the plugin. Are the instructions clear? Do I need to reword them? Did I leave out something crucial? You get the drift.
 
-= I'd like to do more =
+### I’d like to do more
 
-I'm looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
+I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
 
-= I'd like to do even more =
+### I’d like to do even more
 
-Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you're in town.
+Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
 
-== Changelog ==
+## Changelog
+
+= 1.0.27 =
+* 2019-06-27
+* Code formatting now meets Wordpress standards
+* Strict type checking on comparisons
+* Use Yoda case where appropriate
+* Convert unnecessary concantenations to single strings
+* Added Dutch translation
 
 = 1.0.26 =
 * 2019-06-25
@@ -297,7 +348,7 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 = 1.0.21 =
 * 2019-06-17
 * Update custom CSS output in /includes/class-wp-foft-loader-head.php (convert `&lt;` back to `>` child selector after sanitizing)
-* Update default CSS output in /includes/class-wp-foft-loader-head.php (don't escape `>`)
+* Update default CSS output in /includes/class-wp-foft-loader-head.php (don’t escape `>`)
 
 = 1.0.20 =
 * 2019-06-16
@@ -393,8 +444,11 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 * 2019-06-13
 * Initial release
 
-== Upgrade Notice ==
-
-= 1.0.26 =
-* 2019-06-25
-* Minor bugfix (fixed typo in code)
+## Upgrade Notice
+= 1.0.27 =
+* 2019-06-27
+* Code formatting now meets Wordpress standards
+* Strict type checking on comparisons
+* Use Yoda case where appropriate
+* Convert unnecessary concantenations to single strings
+* Added Dutch translation

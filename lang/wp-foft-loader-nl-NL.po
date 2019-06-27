@@ -1,112 +1,104 @@
-# Copyright (C) 2019 WP FOFT Loader
-# This file is distributed under the same license as the WP FOFT Loader package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP FOFT Loader 1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader\n"
-"POT-Creation-Date: 2019-06-19 19:38:49+00:00\n"
-"MIME-Version: 1.0\n"
+"MIME-Version: 1.0.27\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-06-21 16:54-0500\n"
-"Language-Team: \n"
-"X-Generator: Poedit 2.2.3\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: \n"
-"Language: en\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WP FOFT Loader\n"
+"Language: nl\n"
 
 #: includes/class-wp-foft-loader-head.php:310
 #: includes/class-wp-foft-loader-head.php:319
 #: includes/class-wp-foft-loader-mimes.php:89
 #: includes/class-wp-foft-loader-mimes.php:98
-#: includes/class-wp-foft-loader-settings.php:803
 #: includes/class-wp-foft-loader-settings.php:812
+#: includes/class-wp-foft-loader-settings.php:821
 #: includes/class-wp-foft-loader-upload.php:77
 #: includes/class-wp-foft-loader-upload.php:86
 #: includes/class-wp-foft-loader.php:217 includes/class-wp-foft-loader.php:226
 msgid "Cheatin&#8217; huh?"
-msgstr ""
+msgstr "Aan het valsspelen?"
 
 #: includes/class-wp-foft-loader-settings.php:72
 msgid "WP FOFT Loader Settings"
-msgstr ""
+msgstr "WP FOFT Lader instellingen"
 
+#. #-#-#-#-#  wp-foft-loader.pot (WP FOFT Loader 1.0.27)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: includes/class-wp-foft-loader-settings.php:72
 msgid "WP FOFT Loader"
-msgstr ""
+msgstr "WP FOFT Lader"
 
 #: includes/class-wp-foft-loader-settings.php:95
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 #: includes/class-wp-foft-loader-settings.php:125
 #: includes/class-wp-foft-loader-settings.php:379
 msgid "Upload"
-msgstr ""
+msgstr "Uploaden"
 
 #: includes/class-wp-foft-loader-settings.php:126
-msgid ""
-"\n"
-"Upload two files for each web font: a WOFF file and a WOFF2 file. We "
-"recommend you use"
-msgstr ""
+msgid "\n"
+"Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use"
+msgstr "\n"
+"Upload twee bestanden voor elk web lettertype: een WOFF-bestand en een WOFF2-bestand. We raden aan dat u gebruik maakt van"
 
 #: includes/class-wp-foft-loader-settings.php:127
 #: includes/class-wp-foft-loader-settings.php:261
 msgid "Webfont Generator"
-msgstr ""
+msgstr "Webfont Generator"
 
 #: includes/class-wp-foft-loader-settings.php:127
 msgid "to generate the files. Recommended Font Squirrel settings are:"
-msgstr ""
+msgstr "om de bestanden te genereren. Aanbevolen instellingen voor Lettertype Squirrel zijn:"
 
 #: includes/class-wp-foft-loader-settings.php:129
 #: includes/class-wp-foft-loader-settings.php:263
 msgid "Font Formats"
-msgstr ""
+msgstr "Lettertype indelingen"
 
 #: includes/class-wp-foft-loader-settings.php:132
 #: includes/class-wp-foft-loader-settings.php:265
 msgid "Truetype Hinting"
-msgstr ""
+msgstr "Truetype Hinting"
 
 #: includes/class-wp-foft-loader-settings.php:133
 #: includes/class-wp-foft-loader-settings.php:266
 msgid "Keep Existing"
-msgstr ""
+msgstr "Bewaar bestaande"
 
 #: includes/class-wp-foft-loader-settings.php:134
 #: includes/class-wp-foft-loader-settings.php:267
 msgid "Rendering"
-msgstr ""
+msgstr "Aan het renderen"
 
 #: includes/class-wp-foft-loader-settings.php:135
 #: includes/class-wp-foft-loader-settings.php:139
 #: includes/class-wp-foft-loader-settings.php:268
 #: includes/class-wp-foft-loader-settings.php:272
 msgid "Default options (leave unchecked)"
-msgstr ""
+msgstr "Standaardopties (niet aanvinken)"
 
 #: includes/class-wp-foft-loader-settings.php:136
 #: includes/class-wp-foft-loader-settings.php:269
 msgid "Vertical Metrics"
-msgstr ""
+msgstr "Verticale statistieken"
 
 #: includes/class-wp-foft-loader-settings.php:137
 #: includes/class-wp-foft-loader-settings.php:270
 msgid "No Adjustment"
-msgstr ""
+msgstr "Geen Verandering"
 
 #: includes/class-wp-foft-loader-settings.php:138
 #: includes/class-wp-foft-loader-settings.php:271
 msgid "Fix Missing Glyphs"
-msgstr ""
+msgstr "Los ontbrekende glyphs op"
 
 #: includes/class-wp-foft-loader-settings.php:140
 #: includes/class-wp-foft-loader-settings.php:273
 msgid "X-height Matching"
-msgstr ""
+msgstr "X-hoogte aanpassing"
 
 #: includes/class-wp-foft-loader-settings.php:141
 #: includes/class-wp-foft-loader-settings.php:149
@@ -116,155 +108,172 @@ msgstr ""
 #: includes/class-wp-foft-loader-settings.php:281
 #: includes/class-wp-foft-loader-settings.php:283
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #: includes/class-wp-foft-loader-settings.php:142
 #: includes/class-wp-foft-loader-settings.php:275
 msgid "Protection"
-msgstr ""
+msgstr "Bescherming"
 
 #: includes/class-wp-foft-loader-settings.php:143
 #: includes/class-wp-foft-loader-settings.php:276
 msgid "Select"
-msgstr ""
+msgstr "Kiezen"
 
 #: includes/class-wp-foft-loader-settings.php:143
 #: includes/class-wp-foft-loader-settings.php:276
 msgid "if you are using a commercially licensed font"
-msgstr ""
+msgstr "als u een commercieel gelicentieerd lettertype gebruikt"
 
 #: includes/class-wp-foft-loader-settings.php:144
 #: includes/class-wp-foft-loader-settings.php:277
 msgid "Subsetting"
-msgstr ""
+msgstr "Sub instelling"
 
 #: includes/class-wp-foft-loader-settings.php:145
 msgid "Basic Subsetting"
-msgstr ""
+msgstr "Basis sub instelling"
 
 #: includes/class-wp-foft-loader-settings.php:146
 #: includes/class-wp-foft-loader-settings.php:280
 msgid "OpenType Features"
-msgstr ""
+msgstr "OpenType functionaliteiten"
 
 #: includes/class-wp-foft-loader-settings.php:147
 msgid "Your choice, but we like"
-msgstr ""
+msgstr "Jouw keuze, maar wij houden van"
 
 #: includes/class-wp-foft-loader-settings.php:147
 msgid "Keep All Features"
-msgstr ""
+msgstr "Houd alle functionaliteiten"
 
 #: includes/class-wp-foft-loader-settings.php:148
 #: includes/class-wp-foft-loader-settings.php:282
 msgid "OpenType Flattening"
-msgstr ""
+msgstr "OpenType-afvlakking"
 
 #: includes/class-wp-foft-loader-settings.php:152
 #: includes/class-wp-foft-loader-settings.php:286
 msgid "Advanced Options"
-msgstr ""
+msgstr "Geavanceerde opties"
 
 #: includes/class-wp-foft-loader-settings.php:153
 #: includes/class-wp-foft-loader-settings.php:287
 msgid "Font Name Suffix"
-msgstr ""
+msgstr "Naamlettertype achtervoegsel"
 
 #: includes/class-wp-foft-loader-settings.php:154
 #: includes/class-wp-foft-loader-settings.php:288
 msgid "Em Square Value"
-msgstr ""
+msgstr "Em Square waarde"
 
 #: includes/class-wp-foft-loader-settings.php:155
 #: includes/class-wp-foft-loader-settings.php:289
 msgid "Adjust Glyph Spacing"
-msgstr ""
+msgstr "Pas Glyph Spacing aan"
 
 #: includes/class-wp-foft-loader-settings.php:156
 #: includes/class-wp-foft-loader-settings.php:290
 msgid "Shortcuts"
-msgstr ""
+msgstr "shortcuts"
 
 #: includes/class-wp-foft-loader-settings.php:157
 #: includes/class-wp-foft-loader-settings.php:291
 msgid "Remember My Settings"
-msgstr ""
+msgstr "Onthoud mijn instellingen"
 
 #: includes/class-wp-foft-loader-settings.php:159
 msgid "Filenames must follow the proper naming convention:"
-msgstr ""
+msgstr "Bestandsnamen moeten de juiste naamgevingsconventie volgen:"
 
 #: includes/class-wp-foft-loader-settings.php:162
-msgid "The font family base name without style. Case-insensitive."
-msgstr ""
+msgid "The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but"
+msgstr "De naam van de lettertypefamilie zonder stijling. Niet hoofdlettergevoelig. Mag letters, cijfers en onderstrepingstekens bevatten, maar"
+
+#: includes/class-wp-foft-loader-settings.php:162
+msgid "no hyphens or spaces"
+msgstr "geen afbreekstreepjes of spaties"
 
 #: includes/class-wp-foft-loader-settings.php:164
 msgid "Small caps identifier"
-msgstr ""
+msgstr "Small caps identifier"
 
 #: includes/class-wp-foft-loader-settings.php:164
 msgid "Optional"
-msgstr ""
+msgstr "Optioneel"
 
 #: includes/class-wp-foft-loader-settings.php:164
 msgid "Append to $family only if it is a small caps variant."
-msgstr ""
+msgstr "Alleen aan $ familie toevoegen als het een small caps variant is."
 
 #: includes/class-wp-foft-loader-settings.php:164
 #: includes/class-wp-foft-loader-settings.php:166
 msgid "Case-sensitive"
-msgstr ""
+msgstr "Hoofdlettergevoelig"
 
 #: includes/class-wp-foft-loader-settings.php:166
+#, fuzzy
 msgid "The font variant. Can be weight, style, or a combination of both."
-msgstr ""
+msgstr "De lettertypevariant. Kan gewicht, stijl of een combinatie van beide zijn."
 
 #: includes/class-wp-foft-loader-settings.php:168
+#, fuzzy
 msgid "Mandatory suffix. Append to"
-msgstr ""
+msgstr "Verplicht achtervoegsel. Toevoegen aan"
 
 #: includes/class-wp-foft-loader-settings.php:170
+#, fuzzy
 msgid "The file type"
-msgstr ""
+msgstr "Het bestandstype"
 
 #: includes/class-wp-foft-loader-settings.php:170
+#, fuzzy
 msgid "or"
-msgstr ""
+msgstr "of"
 
 #: includes/class-wp-foft-loader-settings.php:172
+#, fuzzy
 msgid "Example"
-msgstr ""
+msgstr "Voorbeeld"
 
 #: includes/class-wp-foft-loader-settings.php:172
+#, fuzzy
 msgid "for the bold weight, italic style of"
-msgstr ""
+msgstr "voor de vetgedrukte, cursieve stijl van"
 
 #: includes/class-wp-foft-loader-settings.php:172
+#, fuzzy
 msgid "rename the files to"
-msgstr ""
+msgstr "geef de bestanden een nieuwe naam"
 
 #: includes/class-wp-foft-loader-settings.php:172
 #: includes/class-wp-foft-loader-settings.php:298
 #: includes/class-wp-foft-loader-settings.php:333
 #: includes/class-wp-foft-loader-settings.php:520
+#: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
 msgid "and"
-msgstr ""
+msgstr "en"
 
 #: includes/class-wp-foft-loader-settings.php:172
+#, fuzzy
 msgid "For small caps style families, append"
-msgstr ""
+msgstr "Voor families met kleine kapsels, toevoegen"
 
 #: includes/class-wp-foft-loader-settings.php:172
+#, fuzzy
 msgid "case-sensitive"
-msgstr ""
+msgstr "hoofdlettergevoelig"
 
 #: includes/class-wp-foft-loader-settings.php:172
+#, fuzzy
 msgid "to the family name,"
-msgstr ""
+msgstr "naar de achternaam,"
 
 #: includes/class-wp-foft-loader-settings.php:173
+#, fuzzy
 msgid "Allowed weights and styles and their CSS mappings are:"
-msgstr ""
+msgstr "Toegestane gewichten en stijlen en hun CSS-toewijzingen zijn:"
 
 #: includes/class-wp-foft-loader-settings.php:175
 #: includes/class-wp-foft-loader-settings.php:176
@@ -284,480 +293,577 @@ msgstr ""
 #: includes/class-wp-foft-loader-settings.php:190
 #: includes/class-wp-foft-loader-settings.php:191
 #: includes/class-wp-foft-loader-settings.php:192
+#, fuzzy
 msgid "maps to"
-msgstr ""
+msgstr "kaarten naar"
 
 #: includes/class-wp-foft-loader-settings.php:197
+#, fuzzy
 msgid "Upload Fonts"
-msgstr ""
+msgstr "Upload lettertypen"
 
 #: includes/class-wp-foft-loader-settings.php:198
-msgid ""
-"This will upload a font file to your media library and store the attachment "
-"ID in the option field."
-msgstr ""
+#, fuzzy
+msgid "This will upload a font file to your media library and store the attachment ID in the option field."
+msgstr "Hiermee uploadt u een lettertypebestand naar uw mediabibliotheek en slaat u de bijlage-ID op in het optieveld."
 
 #: includes/class-wp-foft-loader-settings.php:207
 #: includes/class-wp-foft-loader-settings.php:339
 #: includes/class-wp-foft-loader-settings.php:520
+#, fuzzy
 msgid "Optimize"
-msgstr ""
+msgstr "Optimaliseer"
 
 #: includes/class-wp-foft-loader-settings.php:224
 #: includes/class-wp-foft-loader-settings.php:302
 #: includes/class-wp-foft-loader-settings.php:480
+#, fuzzy
 msgid "Headings"
-msgstr ""
+msgstr "rubrieken"
 
 #: includes/class-wp-foft-loader-settings.php:225
+#, fuzzy
 msgid "Optimize the display font used for high-level headings"
-msgstr ""
+msgstr "Optimaliseer het displaylettertype dat wordt gebruikt voor koppen op hoog niveau"
 
 #: includes/class-wp-foft-loader-settings.php:232
 #: includes/class-wp-foft-loader-settings.php:309
 #: includes/class-wp-foft-loader-settings.php:488
+#, fuzzy
 msgid "Body"
-msgstr ""
+msgstr "Lichaam"
 
 #: includes/class-wp-foft-loader-settings.php:233
+#, fuzzy
 msgid "Optimize body text. This can be a serif or sans-serif font."
-msgstr ""
+msgstr "Optimaliseer tekst van het hoofdgedeelte Dit kan een schreefloos of schreefloos lettertype zijn."
 
 #: includes/class-wp-foft-loader-settings.php:240
 #: includes/class-wp-foft-loader-settings.php:316
 #: includes/class-wp-foft-loader-settings.php:497
+#, fuzzy
 msgid "Other elements"
-msgstr ""
+msgstr "Andere elementen"
 
 #: includes/class-wp-foft-loader-settings.php:241
+#, fuzzy
 msgid "Optimize non-body elements"
-msgstr ""
+msgstr "Optimaliseer niet-lichaamselementen"
 
 #: includes/class-wp-foft-loader-settings.php:241
 #: includes/class-wp-foft-loader-settings.php:317
 #: includes/class-wp-foft-loader-settings.php:498
-msgid ""
-"navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works "
-"best for this."
-msgstr ""
+#, fuzzy
+msgid "navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this."
+msgstr "navigatielabels, knoplabels, <abbr> enz. </ abbr> Een schreefloze letter werkt hier het beste voor."
 
 #: includes/class-wp-foft-loader-settings.php:248
 #: includes/class-wp-foft-loader-settings.php:323
 #: includes/class-wp-foft-loader-settings.php:506
+#, fuzzy
 msgid "Monospaced"
-msgstr ""
+msgstr "monospaced"
 
 #: includes/class-wp-foft-loader-settings.php:249
-msgid ""
-"Optimize monospaced fonts. Used for code examples, preformatted text, and "
-"tabular data."
-msgstr ""
+#, fuzzy
+msgid "Optimize monospaced fonts. Used for code examples, preformatted text, and tabular data."
+msgstr "Optimaliseer monospaced lettertypen. Gebruikt voor codevoorbeelden, vooraf opgemaakte tekst en tabelgegevens."
 
 #: includes/class-wp-foft-loader-settings.php:258
 #: includes/class-wp-foft-loader-settings.php:520
+#, fuzzy
 msgid "Base64"
-msgstr ""
+msgstr "Base64"
 
 #: includes/class-wp-foft-loader-settings.php:260
-msgid ""
-"This setting inlines Base64 encoded font in the document head to improve "
-"font loading speeds."
-msgstr ""
+#, fuzzy
+msgid "This setting inlines Base64 encoded font in the document head to improve font loading speeds."
+msgstr "Met deze instelling wordt het Base64-gecodeerde lettertype in de documentkop omgezet om de laadsnelheid van het lettertype te verbeteren."
 
 #: includes/class-wp-foft-loader-settings.php:260
+#, fuzzy
 msgid "This setting works with the Optimize settings in the previous tab."
-msgstr ""
+msgstr "Deze instelling werkt met de Optimize-instellingen op het vorige tabblad."
 
 #: includes/class-wp-foft-loader-settings.php:260
-msgid ""
-"All of the fields are optional, but if you fill out any of them you should "
-"also fill out the corresponding Optimize settings field."
-msgstr ""
+#, fuzzy
+msgid "All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field."
+msgstr "Alle velden zijn optioneel, maar als u een van de velden invult, vult u ook het bijbehorende veld Optimalisatie-instellingen in."
 
 #: includes/class-wp-foft-loader-settings.php:261
-msgid ""
-"Fonts must be subsetted and encoded to Base64. To subset and encode your "
-"fonts, we recommend you use"
-msgstr ""
+#, fuzzy
+msgid "Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use"
+msgstr "Lettertypen moeten worden ondergebracht en gecodeerd naar Base64. Voor het subset en coderen van uw lettertypen, raden we u aan om te gebruiken"
 
 #: includes/class-wp-foft-loader-settings.php:261
+#, fuzzy
 msgid "Recommended Font Squirrel settings are:"
-msgstr ""
+msgstr "Aanbevolen instellingen voor lettertype-eekhoorns zijn:"
 
 #: includes/class-wp-foft-loader-settings.php:278
+#, fuzzy
 msgid "Custom Subsetting"
-msgstr ""
+msgstr "Aangepaste subsetting"
 
 #: includes/class-wp-foft-loader-settings.php:278
+#, fuzzy
 msgid "with the Unicode Ranges"
-msgstr ""
+msgstr "met de Unicode Ranges"
 
 #: includes/class-wp-foft-loader-settings.php:279
+#, fuzzy
 msgid "Leave everything else unchecked or blank"
-msgstr ""
+msgstr "Laat al het andere ongecontroleerd of leeg"
 
 #: includes/class-wp-foft-loader-settings.php:285
+#, fuzzy
 msgid "Base64 Encode"
-msgstr ""
+msgstr "Base64 Encode"
 
 #: includes/class-wp-foft-loader-settings.php:293
+#, fuzzy
 msgid "The generator will produce a file that looks something like this:"
-msgstr ""
+msgstr "De generator zal een bestand produceren dat er ongeveer zo uitziet:"
 
 #: includes/class-wp-foft-loader-settings.php:298
+#, fuzzy
 msgid "Copy and paste the part the part between"
-msgstr ""
+msgstr "Kopieer en plak het gedeelte waar het gedeelte tussen zit"
 
 #: includes/class-wp-foft-loader-settings.php:298
+#, fuzzy
 msgid "into the appropriate field below. In this example that would be"
-msgstr ""
+msgstr "in het juiste veld hieronder. In dit voorbeeld zou dat zijn"
 
 #: includes/class-wp-foft-loader-settings.php:303
+#, fuzzy
 msgid "The display font for high-level headings"
-msgstr ""
+msgstr "Het displaylettertype voor high-level rubrieken"
 
 #: includes/class-wp-foft-loader-settings.php:310
+#, fuzzy
 msgid "The body text. This can be a serif or sans-serif font."
-msgstr ""
+msgstr "De hoofdtekst. Dit kan een schreefloos of schreefloos lettertype zijn."
 
 #: includes/class-wp-foft-loader-settings.php:317
+#, fuzzy
 msgid "Non-body elements,"
-msgstr ""
+msgstr "Niet-body elementen,"
 
 #: includes/class-wp-foft-loader-settings.php:324
-msgid ""
-"Monospaced fonts. Used for code examples, preformatted text, and tabular "
-"data."
-msgstr ""
+#, fuzzy
+msgid "Monospaced fonts. Used for code examples, preformatted text, and tabular data."
+msgstr "Monospaced-lettertypen. Gebruikt voor codevoorbeelden, vooraf opgemaakte tekst en tabelgegevens."
 
 #: includes/class-wp-foft-loader-settings.php:332
+#, fuzzy
 msgid "CSS"
-msgstr ""
+msgstr "CSS"
 
 #: includes/class-wp-foft-loader-settings.php:333
-msgid ""
-"@import rules are automatically handled by this plugin. You may manually "
-"inline your font-related"
-msgstr ""
+#, fuzzy
+msgid "@import rules are automatically handled by this plugin. You may manually inline your font-related"
+msgstr "@import-regels worden automatisch afgehandeld door deze plug-in. U kunt uw lettertype-gerelateerd handmatig inline plaatsen"
 
 #: includes/class-wp-foft-loader-settings.php:333
+#, fuzzy
 msgid "in the document"
-msgstr ""
+msgstr "in het document"
 
 #: includes/class-wp-foft-loader-settings.php:333
+#, fuzzy
 msgid "here. Place rules pertaining only to the"
-msgstr ""
+msgstr "hier. Plaats regels die alleen betrekking hebben op de"
 
 #: includes/class-wp-foft-loader-settings.php:333
+#, fuzzy
 msgid "properties here."
-msgstr ""
+msgstr "eigenschappen hier."
 
 #: includes/class-wp-foft-loader-settings.php:335
+#, fuzzy
 msgid "Stage 1 <abbr>CSS</abbr>"
-msgstr ""
+msgstr "Fase 1 <abbr> CSS </ abbr>"
 
 #: includes/class-wp-foft-loader-settings.php:336
+#, fuzzy
 msgid "Declarations placed in this field will load the"
-msgstr ""
+msgstr "Verklaringen geplaatst in dit veld laden de"
 
 #: includes/class-wp-foft-loader-settings.php:336
+#, fuzzy
 msgid "Base64 subset"
-msgstr ""
+msgstr "Base64-subset"
 
 #: includes/class-wp-foft-loader-settings.php:336
+#, fuzzy
 msgid "as a placeholder while the external fonts load."
-msgstr ""
+msgstr "als een tijdelijke aanduiding, terwijl de externe lettertypen worden geladen."
 
 #: includes/class-wp-foft-loader-settings.php:338
+#, fuzzy
 msgid "Use only the family name followed by"
-msgstr ""
+msgstr "Gebruik alleen de achternaam gevolgd door"
 
 #: includes/class-wp-foft-loader-settings.php:338
+#, fuzzy
 msgid "(<em>case-insensitive</em>)"
-msgstr ""
+msgstr "(<Em> niet hoofdlettergevoelig </ em>)"
 
 #: includes/class-wp-foft-loader-settings.php:339
+#, fuzzy
 msgid "Family names must match the names you input on the"
-msgstr ""
+msgstr "Familienamen moeten overeenkomen met de namen die u opgeeft in de"
 
 #: includes/class-wp-foft-loader-settings.php:339
 #: includes/class-wp-foft-loader-settings.php:379
+#, fuzzy
 msgid "screen."
-msgstr ""
+msgstr "scherm."
 
 #: includes/class-wp-foft-loader-settings.php:340
 #: includes/class-wp-foft-loader-settings.php:380
+#, fuzzy
 msgid "Omit weights and styles from the font name"
-msgstr ""
+msgstr "Weglaten van gewichten en stijlen van de naam van het lettertype"
 
 #: includes/class-wp-foft-loader-settings.php:341
 #: includes/class-wp-foft-loader-settings.php:381
+#, fuzzy
 msgid "All declarations must start with the"
-msgstr ""
+msgstr "Alle aangiften moeten beginnen met de"
 
 #: includes/class-wp-foft-loader-settings.php:341
 #: includes/class-wp-foft-loader-settings.php:381
+#, fuzzy
 msgid "class"
-msgstr ""
+msgstr "klasse"
 
 #: includes/class-wp-foft-loader-settings.php:343
 #: includes/class-wp-foft-loader-settings.php:384
+#, fuzzy
 msgid "See the"
-msgstr ""
+msgstr "Zie de"
 
 #: includes/class-wp-foft-loader-settings.php:343
 #: includes/class-wp-foft-loader-settings.php:384
+#, fuzzy
 msgid "Documentation screen"
-msgstr ""
+msgstr "Documentatie scherm"
 
 #: includes/class-wp-foft-loader-settings.php:343
+#, fuzzy
 msgid "to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default."
-msgstr ""
+msgstr "om Stage 1 <abbr> CSS </ abbr> te bekijken dat deze plugin standaard laadt."
 
 #: includes/class-wp-foft-loader-settings.php:345
 #: includes/class-wp-foft-loader-settings.php:386
+#, fuzzy
 msgid "Incorrect:"
-msgstr ""
+msgstr "Niet correct:"
 
 #: includes/class-wp-foft-loader-settings.php:346
+#, fuzzy
 msgid "Missing prefix:"
-msgstr ""
+msgstr "Ontbrekend voorvoegsel:"
 
 #: includes/class-wp-foft-loader-settings.php:351
+#, fuzzy
 msgid "Don&rsquo;t include the weight or style"
-msgstr ""
+msgstr "Vergeet niet het gewicht of de stijl"
 
 #: includes/class-wp-foft-loader-settings.php:355
+#, fuzzy
 msgid "Missing"
-msgstr ""
+msgstr "Missend"
 
 #: includes/class-wp-foft-loader-settings.php:355
+#, fuzzy
 msgid "Subset"
-msgstr ""
+msgstr "deelverzameling"
 
 #: includes/class-wp-foft-loader-settings.php:355
+#, fuzzy
 msgid "suffix"
-msgstr ""
+msgstr "achtervoegsel"
 
 #: includes/class-wp-foft-loader-settings.php:360
 #: includes/class-wp-foft-loader-settings.php:401
-msgid ""
-"&ldquo;font-family,&rdquo; &ldquo;font-weight,&rdquo; &ldquo;font-style,"
-"&rdquo;"
-msgstr ""
+#, fuzzy
+msgid "&ldquo;font-family,&rdquo; &ldquo;font-weight,&rdquo; &ldquo;font-style,&rdquo;"
+msgstr "& Ldquo; font-family, & rdquo; & Ldquo; font-weight, & rdquo; & Ldquo; font-style, & rdquo;"
 
 #: includes/class-wp-foft-loader-settings.php:361
 #: includes/class-wp-foft-loader-settings.php:402
+#, fuzzy
 msgid "and &ldquo;font-variant&rdquo; rules only"
-msgstr ""
+msgstr "en & ldquo; -lettertypevariant & rdquo; alleen regels"
 
 #: includes/class-wp-foft-loader-settings.php:363
 #: includes/class-wp-foft-loader-settings.php:405
+#, fuzzy
 msgid "Correct:"
-msgstr ""
+msgstr "Correct:"
 
 #: includes/class-wp-foft-loader-settings.php:369
+#, fuzzy
 msgid "Suffix is case-insensitive"
-msgstr ""
+msgstr "Suffix is niet hoofdlettergevoelig"
 
 #: includes/class-wp-foft-loader-settings.php:376
+#, fuzzy
 msgid "Stage 2 <abbr>CSS</abbr>"
-msgstr ""
+msgstr "Fase 2 <abbr> CSS </ abbr>"
 
 #: includes/class-wp-foft-loader-settings.php:378
+#, fuzzy
 msgid "Use only the family name"
-msgstr ""
+msgstr "Gebruik alleen de achternaam"
 
 #: includes/class-wp-foft-loader-settings.php:379
-msgid ""
-"Family names must match the file names for the fonts you uploaded on the"
-msgstr ""
+#, fuzzy
+msgid "Family names must match the file names for the fonts you uploaded on the"
+msgstr "Familienamen moeten overeenkomen met de bestandsnamen voor de lettertypen die u hebt geüpload op de"
 
 #: includes/class-wp-foft-loader-settings.php:382
+#, fuzzy
 msgid "For best performance, please"
-msgstr ""
+msgstr "Voor de beste prestaties, alstublieft"
 
 #: includes/class-wp-foft-loader-settings.php:382
+#, fuzzy
 msgid "minify your <abbr>CSS</abbr></a> before pasting it into the form."
-msgstr ""
+msgstr "verkleint uw <abbr> CSS </ abbr> </a> voordat u het in het formulier plakt."
 
 #: includes/class-wp-foft-loader-settings.php:384
+#, fuzzy
 msgid "to view the Stage 2 <abbr>CSS</abbr> that this plugin loads by default."
-msgstr ""
+msgstr "om de Stage 2 <abbr> CSS </ abbr> te bekijken die deze plugin standaard laadt."
 
 #: includes/class-wp-foft-loader-settings.php:387
+#, fuzzy
 msgid "Missing class:"
-msgstr ""
+msgstr "Ontbrekende les:"
 
 #: includes/class-wp-foft-loader-settings.php:394
+#, fuzzy
 msgid "Don&rsquo;t include style in font name."
-msgstr ""
+msgstr "Voeg stijl niet toe aan de naam van het lettertype."
 
 #: includes/class-wp-foft-loader-settings.php:395
+#, fuzzy
 msgid "Better yet, omit declaration altogether."
-msgstr ""
+msgstr "Nog beter, laat de verklaring helemaal weg."
 
 #: includes/class-wp-foft-loader-settings.php:413
-msgid ""
-"No need to redeclare the font-family &mdash; all weights map to a single "
-"family name"
-msgstr ""
+#, fuzzy
+msgid "No need to redeclare the font-family &mdash; all weights map to a single family name"
+msgstr "U hoeft de lettertypefamilie niet opnieuw in te stellen & mdash; alle gewichten verwijzen naar een enkele familienaam"
 
 #: includes/class-wp-foft-loader-settings.php:414
+#, fuzzy
 msgid "This will use the lato-bold font"
-msgstr ""
+msgstr "Dit gebruikt het vetgedrukte lettertype"
 
 #: includes/class-wp-foft-loader-settings.php:423
+#, fuzzy
 msgid "Plugin CSS"
-msgstr ""
+msgstr "Plugin CSS"
 
 #: includes/class-wp-foft-loader-settings.php:424
+#, fuzzy
 msgid "The plugin loads some <abbr>CSS</abbr> by default."
-msgstr ""
+msgstr "De plugin laadt standaard wat <abbr> CSS </ abbr>."
 
 #: includes/class-wp-foft-loader-settings.php:427
+#, fuzzy
 msgid "Default <abbr>CSS</abbr> Off"
-msgstr ""
+msgstr "Standaard <abbr> CSS </ abbr> Uit"
 
 #: includes/class-wp-foft-loader-settings.php:428
+#, fuzzy
 msgid "Default <abbr>CSS</abbr> On"
-msgstr ""
+msgstr "Standaard <abbr> CSS </ abbr> Aan"
 
 #: includes/class-wp-foft-loader-settings.php:434
+#, fuzzy
 msgid "Font Display"
-msgstr ""
+msgstr "Lettertype weergave"
 
 #: includes/class-wp-foft-loader-settings.php:435
+#, fuzzy
 msgid "Override the"
-msgstr ""
+msgstr "Overschrijf de"
 
 #: includes/class-wp-foft-loader-settings.php:435
+#, fuzzy
 msgid " property here. The plugin uses"
-msgstr ""
+msgstr " eigendom hier. De plug-in gebruikt"
 
 #: includes/class-wp-foft-loader-settings.php:435
+#, fuzzy
 msgid " by default."
-msgstr ""
+msgstr " standaard."
 
 #: includes/class-wp-foft-loader-settings.php:448
+#, fuzzy
 msgid "Stage 1 CSS"
-msgstr ""
+msgstr "Fase 1 CSS"
 
 #: includes/class-wp-foft-loader-settings.php:449
 #: includes/class-wp-foft-loader-settings.php:460
+#, fuzzy
 msgid "Place <abbr>CSS</abbr> font declarations here."
-msgstr ""
+msgstr "Plaats <abbr> CSS </ abbr> doopvontverklaringen hier."
 
 #: includes/class-wp-foft-loader-settings.php:452
 #: includes/class-wp-foft-loader-settings.php:463
+#, fuzzy
 msgid "Example:"
-msgstr ""
+msgstr "Voorbeeld:"
 
 #: includes/class-wp-foft-loader-settings.php:459
+#, fuzzy
 msgid "Stage 2 CSS"
-msgstr ""
+msgstr "Fase 2 CSS"
 
 #: includes/class-wp-foft-loader-settings.php:475
+#, fuzzy
 msgid "Font Stack"
-msgstr ""
+msgstr "Font Stack"
 
 #: includes/class-wp-foft-loader-settings.php:476
-msgid ""
-"Change the default font fallbacks in case your custom fonts don&rsquo;t load."
-msgstr ""
+#, fuzzy
+msgid "Change the default font fallbacks in case your custom fonts don&rsquo;t load."
+msgstr "Wijzig de standaard fallbacks van lettertypen in het geval dat uw aangepaste lettertypen niet worden geladen."
 
 #: includes/class-wp-foft-loader-settings.php:476
+#, fuzzy
 msgid "Don&rsquo;t include the names of your default custom fonts here."
-msgstr ""
+msgstr "Voeg hier de namen van uw standaard aangepaste lettertypen niet toe."
 
 #: includes/class-wp-foft-loader-settings.php:481
+#, fuzzy
 msgid "Font stack for display font. Applies to high-level headings"
-msgstr ""
+msgstr "Lettertypestapel voor displaylettertype. Van toepassing op hoofdrubrieken op hoog niveau"
 
 #: includes/class-wp-foft-loader-settings.php:489
+#, fuzzy
 msgid "Font stack for body text. This can be a serif or sans-serif font."
-msgstr ""
+msgstr "Lettertypestapel voor hoofdtekst. Dit kan een schreefloos of schreefloos lettertype zijn."
 
 #: includes/class-wp-foft-loader-settings.php:498
+#, fuzzy
 msgid "Font stack for non-body elements,"
-msgstr ""
+msgstr "Lettertypestapel voor niet-body-elementen,"
 
 #: includes/class-wp-foft-loader-settings.php:507
-msgid ""
-"Font stack for monospaced fonts. Used for code examples, preformatted text, "
-"and tabular data."
-msgstr ""
+#, fuzzy
+msgid "Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data."
+msgstr "Lettertypestapel voor monospaced lettertypen. Gebruikt voor codevoorbeelden, vooraf opgemaakte tekst en tabelgegevens."
 
 #: includes/class-wp-foft-loader-settings.php:517
+#, fuzzy
 msgid "Documentation"
-msgstr ""
+msgstr "Documentatie"
 
 #: includes/class-wp-foft-loader-settings.php:519
+#, fuzzy
 msgid "Fonts Stage 1"
-msgstr ""
+msgstr "Lettertypen Fase 1"
 
 #: includes/class-wp-foft-loader-settings.php:520
-msgid ""
-"This plugins always loads the following Stage 1 styles. The Stage 1 fonts "
-"are inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <"
-"$headingSubset>, and <$monoSubset> correspond to the Body, Other Elements, "
-"Headings, and Monospaced font-families configured on the"
-msgstr ""
+#, fuzzy
+msgid "This plugin always loads the following Stage 1 styles. The Stage 1 fonts are inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <$headingSubset>, and <$monoSubset> correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the"
+msgstr "Deze plug-in laadt altijd de volgende Stage 1-stijlen. De Stage 1-lettertypen zijn inline, subsetted, base64-lettertypen. <$ bodySubset>, <$ altSubset>, <$ headingSubset> en <$ monoSubset> komen overeen met de hoofdlettergroep Body, Other Elements, Headings en Monospaced die op de"
 
 #: includes/class-wp-foft-loader-settings.php:554
+#, fuzzy
 msgid "Fonts Stage 2"
-msgstr ""
+msgstr "Lettertypen Fase 2"
 
 #: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
+msgid "This plugin also loads the following Stage 2 styles. You can disable these styles on the"
+msgstr "Deze plug-in laadt ook de volgende Stage 2-stijlen. U kunt deze stijlen uitschakelen op de"
+
+#: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
+msgid "options screen"
+msgstr "opties scherm"
+
+#: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
+msgid "correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the"
+msgstr "komen overeen met de lettertype-lettertypen, Andere elementen, Koppen en Monospaced die op de computer zijn geconfigureerd"
+
+#: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
 msgid "Optimize screen"
-msgstr ""
+msgstr "Scherm optimaliseren"
 
-#: includes/class-wp-foft-loader-settings.php:720
+#: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
+msgid "You can change the default font fallbacks on the"
+msgstr "U kunt de standaardlettertypevalbacks op de wijzigen"
+
+#: includes/class-wp-foft-loader-settings.php:555
+#, fuzzy
+msgid "Font Stack settings screen"
+msgstr "Font Stack-instellingenscherm"
+
+#: includes/class-wp-foft-loader-settings.php:653
+#, fuzzy
+msgid "Video Tutorials"
+msgstr "Video uitleg"
+
+#: includes/class-wp-foft-loader-settings.php:729
+#, fuzzy
 msgid "WP <abbr>FOFT</abbr> Loader Settings"
-msgstr ""
+msgstr "WP <abbr> FOFT </ abbr> Instellingen van de lader"
 
-#: includes/class-wp-foft-loader-settings.php:720
-msgid ""
-"Automates <a href=\"https://www.zachleat.com/web/comprehensive-webfonts/"
-"#critical-foft-data-uri\" rel=\"external noreferrer noopener"
-"\"><strong>Critical <abbr title=\"Flash of Faux Text\">FOFT</abbr> with Data "
-"<abbr title=\"Uniform Resourse Identifier\">URI</abbr></a></strong> to speed "
-"up font loading while eliminating Flash of Unstyled Text (<abbr>FOUT</"
-"abbr>). Based on the work of <span class=\"h-card\"><a class=\"p-name u-url"
-"\" href=\"https://www.zachleat.com/\">Zach Leatherman</a></span>. "
-msgstr ""
+#: includes/class-wp-foft-loader-settings.php:729
+#, fuzzy
+msgid "Automates <a href=\"https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-data-uri\" rel=\"external noreferrer noopener\"><strong>Critical <abbr title=\"Flash of Faux Text\">FOFT</abbr> with Data <abbr title=\"Uniform Resourse Identifier\">URI</abbr></a></strong> to speed up font loading while eliminating Flash of Unstyled Text (<abbr>FOUT</abbr>). Based on the work of <span class=\"h-card\"><a class=\"p-name u-url\" href=\"https://www.zachleat.com/\">Zach Leatherman</a></span>. "
+msgstr "Automatiseert <a href=\"https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-data-uri\" rel=\"external noreferrer noopener\"> <strong> Critical <abbr title = \"Flash of Faux Text \"> FOFT </ abbr> met gegevens <abbr title =\" Uniform Resourse Identifier \"> URI </ abbr> </a> </ strong> om het laden van lettertypen te versnellen terwijl Flash of Unstyled Text wordt geëlimineerd (<abbr> FOUT </ abbr>). Gebaseerd op het werk van <span class = \"h-card\"> <a class=\"p-name u-url\" href=\"https://www.zachleat.com/\"> Zach Leatherman </a> </ span>. "
 
-#: includes/class-wp-foft-loader-settings.php:720
-msgid ""
-"Please <strong>save your changes</strong> before navigating to the next tab. "
-msgstr ""
+#: includes/class-wp-foft-loader-settings.php:729
+#, fuzzy
+msgid "Please <strong>save your changes</strong> before navigating to the next tab. "
+msgstr "<Strong> sla uw wijzigingen op </ strong> voordat u naar het volgende tabblad gaat. "
 
-#: includes/class-wp-foft-loader-settings.php:772
+#: includes/class-wp-foft-loader-settings.php:781
+#, fuzzy
 msgid "Save Settings"
-msgstr ""
+msgstr "Instellingen opslaan"
 
 #: includes/lib/class-wp-foft-loader-admin-api.php:100
+#, fuzzy
 msgid "Upload new font"
-msgstr ""
+msgstr "Upload een nieuw lettertype"
 
 #: includes/lib/class-wp-foft-loader-admin-api.php:100
+#, fuzzy
 msgid "Use font"
-msgstr ""
+msgstr "Gebruik lettertype"
 
 #. Plugin URI of the plugin/theme
+#: 
 msgid "https://github.com/seezee/WP-FOFTLoader/"
-msgstr ""
+msgstr "https://github.com/seezee/WP-FOFTLoader/"
 
 #. Description of the plugin/theme
-msgid ""
-"Implements and automates Zach Leatherman's Critical FOFT with Data URI (see "
-"https://www.zachleat.com/web/comprehensive-webfonts/)"
-msgstr ""
+#: 
+msgid "Implements and automates Zach Leatherman's Critical FOFT with Data URI (see https://www.zachleat.com/web/comprehensive-webfonts/)"
+msgstr "Implementeert en automatiseert Zach Leatherman's Critical FOFT met gegevens-URI (zie https://www.zachleat.com/web/comprehensive-webfonts/)"
 
 #. Author of the plugin/theme
+#: 
 msgid "Chris J. Zähller / Messenger Web Design"
-msgstr ""
+msgstr "Chris J. Zähller / Messenger Web Design"
 
 #. Author URI of the plugin/theme
-msgid "http://messengerwebdesign.com/"
-msgstr ""
+#: 
+msgid "https://messengerwebdesign.com/"
+msgstr "https://messengerwebdesign.com/"
+

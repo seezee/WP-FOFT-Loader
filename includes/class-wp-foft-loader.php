@@ -1,16 +1,18 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class WP_FOFT_Loader {
 
 	/**
 	 * The single instance of WP_FOFT_Loader.
-	 * @var 	object
+	 * @var     object
 	 * @access  private
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
-	private static $_instance = null;
+	private static $instance = null;
 
 	/**
 	 * Settings class object
@@ -26,7 +28,7 @@ class WP_FOFT_Loader {
 	 * @access  public
 	 * @since   1.0.0
 	 */
-	public $_version;
+	public $version;
 
 	/**
 	 * The token.
@@ -34,7 +36,7 @@ class WP_FOFT_Loader {
 	 * @access  public
 	 * @since   1.0.0
 	 */
-	public $_token;
+	public $token;
 
 	/**
 	 * The main plugin file.
@@ -82,13 +84,13 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function __construct ( $file = '', $version = '1.0.18' ) {
-		$this->_version = $version;
-		$this->_token = 'wp_foft_loader';
+	public function __construct( $file = '', $version = '1.0.27' ) {
+		$this->version = $version;
+		$this->token   = 'wp_foft_loader';
 
 		// Load plugin environment variables
-		$this->file = $file;
-		$this->dir = dirname( $this->file );
+		$this->file       = $file;
+		$this->dir        = dirname( $this->file );
 		$this->assets_dir = trailingslashit( $this->dir ) . 'assets';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', $this->file ) ) );
 
@@ -118,9 +120,11 @@ class WP_FOFT_Loader {
 	 * @param  string $description Description of post type
 	 * @return object              Post type class object
 	 */
-	public function register_post_type ( $post_type = '', $plural = '', $single = '', $description = '', $options = array() ) {
+	public function register_post_type( $post_type = '', $plural = '', $single = '', $description = '', $options = array() ) {
 
-		if ( ! $post_type || ! $plural || ! $single ) return;
+		if ( ! $post_type || ! $plural || ! $single ) {
+			return;
+		}
 
 		$post_type = new WP_FOFT_Loader_Post_Type( $post_type, $plural, $single, $description, $options );
 
@@ -135,9 +139,11 @@ class WP_FOFT_Loader {
 	 * @param  array  $post_types Post types to which this taxonomy applies
 	 * @return object             Taxonomy class object
 	 */
-	public function register_taxonomy ( $taxonomy = '', $plural = '', $single = '', $post_types = array(), $taxonomy_args = array() ) {
+	public function register_taxonomy( $taxonomy = '', $plural = '', $single = '', $post_types = array(), $taxonomy_args = array() ) {
 
-		if ( ! $taxonomy || ! $plural || ! $single ) return;
+		if ( ! $taxonomy || ! $plural || ! $single ) {
+			return;
+		}
 
 		$taxonomy = new WP_FOFT_Loader_Taxonomy( $taxonomy, $plural, $single, $post_types, $taxonomy_args );
 
@@ -150,9 +156,9 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function admin_enqueue_styles ( $hook = '' ) {
-		wp_register_style( $this->_token . '-admin', esc_url( $this->assets_url ) . 'css/admin.css', array(), $this->_version );
-		wp_enqueue_style( $this->_token . '-admin' );
+	public function admin_enqueue_styles( $hook = '' ) {
+		wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin.css', array(), $this->version );
+		wp_enqueue_style( $this->token . '-admin' );
 	} // End admin_enqueue_styles ()
 
 	/**
@@ -161,9 +167,9 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function admin_enqueue_scripts ( $hook = '' ) {
-		wp_register_script( $this->_token . '-admin', esc_url( $this->assets_url ) . 'js/admin' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
-		wp_enqueue_script( $this->_token . '-admin' );
+	public function admin_enqueue_scripts( $hook = '' ) {
+		wp_register_script( $this->token . '-admin', esc_url( $this->assets_url ) . 'js/admin' . $this->script_suffix . '.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->token . '-admin' );
 	} // End admin_enqueue_scripts ()
 
 	/**
@@ -172,7 +178,7 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function load_localisation () {
+	public function load_localisation() {
 		load_plugin_textdomain( 'wp-foft-loader', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
 	} // End load_localisation ()
 
@@ -182,13 +188,13 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function load_plugin_textdomain () {
-	    $domain = 'wp-foft-loader';
+	public function load_plugin_textdomain() {
+		$domain = 'wp-foft-loader';
 
-	    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
-	    load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
-	    load_plugin_textdomain( $domain, false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
+		load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
+		load_plugin_textdomain( $domain, false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
 	} // End load_plugin_textdomain ()
 
 	/**
@@ -201,11 +207,11 @@ class WP_FOFT_Loader {
 	 * @see WP_FOFT_Loader()
 	 * @return Main WP_FOFT_Loader instance
 	 */
-	public static function instance ( $file = '', $version = '1.0.18' ) {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self( $file, $version );
+	public static function instance( $file = '', $version = '1.0.27' ) {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self( $file, $version );
 		}
-		return self::$_instance;
+		return self::$instance;
 	} // End instance ()
 
 	/**
@@ -213,8 +219,8 @@ class WP_FOFT_Loader {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __clone () {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), $this->_version );
+	public function __clone() {
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->version );
 	} // End __clone ()
 
 	/**
@@ -222,8 +228,8 @@ class WP_FOFT_Loader {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __wakeup () {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), $this->_version );
+	public function __wakeup() {
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->version );
 	} // End __wakeup ()
 
 	/**
@@ -232,8 +238,8 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function install () {
-		$this->_log_version_number();
+	public function install() {
+		$this->logversion_number();
 	} // End install ()
 
 	/**
@@ -242,8 +248,8 @@ class WP_FOFT_Loader {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	private function _log_version_number () {
-		update_option( $this->_token . '_version', $this->_version );
-	} // End _log_version_number ()
+	private function logversion_number() {
+		update_option( $this->token . 'version', $this->version );
+	} // End logversion_number ()
 
 }

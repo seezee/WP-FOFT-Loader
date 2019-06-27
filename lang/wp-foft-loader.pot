@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WP FOFT Loader package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP FOFT Loader 1.0\n"
+"Project-Id-Version: WP FOFT Loader 1.0.27\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader\n"
 "POT-Creation-Date: 2019-06-21 21:54:21+00:00\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "WP FOFT Loader Settings"
 msgstr ""
 
-#. #-#-#-#-#  wp-foft-loader.pot (WP FOFT Loader 1.0)  #-#-#-#-#
+#. #-#-#-#-#  wp-foft-loader.pot (WP FOFT Loader 1.0.27)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: includes/class-wp-foft-loader-settings.php:72
 msgid "WP FOFT Loader"
@@ -792,5 +792,5 @@ msgid "Chris J. Zähller / Messenger Web Design"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://messengerwebdesign.com/"
+msgid "https://messengerwebdesign.com/"
 msgstr ""

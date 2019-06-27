@@ -82,3 +82,7 @@ span.nobreak {
   -webkit-column-rule: 1px solid;
           column-rule: 1px solid;
 }
+
+.wp-admin-lite-blue {
+  color:#21759b
+}
