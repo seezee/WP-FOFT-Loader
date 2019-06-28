@@ -1,5 +1,6 @@
-# WP FOFT Loader  
-Contributors: seezee  
+=== WP FOFT Loader ===  
+Contributors: seezee
+Translators: augusgils, nilovelez
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
@@ -23,24 +24,18 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 *[WPCS]: Wordpress Code Sniffer
 *[CSS]: Cascading Style Sheets
 
-
-
-## Description
+== Description ==
 
 This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
-## Acknowledgement
+== Acknowledgement ==
 
-This plugin is based on [KnowTheCode’s Starter Plugin](https://github.com/KnowTheCode/starter-plugin), a WordPress plugin boilerplate that emphasizes code quality.
+This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/hlashbrooke/WordPress-Plugin-Template), a robust and GPL-licensed code template for creating a standards-compliant WordPress plugin.
 
-The boilerplate provides you with a solid foundation to rapidly start your custom plugin development project. It’s fully compliant with PHPCS and WPCS coding standards. It’s modular in design. Emphasis is given to SOLID principles. Validators are built right into the plugin, pre-configured and pre-wired for you to use.
-
-## Installation
+== Installation ==
 
 ### USING THE WORDPRESS DASHBOARD
 1. Navigate to the “Add New” in the plugins dashboard
-2. Search for “WP FOFT Loader”
-2. Search for “WP FOFT Loader”
 2. Search for “WP FOFT Loader”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
@@ -65,18 +60,16 @@ The boilerplate provides you with a solid foundation to rapidly start your custo
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
 2. Upload the ZIP file from the Wordpress dashboard or by <abbr>FTP</abbr>
 3. Activate the plugin through the ‘Plugins’ menu in WordPress
-4. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings. 
+4. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
-**See detailed setup instructions below.**
-
-## Generating and Uploading the Font Files
+== Generating and Uploading the Font Files ==
 
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:       “WOFF”
-				        “WOFF2”
-	Advanced Options:   “Font Name Suffix” = -webfont
+	Font Formats:			“WOFF”
+					“WOFF2”
+	Advanced Options:		“Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
 
@@ -120,9 +113,9 @@ boldItalic (maps to 700)
 extraBoldItalic | ultraBoldItalic (maps to 800)  
 blackItalic | heavyItalic (maps to 900)  
 
-## Configuration
+== Configuration ==
 
-= Optimize =
+### Optimize
 
 Load small subsetted font files before the page fully loads to improve performance. This setting works with the Base64 settings in the next tab. All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Base64 settings field.
 
@@ -149,11 +142,11 @@ Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, 
 	Select “Expert”
 	Font Formats:			None
 	Fix Missing Glyphs:		None
-	Subsetting:			    “Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
-					        Leave everything else unchecked  
+	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
+					Leave everything else unchecked  
 	OpenType Features:		None
-	OpenType Flattening:	None
-	CSS:				    “Base64 Encode”
+	OpenType Flattening:		None
+	CSS:				“Base64 Encode”
 
 For detailed recommended settings, see the plugin Base64 options screen. The generator will produce a file that looks something like this:
 
@@ -180,7 +173,7 @@ The plugin uses `font-display: swap` by default. You can override the [`font-dis
 
 Declarations placed in this field will load the Base64 subset as a placeholder while the external fonts load.
 
-* Use only the family name followed by Subset(case-insensitive)
+* Use only the family name followed by Subset (case-insensitive)
 * Family names must match the names you input on the “Optimize” screen.
 * Omit weights and styles from the font name
 * All declarations must start with the fonts-stage-1 class
@@ -268,7 +261,7 @@ Change the default font fallbacks in case your custom fonts don’t load. Don’
 
 See the Documentation screen to view the CSS this plugin loads by default and to view video tutorials.
 
-## Screenshots
+== Screenshots ==
 
 1. Uploads screen: upload your custom web fonts here
 2. Optimize screen: tells fontobserver.js which fonts to load for stage 1
@@ -278,11 +271,11 @@ See the Documentation screen to view the CSS this plugin loads by default and to
 6. Documentation (1): Information about the CSS that the plugin loads by default
 7. Documentation (2): Video tutorials
 
-## Frequently Asked Questions
+== Frequently Asked Questions ==
 
 ### What is the plugin for?
 
-This plugin template implements and automates [Zach Leatherman’s Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
+This plugin implements and automates [Zach Leatherman’s Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
 
 **PROS**
 
@@ -307,12 +300,25 @@ I’m looking for collaborators to improve the code. If you are an experienced W
 
 Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
 
-## Changelog
+== Translations ==
+
+* English: Default language, always included
+* Dutch, Netherlands (nl_NL) by Augus van Gils @augusgils
+
+Forthcoming translations:
+
+* Spanish (es) by Daniel de Lira
+* Spanish (es_MX) by Nilo Vélez @nilovelez
+
+== Changelog ==
 
 = 1.0.28 =
 * 2019-06-27
+* More sanitizing
 * Create correct icon sizes for WP Plugin Repository
 * Fix readme.txt formatting
+* Changes to README content
+* Corrected some errors in Dutch translation
 
 = 1.0.27 =
 * 2019-06-27
@@ -449,8 +455,18 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 * 2019-06-13
 * Initial release
 
-## Upgrade Notice
+== Upgrade Notice ==
+
+[//]: # (*********************************************************************          **********Update version tag in main file at lines _4_ and _45_!*****          *********************************************************************)
+
+[//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
+
 = 1.0.28 =
 * 2019-06-27
+* More sanitizing
 * Create correct icon sizes for WP Plugin Repository
 * Fix readme.txt formatting
+* Changes to README content
+* Corrected some errors in Dutch translation
+
+[//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

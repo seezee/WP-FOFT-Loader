@@ -70,19 +70,19 @@ class WP_FOFT_Loader_Admin_API {
 		switch ( $field['type'] ) {
 
 			case 'hidden':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . "\n";
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 			case 'text':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . "\n";
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 			case 'textarea':
-				$html .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="5" cols="50" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . $data . '</textarea><br/>' . "\n";
+				$html .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="5" cols="50" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . $data . '</textarea><br/>' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 			case 'textarea_large':
-				$html .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="35" cols="100" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . $data . '</textarea><br/>' . "\n";
+				$html .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="35" cols="100" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . $data . '</textarea><br/>' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 			case 'radio':
@@ -100,10 +100,10 @@ class WP_FOFT_Loader_Admin_API {
 				if ( $data ) {
 					$image_thumb = wp_get_attachment_thumb_url( $data );
 				}
-				$html .= '<img id="' . $option_name . '_preview" class="image_preview" src="' . $image_thumb . '" /><br/>' . "\n"; */
-				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font', 'wp-foft-loader' ) . '" data-uploader_button_text="' . __( 'Use font', 'wp-foft-loader' ) . '" class="image_upload_button button" value="' . __( 'Upload new font', 'wp-foft-loader' ) . '" />' . "\n";
-				//              $html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wp-foft-loader' ) . '" />' . "\n";
-				$html .= '<input id="' . $option_name . '" class="image_data_field" type="hidden" name="' . $option_name . '" value="' . $data . '"/><br/>' . "\n";
+				$html .= '<img id="' . $option_name . '_preview" class="image_preview" src="' . $image_thumb . '" /><br/>' . chr( 0x0D ) . chr( 0x0A ); */
+				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font', 'wp-foft-loader' ) . '" data-uploader_button_text="' . __( 'Use font', 'wp-foft-loader' ) . '" class="image_upload_button button" value="' . __( 'Upload new font', 'wp-foft-loader' ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+				//              $html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wp-foft-loader' ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+				$html .= '<input id="' . $option_name . '" class="image_data_field" type="hidden" name="' . $option_name . '" value="' . $data . '"/><br/>' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 		}
@@ -116,13 +116,13 @@ class WP_FOFT_Loader_Admin_API {
 
 			default:
 				if ( ! $post ) {
-					$html .= '<label for="' . esc_attr( $field['id'] ) . '">' . "\n";
+					$html .= '<label for="' . esc_attr( $field['id'] ) . '">' . chr( 0x0D ) . chr( 0x0A );
 				}
 
-				$html .= '<span class="description">' . $field['description'] . '</span>' . "\n";
+				$html .= '<span class="description">' . $field['description'] . '</span>' . chr( 0x0D ) . chr( 0x0A );
 
 				if ( ! $post ) {
-					$html .= '</label>' . "\n";
+					$html .= '</label>' . chr( 0x0D ) . chr( 0x0A );
 				}
 				break;
 		}
@@ -189,7 +189,7 @@ class WP_FOFT_Loader_Admin_API {
 			return;
 		}
 
-		echo '<div class="custom-field-panel">' . "\n";
+		echo '<div class="custom-field-panel">' . chr( 0x0D ) . chr( 0x0A );
 
 		foreach ( $fields as $field ) {
 
@@ -206,7 +206,7 @@ class WP_FOFT_Loader_Admin_API {
 			}
 		}
 
-		echo '</div>' . "\n";
+		echo '</div>' . chr( 0x0D ) . chr( 0x0A );
 
 	}
 
@@ -222,7 +222,7 @@ class WP_FOFT_Loader_Admin_API {
 			return;
 		}
 
-		$field = '<p class="form-field"><label for="' . $field['id'] . '">' . $field['label'] . '</label>' . $this->display_field( $field, $post, false ) . '</p>' . "\n";
+		$field = '<p class="form-field"><label for="' . $field['id'] . '">' . $field['label'] . '</label>' . $this->display_field( $field, $post, false ) . '</p>' . chr( 0x0D ) . chr( 0x0A );
 
 		echo $field;
 	}

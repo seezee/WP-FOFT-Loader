@@ -106,12 +106,12 @@ class WP_FOFT_Loader_Settings {
 	public function upload_media_manager_by_default() {
 		if ( did_action( 'wp_enqueue_media' ) ) {
 			?>
-		<script type="text/javascript">
-			jQuery( document ).ready( function ( $ ) {
-				wp.media.controller.Library.prototype.defaults.contentUserSetting = false;
-				wp.media.controller.FeaturedImage.prototype.defaults.contentUserSetting = false;
-			});
-		</script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		wp.media.controller.Library.prototype.defaults.contentUserSetting = false;
+		wp.media.controller.FeaturedImage.prototype.defaults.contentUserSetting = false;
+	});
+</script>
 			<?php
 		}
 	}
@@ -161,6 +161,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
   <dt>' . __( 'Shortcuts', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;' . __( 'Remember My Settings', 'wp-foft-loader' ) . '&rdquo;</dd>
 </dl>
+<hr>
 <p><strong>' . __( 'Filenames must follow the proper naming convention:', 'wp-foft-loader' ) . '</strong> <code>$family</code>SC-<code>$variant</code>-webfont-<code>$filetype</code>.</p>
 <dl>
 <dt>$family</dt>
@@ -220,7 +221,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	<dt>' . __( 'Incorrect', 'wp-foft-loader' ) . ':</dt>
 	<dd><strong>playfairdisplay-bold</strong> (' . __( 'use the family name only; omit the style', 'wp-foft-loader' ) . ', <abbr>i.e.</abbr>, &ldquo;bold&rdquo;)</dd>
 	<dd><strong>playfair display</strong> (' . __( 'spaces prohibited', 'wp-foft-loader' ) . ')</dd>
-	<dd><strong>Playfair Display</strong> (' . __( 'spaces prohibited', 'wp-foft-loader' ) . '</dd>
+	<dd><strong>Playfair Display</strong> (' . __( 'spaces prohibited', 'wp-foft-loader' ) . ')</dd>
 </dl>',
 			'fields'      => array(
 				array(
@@ -294,6 +295,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
   <dt>' . __( 'Shortcuts', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;' . __( 'Remember My Settings', 'wp-foft-loader' ) . '&rdquo;</dd>
 </dl>
+<hr>
 <p>' . __( 'The generator will produce a file that looks something like this:', 'wp-foft-loader' ) . '</p>
 <pre><code>@font-face{
   font-family: Merriweather;
@@ -522,7 +524,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			'title'       => __( 'Documentation', 'wp-foft-loader' ),
 			'description' => '<section>
 	<h3>' . __( 'Fonts Stage 1', 'wp-foft-loader' ) . '</h3>
-	<p>' . __( 'This plugin always loads the following Stage 1 styles. The Stage 1 fonts are inlined, subsetted, base64 fonts. <$bodySubset>, <$altSubset>, <$headingSubset>, and <$monoSubset> correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=optimize">' . __( 'Optimize', 'wp-foft-loader' ) . '</a> ' . __( 'and', 'wp-foft-loader' ) . '  <a href="?page=wp_foft_loader_settings&tab=base64">' . __( 'Base64', 'wp-foft-loader' ) . '</a> options screens.</p>
+	<p>' . __( 'This plugin always loads the following Stage 1 styles. The Stage 1 fonts are inlined, subsetted, base64 fonts. &lt;$bodySubset&gt;, &lt;$altSubset&gt;, &lt;$headingSubset&gt;, and &lt;$monoSubset&gt; correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=optimize">' . __( 'Optimize', 'wp-foft-loader' ) . '</a> ' . __( 'and', 'wp-foft-loader' ) . '  <a href="?page=wp_foft_loader_settings&tab=base64">' . __( 'Base64', 'wp-foft-loader' ) . '</a> options screens.</p>
 <pre class="col-3"><code>body {
   font-family: serif;
   font-weight: 400;
@@ -739,9 +741,150 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 		}
 	}
 
+	public function allowed_html() {
+		return array(
+			'a'        => array(
+				'class' => array(),
+				'href'  => array(),
+				'rel'   => array(),
+			),
+			'abbr'     => array(
+				'title' => array(),
+				'class' => array(),
+			),
+			'br'       => array(),
+			'code'     => array(
+				'class' => array(),
+			),
+			'dd'       => array(
+				'class' => array(),
+			),
+			'div'      => array(
+				'class' => array(),
+			),
+			'dl'       => array(
+				'class' => array(),
+			),
+			'dt'       => array(
+				'class' => array(),
+			),
+			'em'       => array(),
+			'form'     => array(
+				'method'  => array(),
+				'action'  => array(),
+				'enctype' => array(),
+			),
+			'h1'       => array(
+				'class' => array(),
+			),
+			'h2'       => array(
+				'class' => array(),
+			),
+			'h3'       => array(
+				'class' => array(),
+			),
+			'h4'       => array(
+				'class' => array(),
+			),
+			'h5'       => array(
+				'class' => array(),
+			),
+			'h6'       => array(
+				'class' => array(),
+			),
+			'hr'       => array(
+				'class' => array(),
+			),
+			'i'        => array(
+				'aria-hidden' => array(),
+				'class'       => array(),
+			),
+			'iframe'   => array(
+				'allow'           => array(),
+				'allowfullscreen' => array(),
+				'alt'             => array(),
+				'class'           => array(),
+				'frameborder'     => array(),
+				'height'          => array(),
+				'src'             => array(),
+				'width'           => array(),
+			),
+			'img'      => array(
+				'alt'    => array(),
+				'class'  => array(),
+				'height' => array(),
+				'src'    => array(),
+				'width'  => array(),
+			),
+			'input'    => array(
+				'checked'                   => array(),
+				'class'                     => array(),
+				'data-uploader_button_text' => array(),
+				'data-uploader_title'       => array(),
+				'hidden'                    => array(),
+				'id'                        => array(),
+				'name'                      => array(),
+				'tab'                       => array(),
+				'type'                      => array(),
+				'value'                     => array(),
+			),
+			'label'    => array(
+				'for' => array(),
+			),
+			'li'       => array(
+				'class' => array(),
+			),
+			'ol'       => array(
+				'class' => array(),
+			),
+			'p'        => array(
+				'class' => array(),
+			),
+			'pre'      => array(
+				'class' => array(),
+			),
+			'q'        => array(
+				'cite'  => array(),
+				'class' => array(),
+				'title' => array(),
+			),
+			'span'     => array(
+				'title' => array(),
+				'style' => array(),
+				'class' => array(),
+			),
+			'strike'   => array(),
+			'strong'   => array(),
+			'table'    => array(
+				'class' => array(),
+			),
+			'tbody'    => array(),
+			'td'       => array(),
+			'textarea' => array(
+				'cols'        => array(),
+				'id'          => array(),
+				'name'        => array(),
+				'placeholder' => array(),
+				'rows'        => array(),
+				'spellcheck'  => array(),
+				'textarea'    => array(),
+			),
+			'th'       => array(
+				'scope' => array(),
+			),
+			'tr'       => array(),
+			'ul'       => array(
+				'class' => array(),
+			),
+		);
+	}
+
 	public function settings_section( $section ) {
-		$html = '<p> ' . $this->settings[ $section['id'] ]['description'] . '</p>' . chr(0x0D) . chr(0x0A);
-		echo $html;
+
+		$allowed_html = $this->allowed_html();
+		$html         = '<p> ' . $this->settings[ $section['id'] ]['description'] . '</p>' . chr( 0x0D ) . chr( 0x0A );
+		echo wp_kses( $html, $allowed_html );
+
 	}
 
 	/**
@@ -750,10 +893,11 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 */
 	public function settings_page() {
 
-		// Build page HTML
-		$html      = '<div class="wrap" id="' . $this->parent->token . '_settings">' . chr(0x0D) . chr(0x0A) . '<h2><span class="wp-admin-lite-blue"><i class="fa fa-3x fa-font" aria-hidden="true"></i><i class="fa fa-2x fa-font" aria-hidden="true"></i><i class="fa fa-font" aria-hidden="true"></i></span> ' . __( 'WP <abbr>FOFT</abbr> Loader Settings', 'wp-foft-loader' ) . '</h2>' . chr(0x0D) . chr(0x0A) . '<p>' . __( 'Automates <a href="https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-data-uri" rel="external noreferrer noopener"><strong>Critical <abbr title="Flash of Faux Text">FOFT</abbr> with Data <abbr title="Uniform Resourse Identifier">URI</abbr></a></strong> to speed up font loading while eliminating Flash of Unstyled Text (<abbr>FOUT</abbr>). Based on the work of <span class="h-card"><a class="p-name u-url" href="https://www.zachleat.com/">Zach Leatherman</a></span>. ' ) . '</p>' . chr(0x0D) . chr(0x0A) . '<p>' . __( 'Please <strong>save your changes</strong> before navigating to the next tab. ' ) . '</p>' . chr(0x0D) . chr(0x0A);
+		$allowed_html = $this->allowed_html();
+		$html         = '<div class="wrap" id="' . $this->parent->token . '_settings">' . chr( 0x0D ) . chr( 0x0A ) . '<h2><span class="wp-admin-lite-blue"><i class="fa fa-3x fa-font" aria-hidden="true"></i><i class="fa fa-2x fa-font" aria-hidden="true"></i><i class="fa fa-font" aria-hidden="true"></i></span> ' . __( 'WP <abbr>FOFT</abbr> Loader Settings', 'wp-foft-loader' ) . '</h2>' . chr( 0x0D ) . chr( 0x0A ) . '<p>' . __( 'Automates <a href="https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-data-uri" rel="external noreferrer noopener"><strong>Critical <abbr title="Flash of Faux Text">FOFT</abbr> with Data <abbr title="Uniform Resourse Identifier">URI</abbr></a></strong> to speed up font loading while eliminating Flash of Unstyled Text (<abbr>FOUT</abbr>). Based on the work of <span class="h-card"><a class="p-name u-url" href="https://www.zachleat.com/">Zach Leatherman</a></span>. ' ) . '</p>' . chr( 0x0D ) . chr( 0x0A ) . '<p>' . __( 'Please <strong>save your changes</strong> before navigating to the next tab. ' ) . '</p>' . chr( 0x0D ) . chr( 0x0A );
 
-			$tab = '';
+		$tab = '';
+
 		if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
 			$tab .= $_GET['tab'];
 		}
@@ -761,7 +905,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			// Show page tabs
 		if ( is_array( $this->settings ) && 1 < count( $this->settings ) ) {
 
-			$html .= '<h2 class="nav-tab-wrapper">' . chr(0x0D) . chr(0x0A);
+			$html .= '<h2 class="nav-tab-wrapper">' . chr( 0x0D ) . chr( 0x0A );
 
 			$c = 0;
 			foreach ( $this->settings as $section => $data ) {
@@ -785,15 +929,15 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 				}
 
 				// Output tab
-				$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr(0x0D) . chr(0x0A);
+				$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr( 0x0D ) . chr( 0x0A );
 
 				++$c;
 			}
 
-			$html .= '</h2>' . chr(0x0D) . chr(0x0A);
+			$html .= '</h2>' . chr( 0x0D ) . chr( 0x0A );
 		}
-
-			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . chr(0x0D) . chr(0x0A);
+			settings_errors();
+			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . chr( 0x0D ) . chr( 0x0A );
 
 				// Get settings fields
 				ob_start();
@@ -801,14 +945,15 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 				do_settings_sections( $this->parent->token . '_settings' );
 				$html .= ob_get_clean();
 
-				$html     .= '<p class="submit">' . chr(0x0D) . chr(0x0A);
-					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . chr(0x0D) . chr(0x0A);
-					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wp-foft-loader' ) ) . '" />' . chr(0x0D) . chr(0x0A);
-				$html     .= '</p>' . chr(0x0D) . chr(0x0A);
-			$html         .= '</form>' . chr(0x0D) . chr(0x0A);
-		$html             .= '</div>' . chr(0x0D) . chr(0x0A);
+				$html     .= '<p class="submit">' . chr( 0x0D ) . chr( 0x0A );
+					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wp-foft-loader' ) ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+				$html     .= '</p>' . chr( 0x0D ) . chr( 0x0A );
+			$html         .= '</form>' . chr( 0x0D ) . chr( 0x0A );
+		$html             .= '</div>' . chr( 0x0D ) . chr( 0x0A );
 
-		echo $html;
+		echo wp_kses( $html, $allowed_html );
+
 	}
 
 	/**
@@ -834,7 +979,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->parent->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
 	} // End __clone()
 
 	/**
@@ -843,7 +988,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->parent->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
 	} // End __wakeup()
 
 }

@@ -21,7 +21,7 @@ msgstr ""
 #: includes/class-wp-foft-loader-upload.php:77
 #: includes/class-wp-foft-loader-upload.php:86
 #: includes/class-wp-foft-loader.php:217 includes/class-wp-foft-loader.php:226
-msgid "Cheatin&#8217; huh?"
+msgid "Cheatin’ huh?"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:72

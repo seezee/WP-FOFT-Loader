@@ -25,10 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Load plugin class files
 require_once 'includes/class-wp-foft-loader.php';
-require_once 'includes/class-wp-foft-loader-settings.php';
-require_once 'includes/class-wp-foft-loader-mimes.php';
-require_once 'includes/class-wp-foft-loader-upload.php';
 require_once 'includes/class-wp-foft-loader-head.php';
+require_once 'includes/class-wp-foft-loader-mimes.php';
+require_once 'includes/class-wp-foft-loader-settings.php';
+require_once 'includes/class-wp-foft-loader-upload.php';
 require_once 'includes/htmlpurifier/library/HTMLPurifier.auto.php';
 require_once 'includes/csstidy/class.csstidy.php';
 

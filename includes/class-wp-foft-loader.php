@@ -157,7 +157,7 @@ class WP_FOFT_Loader {
 	 * @return  void
 	 */
 	public function admin_enqueue_styles( $hook = '' ) {
-		wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin.css', array(), $this->version );
+		wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin.css', array(), esc_html( $this->version ) );
 		wp_enqueue_style( $this->token . '-admin' );
 	} // End admin_enqueue_styles ()
 
@@ -220,7 +220,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->version ) );
 	} // End __clone ()
 
 	/**
@@ -229,7 +229,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->version ) );
 	} // End __wakeup ()
 
 	/**
@@ -249,7 +249,7 @@ class WP_FOFT_Loader {
 	 * @return  void
 	 */
 	private function logversion_number() {
-		update_option( $this->token . 'version', $this->version );
+		update_option( $this->token . 'version', esc_html( $this->version ) );
 	} // End logversion_number ()
 
 }

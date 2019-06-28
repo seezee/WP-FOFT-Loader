@@ -88,7 +88,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->parent->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
 	} // End __clone()
 
 	/**
@@ -97,7 +97,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->parent->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
 	} // End __wakeup()
 
 }

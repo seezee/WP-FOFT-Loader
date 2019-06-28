@@ -249,8 +249,9 @@ class WP_FOFT_Loader_Head {
 
 		// Minification utility
 		function compress( $string ) {
-			// Remove html comments
-			// $string = preg_replace('/<!--.*-->/', '', $string);
+			// Convert '>' back to utf-8. 4 backslashes needed; see
+			// https://stackoverflow.com/questions/4025482/cant-escape-the-backslash-with-regex
+			$string = preg_replace( '/(\\\\3E)/', '>', $string );
 
 			// Merge multiple spaces into one space
 			$string = preg_replace( '/\s+/', ' ', $string );
@@ -271,7 +272,7 @@ class WP_FOFT_Loader_Head {
 		// Everything inside gets minified
 
 		// Get the first style block
-		echo $clean_css[0] . '</style>'; // Styles end
+		echo wp_kses( $clean_css[0], $arr ) . '</style>'; // Styles end
 
 		ob_end_flush(); // End minification
 
@@ -293,7 +294,8 @@ class WP_FOFT_Loader_Head {
 		}
 
 		$subsetstrim = ob_get_clean(); // get buffer
-		echo rtrim( wp_kses( $subsetstrim, $arr ), ', ' ); // trim final comma & space
+		$clean       = rtrim( $subsetstrim, ', ' ); // trim final comma & space
+		echo wp_kses( $clean, $arr );
 
 		echo '\');Promise.all([fontASubset.load()]).then(function (){document.documentElement.className += " fonts-stage-1";';
 
@@ -329,7 +331,8 @@ class WP_FOFT_Loader_Head {
 		}
 
 		$output = ob_get_clean(); // get buffer
-		echo rtrim( wp_kses( $output, $arr ), ',' ); // trim final comma & space
+		$clean  = rtrim( $output, ',' ); // trim final comma & space
+		echo wp_kses( $clean, $arr );
 
 		unset( $observer );
 		unset( $observer2 );
@@ -366,7 +369,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->parent->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
 	} // End __clone()
 
 	/**
@@ -375,7 +378,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wp-foft-loader' ), $this->parent->version );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
 	} // End __wakeup()
 
 }
