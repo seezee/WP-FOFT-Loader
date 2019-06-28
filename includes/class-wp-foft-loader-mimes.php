@@ -37,8 +37,6 @@ class WP_FOFT_Loader_Mimes {
 	public function __construct( $parent ) {
 		$this->parent = $parent;
 
-		$this->base = '';
-
 		// Allow WOFF & WOFF2 mime-types
 
 		add_filter( 'wp_check_filetype_and_ext' . plugin_basename( $this->parent->file ), array( $this, 'file_and_ext' ), 10, 4 );

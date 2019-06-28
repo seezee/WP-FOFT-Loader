@@ -33,8 +33,6 @@ class WP_FOFT_Loader_Upload {
 	public function __construct( $parent ) {
 		$this->parent = $parent;
 
-		$this->base = '';
-
 		// Load & unload the custom upload path
 
 		add_filter( 'wp_handle_upload_prefilter' . plugin_basename( $this->parent->file ), array( $this, 'pre_upload' ) );
