@@ -312,13 +312,17 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.29 =
+* 2019-06-28
+* More sanitizing
+* Changes to README content
+* Corrected some errors in Dutch translation
+
 = 1.0.28 =
 * 2019-06-27
-* More sanitizing
 * Create correct icon sizes for WP Plugin Repository
 * Fix readme.txt formatting
 * Changes to README content
-* Corrected some errors in Dutch translation
 
 = 1.0.27 =
 * 2019-06-27
