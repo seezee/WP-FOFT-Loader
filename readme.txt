@@ -1,12 +1,12 @@
 === WP FOFT Loader ===  
-Contributors: seezee
-Translators: augusgils, nilovelez
+Contributors: seezee  
+Translators: augusgils, nilovelez  
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.29 
+Stable tag: 1.0.30  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -67,9 +67,9 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:			“WOFF”
-					“WOFF2”
-	Advanced Options:		“Font Name Suffix” = -webfont
+	Font Formats:		“WOFF”
+					    “WOFF2”
+	Advanced Options:	“Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
 
@@ -140,13 +140,13 @@ This setting inlines Base64 encoded font in the document head to improve font lo
 Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:			None
-	Fix Missing Glyphs:		None
-	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
-					Leave everything else unchecked  
-	OpenType Features:		None
-	OpenType Flattening:		None
-	CSS:				“Base64 Encode”
+	Font Formats:		    None
+	Fix Missing Glyphs:	    None
+	Subsetting:			    “Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
+					        Leave everything else unchecked  
+	OpenType Features:	    None
+	OpenType Flattening:    None
+	CSS:				    “Base64 Encode”
 
 For detailed recommended settings, see the plugin Base64 options screen. The generator will produce a file that looks something like this:
 
@@ -312,13 +312,17 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.30=
+* 2019-06-27
+* Fixed incorrect Dutch .po filenames
+
 = 1.0.29 =
 * 2019-06-28
 * More sanitizing
 * Changes to README content
 * Corrected some errors in Dutch translation
 
-= 1.0.29=
+= 1.0.28 =
 * 2019-06-27
 * Create correct icon sizes for WP Plugin Repository
 * Fix readme.txt formatting
@@ -465,12 +469,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.29=
+= 1.0.30=
 * 2019-06-27
-* More sanitizing
-* Create correct icon sizes for WP Plugin Repository
-* Fix readme.txt formatting
-* Changes to README content
-* Corrected some errors in Dutch translation
+* Fixed incorrect Dutch .po filenames
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

@@ -1,12 +1,12 @@
 === WP FOFT Loader ===  
-Contributors: seezee
-Translators: augusgils, nilovelez
+Contributors: seezee  
+Translators: augusgils, nilovelez  
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.29 
+Stable tag: 1.0.30  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -312,13 +312,17 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.30=
+* 2019-06-27
+* Fixed incorrect Dutch .po filenames
+
 = 1.0.29 =
 * 2019-06-28
 * More sanitizing
 * Changes to README content
 * Corrected some errors in Dutch translation
 
-= 1.0.29=
+= 1.0.28 =
 * 2019-06-27
 * Create correct icon sizes for WP Plugin Repository
 * Fix readme.txt formatting
@@ -465,12 +469,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.29=
+= 1.0.30=
 * 2019-06-27
-* More sanitizing
-* Create correct icon sizes for WP Plugin Repository
-* Fix readme.txt formatting
-* Changes to README content
-* Corrected some errors in Dutch translation
+* Fixed incorrect Dutch .po filenames
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
