@@ -14,3 +14,6 @@ env:
     - HOME /Users/chriszahller
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
+
+after_failure:
+  - cat MSBuild_*/Users/seezee/Local\ Sites\mercuryphoto⁩/app⁩/⁨public/⁨wp-content⁩ /⁨plugins/wp-foft-loader/.admin/⁩.travis_fail.txt
