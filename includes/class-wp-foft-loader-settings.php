@@ -830,9 +830,8 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 */
 	public function settings_section( $section ) {
 
-		$allowed_html = $this->allowed_html();
 		$html         = '<p> ' . $this->settings[ $section['id'] ]['description'] . '</p>' . chr( 0x0D ) . chr( 0x0A );
-		echo wp_kses( $html, $allowed_html );
+		echo $html; // phpcs:ignore
 
 	}
 
@@ -843,7 +842,6 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 */
 	public function settings_page() {
 
-		$allowed_html = $this->allowed_html();
 		$html         = '<div class="wrap" id="' . $this->parent->token . '_settings">' . chr( 0x0D ) . chr( 0x0A ) . '<h2><span class="wp-admin-lite-blue"><i class="fa fa-3x fa-font" aria-hidden="true"></i><i class="fa fa-2x fa-font" aria-hidden="true"></i><i class="fa fa-font" aria-hidden="true"></i></span> ' . __( 'WP <abbr>FOFT</abbr> Loader Settings', 'wp-foft-loader' ) . '</h2>' . chr( 0x0D ) . chr( 0x0A ) . '<p>' . __( 'Automates <a href="https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-data-uri" rel="external noreferrer noopener"><strong>Critical <abbr title="Flash of Faux Text">FOFT</abbr> with Data <abbr title="Uniform Resourse Identifier">URI</abbr></a></strong> to speed up font loading while eliminating Flash of Unstyled Text (<abbr>FOUT</abbr>). Based on the work of <span class="h-card"><a class="p-name u-url" href="https://www.zachleat.com/">Zach Leatherman</a></span>. ' ) . '</p>' . chr( 0x0D ) . chr( 0x0A ) . '<p>' . __( 'Please <strong>save your changes</strong> before navigating to the next tab. ', 'wp-foft-loader' ) . '</p>' . chr( 0x0D ) . chr( 0x0A );
 
 		$tab = '';

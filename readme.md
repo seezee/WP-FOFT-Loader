@@ -6,11 +6,12 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.31  
+Stable tag: 1.0.32  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
-[//]: # ( Abbreviations)
+[//]: # ( Abbreviations: )
+
 *[FOFT]: Flash of Faux Text
 *[FOIT]: Flash of Invisible Text
 *[FOUT]: Flash of Unstyled Text
@@ -35,32 +36,30 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 == Installation ==
 
 ### USING THE WORDPRESS DASHBOARD
-1. Navigate to the “Add New” in the plugins dashboard
+1. Navigate to “Add New” in the plugins dashboard
 2. Search for “WP FOFT Loader”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
 5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
-1. Navigate to the “Add New” in the plugins dashboard
+1. Navigate to “Add New” in the plugins dashboard
 2. Navigate to the “Upload” area
 3. Select wp-foft-loader.zip from your computer
 4. Click “Install Now”
 5. Activate the plugin in the Plugin dashboard
 6. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
-### USING FTP
-1. Download wp-foft-loader.zip
-2. Extract the wp-foft-loader directory to your computer
-3. Upload the wp-foft-loader directory to the `/wp-content/plugins/` directory
+### USING <abbr>FTP</abbr>
+1. Download the WP FOFT Loader ZIP file
+2. Extract the WP FOFT Loader ZIP file to your computer
+3. Upload the “wp-foft-loader” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin’s dashboard
 5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
-2. Upload the ZIP file from the Wordpress dashboard or by <abbr>FTP</abbr>
-3. Activate the plugin through the ‘Plugins’ menu in WordPress
-4. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+2. Follow the directions for using <abbr>FTP</abbr>
 
 == Generating and Uploading the Font Files ==
 
@@ -312,13 +311,18 @@ Forthcoming translations:
 
 == Changelog ==
 
-= 1.0.31=
+= 1.0.32 =
+* 2019-07-04
+* Bugfix in class-wp-foft-loader-settings.php
+* Better installation instructions
+
+= 1.0.31 =
 * 2019-07-04
 * More sanitization
-* Pass PHPCS/WP CS checks
+* Pass PHPCS/WPCS checks
 * Remove unused metabox code
 
-= 1.0.30=
+= 1.0.30 =
 * 2019-06-27
 * Fixed incorrect Dutch .po filenames
 
@@ -477,9 +481,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.31=
+= 1.0.32=
 * 2019-07-04
-* More sanitization
-* Pass PHPCS/WP CS checks
-* Remove unused metabox code
+* Bugfix in class-wp-foft-loader-settings.php
+* Better installation instructions
 
