@@ -1,13 +1,22 @@
 <?php
+/**
+ * Settings class file.
+ *
+ * @package WP FOFT Loader/Settings
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Settings class.
+ */
 class WP_FOFT_Loader_Settings {
 
 	/**
 	 * The single instance of WP_FOFT_Loader_Settings.
+	 *
 	 * @var     object
 	 * @access  private
 	 * @since   1.0.0
@@ -16,6 +25,7 @@ class WP_FOFT_Loader_Settings {
 
 	/**
 	 * The main plugin object.
+	 *
 	 * @var     object
 	 * @access  public
 	 * @since   1.0.0
@@ -24,6 +34,7 @@ class WP_FOFT_Loader_Settings {
 
 	/**
 	 * Prefix for plugin settings.
+	 *
 	 * @var     string
 	 * @access  public
 	 * @since   1.0.0
@@ -32,34 +43,48 @@ class WP_FOFT_Loader_Settings {
 
 	/**
 	 * Available settings for plugin.
+	 *
 	 * @var     array
 	 * @access  public
 	 * @since   1.0.0
 	 */
 	public $settings = array();
 
+	/**
+	 * Constructor function.
+	 *
+	 * @param object $parent Parent object.
+	 */
 	public function __construct( $parent ) {
 		$this->parent = $parent;
 
 		$this->base = 'wpfl_';
 
-		// Initialise settings
+		// Initialise settings.
 		add_action( 'init', array( $this, 'init_settings' ), 11 );
 
-		// Register plugin settings
+		// Register plugin settings.
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
-		// Add settings page to menu
+		// Add settings page to menu.
 		add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
 
-		// Add settings link to plugins page
-		add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ), array( $this, 'add_settings_link' ) );
+		// Add settings link to plugins page.
+		add_filter(
+			'plugin_action_links_' . plugin_basename( $this->parent->file ),
+			array(
+				$this,
+				'add_settings_link',
+			)
+		);
 
-		add_action( 'admin_footer', array( $this, 'upload_media_manager_by_default' ) );
+		// Configure placement of plugin settings page. See readme for implementation.
+		add_filter( $this->base . 'menu_settings', array( $this, 'configure_settings' ) );
 	}
 
 	/**
 	 * Initialise settings
+	 *
 	 * @return void
 	 */
 	public function init_settings() {
@@ -68,29 +93,81 @@ class WP_FOFT_Loader_Settings {
 
 	/**
 	 * Add settings page to admin menu
+	 *
 	 * @return void
 	 */
 	public function add_menu_item() {
-		$page = add_options_page( __( 'WP FOFT Loader Settings', 'wp-foft-loader' ), __( 'WP FOFT Loader', 'wp-foft-loader' ), 'manage_options', $this->parent->token . '_settings', array( $this, 'settings_page' ) );
-		add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
+
+		$args = $this->menu_settings();
+
+		// Do nothing if wrong location key is set.
+		if ( is_array( $args ) && isset( $args['location'] ) && function_exists( 'add_' . $args['location'] . '_page' ) ) {
+			switch ( $args['location'] ) {
+				case 'options':
+				case 'submenu':
+					$page = add_submenu_page( $args['parent_slug'], $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
+					break;
+				case 'menu':
+					$page = add_menu_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'], $args['icon_url'], $args['position'] );
+					break;
+				default:
+					return;
+			}
+			add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
+		}
+	}
+
+	/**
+	 * Prepare default settings page arguments
+	 *
+	 * @return mixed|void
+	 */
+	private function menu_settings() {
+		return apply_filters(
+			$this->base . 'menu_settings',
+			array(
+				'location'    => 'options', // Possible settings: options, menu, submenu.
+				'parent_slug' => 'options-general.php',
+				'page_title'  => __( 'WP FOFT Loader Settings', 'wp-foft-loader' ),
+				'menu_title'  => __( 'WP FOFT Loader', 'wp-foft-loader' ),
+				'capability'  => 'manage_options',
+				'menu_slug'   => $this->parent->token . '_settings',
+				'function'    => array( $this, 'settings_page' ),
+				'icon_url'    => '',
+				'position'    => null,
+			)
+		);
+	}
+
+	/**
+	 * Container for settings page arguments
+	 *
+	 * @param array $settings Settings array.
+	 *
+	 * @return array
+	 */
+	public function configure_settings( $settings = array() ) {
+		return $settings;
 	}
 
 	/**
 	 * Load settings JS & CSS
+	 *
 	 * @return void
 	 */
 	public function settings_assets() {
 
-		// We're including the WP media scripts here because they're needed for the image upload field
+		// We're including the WP media scripts here because they're needed for the image upload field.
 		wp_enqueue_media();
 
-		wp_register_script( $this->parent->token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', array( 'jquery' ), '1.0.18', true );
+		wp_register_script( $this->parent->token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', 'jquery', '1.0.18', true );
 		wp_enqueue_script( $this->parent->token . '-settings-js' );
 	}
 
 	/**
-	 * Add settings link to plugin list table
-	 * @param  array $links Existing links
+	 * Add settings link to plugin list table.
+	 *
+	 * @param  array $links Existing links.
 	 * @return array        Modified links
 	 */
 	public function add_settings_link( $links ) {
@@ -102,7 +179,6 @@ class WP_FOFT_Loader_Settings {
 	/**
 	 * Open media uploader on Upload tab instead of Library view
 	 */
-
 	public function upload_media_manager_by_default() {
 		if ( did_action( 'wp_enqueue_media' ) ) {
 			?>
@@ -119,6 +195,7 @@ class WP_FOFT_Loader_Settings {
 
 	/**
 	 * Build settings fields
+	 *
 	 * @return array Fields to be displayed on settings page
 	 */
 	private function settings_fields() {
@@ -243,7 +320,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 				array(
 					'id'          => 's1-alt',
 					'label'       => __( 'Other elements', 'wp-foft-loader' ),
-					'description' => __( 'Optimize non-body elements', 'wp-foft-loader' ) . ', <abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
+					'description' => __( 'Optimize non`-body elements', 'wp-foft-loader' ) . ', <abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
 					'type'        => 'text',
 					'default'     => null,
 					'placeholder' => 'e.g., latosans',
@@ -684,20 +761,24 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 	/**
 	 * Register plugin settings
+	 *
 	 * @return void
 	 */
 	public function register_settings() {
+
 		if ( is_array( $this->settings ) ) {
 
-			// Check posted/selected tab
+			// Check posted/selected tab.
 			$current_section = '';
+			 // phpcs:disable
 			if ( isset( $_POST['tab'] ) && $_POST['tab'] ) {
-				$current_section = $_POST['tab'];
+				$current_section = sanitize_text_field( wp_unslash( $_POST['tab'] ) );
 			} else {
 				if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-					$current_section = $_GET['tab'];
+					$current_section = sanitize_text_field( wp_unslash( $_GET['tab'] ) );
 				}
 			}
+			// phpcs:enable
 
 			foreach ( $this->settings as $section => $data ) {
 
@@ -705,22 +786,22 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					continue;
 				}
 
-				// Add section to page
+				// Add section to page.
 				add_settings_section( $section, $data['title'], array( $this, 'settings_section' ), $this->parent->token . '_settings' );
 
 				foreach ( $data['fields'] as $field ) {
 
-					// Validation callback for field
+					// Validation callback for field.
 					$validation = '';
 					if ( isset( $field['callback'] ) ) {
 						$validation = $field['callback'];
 					}
 
-					// Register field
+					// Register field.
 					$option_name = $this->base . $field['id'];
 					register_setting( $this->parent->token . '_settings', $option_name, $validation );
 
-					// Add field to page
+					// Add field to page.
 					add_settings_field(
 						$field['id'],
 						$field['label'],
@@ -741,144 +822,12 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 		}
 	}
 
-	public function allowed_html() {
-		return array(
-			'a'        => array(
-				'class' => array(),
-				'href'  => array(),
-				'rel'   => array(),
-			),
-			'abbr'     => array(
-				'title' => array(),
-				'class' => array(),
-			),
-			'br'       => array(),
-			'code'     => array(
-				'class' => array(),
-			),
-			'dd'       => array(
-				'class' => array(),
-			),
-			'div'      => array(
-				'class' => array(),
-			),
-			'dl'       => array(
-				'class' => array(),
-			),
-			'dt'       => array(
-				'class' => array(),
-			),
-			'em'       => array(),
-			'form'     => array(
-				'method'  => array(),
-				'action'  => array(),
-				'enctype' => array(),
-			),
-			'h1'       => array(
-				'class' => array(),
-			),
-			'h2'       => array(
-				'class' => array(),
-			),
-			'h3'       => array(
-				'class' => array(),
-			),
-			'h4'       => array(
-				'class' => array(),
-			),
-			'h5'       => array(
-				'class' => array(),
-			),
-			'h6'       => array(
-				'class' => array(),
-			),
-			'hr'       => array(
-				'class' => array(),
-			),
-			'i'        => array(
-				'aria-hidden' => array(),
-				'class'       => array(),
-			),
-			'iframe'   => array(
-				'allow'           => array(),
-				'allowfullscreen' => array(),
-				'alt'             => array(),
-				'class'           => array(),
-				'frameborder'     => array(),
-				'height'          => array(),
-				'src'             => array(),
-				'width'           => array(),
-			),
-			'img'      => array(
-				'alt'    => array(),
-				'class'  => array(),
-				'height' => array(),
-				'src'    => array(),
-				'width'  => array(),
-			),
-			'input'    => array(
-				'checked'                   => array(),
-				'class'                     => array(),
-				'data-uploader_button_text' => array(),
-				'data-uploader_title'       => array(),
-				'hidden'                    => array(),
-				'id'                        => array(),
-				'name'                      => array(),
-				'tab'                       => array(),
-				'type'                      => array(),
-				'value'                     => array(),
-			),
-			'label'    => array(
-				'for' => array(),
-			),
-			'li'       => array(
-				'class' => array(),
-			),
-			'ol'       => array(
-				'class' => array(),
-			),
-			'p'        => array(
-				'class' => array(),
-			),
-			'pre'      => array(
-				'class' => array(),
-			),
-			'q'        => array(
-				'cite'  => array(),
-				'class' => array(),
-				'title' => array(),
-			),
-			'span'     => array(
-				'title' => array(),
-				'style' => array(),
-				'class' => array(),
-			),
-			'strike'   => array(),
-			'strong'   => array(),
-			'table'    => array(
-				'class' => array(),
-			),
-			'tbody'    => array(),
-			'td'       => array(),
-			'textarea' => array(
-				'cols'        => array(),
-				'id'          => array(),
-				'name'        => array(),
-				'placeholder' => array(),
-				'rows'        => array(),
-				'spellcheck'  => array(),
-				'textarea'    => array(),
-			),
-			'th'       => array(
-				'scope' => array(),
-			),
-			'tr'       => array(),
-			'ul'       => array(
-				'class' => array(),
-			),
-		);
-	}
-
+	/**
+	 * Settings section.
+	 *
+	 * @param array $section Array of section ids.
+	 * @return void
+	 */
 	public function settings_section( $section ) {
 
 		$allowed_html = $this->allowed_html();
@@ -889,6 +838,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 	/**
 	 * Load settings page content
+	 *
 	 * @return void
 	 */
 	public function settings_page() {
@@ -898,11 +848,13 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 		$tab = '';
 
+		 // phpcs:disable
 		if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-			$tab .= $_GET['tab'];
+			$tab .= sanitize_text_field( wp_unslash( $_GET['tab'] ) );
 		}
+		// phpcs:enable
 
-			// Show page tabs
+			// Show page tabs.
 		if ( is_array( $this->settings ) && 1 < count( $this->settings ) ) {
 
 			$html .= '<h2 class="nav-tab-wrapper">' . chr( 0x0D ) . chr( 0x0A );
@@ -910,7 +862,8 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			$c = 0;
 			foreach ( $this->settings as $section => $data ) {
 
-				// Set tab class
+				// Set tab class.
+				// phpcs:disable
 				$class = 'nav-tab';
 				if ( ! isset( $_GET['tab'] ) ) {
 					if ( 0 === $c ) {
@@ -921,14 +874,17 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 						$class .= ' nav-tab-active';
 					}
 				}
+				// phpcs:enable
 
-				// Set tab link
+				// Set tab link.
 				$tab_link = add_query_arg( array( 'tab' => $section ) );
+				// phpcs:disable
 				if ( isset( $_GET['settings-updated'] ) ) {
 					$tab_link = remove_query_arg( 'settings-updated', $tab_link );
 				}
+				// phpcs:enable
 
-				// Output tab
+				// Output tab.
 				$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr( 0x0D ) . chr( 0x0A );
 
 				++$c;
@@ -939,7 +895,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			settings_errors();
 			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . chr( 0x0D ) . chr( 0x0A );
 
-				// Get settings fields
+				// Get settings fields.
 				ob_start();
 				settings_fields( $this->parent->token . '_settings' );
 				do_settings_sections( $this->parent->token . '_settings' );
@@ -952,7 +908,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			$html         .= '</form>' . chr( 0x0D ) . chr( 0x0A );
 		$html             .= '</div>' . chr( 0x0D ) . chr( 0x0A );
 
-		echo wp_kses( $html, $allowed_html );
+		echo $html; // phpcs:ignore
 
 	}
 
@@ -964,6 +920,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 * @since 1.0.0
 	 * @static
 	 * @see WP_FOFT_Loader()
+	 * @param object $parent Object instance.
 	 * @return Main WP_FOFT_Loader_Settings instance
 	 */
 	public static function instance( $parent ) {
@@ -979,7 +936,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
 	} // End __clone()
 
 	/**
@@ -988,7 +945,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
 	} // End __wakeup()
 
 }

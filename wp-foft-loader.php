@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Load plugin class files
+// Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-head.php';
 require_once 'includes/class-wp-foft-loader-mimes.php';
@@ -32,7 +32,7 @@ require_once 'includes/class-wp-foft-loader-upload.php';
 require_once 'includes/htmlpurifier/library/HTMLPurifier.auto.php';
 require_once 'includes/csstidy/class.csstidy.php';
 
-// Load plugin library
+// Load plugin library.
 require_once 'includes/lib/class-wp-foft-loader-admin-api.php';
 
 /**

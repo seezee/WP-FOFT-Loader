@@ -1,17 +1,22 @@
 <?php
+/**
+ * Mimes Allowed class file.
+ *
+ * @package WP FOFT Loader/Mimes
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/*
+/**
  * Allow WOFF & WOFF2 mime-types
  */
-
 class WP_FOFT_Loader_Mimes {
 
 	/**
 	 * The single instance of WP_FOFT_Loader_Upload.
+	 *
 	 * @var     object
 	 * @access  private
 	 * @since   1.0.0
@@ -20,6 +25,7 @@ class WP_FOFT_Loader_Mimes {
 
 	/**
 	 * The main plugin object.
+	 *
 	 * @var     object
 	 * @access  public
 	 * @since   1.0.0
@@ -28,16 +34,22 @@ class WP_FOFT_Loader_Mimes {
 
 	/**
 	 * Prefix for plugin settings.
+	 *
 	 * @var     string
 	 * @access  public
 	 * @since   1.0.0
 	 */
 	public $base = '';
 
+	/**
+	 * Constructor function.
+	 *
+	 * @param object $parent Parent object.
+	 */
 	public function __construct( $parent ) {
 		$this->parent = $parent;
 
-		// Allow WOFF & WOFF2 mime-types
+		// Allow WOFF & WOFF2 mime-types.
 
 		add_filter( 'wp_check_filetype_and_ext' . plugin_basename( $this->parent->file ), array( $this, 'file_and_ext' ), 10, 4 );
 
@@ -45,6 +57,14 @@ class WP_FOFT_Loader_Mimes {
 
 	}
 
+	/**
+	 * Extensions and types allowed.
+	 *
+	 * @param string $types File type.
+	 * @param string $file Full file path.
+	 * @param string $filename File name.
+	 * @param string $mimes Mimes to add.
+	 */
 	public function file_and_ext( $types, $file, $filename, $mimes ) {
 		if ( false !== strpos( $filename, '.woff' ) ) {
 			$types['ext']  = 'woff';
@@ -57,6 +77,11 @@ class WP_FOFT_Loader_Mimes {
 		return $types;
 	}
 
+	/**
+	 * Add mime types.
+	 *
+	 * @param array $existing_mimes Array of existing mimes to modified.
+	 */
 	public function mime_types( $existing_mimes ) {
 		$existing_mimes['woff']  = 'font/woff|application/font-woff|application/x-font-woff|application/octet-stream';
 		$existing_mimes['woff2'] = 'font/woff2|application/octet-stream|font/x-woff2';
@@ -71,6 +96,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 * @static
 	 * @see WP_FOFT_Loader()
+	 * @param object $parent Object instance.
 	 * @return Main WP_FOFT_Loader_Upload instance
 	 */
 	public static function instance( $parent ) {
@@ -86,7 +112,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Mimes is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
 	} // End __clone()
 
 	/**
@@ -95,7 +121,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Mimes is forbidden.' ), esc_attr( $this->parent->version ) );
 	} // End __wakeup()
 
 }

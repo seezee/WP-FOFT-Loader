@@ -1,22 +1,24 @@
 <?php
-/*-------------------------------------------------*/
-// SECURITY
-/*-------------------------------------------------*/
+/**
+ * Settings class file.
+ *
+ * @package WP FOFT Loader/Head
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Sorry, you are not allowed to access this page directly.' );
 }
 
 	/**
-	* Enqueue custom fonts
+	 * Enqueue custom fonts.
 
-	Place font declaration and script in head -- using inline embed for critical font load with data URI per https://www.zachleat.com/web/comprehensive-webfonts/
-
-	*/
-
+	Place font declaration and script in head -- using inline embed for critical font load with data URI per https://www.zachleat.com/web/comprehensive-webfonts/ .
+	 */
 class WP_FOFT_Loader_Head {
 
 	/**
 	 * The single instance of WP_FOFT_Loader_Head.
+	 *
 	 * @var     object
 	 * @access  private
 	 * @since   1.0.0
@@ -25,14 +27,21 @@ class WP_FOFT_Loader_Head {
 
 	/**
 	 * The main plugin object.
+	 *
 	 * @var     object
 	 * @access  public
 	 * @since   1.0.0
 	 */
 	public $parent = null;
 
+	/**
+	 * Generate CSS & Javascript to be loaded in <head>.
+	 *
+	 * @access  public
+	 * @since   1.0.0
+	 */
 	public function fontload() {
-		// Locate font files
+		// Locate font files.
 
 		$uploads   = wp_get_upload_dir();
 		$font_path = $uploads['baseurl'] . '/fonts/';
@@ -40,7 +49,7 @@ class WP_FOFT_Loader_Head {
 
 		$files = glob( $font_dir . '*.woff', GLOB_BRACE );
 
-		// Preload the body font; inline subsets as base64
+		// Preload the body font; inline subsets as base64.
 
 		$arr = array(); // Use this with wp_kses. Don't allow any HTML.
 
@@ -56,7 +65,7 @@ class WP_FOFT_Loader_Head {
 
 		$fdisplay = get_option( 'wpfl_font_display' );
 
-		if ( ! is_null( $body ) || ! is_null( $body64 ) ) { // Styles start
+		if ( ! is_null( $body ) || ! is_null( $body64 ) ) { // Styles start.
 			echo '<link rel="preload" href="',
 			wp_kses( $font_path, $arr ),
 			wp_kses( $body, $arr ),
@@ -105,14 +114,14 @@ class WP_FOFT_Loader_Head {
 		$fam    = array();
 		foreach ( $files as &$file ) {
 
-			$font                 = basename( $file, '.woff' ); // remove the file type
-			$font                 = str_replace( $suffix, '', $font ); // remove the -webfont suffix
-			list($family, $style) = explode( '-', $font, 2 ); // explode for 2 parts: family and style
+			$font                 = basename( $file, '.woff' ); // remove the file type.
+			$font                 = str_replace( $suffix, '', $font ); // remove the -webfont suffix.
+			list($family, $style) = explode( '-', $font, 2 ); // explode for 2 parts: family and style.
 
 			echo '@font-face{font-family:\'' . wp_kses( $family, $arr ) . '\';src:url(' . esc_url( ( $font_path ) . basename( $file ) ) . '2)format(\'woff2\'),url(' . esc_url( ( $font_path ) . basename( $file ) ) . ')format(\'woff\');';
 			if ( in_array( $style, [ 'normal', 'regular' ], true ) ) {
 				// Third parameter enables strict type checking -- see
-				//https://php.net/manual/en/function.in-array.php
+				// https://php.net/manual/en/function.in-array.php.
 				echo 'font-weight:400;font-style:normal;';
 			} elseif ( in_array( $style, [ 'thinItalic', 'hairlineItalic' ], true ) ) {
 				echo 'font-weight:100;font-style:italic;';
@@ -152,16 +161,15 @@ class WP_FOFT_Loader_Head {
 				echo 'font-weight:400;font-style:normal;';
 			}
 
-			// Small caps
+			// Small caps.
 			$fam = array( $family );
-			if ( preg_grep( '/.+SC$/D', $fam ) ) { // 1 or more character followed by "SC" at end of string; case-sensitive
+			if ( preg_grep( '/.+SC$/D', $fam ) ) { // 1 or more character followed by "SC" at end of string; case-sensitive.
 				echo 'font-variant:small-caps;';
 			}
 
 			echo 'font-display:' . wp_kses( $fdisplay, $arr ) . ';}';
 
 			/*
-
 			Name                      Weight
 			Thin, Hairline            100
 			Extra Light, Ultra Light  200
@@ -229,52 +237,57 @@ class WP_FOFT_Loader_Head {
 			}
 		};
 
-		// User input custom CSS. Sanitize with HTMLPurifier + CSSTidy
+		// User input custom CSS. Sanitize with HTMLPurifier + CSSTidy.
 		$css_dirty_1 = get_option( 'wpfl_stage_1' );
 		$css_dirty_2 = get_option( 'wpfl_stage_2' );
 
-		// Create a new configuration object
+		// Create a new configuration object.
 		$config = HTMLPurifier_Config::createDefault();
 		$config->set( 'Filter.ExtractStyleBlocks', true );
 
-		// Create a new purifier instance
+		// Create a new purifier instance.
 		$purifier = new HTMLPurifier( $config );
 
 		// Wrap our CSS in style tags and pass to purifier.
-		// we're not actually interested in the html response though
+		// We're not actually interested in the html response though.
 		$html = $purifier->purify( '<style>' . $css_dirty_1 . $css_dirty_2 . '</style>' );
 
-		// The "style" blocks are stored seperately
+		// The "style" blocks are stored seperately.
 		$clean_css = $purifier->context->get( 'StyleBlocks' );
 
-		// Minification utility
+		/**
+		 * Minification utility.
+		 *
+		 * @param string $string Input to be minified.
+		 * @since 1.0.0
+		 */
 		function compress( $string ) {
 			// Convert '>' back to utf-8. 4 backslashes needed; see
-			// https://stackoverflow.com/questions/4025482/cant-escape-the-backslash-with-regex
+			// "https://stackoverflow.com/questions/4025482/cant-escape-the-backslash-with-regex".
 			$string = preg_replace( '/(\\\\3E)/', '>', $string );
 
-			// Merge multiple spaces into one space
+			// Merge multiple spaces into one space.
 			$string = preg_replace( '/\s+/', ' ', $string );
 
-			// Remove final semicolon & whitespace
+			// Remove final semicolon & whitespace.
 			$string = preg_replace( '/;\s+}/', '}', $string );
 
-			// Trim whitespace before opening curly brace
+			// Trim whitespace before opening curly brace.
 			$string = preg_replace( '/\s+{\s+/', '{', $string );
 
-			// Trim whitespaces after commas
+			// Trim whitespaces after commas.
 			$string = preg_replace( '/\,\s+/', ',', $string );
 
 			return $string;
 		}
 
 		ob_start( 'compress' ); // Parse DOM Tree.
-		// Everything inside gets minified
+		// Everything inside gets minified.
 
-		// Get the first style block
-		echo wp_kses( $clean_css[0], $arr ) . '</style>'; // Styles end
+		// Get the first style block.
+		echo wp_kses( $clean_css[0], $arr ) . '</style>'; // Styles end.
 
-		ob_end_flush(); // End minification
+		ob_end_flush(); // End minification.
 
 		echo '<script>(function(){if(sessionStorage.criticalFoftDataUriFontsLoaded ){document.documentElement.className+=" fonts-stage-1 fonts-stage-2";return;}(function(){function e(e,t){document.addEventListener?e.addEventListener("scroll",t,!1):e.attachEvent("scroll",t)}function t(e){document.body?e():document.addEventListener?document.addEventListener("DOMContentLoaded",function t(){document.removeEventListener("DOMContentLoaded",t),e()}):document.attachEvent("onreadystatechange",function n(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",n),e()})}function n(e){this.a=document.createElement("div"),this.a.setAttribute("aria-hidden","true"),this.a.appendChild(document.createTextNode(e)),this.b=document.createElement("span"),this.c=document.createElement("span"),this.h=document.createElement("span"),this.f=document.createElement("span"),this.g=-1,this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;",this.b.appendChild(this.h),this.c.appendChild(this.f),this.a.appendChild(this.b),this.a.appendChild(this.c)}function r(e,t){e.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+t+";"}function i(e){var t=e.a.offsetWidth,n=t+100;return e.f.style.width=n+"px",e.c.scrollLeft=n,e.b.scrollLeft=e.b.scrollWidth+100,e.g!==t?(e.g=t,!0):!1}function s(t,n){function r(){var e=s;i(e)&&null!==e.a.parentNode&&n(e.g)}var s=t;e(t.b,r),e(t.c,r),i(t)}function o(e,t){var n=t||{};this.family=e,this.style=n.style||"normal",this.weight=n.weight||"normal",this.stretch=n.stretch||"normal"}function l(){if(null===a){var e=document.createElement("div");try{e.style.font="condensed 100px sans-serif"}catch(t){}a=""!==e.style.font}return a}function c(e,t){return[e.style,e.weight,l()?e.stretch:"","100px",t].join(" ")}var u=null,a=null,f=null;o.prototype.load=function(e,i){var o=this,a=e||"BESbswy",l=i||3e3,h=(new Date).getTime();return new Promise(function(e,i){null===f&&(f=!!window.FontFace);if(f){var p=new Promise(function(e,t){function n(){(new Date).getTime()-h>=l?t():document.fonts.load(c(o,o.family),a).then(function(t){1<=t.length?e():setTimeout(n,25)},function(){t()})}n()}),d=new Promise(function(e,t){setTimeout(t,l)});Promise.race([d,p]).then(function(){e(o)},function(){i(o)})}else t(function(){function t(){var t;if(t=-1!=m&&-1!=g||-1!=m&&-1!=S||-1!=g&&-1!=S)(t=m!=g&&m!=S&&g!=S)||(null===u&&(t=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),u=!!t&&(536>parseInt(t[1],10)||536===parseInt(t[1],10)&&11>=parseInt(t[2],10))),t=u&&(m==x&&g==x&&S==x||m==T&&g==T&&S==T||m==N&&g==N&&S==N)),t=!t;t&&(null!==C.parentNode&&C.parentNode.removeChild(C),clearTimeout(L),e(o))}function f(){if((new Date).getTime()-h>=l)null!==C.parentNode&&C.parentNode.removeChild(C),i(o);else{var e=document.hidden;if(!0===e||void 0===e)m=p.a.offsetWidth,g=d.a.offsetWidth,S=v.a.offsetWidth,t();L=setTimeout(f,50)}}var p=new n(a),d=new n(a),v=new n(a),m=-1,g=-1,S=-1,x=-1,T=-1,N=-1,C=document.createElement("div"),L=0;C.dir="ltr",r(p,c(o,"sans-serif")),r(d,c(o,"serif")),r(v,c(o,"monospace")),C.appendChild(p.a),C.appendChild(d.a),C.appendChild(v.a),document.body.appendChild(C),x=p.a.offsetWidth,T=d.a.offsetWidth,N=v.a.offsetWidth,f(),s(p,function(e){m=e,t()}),r(p,c(o,\'"\'+o.family+\'",sans-serif\' )),s(d,function(e){g=e,t()}),r(d,c(o,\'"\'+o.family+\'",serif\' )),s(v,function(e){S=e,t()}),r(v,c(o,\'"\'+o.family+\'",monospace\' ))})})},"undefined"!=typeof module?module.exports=o:(window.FontFaceObserver=o,window.FontFaceObserver.prototype.load=o.prototype.load)})();var fontASubset=new FontFaceObserver(\'';
 
@@ -287,14 +300,14 @@ class WP_FOFT_Loader_Head {
 
 		$subsets = array_filter( $fontoptions );
 
-		ob_start(); // buffer foreach output
+		ob_start(); // buffer foreach output.
 		foreach ( $subsets as &$subset ) {
 			$subset .= 'Subset, ';
 			echo wp_kses( $subset, $arr );
 		}
 
-		$subsetstrim = ob_get_clean(); // get buffer
-		$clean       = rtrim( $subsetstrim, ', ' ); // trim final comma & space
+		$subsetstrim = ob_get_clean(); // get buffer.
+		$clean       = rtrim( $subsetstrim, ', ' ); // trim final comma & space.
 		echo wp_kses( $clean, $arr );
 
 		echo '\');Promise.all([fontASubset.load()]).then(function (){document.documentElement.className += " fonts-stage-1";';
@@ -306,10 +319,10 @@ class WP_FOFT_Loader_Head {
 
 		foreach ( $files as &$file ) {
 
-			$font   = basename( $file, '.woff' ); // remove the file type
-			$font   = str_replace( $suffix, '', $font ); // remove the -webfont suffix
+			$font   = basename( $file, '.woff' ); // remove the file type.
+			$font   = str_replace( $suffix, '', $font ); // remove the -webfont suffix.
 			$family = explode( '-', $font );
-			$fam[]  = $family[0]; // First needle
+			$fam[]  = $family[0]; // First needle.
 
 		}
 
@@ -323,15 +336,15 @@ class WP_FOFT_Loader_Head {
 
 		echo 'Promise.all([';
 
-		ob_start(); // buffer output of foreach
+		ob_start(); // buffer output of foreach.
 		foreach ( $results as &$result ) {
 			$obs2    = $observer2++;
 			$promise = 'font' . $obs2 . '.load(),';
 			echo wp_kses( $promise, $arr );
 		}
 
-		$output = ob_get_clean(); // get buffer
-		$clean  = rtrim( $output, ',' ); // trim final comma & space
+		$output = ob_get_clean(); // get buffer.
+		$clean  = rtrim( $output, ',' ); // trim final comma & space.
 		echo wp_kses( $clean, $arr );
 
 		unset( $observer );
@@ -342,6 +355,12 @@ class WP_FOFT_Loader_Head {
 
 	}
 
+	/**
+	 * Place the CSS & JS in the head.
+	 *
+	 * @access  public
+	 * @since   1.0.0
+	 */
 	public function foft_head() {
 		$this->fontload();
 	}
@@ -354,6 +373,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 * @static
 	 * @see WP_FOFT_Loader()
+	 * @param object $parent Object instance.
 	 * @return Main WP_FOFT_Loader_Head instance
 	 */
 	public static function instance( $parent ) {
@@ -369,7 +389,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
 	} // End __clone()
 
 	/**
@@ -378,14 +398,13 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin’ huh?', 'wp-foft-loader' ), esc_html( $this->parent->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
 	} // End __wakeup()
 
 }
 
 /**
-* Place the @font declaration in the header
-*
+* Place the @font declaration in the header.
 */
 
 	$head = new WP_FOFT_Loader_Head();

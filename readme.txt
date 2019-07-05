@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.30  
+Stable tag: 1.0.31  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -312,6 +312,12 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.31=
+* 2019-07-04
+* More sanitization
+* Pass PHPCS/WP CS checks
+* Remove unused metabox code
+
 = 1.0.30=
 * 2019-06-27
 * Fixed incorrect Dutch .po filenames
@@ -469,8 +475,10 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.30=
-* 2019-06-27
-* Fixed incorrect Dutch .po filenames
+= 1.0.31=
+* 2019-07-04
+* More sanitization
+* Pass PHPCS/WP CS checks
+* Remove unused metabox code
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
