@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.32  
+Stable tag: 1.0.33  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -311,8 +311,13 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.33 =
+* 2019-07-07
+* Updated .pot file
+* Replaced incorrect Dutch .po & .mo
+
 = 1.0.32 =
-* 2019-07-04
+* 2019-07-05
 * Bugfix in class-wp-foft-loader-settings.php
 * Better installation instructions
 
@@ -481,8 +486,7 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.32=
-* 2019-07-04
-* Bugfix in class-wp-foft-loader-settings.php
-* Better installation instructions
-
+= 1.0.33 =
+* 2019-07-07
+* Updated .pot file
+* Replaced incorrect Dutch .po & .mo
