@@ -108,7 +108,7 @@ class WP_FOFT_Loader {
 	 * @param string $file File constructor.
 	 * @param string $version Plugin version.
 	 */
-	public function __construct( $file = '', $version = '1.0.33' ) {
+	public function __construct( $file = '', $version = '1.0.35' ) {
 		$this->version = $version;
 		$this->token   = 'wp_foft_loader';
 
@@ -202,7 +202,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 * @static
 	 */
-	public static function instance( $file = '', $version = '1.0.33' ) {
+	public static function instance( $file = '', $version = '1.0.35' ) {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self( $file, $version );
 		}

@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.33  
+Stable tag: 1.0.35  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -311,6 +311,10 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.35 =
+* 2019-07-31
+* Update CSSTidy library to v1.7.0
+
 = 1.0.34 =
 * 2019-07-29
 * Modifed HTMLTidy config in class-wp-foft-loader-head.php
@@ -488,8 +492,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.34 =
-* 2019-07-29
-* Modifed HTMLTidy config in class-wp-foft-loader-head.php
+= 1.0.35 =
+* 2019-07-31
+* Update CSSTidy library to v1.7.0
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
