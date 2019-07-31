@@ -2,7 +2,7 @@
 /**
  * Mimes Allowed class file.
  *
- * @package WP FOFT Loader/Mimes
+ * @package WP FOFT Loader/Includes
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,15 +31,6 @@ class WP_FOFT_Loader_Mimes {
 	 * @since   1.0.0
 	 */
 	public $parent = null;
-
-	/**
-	 * Prefix for plugin settings.
-	 *
-	 * @var     string
-	 * @access  public
-	 * @since   1.0.0
-	 */
-	public $base = '';
 
 	/**
 	 * Constructor function.

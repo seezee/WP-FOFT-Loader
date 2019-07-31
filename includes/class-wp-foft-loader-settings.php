@@ -305,7 +305,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'id'          => 's1-heading',
 					'label'       => __( 'Headings', 'wp-foft-loader' ),
 					'description' => __( 'Optimize the display font used for high-level headings', 'wp-foft-loader' ) . '(H1, H2, &amp; H3)',
-					'type'        => 'text',
+					'type'        => 'alnumdash',
 					'default'     => null,
 					'placeholder' => 'e.g., playfairdisplay',
 				),
@@ -313,7 +313,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'id'          => 's1-body',
 					'label'       => __( 'Body', 'wp-foft-loader' ),
 					'description' => __( 'Optimize body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
-					'type'        => 'text',
+					'type'        => 'alnumdash',
 					'default'     => null,
 					'placeholder' => 'e.g., timesnewroman',
 				),
@@ -321,7 +321,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'id'          => 's1-alt',
 					'label'       => __( 'Other elements', 'wp-foft-loader' ),
 					'description' => __( 'Optimize non`-body elements', 'wp-foft-loader' ) . ', <abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
-					'type'        => 'text',
+					'type'        => 'alnumdash',
 					'default'     => null,
 					'placeholder' => 'e.g., latosans',
 				),
@@ -329,7 +329,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'id'          => 's1-mono',
 					'label'       => __( 'Monospaced', 'wp-foft-loader' ),
 					'description' => __( 'Optimize monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wp-foft-loader' ),
-					'type'        => 'text',
+					'type'        => 'alnumdash',
 					'default'     => null,
 					'placeholder' => 'e.g., couriernew',
 				),
@@ -427,7 +427,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 	<p>' . __( 'See the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=documentation">' . __( 'Documentation screen', 'wp-foft-loader' ) . '</a> ' . __( 'to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
 	<dl class="col-2">
 	  <dt>' . __( 'Incorrect:', 'wp-foft-loader' ) . '</dt>
-		<dd><pre><code>.nav-primary { <mark>// ' . __( 'Missing prefix:', 'wp-foft-loader' ) . ' .fonts-stage-1</mark>
+		<dd><pre><code>.nav-primary { <mark>// ' . __( 'Missing class:', 'wp-foft-loader' ) . ' .fonts-stage-1</mark>
   font-family: latoSubset, sans-serif;
 }
 
@@ -440,7 +440,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 }
 
 .fonts-stage-1 div.callout {
-  font-family: lato-Subset, san-serif;
+  font-family: latoSubset, san-serif;
   font-size: 1rem; <mark>// ' . __( '&ldquo;font-family,&rdquo; &ldquo;font-weight,&rdquo; &ldquo;font-style,&rdquo;', 'wp-foft-loader' ) . '</mark>
                    <mark>// ' . __( 'and &ldquo;font-variant&rdquo; rules only', 'wp-foft-loader' ) . '</mark>
 }</code></pre></dd>
@@ -890,7 +890,8 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 			$html .= '</h2>' . chr( 0x0D ) . chr( 0x0A );
 		}
-			settings_errors();
+
+			// settings_errors();
 			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . chr( 0x0D ) . chr( 0x0A );
 
 				// Get settings fields.

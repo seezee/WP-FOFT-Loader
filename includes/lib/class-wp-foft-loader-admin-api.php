@@ -76,6 +76,10 @@ class WP_FOFT_Loader_Admin_API {
 				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
+			case 'alnumdash':
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" xpattern="[a-zA-Z0-9_-]+" />' . chr( 0x0D ) . chr( 0x0A );
+				break;
+
 			case 'hidden':
 				$min = '';
 				if ( isset( $field['min'] ) ) {
@@ -159,6 +163,7 @@ class WP_FOFT_Loader_Admin_API {
 
 		switch ( $type ) {
 			case 'text':
+			case 'alnumdash':
 				$data = esc_attr( $data );
 				break;
 		}

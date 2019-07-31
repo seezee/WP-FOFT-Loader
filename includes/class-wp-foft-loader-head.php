@@ -2,7 +2,7 @@
 /**
  * Settings class file.
  *
- * @package WP FOFT Loader/Head
+ * @package WP FOFT Loader/Includes
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,8 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	/**
 	 * Enqueue custom fonts.
-
-	Place font declaration and script in head -- using inline embed for critical font load with data URI per https://www.zachleat.com/web/comprehensive-webfonts/ .
+	 * Place font declaration and script in head -- using inline embed for
+	 * critical font load with data URI per
+	 * https://www.zachleat.com/web/comprehensive-webfonts/ .
 	 */
 class WP_FOFT_Loader_Head {
 
@@ -24,15 +25,6 @@ class WP_FOFT_Loader_Head {
 	 * @since   1.0.0
 	 */
 	private static $instance = null;
-
-	/**
-	 * The main plugin object.
-	 *
-	 * @var     object
-	 * @access  public
-	 * @since   1.0.0
-	 */
-	public $parent = null;
 
 	/**
 	 * Generate CSS & Javascript to be loaded in <head>.
@@ -53,6 +45,7 @@ class WP_FOFT_Loader_Head {
 
 		$arr = array(); // Use this with wp_kses. Don't allow any HTML.
 
+		// All options prefixed with $base value; see class-wp-foft-loader-settings constructor.
 		$heading = get_option( 'wpfl_s1-heading' );
 		$body    = get_option( 'wpfl_s1-body' );
 		$alt     = get_option( 'wpfl_s1-alt' );
@@ -243,6 +236,7 @@ class WP_FOFT_Loader_Head {
 
 		// Create a new configuration object.
 		$config = HTMLPurifier_Config::createDefault();
+		$config->set( 'CSS.Proprietary', true );
 		$config->set( 'Filter.ExtractStyleBlocks', true );
 
 		// Create a new purifier instance.

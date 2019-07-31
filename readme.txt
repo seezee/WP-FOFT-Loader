@@ -9,7 +9,6 @@ Requires PHP: 7.0
 Stable tag: 1.0.33  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
-[](http://coderisk.com/wp/plugin/wp-foft-loader/RIPS-Gl7hkJNKdh)  
 
 [//]: # ( Abbreviations: )
 
@@ -152,10 +151,10 @@ For detailed recommended settings, see the plugin Base64 options screen. The gen
 
 	@font-face{  
 	  font-family: Merriweather;  
-	  src: url(data:application/font-woff; charset=utf-8; base64,   d09GRgABAAAAAB4UABAAAAAAMpAAA…) format(“woff”);  
+	  src: url(data:application/font-woff; charset=utf-8; base64,   d09GRgABAAAAAB4UABAAAAAAMpAAA…) format(“woff”);
 	 }
  
-Copy and paste the part the part between `src:url (data:application/font-woff; charset=utf-8; base64,` and `) format(“woff”);` into the appropriate field below. In this example that would be `d09GRgABAAAAAB4UABAAAAAAMpAAA…`.
+Copy and paste the part the part between ‘`src:url (data:application/font-woff; charset=utf-8; base64,`’ and ‘`) format(“woff”);`’ into the appropriate field below. In this example that would be ‘`d09GRgABAAAAAB4UABAAAAAAMpAAA…`’.
 
 ### CSS
 
@@ -311,6 +310,10 @@ Forthcoming translations:
 * Spanish (es_MX) by Nilo Vélez @nilovelez
 
 == Changelog ==
+
+= 1.0.34 =
+* 2019-07-29
+* Modifed HTMLTidy config in class-wp-foft-loader-head.php
 
 = 1.0.33 =
 * 2019-07-07
@@ -485,9 +488,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.33 =
-* 2019-07-07
-* Updated .pot file
-* Replaced incorrect Dutch .po & .mo
+= 1.0.34 =
+* 2019-07-29
+* Modifed HTMLTidy config in class-wp-foft-loader-head.php
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
