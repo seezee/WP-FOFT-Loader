@@ -34,18 +34,11 @@ class WP_FOFT_Loader_Upload {
 
 	/**
 	 * Constructor function.
-	 *
-	 * @param object $parent Parent object.
 	 */
-	public function __construct( $parent ) {
-		$this->parent = $parent;
-
+	public function __handle_upload() {
 		// Load & unload the custom upload path.
-
-		add_filter( 'wp_handle_upload_prefilter' . plugin_basename( $this->parent->file ), array( $this, 'pre_upload' ) );
-
-		add_filter( 'wp_handle_upload' . plugin_basename( $this->parent->file ), array( $this, 'post_upload' ) );
-
+		add_filter( 'wp_handle_upload_prefilter', array( $this, 'pre_upload' )  );
+		add_filter( 'wp_handle_upload', array( $this, 'post_upload' ) );
 	}
 
 	/**
@@ -54,7 +47,7 @@ class WP_FOFT_Loader_Upload {
 	 * @param object $file A single element of the $_FILES array.
 	 */
 	public function pre_upload( $file ) {
-		add_filter( 'upload_dir', 'custom_upload_dir' );
+		add_filter( 'upload_dir', array( $this, 'custom_upload_dir' ) );
 		return $file;
 	}
 
@@ -64,8 +57,30 @@ class WP_FOFT_Loader_Upload {
 	 * @param object $fileinfo File info.
 	 */
 	public function post_upload( $fileinfo ) {
-		remove_filter( 'upload_dir', 'custom_upload_dir' );
+		remove_filter( 'upload_dir', array( $this, 'custom_upload_dir' ) );
 		return $fileinfo;
+	}
+
+	/**
+	 * Set upload directory for fonts
+	 * @param object $path  The default file path.
+	 * @param string $fonts The strings we're looking for.
+	 * @param string $extension Get the substring.
+	 * @param $customdir The new directory.
+	 */
+	 public function custom_upload_dir( $path ) {
+		$fonts     = array( 'woff', 'woff2' );
+		$extension = substr( strrchr( $_POST['name'], '.' ), 1 );
+		if ( ! empty( $path['error'] ) || ! in_array( $extension, $fonts ) ) {
+			return $path;
+		} //error or other filetype; do nothing.
+		$customdir      = '/fonts'; // relative to uploads directory
+		$path['path']   = str_replace( $path['subdir'], '', $path['path'] ); // remove default subdir (year/month)
+		$path['url']    = str_replace( $path['subdir'], '', $path['url'] );
+		$path['subdir'] = $customdir;
+		$path['path']  .= $customdir;
+		$path['url']   .= $customdir;
+		return $path;
 	}
 
 	/**
@@ -105,3 +120,6 @@ class WP_FOFT_Loader_Upload {
 	} // End __wakeup()
 
 }
+
+$upload = new WP_FOFT_Loader_Upload();
+$upload -> __handle_upload();

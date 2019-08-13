@@ -37,15 +37,14 @@ class WP_FOFT_Loader_Mimes {
 	 *
 	 * @param object $parent Parent object.
 	 */
-	public function __construct( $parent ) {
+	public function __allow_woff( $parent ) {
 		$this->parent = $parent;
 
 		// Allow WOFF & WOFF2 mime-types.
 
-		add_filter( 'wp_check_filetype_and_ext' . plugin_basename( $this->parent->file ), array( $this, 'file_and_ext' ), 10, 4 );
+		add_filter( 'wp_check_filetype_and_ext', array( $this, 'file_and_ext' ), 10, 4 );
 
-		add_filter( 'wp_upload_mimes' . plugin_basename( $this->parent->file ), array( $this, 'mime_types' ) );
-
+		add_filter( 'upload_mimes', array( $this, 'mime_types' ) );
 	}
 
 	/**
@@ -65,6 +64,7 @@ class WP_FOFT_Loader_Mimes {
 			$types['ext']  = 'woff2';
 			$types['type'] = 'font/woff2|application/octet-stream|font/x-woff2';
 		}
+
 		return $types;
 	}
 
@@ -116,3 +116,6 @@ class WP_FOFT_Loader_Mimes {
 	} // End __wakeup()
 
 }
+
+$mimes = new WP_FOFT_Loader_Mimes();
+$mimes -> __allow_woff( $parent );

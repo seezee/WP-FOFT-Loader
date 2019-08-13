@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.35  
+Stable tag: 1.0.36  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -113,6 +113,12 @@ extraBoldItalic | ultraBoldItalic (maps to 800)
 blackItalic | heavyItalic (maps to 900)  
 
 == Configuration ==
+
+### Video Tutorials
+
+[https://youtu.be/0C0lDJ3T12o]  
+
+[https://youtu.be/-StFYcOSDCU]  
 
 ### Optimize
 
@@ -311,6 +317,10 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.36 =
+* 2019-08.13
+* Fixed uploader bug. WOFF & WOFF2 files now permitted & upload to correct folder
+
 = 1.0.35 =
 * 2019-07-31
 * Update CSSTidy library to v1.7.0
@@ -492,8 +502,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.35 =
-* 2019-07-31
-* Update CSSTidy library to v1.7.0
+= 1.0.36 =
+* 2019-08.13
+* Fixed uploader bug. WOFF & WOFF2 files now permitted & upload to correct folder
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
