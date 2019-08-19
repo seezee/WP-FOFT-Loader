@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-This plugin implements and automates Zach Leatherman’s Critical FOFT with Data URI [see https://www.zachleat.com/web/comprehensive-webfonts/](https://www.zachleat.com/web/comprehensive-webfonts/).
+This plugin implements and automates Zach Leatherman’s Critical FOFT with Data URI (see [https://www.zachleat.com/web/comprehensive-webfonts/](https://www.zachleat.com/web/comprehensive-webfonts/)).
 
 == Acknowledgement ==
 

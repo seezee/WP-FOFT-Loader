@@ -5,18 +5,18 @@ Donate link: https://messengerwebdesign.com/donate
 Tags: wordpress, plugin, fonts, performance  
 Requires at least: 3.9  
 Tested up to: 5.2.2  
-Requires <abbr title="Pre-Hypertext Processor">PHP</abbr>: 7.0  
+Requires PHP: 7.0  
 Stable tag: 1.0.37  
-License: <abbr title="Gnu Public License">GPL</abbr>v3 or later  
-License <abbr title="Uniform Resources Identifier">URI</abbr>: https://www.gnu.org/licenses/gpl-3.0.html
+License: GNUv3 or later  
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-This plugin implements and automates [Zach Leatherman’s Critical <abbr title="Flash of Faux Text">FOFT</abbr> with Data <abbr title="Uniform Resources Identifier">URI</abbr>](https://www.zachleat.com/web/comprehensive-webfonts/).
+This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
 
 == Acknowledgement ==
 
-This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/hlashbrooke/WordPress-Plugin-Template), a robust and <abbr title="Gnu Public License">GPL</abbr>-licensed code template for creating a standards-compliant WordPress plugin.
+This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/hlashbrooke/WordPress-Plugin-Template), a robust and GNU-licensed code template for creating a standards-compliant WordPress plugin.
 
 == Installation ==
 
@@ -35,7 +35,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 5. Activate the plugin in the Plugin dashboard
 6. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
-### USING <abbr title="File Transfer Protocol">FTP</abbr>
+### USING FTP
 1. Download the WP FOFT Loader ZIP file
 2. Extract the WP FOFT Loader ZIP file to your computer
 3. Upload the “wp-foft-loader” directory to the `/wp-content/plugins/` directory
@@ -44,15 +44,15 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
-2. Follow the directions for using <abbr title="File Transfer Protocol">FTP</abbr>
+2. Follow the directions for using FTP
 
 == Generating and Uploading the Font Files ==
 
-Upload two files for each web font: a <abbr title="Web Open Font Format">WOFF</abbr> file and a <abbr title="Web Open Font Format">WOFF</abbr>2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
+Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:			“<abbr title="Web Open Font Format">WOFF</abbr>”
-					“<abbr title="Web Open Font Format">WOFF</abbr>2”
+	Font Formats:			“WOFF”
+					“WOFF2”
 	Advanced Options:		“Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
@@ -76,7 +76,7 @@ For detailed recommended settings, see the plugin Upload options screen.
 
 **Example**: for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2. For small caps style families, append SC (case-sensitive) to the family name, e.g., playfairdisplaySC-bold-webfont.woff.
 
-Allowed weights and styles and their <abbr title="Cascading Style Sheets">CSS</abbr> mappings are:
+Allowed weights and styles and their CSS mappings are:
 
 thin | hairline (maps to 100)  
 extraLight | ultraLight (maps to 200)  
@@ -103,7 +103,7 @@ blackItalic | heavyItalic (maps to 900)
 
 [Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)  
 
-[Episode 2. Font Squirrel Generator (<abbr title="Web Open Font Format">WOFF</abbr> & <abbr title="Web Open Font Format">WOFF</abbr>2)](https://youtu.be/-StFYcOSDCU)  
+[Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
 
 ### Optimize
 
@@ -136,7 +136,7 @@ Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, 
 					Leave everything else unchecked  
 	OpenType Features:		None
 	OpenType Flattening:		None
-	<abbr title="Cascading Style Sheets">CSS</abbr>:				“Base64 Encode”
+	CSS:				“Base64 Encode”
 
 For detailed recommended settings, see the plugin Base64 options screen. The generator will produce a file that looks something like this:
 
@@ -147,19 +147,19 @@ For detailed recommended settings, see the plugin Base64 options screen. The gen
  
 Copy and paste the part the part between ‘`src:url (data:application/font-woff; charset=utf-8; base64,`’ and ‘`) format(“woff”);`’ into the appropriate field below. In this example that would be ‘`d09GRgABAAAAAB4UABAAAAAAMpAAA…`’.
 
-### <abbr title="Cascading Style Sheets">CSS</abbr>
+### CSS
 
-@import rules are automatically handled by this plugin. You may manually inline your font-related <abbr title="Cascading Style Sheets">CSS</abbr> in the document `<head>` here. Place rules pertaining only to the font-family, font-weight, font-style, and font-variation properties here.
+@import rules are automatically handled by this plugin. You may manually inline your font-related CSS in the document `<head>` here. Place rules pertaining only to the font-family, font-weight, font-style, and font-variation properties here.
 
-#### Plugin <abbr title="Cascading Style Sheets">CSS</abbr>
+#### Plugin CSS
 
-The plugin loads some <abbr title="Cascading Style Sheets">CSS</abbr> by default. You may disable it from this screen.
+The plugin loads some CSS by default. You may disable it from this screen.
 
 #### Font Display
 
 The plugin uses `font-display: swap` by default. You can override the [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) property here.
 
-#### <abbr title="Cascading Style Sheets">CSS</abbr> Stage 1
+#### CSS Stage 1
 
 Declarations placed in this field will load the Base64 subset as a placeholder while the external fonts load.
 
@@ -167,7 +167,7 @@ Declarations placed in this field will load the Base64 subset as a placeholder w
 * Family names must match the names you input on the “Optimize” screen.
 * Omit weights and styles from the font name
 * All declarations must start with the fonts-stage-1 class
-* See the Documentation screen to view the Stage 1 <abbr title="Cascading Style Sheets">CSS</abbr> that this plugin loads by default.
+* See the Documentation screen to view the Stage 1 CSS that this plugin loads by default.
 
 Incorrect:
 
@@ -199,14 +199,14 @@ Correct:
 	  font-family: latosubset, san-serif; // Suffix is case-insensitive
 	}
 
-#### <abbr title="Cascading Style Sheets">CSS</abbr> Stage 2
+#### CSS Stage 2
 
 * Use only the family name
 * Family names must match the file names for the fonts you uploaded on the “Upload” screen.
 * Omit weights and styles from the font name
 * All declarations must start with the fonts-stage-2 class
-* For best performance, please minify your <abbr title="Cascading Style Sheets">CSS</abbr> before pasting it into the form.
-* See the Documentation screen to view the Stage 2 <abbr title="Cascading Style Sheets">CSS</abbr> that this plugin loads by default.
+* For best performance, please minify your CSS before pasting it into the form.
+* See the Documentation screen to view the Stage 2 CSS that this plugin loads by default.
 
 Incorrect:
 
@@ -241,7 +241,7 @@ Correct:
 	  font-weight: 700; // This will use the lato-bold font
 	}
 
-For best performance, please [minify your <abbr title="Cascading Style Sheets">CSS</abbr>](https://cssminifier.com/) before pasting it into the form.
+For best performance, please [minify your CSS](https://cssminifier.com/) before pasting it into the form.
 
 ### Font Stacks
 
@@ -249,33 +249,33 @@ Change the default font fallbacks in case your custom fonts don’t load. Don’
 
 ### Further Documentation
 
-See the Documentation screen to view the <abbr title="Cascading Style Sheets">CSS</abbr> this plugin loads by default and to view video tutorials.
+See the Documentation screen to view the CSS this plugin loads by default and to view video tutorials.
 
 == Screenshots ==
 
 1. Uploads screen: upload your custom web fonts here
 2. Optimize screen: tells fontobserver.js which fonts to load for stage 1
-3. Base64 screen: inlines Base64 data <abbr title="Uniform Resources Identifier">URI</abbr> for subsetted stage 1 fonts
-4. <abbr title="Cascading Style Sheets">CSS</abbr> screen: all font-related <abbr title="Cascading Style Sheets">CSS</abbr> goes here so it can be inlined.
+3. Base64 screen: inlines Base64 data URI for subsetted stage 1 fonts
+4. CSS screen: all font-related CSS goes here so it can be inlined.
 5. Font Stacks screen: sets the default font stacks
-6. Documentation (1): Information about the <abbr title="Cascading Style Sheets">CSS</abbr> that the plugin loads by default
+6. Documentation (1): Information about the CSS that the plugin loads by default
 7. Documentation (2): Video tutorials
 
 == Frequently Asked Questions ==
 
 ### What is the plugin for?
 
-This plugin implements and automates [Zach Leatherman’s Critical Flash of Faux Text (<abbr>f) with Data <abbr title="Uniform Resources Identifier">URI</abbr>](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
+This plugin implements and automates [Zach Leatherman’s Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
 
 **PROS**
 
-* All the existing Pros of the [Critical <abbr title="Flash of Faux Text">FOFT</abbr> approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
-* Eliminates Flash of Invisible Text (<abbr title="Flash of Invisible Text">FOIT</abbr>) and greatly reduces Flash of Unstyled Text (<abbr title="Flash of Unstyled Text">FOUT</abbr>) for the roman font. A small reflow will occur for additional characters loaded in the second stage and when the other weights and styles are loaded, but it will have a much smaller impact.
+* All the existing Pros of the [Critical FOFT approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
+* Eliminates Flash of Invisible Text (FOIT) and greatly reduces Flash of Unstyled Text (FOUT) for the roman font. A small reflow will occur for additional characters loaded in the second stage and when the other weights and styles are loaded, but it will have a much smaller impact.
 
 **CONS**
 
-* All the existing Cons of the [Critical <abbr title="Flash of Faux Text">FOFT</abbr> approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
-* The small inlined Data <abbr title="Uniform Resources Identifier">URI</abbr> will marginally block initial render. We’re trading this for highly reduced <abbr title="Flash of Unstyled Text">FOUT</abbr>.
+* All the existing Cons of the [Critical FOFT approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
+* The small inlined Data URI will marginally block initial render. We’re trading this for highly reduced FOUT.
 * Self hosting: Required.
 
 ### How may I help improve this plugin?
@@ -309,7 +309,7 @@ Forthcoming translations:
 
 = 1.0.36 =
 * 2019-08.13
-* Fixed uploader bug. <abbr title="Web Open Font Format">WOFF</abbr> & <abbr title="Web Open Font Format">WOFF</abbr>2 files now permitted & upload to correct folder
+* Fixed uploader bug. WOFF & WOFF2 files now permitted & upload to correct folder
 
 = 1.0.35 =
 * 2019-07-31
@@ -332,7 +332,7 @@ Forthcoming translations:
 = 1.0.31 =
 * 2019-07-04
 * More sanitization
-* Pass <abbr title="Pre-Hypertext Processor Code Sniffer">PHPCS</abbr>/<abbr title="Wordpress Code Sniffer">WPCS</abbr> checks
+* Pass PHPCS/WPCS checks
 * Remove unused metabox code
 
 = 1.0.30 =
@@ -372,15 +372,15 @@ Forthcoming translations:
 
 = 1.0.24 =
 * 2019-06-19
-* Bugfixes: fixed typos in output <abbr title="Cascading Style Sheets">CSS</abbr>
-* Separated Stage 1 and Stage 2 <abbr title="Cascading Style Sheets">CSS</abbr> in <abbr title="Cascading Style Sheets">CSS</abbr> screen
+* Bugfixes: fixed typos in output CSS
+* Separated Stage 1 and Stage 2 CSS in CSS screen
 * Added Documentation screen
 * Major edits to body copy
 * Removed internationalization where it’s not needed
 
 = 1.0.23 =
 * 2019-06-18
-* Use HTMLPurifier & CSSTidy to sanitize user input custom <abbr title="Cascading Style Sheets">CSS</abbr>
+* Use HTMLPurifier & CSSTidy to sanitize user input custom CSS
 
 = 1.0.22 =
 * 2019-06-17
@@ -389,12 +389,12 @@ Forthcoming translations:
 
 = 1.0.21 =
 * 2019-06-17
-* Update custom <abbr title="Cascading Style Sheets">CSS</abbr> output in /includes/class-wp-foft-loader-head.php (convert `&lt;` back to `>` child selector after sanitizing)
-* Update default <abbr title="Cascading Style Sheets">CSS</abbr> output in /includes/class-wp-foft-loader-head.php (don’t escape `>`)
+* Update custom CSS output in /includes/class-wp-foft-loader-head.php (convert `&lt;` back to `>` child selector after sanitizing)
+* Update default CSS output in /includes/class-wp-foft-loader-head.php (don’t escape `>`)
 
 = 1.0.20 =
 * 2019-06-16
-* Add font-display option to <abbr title="Cascading Style Sheets">CSS</abbr> Settings screen
+* Add font-display option to CSS Settings screen
 * Update .pot, .po, & .mo language files
 
 = 1.0.19 =
@@ -428,7 +428,7 @@ Forthcoming translations:
 
 = 1.0.13 =
 * 2019-06-14
-* Corrected <abbr title="Gnu Public License">GPL</abbr> License info
+* Corrected GNU License info
 
 = 1.0.12 =
 * 2019-06-14
@@ -437,11 +437,11 @@ Forthcoming translations:
 
 = 1.0.11 =
 * 2019-06-14
-* Corrected license <abbr title="Uniform Resources Identifier">URI</abbr>
+* Corrected license URI
 
 = 1.0.10 =
 * 2019-06-14
-* Upgraded <abbr title="GNU's Not Unix!">GNU</abbr> Public License from v2 to v3
+* Upgraded GNU Public License from v2 to v3
 
 = 1.0.9 =
 * 2019-06-14
@@ -449,7 +449,7 @@ Forthcoming translations:
 
 = 1.0.8 =
 * 2019-06-14
-* Add Requires <abbr title="Pre-Hypertext Processor">PHP</abbr> to README
+* Add Requires PHP to README
 
 = 1.0.7 =
 * 2019-06-14
@@ -462,7 +462,7 @@ Forthcoming translations:
 
 = 1.0.5 =
 * 2019-06-14
-* Upgrade license from <abbr title="GNU's Not Unix!">GNU</abbr> <abbr title="Gnu Public License">GPL</abbr> 2 to <abbr title="GNU's Not Unix!">GNU</abbr> <abbr title="Gnu Public License">GPL</abbr> 3
+* Upgrade license from GNU GNU 2 to GNU GNU 3
 * Fix Undefined index: placeholder in class-wp-foft-loader-admin-api.php
 * Add acknowledgement to README
 
