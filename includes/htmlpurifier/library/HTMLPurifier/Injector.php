@@ -147,9 +147,9 @@ abstract class HTMLPurifier_Injector
     public function allowsElement($name)
     {
         if (!empty($this->currentNesting)) {
-            $parenttoken = array_pop($this->currentNesting);
-            $this->currentNesting[] = $parenttoken;
-            $parent = $this->htmlDefinition->info[$parenttoken->name];
+            $parent_token = array_pop($this->currentNesting);
+            $this->currentNesting[] = $parent_token;
+            $parent = $this->htmlDefinition->info[$parent_token->name];
         } else {
             $parent = $this->htmlDefinition->info_parent_def;
         }

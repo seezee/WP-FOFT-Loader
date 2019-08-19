@@ -249,10 +249,10 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
             } elseif ($type && $type !== 'empty' && $token instanceof HTMLPurifier_Token_Empty) {
                 // claims to be empty but really is a start tag
                 // NB: this assignment is required
-                $oldtoken = $token;
+                $old_token = $token;
                 $token = new HTMLPurifier_Token_End($token->name);
                 $token = $this->insertBefore(
-                    new HTMLPurifier_Token_Start($oldtoken->name, $oldtoken->attr, $oldtoken->line, $oldtoken->col, $oldtoken->armor)
+                    new HTMLPurifier_Token_Start($old_token->name, $old_token->attr, $old_token->line, $old_token->col, $old_token->armor)
                 );
                 // punt (since we had to modify the input stream in a non-trivial way)
                 $reprocess = true;
@@ -335,8 +335,8 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
                         }
                         if ($autoclose_ok) {
                             // errors need to be updated
-                            $newtoken = new HTMLPurifier_Token_End($parent->name);
-                            $newtoken->start = $parent;
+                            $new_token = new HTMLPurifier_Token_End($parent->name);
+                            $new_token->start = $parent;
                             // [TagClosedSuppress]
                             if ($e && !isset($parent->armor['MakeWellFormed_TagClosedError'])) {
                                 if (!$carryover) {
@@ -350,9 +350,9 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
                                 // [TagClosedAuto]
                                 $element->armor['MakeWellFormed_TagClosedError'] = true;
                                 $element->carryover = true;
-                                $token = $this->processToken(array($newtoken, $token, $element));
+                                $token = $this->processToken(array($new_token, $token, $element));
                             } else {
-                                $token = $this->insertBefore($newtoken);
+                                $token = $this->insertBefore($new_token);
                             }
                         } else {
                             $token = $this->remove();
@@ -490,10 +490,10 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
             $replace = array($token);
             for ($j = 1; $j < $c; $j++) {
                 // ...as well as from the insertions
-                $newtoken = new HTMLPurifier_Token_End($skipped_tags[$j]->name);
-                $newtoken->start = $skipped_tags[$j];
-                array_unshift($replace, $newtoken);
-                if (isset($definition->info[$newtoken->name]) && $definition->info[$newtoken->name]->formatting) {
+                $new_token = new HTMLPurifier_Token_End($skipped_tags[$j]->name);
+                $new_token->start = $skipped_tags[$j];
+                array_unshift($replace, $new_token);
+                if (isset($definition->info[$new_token->name]) && $definition->info[$new_token->name]->formatting) {
                     // [TagClosedAuto]
                     $element = clone $skipped_tags[$j];
                     $element->carryover = true;

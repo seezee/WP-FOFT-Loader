@@ -1,0 +1,33 @@
+{
+  "name": "wp-foft-loader",
+  "version": "1.0.37",
+  "description": "This plugin implements and automates Zach Leatherman's Critical FOFT (Flash of Faux Text) with Data URI (see https://www.zachleat.com/web/comprehensive-webfonts/).",
+  "main": "wp-foft-loader.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  "bundledDependencies": [
+    "htmlpurifier", "CSSTidy"
+  ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seezee/WP-FOFT-Loader.git"
+  },
+  "keywords": [
+    "font",
+    "wordpress",
+    "performance",
+    "webfont"
+  ],
+  "author": "Chris J. Zähller",
+  "license": "GPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/seezee/WP-FOFT-Loader/issues"
+  },
+  "homepage": "https://github.com/seezee/WP-FOFT-Loader#readme",
+  { "dependencies" :
+    { "htmlpurifier" : "ezyang/htmlpurifier",
+      "CSSTidy" : "Cerdic/CSSTidy"
+    }
+  }
+}

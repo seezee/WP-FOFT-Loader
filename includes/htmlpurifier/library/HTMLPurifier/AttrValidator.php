@@ -28,8 +28,8 @@ class HTMLPurifier_AttrValidator
         }
 
         // initialize CurrentToken if necessary
-        $currenttoken =& $context->get('CurrentToken', true);
-        if (!$currenttoken) {
+        $current_token =& $context->get('CurrentToken', true);
+        if (!$current_token) {
             $context->register('CurrentToken', $token);
         }
 
@@ -166,7 +166,7 @@ class HTMLPurifier_AttrValidator
         $token->attr = $attr;
 
         // destroy CurrentToken if we made it ourselves
-        if (!$currenttoken) {
+        if (!$current_token) {
             $context->destroy('CurrentToken');
         }
 

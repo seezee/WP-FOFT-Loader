@@ -6,28 +6,13 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.36  
+Stable tag: 1.0.37  
 License: GPLv3 or later  
-License URI: https://www.gnu.org/licenses/gpl-3.0.html  
-
-[//]: # ( Abbreviations: )
-
-*[FOFT]: Flash of Faux Text
-*[FOIT]: Flash of Invisible Text
-*[FOUT]: Flash of Unstyled Text
-*[FTP]: File Transport Protocol
-*[WOFF]: Web Open Font Format
-*[WOFF2]: Web Open Font Format 2
-*[GPL]: Gnu Public License
-*[PHP]: Pre-Hypertext Processor
-*[URI]: Uniform Resources Identifier
-*[PHPCS]: Pre-Hypertext Processor Code Sniffer
-*[WPCS]: Wordpress Code Sniffer
-*[CSS]: Cascading Style Sheets
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
+This plugin implements and automates Zach Leatherman’s Critical FOFT with Data URI [see https://www.zachleat.com/web/comprehensive-webfonts/](https://www.zachleat.com/web/comprehensive-webfonts/).
 
 == Acknowledgement ==
 
@@ -116,9 +101,9 @@ blackItalic | heavyItalic (maps to 900)
 
 ### Video Tutorials
 
-[https://youtu.be/0C0lDJ3T12o]  
+[Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)  
 
-[https://youtu.be/-StFYcOSDCU]  
+[Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
 
 ### Optimize
 
@@ -317,6 +302,11 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.37 =
+* 2012-08-19
+* Added package.json
+* Minor updates to readme.txt & readme.md
+
 = 1.0.36 =
 * 2019-08.13
 * Fixed uploader bug. WOFF & WOFF2 files now permitted & upload to correct folder
@@ -502,8 +492,9 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.36 =
-* 2019-08.13
-* Fixed uploader bug. WOFF & WOFF2 files now permitted & upload to correct folder
+= 1.0.37 =
+* 2012-08-19
+* Added package.json
+* Minor updates to readme.txt & readme.md
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

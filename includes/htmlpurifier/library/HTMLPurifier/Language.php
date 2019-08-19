@@ -175,9 +175,9 @@ class HTMLPurifier_Language
                     // could be introduced for all types of tokens. This
                     // may need to be factored out into a dedicated class
                     if (!empty($value->attr)) {
-                        $strippedtoken = clone $value;
-                        $strippedtoken->attr = array();
-                        $subst['$'.$i.'.Compact'] = $generator->generateFromToken($strippedtoken);
+                        $stripped_token = clone $value;
+                        $stripped_token->attr = array();
+                        $subst['$'.$i.'.Compact'] = $generator->generateFromToken($stripped_token);
                     }
                     $subst['$'.$i.'.Line'] = $value->line ? $value->line : 'unknown';
                 }
