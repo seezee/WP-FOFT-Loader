@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.37  
+Stable tag: 1.0.38  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -302,6 +302,10 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.38 =
+* 2012-09-05
+* Remove admin script enqueuing since we’re not using it and it throws a 404
+
 = 1.0.37 =
 * 2012-08-19
 * Added package.json
@@ -492,9 +496,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.37 =
-* 2012-08-19
-* Added package.json
-* Minor updates to readme.txt & readme.md
+= 1.0.38 =
+* 2012-09-05
+* Remove admin script enqueuing since we’re not using it and it throws a 404
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

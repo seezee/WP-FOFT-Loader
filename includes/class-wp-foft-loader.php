@@ -108,7 +108,7 @@ class WP_FOFT_Loader {
 	 * @param string $file File constructor.
 	 * @param string $version Plugin version.
 	 */
-	public function __construct( $file = '', $version = '1.0.37' ) {
+	public function __construct( $file = '', $version = '1.0.38' ) {
 		$this->version = $version;
 		$this->token   = 'wp_foft_loader';
 
@@ -123,7 +123,9 @@ class WP_FOFT_Loader {
 		register_activation_hook( $this->file, array( $this, 'install' ) );
 
 		// Load admin JS & CSS.
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
+		// phpcs:disable
+		// add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
+		// phpcs:enable
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ), 10, 1 );
 
 		// Load API for generic admin functions.
@@ -148,6 +150,7 @@ class WP_FOFT_Loader {
 		wp_enqueue_style( $this->token . '-admin' );
 	} // End admin_enqueue_styles ()
 
+	// phpcs:disable
 	/**
 	 * Load admin Javascript.
 	 *
@@ -157,11 +160,12 @@ class WP_FOFT_Loader {
 	 *
 	 * @return  void
 	 * @since   1.0.0
-	 */
+	 */ /*
 	public function admin_enqueue_scripts( $hook = '' ) {
 		wp_register_script( $this->token . '-admin', esc_url( $this->assets_url ) . 'js/admin' . $this->script_suffix . '.js', array( 'jquery' ), $this->version, true );
 		wp_enqueue_script( $this->token . '-admin' );
-	} // End admin_enqueue_scripts ()
+	} // End admin_enqueue_scripts () */
+	// phpcs:enable
 
 	/**
 	 * Load plugin localisation
@@ -202,7 +206,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 * @static
 	 */
-	public static function instance( $file = '', $version = '1.0.37' ) {
+	public static function instance( $file = '', $version = '1.0.38' ) {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self( $file, $version );
 		}
