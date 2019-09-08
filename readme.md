@@ -6,9 +6,10 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.38  
+Stable tag: 1.0.39  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
 == Description ==
 
@@ -25,7 +26,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 2. Search for “WP FOFT Loader”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
-5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Navigate to “Add New” in the plugins dashboard
@@ -33,14 +34,14 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 3. Select wp-foft-loader.zip from your computer
 4. Click “Install Now”
 5. Activate the plugin in the Plugin dashboard
-6. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+6. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### USING FTP
 1. Download the WP FOFT Loader ZIP file
 2. Extract the WP FOFT Loader ZIP file to your computer
 3. Upload the “wp-foft-loader” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin’s dashboard
-5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
@@ -302,6 +303,10 @@ Forthcoming translations:
 
 == Changelog ==
 
+= 1.0.39 =
+* 2012-09-08
+* Security update: Fix XSS double-quoted attribute flaw in class-wp-foft-loader-settings.php
+
 = 1.0.38 =
 * 2012-09-05
 * Remove admin script enqueuing since we’re not using it and it throws a 404
@@ -498,9 +503,9 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.38 =
-* 2012-09-05
-* Remove admin script enqueuing since we’re not using it and it throws a 404
+= 1.0.39 =
+* 2012-09-08
+* Security update: Fix XSS double-quoted attribute flaw in class-wp-foft-loader-settings.php
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

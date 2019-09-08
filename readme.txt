@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, performance
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.38  
+Stable tag: 1.0.39  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,7 +25,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 2. Search for “WP FOFT Loader”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
-5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Navigate to“Add New” in the plugins dashboard
@@ -33,14 +33,14 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 3. Select wp-foft-loader.zip from your computer
 4. Click “Install Now”
 5. Activate the plugin in the Plugin dashboard
-6. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+6. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### USING FTP
 1. Download the WP FOFT Loader ZIP file
 2. Extract the WP FOFT Loader ZIP file to your computer
 3. Upload the “wp-foft-loader” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin’s dashboard
-5. Go Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
@@ -99,13 +99,13 @@ blackItalic | heavyItalic (maps to 900)
 
 == Configuration ==
 
-### Video Tutorials
+= Video Tutorials =
 
 [Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)  
 
 [Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
 
-### Optimize
+= Optimize =
 
 Load small subsetted font files before the page fully loads to improve performance. This setting works with the Base64 settings in the next tab. All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Base64 settings field.
 
@@ -123,7 +123,7 @@ Enter the names of your Base64 subsetted fonts below. **Only the family name is 
 `playfair display` (spaces prohibited)  
 `Playfair Display` (spaces prohibited)  
 
-### Base64
+= Base64 =
 
 This setting inlines Base64 encoded font in the document head to improve font loading speeds. This setting works with the Optimize settings in the previous tab. All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field.
 
@@ -147,7 +147,7 @@ For detailed recommended settings, see the plugin Base64 options screen. The gen
  
 Copy and paste the part the part between ‘`src:url (data:application/font-woff; charset=utf-8; base64,`’ and ‘`) format(“woff”);`’ into the appropriate field below. In this example that would be ‘`d09GRgABAAAAAB4UABAAAAAAMpAAA…`’.
 
-### CSS
+= CSS =
 
 @import rules are automatically handled by this plugin. You may manually inline your font-related CSS in the document `<head>` here. Place rules pertaining only to the font-family, font-weight, font-style, and font-variation properties here.
 
@@ -301,6 +301,10 @@ Forthcoming translations:
 * Spanish (es_MX) by Nilo Vélez @nilovelez
 
 == Changelog ==
+
+= 1.0.39 =
+* 2012-09-08
+* Security update: Fix XSS double-quoted attribute flaw in class-wp-foft-loader-settings.php
 
 = 1.0.38 =
 * 2012-09-05
@@ -496,8 +500,8 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.38 =
-* 2012-09-05
-* Remove admin script enqueuing since we’re not using it and it throws a 404
+= 1.0.39 =
+* 2012-09-08
+* Security update: Fix XSS double-quoted attribute flaw in class-wp-foft-loader-settings.php
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

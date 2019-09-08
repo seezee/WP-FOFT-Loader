@@ -883,7 +883,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 				// phpcs:enable
 
 				// Output tab.
-				$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr( 0x0D ) . chr( 0x0A );
+				$html .= '<a href="' . esc_attr( $tab_link ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr( 0x0D ) . chr( 0x0A );
 
 				++$c;
 			}
@@ -891,21 +891,21 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 			$html .= '</h2>' . chr( 0x0D ) . chr( 0x0A );
 		}
 
-			// settings_errors();
-			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . chr( 0x0D ) . chr( 0x0A );
+		// settings_errors();
+		$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . chr( 0x0D ) . chr( 0x0A );
 
-				// Get settings fields.
-				ob_start();
-				settings_fields( $this->parent->token . '_settings' );
-				do_settings_sections( $this->parent->token . '_settings' );
-				$html .= ob_get_clean();
+		// Get settings fields.
+		ob_start();
+		settings_fields( $this->parent->token . '_settings' );
+		do_settings_sections( $this->parent->token . '_settings' );
+		$html .= ob_get_clean();
 
-				$html     .= '<p class="submit">' . chr( 0x0D ) . chr( 0x0A );
-					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . chr( 0x0D ) . chr( 0x0A );
-					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wp-foft-loader' ) ) . '" />' . chr( 0x0D ) . chr( 0x0A );
-				$html     .= '</p>' . chr( 0x0D ) . chr( 0x0A );
-			$html         .= '</form>' . chr( 0x0D ) . chr( 0x0A );
-		$html             .= '</div>' . chr( 0x0D ) . chr( 0x0A );
+		$html     .= '<p class="submit">' . chr( 0x0D ) . chr( 0x0A );
+		$html     .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+		$html     .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wp-foft-loader' ) ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+		$html     .= '</p>' . chr( 0x0D ) . chr( 0x0A );
+		$html     .= '</form>' . chr( 0x0D ) . chr( 0x0A );
+		$html     .= '</div>' . chr( 0x0D ) . chr( 0x0A );
 
 		echo $html; // phpcs:ignore
 
