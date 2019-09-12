@@ -2,18 +2,18 @@
 Contributors: seezee  
 Translators: augusgils, nilovelez  
 Donate link: https://messengerwebdesign.com/donate  
-Tags: wordpress, plugin, fonts, performance  
+Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.39  
+Stable tag: 1.0.40  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
 == Description ==
 
-This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/).
+This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/) to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Acknowledgement ==
 
@@ -301,7 +301,18 @@ Forthcoming translations:
 * Spanish (es) by Daniel de Lira
 * Spanish (es_MX) by Nilo Vélez @nilovelez
 
+== Dependencies ==
+
+This plugin includes these third-party libraries in its package.
+
+* [HTMLPurifier](https://github.com/ezyang/htmlpurifier): v1.7.0
+* [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.11.0
+
 == Changelog ==
+
+= 1.0.40 =
+* 2012-09-12
+* Remove unused dev code from HTMLPurifier & CSSTidy
 
 = 1.0.39 =
 * 2012-09-08
@@ -503,9 +514,9 @@ Forthcoming translations:
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.39 =
-* 2012-09-08
-* Security update: Fix XSS double-quoted attribute flaw in class-wp-foft-loader-settings.php
+= 1.0.40 =
+* 2012-09-12
+* Remove unused dev code from HTMLPurifier & CSSTidy
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
