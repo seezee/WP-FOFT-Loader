@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.43  
+Stable tag: 1.0.44  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -314,6 +314,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.44 =
+* 2019-09-25
+* Add links to plugin meta
+
 = 1.0.43 =
 * 2019-09-25
 * Update plugin description in main file
@@ -528,8 +532,8 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.43 =
+= 1.0.44 =
 * 2019-09-25
-* Update plugin description in main file
+* Add links to plugin meta
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

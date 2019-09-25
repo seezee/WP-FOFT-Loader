@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WP_FOFT_Loader_Mimes {
 
 	/**
-	 * The single instance of WP_FOFT_Loader_Upload.
+	 * The single instance of WP_FOFT_Loader_Mimes.
 	 *
 	 * @var     object
 	 * @access  private
@@ -80,15 +80,15 @@ class WP_FOFT_Loader_Mimes {
 	}
 
 	/**
-	 * Main WP_FOFT_Loader_Upload Instance
+	 * Main WP_FOFT_Loader_Mimes Instance
 	 *
-	 * Ensures only one instance of WP_FOFT_Loader_Upload is loaded or can be loaded.
+	 * Ensures only one instance of WP_FOFT_Loader_Mimes is loaded or can be loaded.
 	 *
 	 * @since 1.0.0
 	 * @static
 	 * @see WP_FOFT_Loader()
 	 * @param object $parent Object instance.
-	 * @return Main WP_FOFT_Loader_Upload instance
+	 * @return Main WP_FOFT_Loader_Mimes instance
 	 */
 	public static function instance( $parent ) {
 		if ( is_null( self::$instance ) ) {
