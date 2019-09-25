@@ -54,7 +54,7 @@ class WP_FOFT_Loader_Meta {
 			$supportlink = 'https://wordpress.org/support/plugin/wp-foft-loader';
 			$donatelink = 'https://paypal.me/messengerwebdesign?locale.x=en_US';
 			$reviewlink = 'https://wordpress.org/support/view/plugin-reviews/wp-foft-loader?rate=5#postform';
-			$twitterlink = 'http://twitter.com/cubecolour';
+			$twitterlink = 'http://twitter.com/czahller';
 			$iconstyle = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
 			return array_merge( $links, array(
