@@ -6,13 +6,18 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.40  
+Stable tag: 1.0.41  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
+[//]: # (*********************************************************************          **********Short description: 150 characters or fewer; no markup! *****          *********************************************************************)
+Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Description ==
 
 This plugin implements and automates Zach Leatherman’s Critical FOFT with Data URI to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://www.zachleat.com/web/comprehensive-webfonts/](https://www.zachleat.com/web/comprehensive-webfonts/).
+
+[![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)
 
 == Acknowledgement ==
 
@@ -309,6 +314,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.41 =
+* 2012-09-25
+* Add `kbd` tag to default CSS
+
 = 1.0.40 =
 * 2012-09-12
 * Remove unused dev code from HTMLPurifier & CSSTidy
@@ -511,8 +520,8 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.40 =
-* 2012-09-12
-* Remove unused dev code from HTMLPurifier & CSSTidy
+= 1.0.41 =
+* 2012-09-25
+* Add `kbd` tag to default CSS
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

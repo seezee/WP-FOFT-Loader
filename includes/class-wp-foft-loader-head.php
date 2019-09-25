@@ -203,7 +203,7 @@ class WP_FOFT_Loader_Head {
 		}
 
 		if ( ! is_null( $mono ) && ! is_null( $fs_mono ) ) {
-			echo '.fonts-stage-1 code{font-family:' . wp_kses( $mono, $arr ) . 'Subset,monospace}';
+			echo '.fonts-stage-1 code,.fonts-stage-1 kbd{font-family:' . wp_kses( $mono, $arr ) . 'Subset,monospace}';
 		}
 
 		if ( isset( $default_css ) ) {
@@ -219,7 +219,7 @@ class WP_FOFT_Loader_Head {
 				echo '.fonts-stage-2 code strong,.fonts-stage-2 h4,.fonts-stage-2 h5,.fonts-stage-2 h6,.fonts-stage-2 strong,.fonts-stage-2 strong code{font-weight:700}.fonts-stage-2 h1 strong,.fonts-stage-2 h2 strong,.fonts-stage-2 h3 strong,.fonts-stage-2 strong h1,.fonts-stage-2 strong h2,.fonts-stage-2 strong h3{font-weight:900}.fonts-stage-2 em strong h1,.fonts-stage-2 h1 em strong,.fonts-stage-2 h1 strong em,.fonts-stage-2 strong em h1{font-weight:900;font-style:italic}.fonts-stage-2 abbr{font-weight:700;font-variant:small-caps;padding:0 .13333rem 0 0;letter-spacing:.06667rem;text-transform:lowercase}';
 
 				if ( ! is_null( $mono ) ) {
-					echo '.fonts-stage-2 code{font-family:' . wp_kses( $mono, $arr ) . wp_kses( $fs_mono, $arr ) . '}';
+					echo '.fonts-stage-2 code,.fonts-stage-2 kbd{font-family:' . wp_kses( $mono, $arr ) . wp_kses( $fs_mono, $arr ) . '}';
 				}
 
 				echo '.fonts-stage-2 cite>em,.fonts-stage-2 cite>q,.fonts-stage-2 em>cite,.fonts-stage-2 em>em,.fonts-stage-2 em>q,.fonts-stage-2 figcaption>cite,.fonts-stage-2 figcaption>em,.fonts-stage-2 q>cite,.fonts-stage-2 q>em{font-style:normal}.fonts-stage-2 code em,.fonts-stage-2 em,.fonts-stage-2 em code,.fonts-stage-2 figcaption,.fonts-stage-2 h2,.fonts-stage-2 h3{font-style:italic}.fonts-stage-2 code em strong,.fonts-stage-2 code strong em,.fonts-stage-2 em code strong,.fonts-stage-2 em strong,.fonts-stage-2 em strong code,.fonts-stage-2 strong code em,.fonts-stage-2 strong em,.fonts-stage-2 strong em code{font-weight:700;font-style:italic}';
