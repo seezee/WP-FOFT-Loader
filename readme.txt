@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.45  
+Stable tag: 1.0.46  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -314,9 +314,15 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.46 =
+* 2019-09-26
+* Fix undefined offset `0`
+* Fix undefined index `placeholder`
+
 = 1.0.45 =
 * 2019-09-26
-* Remove undefined variable $parent
+* Remove undefined variable $parent from class mimes
+* Add variable $plugin to class meta
 
 = 1.0.44 =
 * 2019-09-25
@@ -536,8 +542,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.45 =
+= 1.0.46 =
 * 2019-09-26
-* Remove undefined variable $parent
+* Fix undefined offset `0`
+* Fix undefined index `placeholder`
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

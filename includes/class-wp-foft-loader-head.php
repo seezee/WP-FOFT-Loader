@@ -321,7 +321,11 @@ class WP_FOFT_Loader_Head {
 		}
 
 		$results = array_unique( $fam );
-		$result  = array( $results[0] );
+		$result  = array( $results[0] ) ?? '';
+		/* Null coalesce operator. See https://stackoverflow.com/questions/
+		 * 4261133/notice-undefined-variable-notice-undefined-index-and-notice-
+		 * undefined.
+		 */
 		foreach ( $results as &$result ) {
 			$obs      = $observer++;
 			$observed = 'var font' . $obs . '=new FontFaceObserver(\'' . $result . '\');';

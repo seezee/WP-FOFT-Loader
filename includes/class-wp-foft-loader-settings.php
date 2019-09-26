@@ -387,6 +387,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'description' => __( 'The display font for high-level headings', 'wp-foft-loader' ) . '(H1, H2, &amp; H3)',
 					'type'        => 'textarea',
 					'default'     => '',
+					'placeholder' => '',
 				),
 				array(
 					'id'          => 'b64-body',
@@ -394,6 +395,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'description' => __( 'The body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
 					'type'        => 'textarea',
 					'default'     => '',
+					'placeholder' => '',
 				),
 				array(
 					'id'          => 'b64-alt',
@@ -401,6 +403,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'description' => __( 'Non-body elements,', 'wp-foft-loader' ) . '<abbr>e.g.</abbr>, ' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
 					'type'        => 'textarea',
 					'default'     => '',
+					'placeholder' => '',
 				),
 				array(
 					'id'          => 'b64-mono',
@@ -408,6 +411,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 					'description' => __( 'Monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wp-foft-loader' ),
 					'type'        => 'textarea',
 					'default'     => '',
+					'placeholder' => '',
 				),
 			),
 		);
