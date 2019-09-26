@@ -48,8 +48,9 @@ class WP_FOFT_Loader_Meta {
 	 * @param string $file Path to main plugin file.
 	 */
 	public function meta_links( $links, $file ) {
+		$plugin = 'wp-foft-loader.php';
 		// Only for this plugin.
-		if ( strpos( $file, 'wp-foft-loader.php' ) !== false ) {
+		if ( strpos( $file, $plugin ) !== false ) {
 
 			$supportlink = 'https://wordpress.org/support/plugin/wp-foft-loader';
 			$donatelink = 'https://paypal.me/messengerwebdesign?locale.x=en_US';

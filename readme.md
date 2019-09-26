@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.44  
+Stable tag: 1.0.45  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -312,6 +312,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.45 =
+* 2019-09-26
+* Remove undefined variable $parent
+
 = 1.0.44 =
 * 2019-09-25
 * Add links to plugin meta
@@ -532,9 +536,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.44 =
-* 2019-09-25
-* Add links to plugin meta
+= 1.0.45 =
+* 2019-09-26
+* Remove undefined variable $parent
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

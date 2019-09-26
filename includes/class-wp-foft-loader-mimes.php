@@ -24,23 +24,11 @@ class WP_FOFT_Loader_Mimes {
 	private static $instance = null;
 
 	/**
-	 * The main plugin object.
-	 *
-	 * @var     object
-	 * @access  public
-	 * @since   1.0.0
-	 */
-	public $parent = null;
-
-	/**
 	 * Constructor function.
 	 *
 	 * @param object $parent Parent object.
 	 */
-	public function __allow_woff( $parent ) {
-		$this->parent = $parent;
-
-		// Allow WOFF & WOFF2 mime-types.
+	public function __allow_woff() {
 
 		add_filter( 'wp_check_filetype_and_ext', array( $this, 'file_and_ext' ), 10, 4 );
 
@@ -118,4 +106,4 @@ class WP_FOFT_Loader_Mimes {
 }
 
 $mimes = new WP_FOFT_Loader_Mimes();
-$mimes -> __allow_woff( $parent );
+$mimes -> __allow_woff();
