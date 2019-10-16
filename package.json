@@ -1,6 +1,6 @@
 {
   "name": "wp-foft-loader",
-  "version": "1.0.46",
+  "version": "1.0.47",
   "description": "This plugin implements and automates Zach Leatherman's Critical FOFT (Flash of Faux Text) with Data URI (see https://www.zachleat.com/web/comprehensive-webfonts/).",
   "main": "wp-foft-loader.php",
   "scripts": {

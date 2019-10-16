@@ -4,9 +4,9 @@ Translators: augusgils, nilovelez
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
-Tested up to: 5.2.2  
+Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 1.0.46  
+Stable tag: 1.0.47  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -314,6 +314,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.47 =
+* 2019-10-16
+* Tested up to WordPress 1.0.46
+
 = 1.0.46 =
 * 2019-09-26
 * Fix undefined offset `0`
@@ -542,9 +546,8 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.46 =
-* 2019-09-26
-* Fix undefined offset `0`
-* Fix undefined index `placeholder`
+= 1.0.47 =
+* 2019-10-16
+* Tested up to WordPress 1.0.46
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
