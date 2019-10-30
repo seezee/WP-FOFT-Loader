@@ -6,14 +6,14 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 1.0.47  
+Stable tag: 2.0.0  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
 == Description ==
 
-This plugin implements and automates [Zach Leatherman’s Critical FOFT with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/) to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+This plugin implements and automates [Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 [![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)
 
@@ -31,18 +31,19 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
-1. Navigate to “Add New” in the plugins dashboard
-2. Navigate to the “Upload” area
-3. Select wp-foft-loader.zip from your computer
-4. Click “Install Now”
-5. Activate the plugin in the Plugin dashboard
-6. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
+1. Click the download button on this and save “wp-foft-loader.zip” to your computer
+2. Navigate to “Add New” in the plugins dashboard
+3. Navigate to the “Upload” area
+4. Select “wp-foft-loader.zip” from your computer
+5. Click “Install Now”
+6. Activate the plugin in the Plugin dashboard
+7. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### USING FTP
 1. Download the WP FOFT Loader ZIP file
 2. Extract the WP FOFT Loader ZIP file to your computer
 3. Upload the “wp-foft-loader” directory to the `/wp-content/plugins/` directory
-4. Activate the plugin in the Plugin’s dashboard
+4. Activate the plugin in the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### DOWNLOAD FROM GITHUB
@@ -60,7 +61,7 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 For detailed recommended settings, see the plugin Upload options screen.
 
-**Filenames must follow the proper naming convention:** `$family`SC-`$variant`-webfont-`$filetype`.
+**Filenames must follow the proper naming convention:** `$family`SC-`$variant`-webfont.`$filetype`.
 
 **$family**
 : The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces.
@@ -71,7 +72,7 @@ For detailed recommended settings, see the plugin Upload options screen.
 **$variant**
 : The font style. Can be weight, style, or a combination of both. *Case-sensitive*.
 
-**-webfont-**
+**-webfont**
 : Mandatory suffix. Append to $variant.
 
 **$filetype**
@@ -108,47 +109,49 @@ blackItalic | heavyItalic (maps to 900)
 
 [Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
 
-### Optimize
+### Subset
 
-Load small subsetted font files before the page fully loads to improve performance. This setting works with the Base64 settings in the next tab. All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Base64 settings field.
+Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.
 
-Enter the names of your Base64 subsetted fonts below. **Only the family name is needed, not the style.** Names are case-insensitive. Hyphens and underscores are allowed, but spaces are not.
+**Filenames must follow the proper naming convention:** `$family`-optimized.woff2.
 
-**Correct:**
+**$family**
+: The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces. Each $family base name should match the name used for the matching font uploaded on the previous upload screen.
 
-`playfairdisplay` (all lowercase)  
-`playfair-display` (hyphens and underscores allowed)  
-`PlayfairDisplay` (mixed case allowed)  
+**-optimized**
+: Mandatory suffix. Append to $family.
 
-**Incorrect:**
+**Example**: If you uploaded timesnewroman-regular-webfont.woff and timesnewroman-regular-webfont.woff2 as your body font on the previous screen, name the subsetted versions timenewroman-optimized.woff and timesnewroman-optimized.woff2 respectively.
 
-`playfairdisplay-bold` (use the family name only; omit the style, i.e., “bold”)  
-`playfair display` (spaces prohibited)  
-`Playfair Display` (spaces prohibited)  
-
-### Base64
-
-This setting inlines Base64 encoded font in the document head to improve font loading speeds. This setting works with the Optimize settings in the previous tab. All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field.
-
-Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
+To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
 	Font Formats:			None
 	Fix Missing Glyphs:		None
-	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0030-0039,0041-005A,0061-007A
+	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
 					Leave everything else unchecked  
 	OpenType Features:		None
 	OpenType Flattening:		None
-	CSS:				“Base64 Encode”
+	CSS:				Leave unchecked
+	Advanced Options:		“Font Name Suffix” = -optimized
 
-For detailed recommended settings, see the plugin Base64 options screen. The generator will produce a file that looks something like this:
+For detailed recommended settings, see the plugin Subset options screen.
 
-	@font-face{  
-	  font-family: Merriweather;  
-	  src: url(data:application/font-woff; charset=utf-8; base64,   d09GRgABAAAAAB4UABAAAAAAMpAAA…) format(“woff”);
-	 }
- 
-Copy and paste the part the part between ‘`src:url (data:application/font-woff; charset=utf-8; base64,`’ and ‘`) format(“woff”);`’ into the appropriate field below. In this example that would be ‘`d09GRgABAAAAAB4UABAAAAAAMpAAA…`’.
+For each subsetted file you upload, enter its name in the appropriate field. Use the same naming convention as required for the filenames.
+
+**Correct:**
+
+`playfairdisplay` (all lowercase)  
+`playfair_display` (hyphens allowed)  
+`PlayfairDisplay` (mixed case allowed)  
+
+**Incorrect:**
+
+playfairdisplay-bold (hyphens not allowed; use the family name only; omit the style, i.e., “bold”)  
+`playfair-display` (hyphens not allowed)  
+`playfair display` (spaces prohibited)  
+`Playfair Display` (spaces prohibited)  
+`playfairdisplay-optimized` (hyphens not allowed; use the family name only; omit the suffix, i.e., “optimized”)  
 
 ### CSS
 
@@ -164,22 +167,18 @@ The plugin uses `font-display: swap` by default. You can override the [`font-dis
 
 #### CSS Stage 1
 
-Declarations placed in this field will load the Base64 subset as a placeholder while the external fonts load.
+Declarations placed in this field will load subsetted fonts as placeholders while the full fonts load.
 
-* Use only the family name followed by Subset (case-insensitive)
-* Family names must match the names you input on the “Optimize” screen.
-* Omit weights and styles from the font name
+* Use only the family name followed by Subset (case-sensitive)
+* Family names must match the names you input on the “Subset” screen.
 * All declarations must start with the fonts-stage-1 class
-* See the Documentation screen to view the Stage 1 CSS that this plugin loads by default.
+
+See the Documentation screen to view the Stage 1 CSS that this plugin loads by default.
 
 Incorrect:
 
-	.nav-primary { // Missing prefix: .fonts-stage-1
+	.nav-primary { // Missing class: .fonts-stage-1
 	  font-family: latoSubset, sans-serif;
-	}
-
-	.fonts-stage-1 #footer-primary {
-	  font-family: lato-boldSubset, san-serif; // Don’t include the weight or style
 	}
 
 	.fonts-stage-1 #footer-secondary {
@@ -187,19 +186,19 @@ Incorrect:
 	}
 
 	.fonts-stage-1 div.callout {
-	  font-family: lato-Subset, san-serif;
+	  font-family: latoSubset, san-serif;
 	  font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
 					   // and “font-variant” rules only
 	}
-	
+
+	.fonts-stage-1 div.callout {
+	  font-family: latosubset, san-serif; // “Subset” suffix is case-sensitive
+	}
+
 Correct:
 
 	.fonts-stage-1 .nav-primary {
 	  font-family: latoSubset, sans-serif;
-	}
-
-	.fonts-stage-1 dl.glossary {
-	  font-family: latosubset, san-serif; // Suffix is case-insensitive
 	}
 
 #### CSS Stage 2
@@ -209,7 +208,8 @@ Correct:
 * Omit weights and styles from the font name
 * All declarations must start with the fonts-stage-2 class
 * For best performance, please minify your CSS before pasting it into the form.
-* See the Documentation screen to view the Stage 2 CSS that this plugin loads by default.
+
+See the Documentation screen to view the Stage 2 CSS that this plugin loads by default.
 
 Incorrect:
 
@@ -257,29 +257,17 @@ See the Documentation screen to view the CSS this plugin loads by default and to
 == Screenshots ==
 
 1. Uploads screen: upload your custom web fonts here
-2. Optimize screen: tells fontobserver.js which fonts to load for stage 1
-3. Base64 screen: inlines Base64 data URI for subsetted stage 1 fonts
-4. CSS screen: all font-related CSS goes here so it can be inlined.
-5. Font Stacks screen: sets the default font stacks
-6. Documentation (1): Information about the CSS that the plugin loads by default
-7. Documentation (2): Video tutorials
+2. Subset screen: upload subsetted web fonts and set some defaults here.
+3. CSS screen: all font-related CSS goes here so it can be inlined
+4. Font Stacks screen: sets the default font stacks
+5. Documentation (1): Information about the CSS that the plugin loads by default
+6. Documentation (2): Video tutorials
 
 == Frequently Asked Questions ==
 
 ### What is the plugin for?
 
-This plugin implements and automates [Zach Leatherman’s Critical Flash of Faux Text (FOFT) with Data URI](https://www.zachleat.com/web/comprehensive-webfonts/). This technique is the best compromise between font speed loading and a positive user experience.
-
-**PROS**
-
-* All the existing Pros of the [Critical FOFT approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
-* Eliminates Flash of Invisible Text (FOIT) and greatly reduces Flash of Unstyled Text (FOUT) for the roman font. A small reflow will occur for additional characters loaded in the second stage and when the other weights and styles are loaded, but it will have a much smaller impact.
-
-**CONS**
-
-* All the existing Cons of the [Critical FOFT approach](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft).
-* The small inlined Data URI will marginally block initial render. We’re trading this for highly reduced FOUT.
-* Self hosting: Required.
+This plugin implements and automates [Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional). According to [a tweet from Mr. Leatherman](https://twitter.com/zachleat/status/1187810081175474176), this technique is the best compromise between font speed loading and a positive user experience.
 
 ### How may I help improve this plugin?
 
@@ -311,6 +299,12 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.11.0
 
 == Changelog ==
+
+= 2.0.0 =
+* 2019-10-30
+* **IMPORTANT** This is a major update with breaking changes
+* Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
+* Move from “Critical FOFT with Data URI” to “Critical FOFT with preload, with a polyfill fallback emulating font-display”
 
 = 1.0.47 =
 * 2019-10-16
@@ -546,9 +540,11 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.47 =
-* 2019-10-16
-* Tested up to WordPress 1.0.46
+= 2.0.0 =
+* 2019-10-30
+* **IMPORTANT** This is a major update with breaking changes
+* Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
+* Move from “Critical FOFT with Data URI” to “Critical FOFT with preload, with a polyfill fallback emulating font-display”
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

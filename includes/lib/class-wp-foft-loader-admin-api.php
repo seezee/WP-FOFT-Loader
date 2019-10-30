@@ -76,8 +76,8 @@ class WP_FOFT_Loader_Admin_API {
 				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" />' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
-			case 'alnumdash':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" xpattern="[a-zA-Z0-9_-]+" />' . chr( 0x0D ) . chr( 0x0A );
+			case 'alnum':
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" xpattern="[a-zA-Z0-9_]+" />' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 			case 'hidden':
@@ -119,9 +119,9 @@ class WP_FOFT_Loader_Admin_API {
 				}
 				$html .= '<img id="' . $option_name . '_preview" class="image_preview" src="' . $image_thumb . '" /><br/>' . chr( 0x0D ) . chr( 0x0A );
 				*/
-				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font', 'wp-foft-loader' ) . '" data-uploader_button_text="' . __( 'Use font', 'wp-foft-loader' ) . '" class="image_upload_button button" value="' . __( 'Upload new font', 'wp-foft-loader' ) . '" />' . chr( 0x0D ) . chr( 0x0A );
+				$html .= '<input id="' . $option_name . '_button" type="button" data-uploader_title="' . __( 'Upload new font(s)', 'wp-foft-loader' ) . '" data-uploader_button_text="' . __( 'Use font', 'wp-foft-loader' ) . '" class="image_upload_button button" value="' . __( 'Upload new font(s)', 'wp-foft-loader' ) . '" />' . chr( 0x0D ) . chr( 0x0A );
 				// $html .= '<input id="' . $option_name . '_delete" type="button" class="image_delete_button button" value="'. __( 'Remove font' , 'wp-foft-loader' ) . '" />' . chr( 0x0D ) . chr( 0x0A );
-				$html .= '<input id="' . $option_name . '" class="image_data_field" type="hidden" name="' . $option_name . '" value="' . $data . '"/><br/>' . chr( 0x0D ) . chr( 0x0A );
+				$html .= '<input id="' . $option_name . '" class="image_data_field" type="hidden" name="' . $option_name . '" value="' . $data . '"/>' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
 		}
@@ -163,7 +163,7 @@ class WP_FOFT_Loader_Admin_API {
 
 		switch ( $type ) {
 			case 'text':
-			case 'alnumdash':
+			case 'alnum':
 				$data = esc_attr( $data );
 				break;
 		}

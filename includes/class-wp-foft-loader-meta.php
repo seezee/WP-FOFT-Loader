@@ -1,6 +1,6 @@
 <?php
 /**
- * Mimes Allowed class file.
+ * Plugin Meta class file.
  *
  * @package WP FOFT Loader/Includes
  */

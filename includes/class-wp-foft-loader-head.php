@@ -27,14 +27,54 @@ class WP_FOFT_Loader_Head {
 	private static $instance = null;
 
 	/**
+	 * The main plugin object.
+	 *
+	 * @var     object
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $parent = null;
+
+	/**
+	 * The version number.
+	 *
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $version;
+
+	/**
+	 * Suffix for Javascripts.
+	 *
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $script_suffix;
+
+	/**
+	 * Constructor function.
+	 *
+	 * @param string $file File constructor.
+	 * @param string $version Plugin version.
+	 */
+	public function __construct( $file = '', $version = '2.0.0' ) {
+		$this->version = $version;
+		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	}
+
+	/**
 	 * Generate CSS & Javascript to be loaded in <head>.
 	 *
 	 * @access  public
 	 * @since   1.0.0
 	 */
 	public function fontload() {
-		// Locate font files.
+		$plugin_path = plugin_dir_url( __FILE__ );
+		define( 'WPFL_PLUGIN_URL', $plugin_path );
 
+		// Locate font files.
 		$uploads   = wp_get_upload_dir();
 		$font_path = $uploads['baseurl'] . '/fonts/';
 		$font_dir  = $uploads['basedir'] . '/fonts/';
@@ -51,130 +91,144 @@ class WP_FOFT_Loader_Head {
 		$alt     = get_option( 'wpfl_s1-alt' );
 		$mono    = get_option( 'wpfl_s1-mono' );
 
-		$heading64 = get_option( 'wpfl_b64-heading' );
-		$body64    = get_option( 'wpfl_b64-body' );
-		$alt64     = get_option( 'wpfl_b64-alt' );
-		$mono64    = get_option( 'wpfl_b64-mono' );
-
 		$fdisplay = get_option( 'wpfl_font_display' );
 
-		if ( ! is_null( $body ) || ! is_null( $body64 ) ) { // Styles start.
+
+		if ( ! is_null( $body ) ) {
 			echo '<link rel="preload" href="',
 			wp_kses( $font_path, $arr ),
 			wp_kses( $body, $arr ),
-			'-regular-webfont.woff2" as="font" type="font/woff2" crossorigin><style type="text/css">@font-face{font-family:',
+			'-optimized.woff2" as="font" type="font/woff2" crossorigin>';
+		};
+		if ( ! is_null( $heading ) ) {
+			echo '<link rel="preload" href="',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $heading, $arr ),
+			'-optimized.woff2" as="font" type="font/woff2" crossorigin>';
+		};
+		if ( ! is_null( $alt ) ) {
+			echo '<link rel="preload" href="',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $alt, $arr ),
+			'-optimized.woff2" as="font" type="font/woff2" crossorigin>';
+		};
+		if ( ! is_null( $mono ) ) {
+			echo '<link rel="preload" href="',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $mono, $arr ),
+			'-optimized.woff2" as="font" type="font/woff2" crossorigin>';
+		};
+		echo '<style type="text/css">'; // Styles start.
+		if ( ! is_null( $body ) ) { // Body subset @font-face.
+			echo '@font-face{font-family:',
 			wp_kses( $body, $arr ),
-			'Subset;src:url(data:application/font-woff;charset=utf-8;base64,',
-			wp_kses( $body64, $arr ),
-			')format("woff");font-display:',
-			wp_kses( $fdisplay, $arr ),
-			';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}';
+			'Subset;src:url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $body, $arr ),
+			'-optimized.woff2)format("woff2"),url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $body, $arr ),
+			'-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}';
 		};
 
-		if ( ! is_null( $heading ) || ! is_null( $heading64 ) ) {
+		if ( ! is_null( $heading ) ) { // Heading & display subset @font-face.
 			echo '@font-face{font-family:',
 			wp_kses( $heading, $arr ),
-			'Subset;src:url(data:application/font-woff;charset=utf-8;base64,',
-			wp_kses( $heading64, $arr ),
-			')format("woff");font-display:',
-			wp_kses( $fdisplay, $arr ),
-			';font-weight:400;font-style:normal;unicode-range:u+0026,U+0030-0039,U+0041-005A,U+0061-007A}';
-
+			'Subset;src:url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $heading, $arr ),
+			'-optimized.woff2)format("woff2"),url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $heading, $arr ),
+			'-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}';
 		};
 
-		if ( ! is_null( $alt ) || ! is_null( $alt64 ) ) {
+		if ( ! is_null( $alt ) ) { // UI elements subset @font-face.
 			echo '@font-face{font-family:',
 			wp_kses( $alt, $arr ),
-			'Subset;src:url(data:application/font-woff;charset=utf-8;base64,',
-			wp_kses( $alt64, $arr ),
-			')format("woff");font-display:',
-			wp_kses( $fdisplay, $arr ),
-			';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}';
-
+			'Subset;src:url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $alt, $arr ),
+			'-optimized.woff2)format("woff2"),url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $alt, $arr ),
+			'-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}';
 		};
 
-		if ( ! is_null( $mono ) || ! is_null( $mono64 ) ) {
+		if ( ! is_null( $mono ) ) { // Monspace subset @font-face.
 			echo '@font-face{font-family:',
 			wp_kses( $mono, $arr ),
-			'Subset;src: url(data:application/font-woff;charset=utf-8;base64,',
-			wp_kses( $mono64, $arr ),
-			')format("woff");font-display:',
-			wp_kses( $fdisplay, $arr ),
-			';font-weight:400;font-style:normal;unicode-range:U+0030-0039,U+0041-005A,U+0061-007A}';
+			'Subset;src:url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $mono, $arr ),
+			'-optimized.woff2)format("woff2"),url(',
+			wp_kses( $font_path, $arr ),
+			wp_kses( $mono, $arr ),
+			'-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}';
 		};
 
 		$suffix = '-webfont';
 		$fam    = array();
+
 		foreach ( $files as &$file ) {
+			if  (! fnmatch("*optimized*",$file)) {
 
-			$font                 = basename( $file, '.woff' ); // remove the file type.
-			$font                 = str_replace( $suffix, '', $font ); // remove the -webfont suffix.
-			list($family, $style) = explode( '-', $font, 2 ); // explode for 2 parts: family and style.
+				$font                 = basename( $file, '.woff' ); // remove the file type.
+				$font                 = str_replace( $suffix, '', $font ); // remove the -webfont suffix.
+				list($family, $style) = explode( '-', $font, 2 ); // explode for 2 parts: family and style.
 
-			echo '@font-face{font-family:\'' . wp_kses( $family, $arr ) . '\';src:url(' . esc_url( ( $font_path ) . basename( $file ) ) . '2)format(\'woff2\'),url(' . esc_url( ( $font_path ) . basename( $file ) ) . ')format(\'woff\');';
-			if ( in_array( $style, [ 'normal', 'regular' ], true ) ) {
+				echo '@font-face{font-family:\'' . wp_kses( $family, $arr ) . '\';src:url(' . esc_url( ( $font_path ) . basename( $file ) ) . '2)format(\'woff2\'),url(' . esc_url( ( $font_path ) . basename( $file ) ) . ')format(\'woff\');';
+
+				$fontstyle = 'normal';
+				if ( in_array( $style, [ 'italic', 'Italic', 'thinItalic', 'hairlineItalic', 'lightItalic', 'mediumItalic', 'semiBoldItalic', 'demiBoldItalic', 'boldItalic', 'extraBoldItalic', 'ultraBoldItalic', 'blackItalic', 'blackItalic' ], true ) ) {
 				// Third parameter enables strict type checking -- see
 				// https://php.net/manual/en/function.in-array.php.
-				echo 'font-weight:400;font-style:normal;';
-			} elseif ( in_array( $style, [ 'thinItalic', 'hairlineItalic' ], true ) ) {
-				echo 'font-weight:100;font-style:italic;';
-			} elseif ( in_array( $style, [ 'extraLightItalic', 'ultraLightItalic' ], true ) ) {
-				echo 'font-weight:200;font-style:italic;';
-			} elseif ( in_array( $style, [ 'lightItalic' ], true ) ) {
-				echo 'font-weight:300;font-style:italic;';
-			} elseif ( in_array( $style, [ 'mediumItalic' ], true ) ) {
-				echo 'font-weight:500;font-style:italic;';
-			} elseif ( in_array( $style, [ 'semiBoldItalic', 'demiBoldItalic' ], true ) ) {
-				echo 'font-weight:600;font-style:italic;';
-			} elseif ( in_array( $style, [ 'extraBoldItalic', 'ultraBoldItalic' ], true ) ) {
-				echo 'font-weight:800;font-style:italic;';
-			} elseif ( in_array( $style, [ 'boldItalic' ], true ) ) {
-				echo 'font-weight:700;font-style:italic;';
-			} elseif ( in_array( $style, [ 'blackItalic', 'heavyItalic' ], true ) ) {
-				echo 'font-weight:900;font-style:italic;';
-			} elseif ( in_array( $style, [ 'thin', 'hairline' ], true ) ) {
-				echo 'font-weight:100;font-style:normal;';
-			} elseif ( in_array( $style, [ 'extraLight', 'ultraLight' ], true ) ) {
-				echo 'font-weight:200;font-style:normal;';
-			} elseif ( in_array( $style, [ 'light' ], true ) ) {
-				echo 'font-weight:300;font-style:normal;';
-			} elseif ( in_array( $style, [ 'medium' ], true ) ) {
-				echo 'font-weight:500;font-style:normal;';
-			} elseif ( in_array( $style, [ 'semiBold', 'demiBold' ], true ) ) {
-				echo 'font-weight:600;font-style:normal;';
-			} elseif ( in_array( $style, [ 'extraBold', 'ultraBold' ], true ) ) {
-				echo 'font-weight:800;font-style:normal;';
-			} elseif ( in_array( $style, [ 'black', 'heavy' ], true ) ) {
-				echo 'font-weight:900;font-style:normal;';
-			} elseif ( in_array( $style, [ 'italic' ], true ) ) {
-				echo 'font-weight:400;font-style:italic;';
-			} elseif ( in_array( $style, [ 'bold' ], true ) ) {
-				echo 'font-weight:700;font-style:normal;';
-			} else {
-				echo 'font-weight:400;font-style:normal;';
+					$fontstyle = 'italic';
+				};
+
+				$fontweight = '400';
+				if ( in_array( $style, [ 'thin', 'hairline', 'thinItalic', 'hairlineItalic' ], true ) ) {
+					$fontweight = '100';
+				} elseif ( in_array( $style, [ 'extraLight', 'ultraLight', 'extraLightItalic', 'extraLightItalic' ], true ) ) {
+					$fontweight = '200';
+				} elseif ( in_array( $style, [ 'light', 'lightItalic' ], true ) ) {
+					$fontweight = '300';
+				} elseif ( in_array( $style, [ 'medium', 'mediumItalic' ], true ) ) {
+					$fontweight = '500';
+				} elseif ( in_array( $style, [ 'semiBold', 'demiBold', 'semiBoldItalic', 'demiBoldItalic' ], true ) ) {
+					$fontweight = '600';
+				} elseif ( in_array( $style, [ 'bold', 'boldItalic', ], true ) ) {
+					$fontweight = '700';
+				} elseif ( in_array( $style, [ 'extraBold', 'ultraBold', 'extraBoldItalic', 'ultraBoldItalic' ], true ) ) {
+					$fontweight = '800';
+				} elseif ( in_array( $style, [ 'black', 'heavy', 'blackItalic', 'blackItalic' ], true ) ) {
+					$fontweight = '900';
+				};
+
+				echo 'font-weight:' . $fontweight . ';font-style:' . wp_kses( $fontstyle, $arr ) . ';';
+
+				// Small caps.
+				$fam = array( $family );
+				if ( preg_grep( '/.+SC$/D', $fam ) ) { // 1 or more character followed by "SC" at end of string; case-sensitive.
+					echo 'font-variant:small-caps;';
+				}
+
+				echo 'font-display:' . wp_kses( $fdisplay, $arr ) . ';}';
+
+				/*
+				Name                      Weight
+				Thin, Hairline            100
+				Extra Light, Ultra Light  200
+				Light                     300
+				Normal, Regular           400
+				Medium                    500
+				Semi Bold, Demi Bold      600
+				Bold                      700
+				Extra Bold, Ultra Bold    800
+				Black, Heavy              900
+
+				*/
 			}
-
-			// Small caps.
-			$fam = array( $family );
-			if ( preg_grep( '/.+SC$/D', $fam ) ) { // 1 or more character followed by "SC" at end of string; case-sensitive.
-				echo 'font-variant:small-caps;';
-			}
-
-			echo 'font-display:' . wp_kses( $fdisplay, $arr ) . ';}';
-
-			/*
-			Name                      Weight
-			Thin, Hairline            100
-			Extra Light, Ultra Light  200
-			Light                     300
-			Normal, Regular           400
-			Medium                    500
-			Semi Bold, Demi Bold      600
-			Bold                      700
-			Extra Bold, Ultra Bold    800
-			Black, Heavy              900
-
-			*/
 		}
 
 		$fs_heading = get_option( 'wpfl_fstack-heading' );
@@ -283,73 +337,95 @@ class WP_FOFT_Loader_Head {
 
 		ob_end_flush(); // End minification.
 
-		echo '<script>(function(){if(sessionStorage.criticalFoftDataUriFontsLoaded ){document.documentElement.className+=" fonts-stage-1 fonts-stage-2";return;}(function(){function e(e,t){document.addEventListener?e.addEventListener("scroll",t,!1):e.attachEvent("scroll",t)}function t(e){document.body?e():document.addEventListener?document.addEventListener("DOMContentLoaded",function t(){document.removeEventListener("DOMContentLoaded",t),e()}):document.attachEvent("onreadystatechange",function n(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",n),e()})}function n(e){this.a=document.createElement("div"),this.a.setAttribute("aria-hidden","true"),this.a.appendChild(document.createTextNode(e)),this.b=document.createElement("span"),this.c=document.createElement("span"),this.h=document.createElement("span"),this.f=document.createElement("span"),this.g=-1,this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;",this.b.appendChild(this.h),this.c.appendChild(this.f),this.a.appendChild(this.b),this.a.appendChild(this.c)}function r(e,t){e.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+t+";"}function i(e){var t=e.a.offsetWidth,n=t+100;return e.f.style.width=n+"px",e.c.scrollLeft=n,e.b.scrollLeft=e.b.scrollWidth+100,e.g!==t?(e.g=t,!0):!1}function s(t,n){function r(){var e=s;i(e)&&null!==e.a.parentNode&&n(e.g)}var s=t;e(t.b,r),e(t.c,r),i(t)}function o(e,t){var n=t||{};this.family=e,this.style=n.style||"normal",this.weight=n.weight||"normal",this.stretch=n.stretch||"normal"}function l(){if(null===a){var e=document.createElement("div");try{e.style.font="condensed 100px sans-serif"}catch(t){}a=""!==e.style.font}return a}function c(e,t){return[e.style,e.weight,l()?e.stretch:"","100px",t].join(" ")}var u=null,a=null,f=null;o.prototype.load=function(e,i){var o=this,a=e||"BESbswy",l=i||3e3,h=(new Date).getTime();return new Promise(function(e,i){null===f&&(f=!!window.FontFace);if(f){var p=new Promise(function(e,t){function n(){(new Date).getTime()-h>=l?t():document.fonts.load(c(o,o.family),a).then(function(t){1<=t.length?e():setTimeout(n,25)},function(){t()})}n()}),d=new Promise(function(e,t){setTimeout(t,l)});Promise.race([d,p]).then(function(){e(o)},function(){i(o)})}else t(function(){function t(){var t;if(t=-1!=m&&-1!=g||-1!=m&&-1!=S||-1!=g&&-1!=S)(t=m!=g&&m!=S&&g!=S)||(null===u&&(t=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),u=!!t&&(536>parseInt(t[1],10)||536===parseInt(t[1],10)&&11>=parseInt(t[2],10))),t=u&&(m==x&&g==x&&S==x||m==T&&g==T&&S==T||m==N&&g==N&&S==N)),t=!t;t&&(null!==C.parentNode&&C.parentNode.removeChild(C),clearTimeout(L),e(o))}function f(){if((new Date).getTime()-h>=l)null!==C.parentNode&&C.parentNode.removeChild(C),i(o);else{var e=document.hidden;if(!0===e||void 0===e)m=p.a.offsetWidth,g=d.a.offsetWidth,S=v.a.offsetWidth,t();L=setTimeout(f,50)}}var p=new n(a),d=new n(a),v=new n(a),m=-1,g=-1,S=-1,x=-1,T=-1,N=-1,C=document.createElement("div"),L=0;C.dir="ltr",r(p,c(o,"sans-serif")),r(d,c(o,"serif")),r(v,c(o,"monospace")),C.appendChild(p.a),C.appendChild(d.a),C.appendChild(v.a),document.body.appendChild(C),x=p.a.offsetWidth,T=d.a.offsetWidth,N=v.a.offsetWidth,f(),s(p,function(e){m=e,t()}),r(p,c(o,\'"\'+o.family+\'",sans-serif\' )),s(d,function(e){g=e,t()}),r(d,c(o,\'"\'+o.family+\'",serif\' )),s(v,function(e){S=e,t()}),r(v,c(o,\'"\'+o.family+\'",monospace\' ))})})},"undefined"!=typeof module?module.exports=o:(window.FontFaceObserver=o,window.FontFaceObserver.prototype.load=o.prototype.load)})();var fontASubset=new FontFaceObserver(\'';
+		if  ( ! is_null( $body ) ) {
+			$bodyload =  '"1em ' . wp_kses( $body, $arr ) . '", ';
+		};
 
-		$fontoptions = array(
-			get_option( 'wpfl_s1-heading' ),
-			get_option( 'wpfl_s1-body' ),
-			get_option( 'wpfl_s1-alt' ),
-			get_option( 'wpfl_s1-mono' ),
-		);
+		if  ( ! is_null( $heading ) ) {
+			$headingload =  '"1em ' . wp_kses( $heading, $arr ) . '", ';
+		};
 
-		$subsets = array_filter( $fontoptions );
+		if  ( ! is_null( $alt ) ) {
+			$altload =  '"1em ' . wp_kses( $alt, $arr ) . '", ';
+		};
 
-		ob_start(); // buffer foreach output.
-		foreach ( $subsets as &$subset ) {
-			$subset .= 'Subset, ';
-			echo wp_kses( $subset, $arr );
-		}
+		if  ( ! is_null( $mono ) ) {
+			$monoload =  '"1em ' . wp_kses( $mono, $arr ) . '", ';
+		};
 
-		$subsetstrim = ob_get_clean(); // get buffer.
-		$clean       = rtrim( $subsetstrim, ', ' ); // trim final comma & space.
-		echo wp_kses( $clean, $arr );
+		$fontsloaded = $bodyload . $headingload . $altload . $monoload;
+		$fontsloaded = rtrim($fontsloaded, ", "); // Trim trailing comma & space.
 
-		echo '\');Promise.all([fontASubset.load()]).then(function (){document.documentElement.className += " fonts-stage-1";';
+		echo '<script>
+(function() {
+	"use strict";
 
-		$observer  = 'A';
-		$observer2 = 'A';
+	if( sessionStorage.fontsLoadedCriticalFoftPreloadFallback ) {
+		document.documentElement.className += " fonts-stage-2";
+		return;
+	} else if( "fonts" in document ) {
+		document.fonts.load(' . $fontsloaded . ').then(function () {
+			document.documentElement.className += " fonts-stage-1";
 
-		$fam = array();
+			Promise.all([';
+		if  ( ! is_null( $body ) ) {
+			$promise1 = '
+				document.fonts.load("400 1em ' . wp_kses( $body, $arr ) . '"),
+				document.fonts.load("700 1em ' . wp_kses( $body, $arr ) . '"),
+				document.fonts.load("italic 1em ' . wp_kses( $body, $arr ) . '"),
+				document.fonts.load("italic 700 1em ' . wp_kses( $body, $arr ) . '"),';
+		};
 
-		foreach ( $files as &$file ) {
+		if  ( ! is_null( $heading ) ) {
+			$promise2 = '
+				document.fonts.load("400 1em ' . wp_kses( $heading, $arr ) . '"),
+				document.fonts.load("700 1em ' . wp_kses( $heading, $arr ) . '"),
+				document.fonts.load("italic 1em ' . wp_kses( $heading, $arr ) . '"),
+				document.fonts.load("italic 700 1em ' . wp_kses( $heading, $arr ) . '"),';
+		};
 
-			$font   = basename( $file, '.woff' ); // remove the file type.
-			$font   = str_replace( $suffix, '', $font ); // remove the -webfont suffix.
-			$family = explode( '-', $font );
-			$fam[]  = $family[0]; // First needle.
+		if  ( ! is_null( $alt ) ) {
+			$promise3 = '
+				document.fonts.load("400 1em ' .
+				wp_kses( $alt, $arr ) . '"),
+				document.fonts.load("700 1em ' .
+				wp_kses( $alt, $arr ) . '"),
+				document.fonts.load("italic 1em ' .
+				wp_kses( $alt, $arr ) . '"),
+				document.fonts.load("italic 700 1em ' .
+				wp_kses( $alt, $arr ) . '"),';
+		};
 
-		}
+		if  ( ! is_null( $mono ) ) {
+			$promise4 = '
+				document.fonts.load("400 1em '. wp_kses( $mono, $arr ) . '"),
+				document.fonts.load("700 1em '. wp_kses( $mono, $arr ) . '"),
+				document.fonts.load("italic 1em '. wp_kses( $mono, $arr ) . '"),
+				document.fonts.load("italic 700 1em '. wp_kses( $mono, $arr ) . '"),';
+		};
 
-		$results = array_unique( $fam );
-		$result  = array( $results[0] ) ?? '';
-		/* Null coalesce operator. See https://stackoverflow.com/questions/
-		 * 4261133/notice-undefined-variable-notice-undefined-index-and-notice-
-		 * undefined.
-		 */
-		foreach ( $results as &$result ) {
-			$obs      = $observer++;
-			$observed = 'var font' . $obs . '=new FontFaceObserver(\'' . $result . '\');';
-			echo wp_kses( $observed, $arr );
-		}
+		$promises = $promise1 . $promise2 . $promise3 . $promise4;
 
-		echo 'Promise.all([';
+		echo rtrim($promises, ","); // Trim trailing comma.
 
-		ob_start(); // buffer output of foreach.
-		foreach ( $results as &$result ) {
-			$obs2    = $observer2++;
-			$promise = 'font' . $obs2 . '.load(),';
-			echo wp_kses( $promise, $arr );
-		}
+		echo ']).then(function () {
+				document.documentElement.className += " fonts-stage-2";
 
-		$output = ob_get_clean(); // get buffer.
-		$clean  = rtrim( $output, ',' ); // trim final comma & space.
-		echo wp_kses( $clean, $arr );
+				// Optimization for Repeat Views
+				sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
+			}).catch(console.log.bind(console));
+		});
+	} else {
+		// use fallback
+		var ref = document.getElementsByTagName( "script" )[ 0 ];
+		var script = document.createElement( "script" );
+		script.src = "' . $plugin_path . '../assets/js/fallback' . $this->script_suffix . '.js?' . $this->version . '";
+		script.async = true;
+		ref.parentNode.insertBefore( script, ref );
 
-		unset( $observer );
-		unset( $observer2 );
-		unset( $file );
-
-		echo ']).then(function () {document.documentElement.className += " fonts-stage-2";sessionStorage.criticalFoftDataUriFontsLoaded=true;});});})();//</script>';
+	}
+})();
+</script>';
 
 	}
 
