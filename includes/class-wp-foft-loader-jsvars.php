@@ -47,17 +47,17 @@ class WP_FOFT_Loader_JS_Vars {
 		}
 
 		if  ( ! is_null( $heading ) ) {
-			$hobserver = 'var fontA = new FontFaceObserver(' . $heading. ');var fontB = new FontFaceObserver(' . $heading. ', {weight: 700});var fontC = new FontFaceObserver(' . $heading. ', {style: \"italic\"});var fontD = new FontFaceObserver(' . $heading. ', {weight: 700,style: \"italic\"});';
+			$hobserver = 'var fontD = new FontFaceObserver(' . $heading. ');var fontE = new FontFaceObserver(' . $heading. ', {weight: 700});var fontF = new FontFaceObserver(' . $heading. ', {style: \"italic\"});var fontG = new FontFaceObserver(' . $heading. ', {weight: 700,style: \"italic\"});';
 			$headingload = 'fontE.load(),fontF.load(),fontG.load(),fontH.load(),';
 		}
 
 		if  ( ! is_null( $alt ) ) {
-			$aobserver = 'var fontA = new FontFaceObserver(' . $alt. ');var fontB = new FontFaceObserver(' . $alt. ', {weight: 700});var fontC = new FontFaceObserver(' . $alt. ', {style: \"italic\"});var fontD = new FontFaceObserver(' . $alt. ', {weight: 700,style: \"italic\"});';
+			$aobserver = 'var fontH = new FontFaceObserver(' . $alt. ');var fontI = new FontFaceObserver(' . $alt. ', {weight: 700});var fontJ = new FontFaceObserver(' . $alt. ', {style: \"italic\"});var fontK = new FontFaceObserver(' . $alt. ', {weight: 700,style: \"italic\"});';
 			$altload = 'fontI.load(),fontJ.load(),fontK.load(),fontL.load(),';
 		}
 
 		if  ( ! is_null( $mono ) ) {
-			$mobserver = 'var fontA = new FontFaceObserver(' . $mono. ');var fontB = new FontFaceObserver(' . $mono. ', {weight: 700});var fontC = new FontFaceObserver(' . $mono. ', {style: \"italic\"});var fontD = new FontFaceObserver(' . $mono. ', {weight: 700,style: \"italic\"});';
+			$mobserver = 'var fontM = new FontFaceObserver(' . $mono. ');var fontN = new FontFaceObserver(' . $mono. ', {weight: 700});var fontO = new FontFaceObserver(' . $mono. ', {style: \"italic\"});var fontP = new FontFaceObserver(' . $mono. ', {weight: 700,style: \"italic\"});';
 			$monoload = 'fontM.load(),fontN.load(),fontO.loadP(),';
 		}
 

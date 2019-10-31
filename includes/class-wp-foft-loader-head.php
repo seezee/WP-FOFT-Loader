@@ -59,7 +59,7 @@ class WP_FOFT_Loader_Head {
 	 * @param string $file File constructor.
 	 * @param string $version Plugin version.
 	 */
-	public function __construct( $file = '', $version = '2.0.0' ) {
+	public function __construct( $file = '', $version = '2.0.1' ) {
 		$this->version = $version;
 		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	}

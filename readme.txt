@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 2.0.0  
+Stable tag: 2.0.1  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -131,7 +131,8 @@ Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file
 To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:			None
+	Font Formats:			“WOFF”
+					    “WOFF2”
 	Fix Missing Glyphs:		None
 	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
 					Leave everything else unchecked  
@@ -305,6 +306,12 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.11.0
 
 == Changelog ==
+
+= 2.0.1 =
+* 2019-10-30
+* **IMPORTANT** Versions >= 2.0.0 and up introduce breaking changes from versions <= 1.0.47
+* Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
+* Fixed error in class-wp-foft-loader-jsvars
 
 = 2.0.0 =
 * 2019-10-30
@@ -544,10 +551,10 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.0 =
+= 2.0.1 =
 * 2019-10-30
-* **IMPORTANT** This is a major update with breaking changes
+* **IMPORTANT** Versions >= 2.0.0 and up introduce breaking changes from versions <= 1.0.47
 * Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
-* Move from “Critical FOFT with Data URI” to “Critical FOFT with preload, with a polyfill fallback emulating font-display”
+* Fixed error in class-wp-foft-loader-jsvars
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

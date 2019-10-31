@@ -6,7 +6,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 2.0.0  
+Stable tag: 2.0.1  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -113,7 +113,7 @@ blackItalic | heavyItalic (maps to 900)
 
 Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.
 
-**Filenames must follow the proper naming convention:** `$family`-optimized.woff2.
+**Filenames must follow the proper naming convention:** `$family`-optimized.`$filetype`.
 
 **$family**
 : The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces. Each $family base name should match the name used for the matching font uploaded on the previous upload screen.
@@ -121,12 +121,16 @@ Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file
 **-optimized**
 : Mandatory suffix. Append to $family.
 
+**$filetype**
+: The file type, i.e., “woff” or “woff2”.
+
 **Example**: If you uploaded timesnewroman-regular-webfont.woff and timesnewroman-regular-webfont.woff2 as your body font on the previous screen, name the subsetted versions timenewroman-optimized.woff and timesnewroman-optimized.woff2 respectively.
 
 To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
-	Font Formats:			None
+	Font Formats:			“WOFF”
+					“WOFF2”
 	Fix Missing Glyphs:		None
 	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
 					Leave everything else unchecked  
@@ -299,6 +303,12 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.11.0
 
 == Changelog ==
+
+= 2.0.1 =
+* 2019-10-30
+* **IMPORTANT** Versions >= 2.0.0 and up introduce breaking changes from versions <= 1.0.47
+* Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
+* Fixed error in class-wp-foft-loader-jsvars
 
 = 2.0.0 =
 * 2019-10-30
@@ -540,11 +550,11 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.0 =
+= 2.0.1 =
 * 2019-10-30
-* **IMPORTANT** This is a major update with breaking changes
+* **IMPORTANT** Versions >= 2.0.0 and up introduce breaking changes from versions <= 1.0.47
 * Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
-* Move from “Critical FOFT with Data URI” to “Critical FOFT with preload, with a polyfill fallback emulating font-display”
+* Fixed error in class-wp-foft-loader-jsvars
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
