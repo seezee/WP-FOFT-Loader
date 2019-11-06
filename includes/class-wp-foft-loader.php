@@ -108,7 +108,7 @@ class WP_FOFT_Loader {
 	 * @param string $file File constructor.
 	 * @param string $version Plugin version.
 	 */
-	public function __construct( $file = '', $version = '2.0.1' ) {
+	public function __construct( $file = '', $version = '2.0.2' ) {
 		$this->version = $version;
 		$this->token   = 'wp_foft_loader';
 
@@ -123,10 +123,9 @@ class WP_FOFT_Loader {
 		register_activation_hook( $this->file, array( $this, 'install' ) );
 
 		// Load admin JS & CSS.
-		// phpcs:disable
-		// add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
-		// phpcs:enable
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ), 10, 1 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_meta_scripts' ), 10, 1 );
 
 		// Load API for generic admin functions.
 		if ( is_admin() ) {
@@ -150,7 +149,6 @@ class WP_FOFT_Loader {
 		wp_enqueue_style( $this->token . '-admin' );
 	} // End admin_enqueue_styles ()
 
-	// phpcs:disable
 	/**
 	 * Load admin Javascript.
 	 *
@@ -160,12 +158,41 @@ class WP_FOFT_Loader {
 	 *
 	 * @return  void
 	 * @since   1.0.0
-	 */ /*
+	 */
 	public function admin_enqueue_scripts( $hook = '' ) {
-		wp_register_script( $this->token . '-admin', esc_url( $this->assets_url ) . 'js/admin' . $this->script_suffix . '.js', array( 'jquery' ), $this->version, true );
-		wp_enqueue_script( $this->token . '-admin' );
+		// $pagenow is a global variable referring to the filename of the 
+		// current page, such as ‘admin.php’, ‘post-new.php’.
+		global $pagenow;
+
+		if ($pagenow != 'options-general.php') {
+			return;
+		}
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery-form' );
 	} // End admin_enqueue_scripts () */
-	// phpcs:enable
+
+	/**
+	 * Load admin meta Javascript.
+	 *
+	 * @access  public
+	 *
+	 * @param string $hook Hook parameter.
+	 *
+	 * @return  void
+	 * @since   1.0.0
+	 */
+	public function admin_enqueue_meta_scripts( $hook = '' ) {
+
+		global $pagenow;
+
+		if ($pagenow != 'plugins.php') {
+			return;
+		}
+		wp_register_script( $this->token . '-fa-solid', esc_url( $this->assets_url ) . 'js/fa-solid' . $this->script_suffix . '.js', array(), $this->version, true );
+		wp_enqueue_script( $this->token . '-fa-solid' );
+		wp_register_script( $this->token . '-fa-main', esc_url( $this->assets_url ) . 'js/fontawesome' . $this->script_suffix . '.js', array(), $this->version, true );
+		wp_enqueue_script( $this->token . '-fa-main' );
+	} // End admin_enqueue_meta_scripts () */
 
 	/**
 	 * Load plugin localisation
@@ -206,7 +233,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 * @static
 	 */
-	public static function instance( $file = '', $version = '2.0.1' ) {
+	public static function instance( $file = '', $version = '2.0.2' ) {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self( $file, $version );
 		}

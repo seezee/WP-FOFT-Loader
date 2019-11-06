@@ -25,8 +25,6 @@ class WP_FOFT_Loader_Mimes {
 
 	/**
 	 * Constructor function.
-	 *
-	 * @param object $parent Parent object.
 	 */
 	public function __allow_woff() {
 

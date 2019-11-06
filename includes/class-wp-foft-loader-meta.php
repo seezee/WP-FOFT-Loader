@@ -63,7 +63,7 @@ class WP_FOFT_Loader_Meta {
 				'<a href="' . $twitterlink . '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="Chris J. Zähller on Twitter"></span></a>',
 				'<a href="' . $reviewlink . '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="Give a 5 Star Review"></span></a>',
 				'<a href="' . $donatelink . '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="Donate"></span></a>',
-			) );
+				'<a href="' . $coffeelink . '"><span class="fas fa-coffee"' . $iconstyle . 'title="Buy the Developer a Coffee"></span></a>',			) );
 		}
 
 		return $links;

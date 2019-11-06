@@ -42,23 +42,23 @@ class WP_FOFT_Loader_JS_Vars {
 		$mono    = get_option( 'wpfl_s1-mono' );
 
 		if  ( ! is_null( $body ) ) {
-			$bobserver = 'var fontA = new FontFaceObserver(' . $body. ');var fontB = new FontFaceObserver(' . $body. ', {weight: 700});var fontC = new FontFaceObserver(' . $body. ', {style: \"italic\"});var fontD = new FontFaceObserver(' . $body. ', {weight: 700,style: \"italic\"});';
-			$bodyload = 'fontA.load(), fontB.load(), fontC.load(), fontD.load(),';
+			$bobserver = 'var fontA = new FontFaceObserver(' . $body. ');var fontB = new FontFaceObserver(' . $body. ', {weight: 700});var fontC = new FontFaceObserver(' . $body. ', {style: "italic"});var fontD = new FontFaceObserver(' . $body. ', {weight: 700,style: "italic"});';
+			$bodyload = 'fontA.load(),fontB.load(),fontC.load(),fontD.load(),';
 		}
 
 		if  ( ! is_null( $heading ) ) {
-			$hobserver = 'var fontD = new FontFaceObserver(' . $heading. ');var fontE = new FontFaceObserver(' . $heading. ', {weight: 700});var fontF = new FontFaceObserver(' . $heading. ', {style: \"italic\"});var fontG = new FontFaceObserver(' . $heading. ', {weight: 700,style: \"italic\"});';
+			$hobserver = 'var fontD = new FontFaceObserver(' . $heading. ');var fontE = new FontFaceObserver(' . $heading. ', {weight: 700});var fontF = new FontFaceObserver(' . $heading. ', {style: "italic"});var fontG = new FontFaceObserver(' . $heading. ', {weight: 700,style: "italic"});';
 			$headingload = 'fontE.load(),fontF.load(),fontG.load(),fontH.load(),';
 		}
 
 		if  ( ! is_null( $alt ) ) {
-			$aobserver = 'var fontH = new FontFaceObserver(' . $alt. ');var fontI = new FontFaceObserver(' . $alt. ', {weight: 700});var fontJ = new FontFaceObserver(' . $alt. ', {style: \"italic\"});var fontK = new FontFaceObserver(' . $alt. ', {weight: 700,style: \"italic\"});';
+			$aobserver = 'var fontH = new FontFaceObserver(' . $alt. ');var fontI = new FontFaceObserver(' . $alt. ', {weight: 700});var fontJ = new FontFaceObserver(' . $alt. ', {style: "italic"});var fontK = new FontFaceObserver(' . $alt. ', {weight: 700,style: "italic"});';
 			$altload = 'fontI.load(),fontJ.load(),fontK.load(),fontL.load(),';
 		}
 
 		if  ( ! is_null( $mono ) ) {
-			$mobserver = 'var fontM = new FontFaceObserver(' . $mono. ');var fontN = new FontFaceObserver(' . $mono. ', {weight: 700});var fontO = new FontFaceObserver(' . $mono. ', {style: \"italic\"});var fontP = new FontFaceObserver(' . $mono. ', {weight: 700,style: \"italic\"});';
-			$monoload = 'fontM.load(),fontN.load(),fontO.loadP(),';
+			$mobserver = 'var fontM = new FontFaceObserver(' . $mono. ');var fontN = new FontFaceObserver(' . $mono. ', {weight: 700});var fontO = new FontFaceObserver(' . $mono. ', {style: "italic"});var fontP = new FontFaceObserver(' . $mono. ', {weight: 700,style: "italic"});';
+			$monoload = 'fontM.load(),fontN.load(),fontO.load(),fontP.load(),';
 		}
 
 		$observers = $bobserver . $hobserver . $aobserver . $mobserver;
@@ -68,8 +68,8 @@ class WP_FOFT_Loader_JS_Vars {
 		$output = $observers . 'Promise.all([' . $loaded . '])';
 
 		echo '<script type="text/javascript">
-	var jsObs  = "' . $observers . '";
-	var jsLoad = "' . $loaded . '";
+	var jsObs  = `' . $observers . '`;
+	var jsLoad = `' . $loaded . '`;
 </script>';
 	}
 

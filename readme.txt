@@ -1,12 +1,12 @@
 === WP FOFT Loader ===  
-Contributors: seezee  
+Contributors: seezee  , freemius
 Translators: augusgils, nilovelez  
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
 Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 2.0.1  
+Stable tag: 2.0.2  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,6 +32,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Activate the plugin on the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
+
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Click the download button on this and save “wp-foft-loader.zip” to your computer
 2. Navigate to “Add New” in the plugins dashboard
@@ -48,6 +49,8 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Activate the plugin in the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
+
+
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
 2. Follow the directions for using <abbr>FTP</abbr>
@@ -63,13 +66,14 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 For detailed recommended settings, see the plugin Upload options screen.
 
-**Filenames must follow the proper naming convention:** `$family`SC-`$variant`-webfont.`$filetype`.
+
+
+**Filenames must follow the proper naming convention:** `$family`-`$variant`-webfont.`$filetype`.
 
 **$family**
 : The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces.
 
-**SC**
-: Small caps identifier. *Optional*. Append to $family only if it is a small caps variant. *Case-sensitive*.
+
 
 **$variant**
 : The font style. Can be weight, style, or a combination of both. *Case-sensitive*.
@@ -80,28 +84,34 @@ For detailed recommended settings, see the plugin Upload options screen.
 **$filetype**
 : The file type, i.e., “woff” or “woff2”.
 
-**Example**: for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2. For small caps style families, append SC (case-sensitive) to the family name, e.g., playfairdisplaySC-bold-webfont.woff.
+
+
+**Example**: for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2.
 
 Allowed weights and styles and their CSS mappings are:
 
-thin | hairline (maps to 100)  
-extraLight | ultraLight (maps to 200)  
-light (maps to 300)  
-regular | normal (maps to 400)  
-medium (maps to 500)  
-demiBold | semiBold (maps to 600)  
+
 bold (maps to 700)  
-extraBold | ultraBold (maps to 800)  
-black | heavy (maps to 900)  
-thinItalic | hairlineItalic(maps to 100)  
-extraLightItalic | ultraLightItalic (maps to 200)  
-lightItalic (maps to 300)  
+
 italic (maps to 400)  
-mediumItalic (maps to 500)  
-demiBoldItalic | semiBoldItalic (maps to 600)  
-boldItalic (maps to 700)  
-extraBoldItalic | ultraBoldItalic (maps to 800)  
-blackItalic | heavyItalic (maps to 900)  
+
+
+For small-caps support and extended font-weight support, please upgrade to [WP FOFT Loader PRO](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/)WP FOFT Loader PRO.
+
+This plugin supports 1 – 4 font families. For each font family you upload, specify its name in the appropriate setting below the uploader.
+
+**Correct:**
+
+`playfairdisplay` (all lowercase)  
+`playfair_display` (hyphens allowed)  
+`PlayfairDisplay` (mixed case allowed)  
+
+**Incorrect:**
+
+playfairdisplay-bold (hyphens not allowed; use the family name only; omit the style, i.e., “bold”)  
+`playfair-display` (hyphens not allowed)  
+`playfair display` (spaces prohibited)  
+`Playfair Display` (spaces prohibited)  
 
 == Configuration ==
 
@@ -111,7 +121,7 @@ blackItalic | heavyItalic (maps to 900)
 
 [Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
 
-### Subset
+= Subset =
 
 Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.
 
@@ -142,22 +152,6 @@ To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont 
 	Advanced Options:		“Font Name Suffix” = -optimized
 
 For detailed recommended settings, see the plugin Subset options screen.
-
-For each subsetted file you upload, enter its name in the appropriate field. Use the same naming convention as required for the filenames.
-
-**Correct:**
-
-`playfairdisplay` (all lowercase)  
-`playfair_display` (hyphens allowed)  
-`PlayfairDisplay` (mixed case allowed)  
-
-**Incorrect:**
-
-playfairdisplay-bold (hyphens not allowed; use the family name only; omit the style, i.e., “bold”)  
-`playfair-display` (hyphens not allowed)  
-`playfair display` (spaces prohibited)  
-`Playfair Display` (spaces prohibited)  
-`playfairdisplay-optimized` (hyphens not allowed; use the family name only; omit the suffix, i.e., “optimized”)  
 
 = CSS =
 
@@ -252,11 +246,11 @@ Correct:
 
 For best performance, please [minify your CSS](https://cssminifier.com/) before pasting it into the form.
 
-### Font Stacks
+= Font Stacks =
 
 Change the default font fallbacks in case your custom fonts don’t load. Don’t include the names of your default custom fonts here.
 
-### Further Documentation
+= Further Documentation =
 
 See the Documentation screen to view the CSS this plugin loads by default and to view video tutorials.
 
@@ -306,6 +300,20 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.11.0
 
 == Changelog ==
+
+= 2.0.2 =
+* 2019-11-05
+* Moved support for extended font weights and small-caps to PRO plugin
+* Integrated FREEMIUS code for PRO plugin
+* Eliminated redundant output if user uploads fewer than 4 fonts
+* Changed font declarations to auto-populated select
+* Moved font declarations to plugin settings tab
+* Use template literals in class-wp-foft-loader-jsvars.php
+* Ajaxify admin messages
+* Prepend random exclamations to admin messages
+* Update HTMLPurifier to v4.12.0
+* Update CSSTidy to v1.7.1
+* Removed out-of-date translation files
 
 = 2.0.1 =
 * 2019-10-30
@@ -551,10 +559,18 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.1 =
-* 2019-10-30
-* **IMPORTANT** Versions >= 2.0.0 and up introduce breaking changes from versions <= 1.0.47
-* Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
-* Fixed error in class-wp-foft-loader-jsvars
+= 2.0.2 =
+* 2019-11-05
+* Moved support for extended font weights and small-caps to PRO plugin
+* Integrated FREEMIUS code for PRO plugin
+* Eliminated redundant output if user uploads fewer than 4 fonts
+* Changed font declarations to auto-populated select
+* Moved font declarations to plugin settings tab
+* Use template literals in class-wp-foft-loader-jsvars.php
+* Ajaxify admin messages
+* Prepend random exclamations to admin messages
+* Update HTMLPurifier to v4.12.0
+* Update CSSTidy to v1.7.1
+* Removed out-of-date translation files
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
