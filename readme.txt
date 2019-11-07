@@ -1,12 +1,11 @@
 === WP FOFT Loader ===  
 Contributors: seezee  , freemius
-Translators: augusgils, nilovelez  
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
 Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 2.0.2  
+Stable tag: 2.0.3  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -49,19 +48,30 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Activate the plugin in the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
-
+### UPGRADING TO WP FOFT LOADER PRO
+1. Go to Settings -> WP FOFT Loader -> Upgrade
+2. Fill out the payment form and submit
+3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
 2. Follow the directions for using <abbr>FTP</abbr>
 
-== Generating and Uploading the Font Files ==
+== Configuration ==
+
+= Video Tutorials =
+
+[Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)  
+
+[Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
+
+= Generating and Uploading the Font Files =
 
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
 	Font Formats:		“WOFF”
-					    “WOFF2”
+						“WOFF2”
 	Advanced Options:	“Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
@@ -86,7 +96,7 @@ For detailed recommended settings, see the plugin Upload options screen.
 
 
 
-**Example**: for the bold weight italic style of Times New Roman, rename the files to timenewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2.
+**Example**: for the bold weight italic style of Times New Roman, rename the files to timesnewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2.
 
 Allowed weights and styles and their CSS mappings are:
 
@@ -96,7 +106,7 @@ bold (maps to 700)
 italic (maps to 400)  
 
 
-For small-caps support and extended font-weight support, please upgrade to [WP FOFT Loader PRO](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/)WP FOFT Loader PRO.
+__For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
 
 This plugin supports 1 – 4 font families. For each font family you upload, specify its name in the appropriate setting below the uploader.
 
@@ -108,18 +118,10 @@ This plugin supports 1 – 4 font families. For each font family you upload,
 
 **Incorrect:**
 
-playfairdisplay-bold (hyphens not allowed; use the family name only; omit the style, i.e., “bold”)  
+`playfairdisplay-bold` (hyphens not allowed; use the family name only; omit the style, i.e., “bold”)  
 `playfair-display` (hyphens not allowed)  
 `playfair display` (spaces prohibited)  
 `Playfair Display` (spaces prohibited)  
-
-== Configuration ==
-
-= Video Tutorials =
-
-[Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)  
-
-[Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
 
 = Subset =
 
@@ -136,19 +138,19 @@ Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file
 **$filetype**
 : The file type, i.e., “woff” or “woff2”.
 
-**Example**: If you uploaded timesnewroman-regular-webfont.woff and timesnewroman-regular-webfont.woff2 as your body font on the previous screen, name the subsetted versions timenewroman-optimized.woff and timesnewroman-optimized.woff2 respectively.
+**Example**: If you uploaded timesnewroman-regular-webfont.woff and timesnewroman-regular-webfont.woff2 as your body font on the previous screen, name the subsetted versions timesnewroman-optimized.woff and timesnewroman-optimized.woff2 respectively.
 
 To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
 	Select “Expert”
 	Font Formats:			“WOFF”
-					    “WOFF2”
+							“WOFF2”
 	Fix Missing Glyphs:		None
-	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
-					Leave everything else unchecked  
+	Subsetting:				“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
+							Leave everything else unchecked  
 	OpenType Features:		None
-	OpenType Flattening:		None
-	CSS:				Leave unchecked
+	OpenType Flattening:	None
+	CSS:					Leave unchecked
 	Advanced Options:		“Font Name Suffix” = -optimized
 
 For detailed recommended settings, see the plugin Subset options screen.
@@ -285,21 +287,27 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 == Translations ==
 
 * English: Default language, always included
-* Dutch, Netherlands (nl_NL) by Augus van Gils @augusgils
 
-Forthcoming translations:
-
-* Spanish (es) by Daniel de Lira
-* Spanish (es_MX) by Nilo Vélez @nilovelez
+Would you like to help translate WP FOFT Loader into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/wp-foft-loader)
 
 == Dependencies ==
 
 This plugin includes these third-party libraries in its package.
 
-* [HTMLPurifier](https://github.com/ezyang/htmlpurifier): v1.7.0
-* [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.11.0
+* [HTMLPurifier](https://github.com/ezyang/htmlpurifier): v1.7.1
+* [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.3 =
+* 2019-11-07
+* Improved support for small-caps in PRO version
+* Warn on change without saving PRO version only
+* Added admin messages after plugin activation or update
+* Auto-disactivate FREE plugin when activating PRO version
+* Fix README typos & formatting
+* Remove out-of-date README info (translators)
+* Add version check in wp_options table
 
 = 2.0.2 =
 * 2019-11-05
@@ -559,18 +567,14 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.2 =
-* 2019-11-05
-* Moved support for extended font weights and small-caps to PRO plugin
-* Integrated FREEMIUS code for PRO plugin
-* Eliminated redundant output if user uploads fewer than 4 fonts
-* Changed font declarations to auto-populated select
-* Moved font declarations to plugin settings tab
-* Use template literals in class-wp-foft-loader-jsvars.php
-* Ajaxify admin messages
-* Prepend random exclamations to admin messages
-* Update HTMLPurifier to v4.12.0
-* Update CSSTidy to v1.7.1
-* Removed out-of-date translation files
+= 2.0.3 =
+* 2019-11-07
+* Improved support for small-caps in PRO version
+* Warn on change without saving PRO version only
+* Added admin messages after plugin activation or update
+* Auto-disactivate FREE plugin when activating PRO version
+* Fix README typos & formatting
+* Remove out-of-date README info (translators)
+* Add version check in wp_options table
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

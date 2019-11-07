@@ -276,6 +276,7 @@ class WP_FOFT_Loader_Settings
         }
         $ofontlist = ob_get_clean();
         if ( !wpfl_fs()->can_use_premium_code() ) {
+            // Autoremoved from the PRO version.
             $settings['upload'] = array(
                 'title'       => __( 'Upload', 'wp-foft-loader' ),
                 'description' => '
@@ -323,7 +324,7 @@ class WP_FOFT_Loader_Settings
 <dt>$filetype</dt>
 <dd>' . __( 'The file type,', 'wp-foft-loader' ) . ' i.e., &ldquo;woff&rdquo; or &ldquo;woff2&rdquo;.</dd>
 </dl>
-<p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'for the bold weight, italic style of', 'wp-foft-loader' ) . ' Times New Roman, ' . __( 'rename the files to', 'wp-foft-loader' ) . ' <code>timenewroman-boldItalic-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff2</code>.</p><p>' . __( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '</p>
+<p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'for the bold weight, italic style of', 'wp-foft-loader' ) . ' Times New Roman, ' . __( 'rename the files to', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff2</code>.</p><p>' . __( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '</p>
 <ul class="col-3">
   <li>regular | normal (' . __( 'maps to', 'wp-foft-loader' ) . ' 400)</li>
   <li>bold (' . __( 'maps to', 'wp-foft-loader' ) . ' 700)</li>
@@ -357,7 +358,7 @@ class WP_FOFT_Loader_Settings
                 'description' => __( 'Specify the display font used for high-level headings', 'wp-foft-loader' ) . '(H1, H2, &amp; H3)',
                 'type'        => 'select',
                 'options'     => array(
-                $c0 => null,
+                0   => null,
                 $c1 => $c1,
                 $c2 => $c2,
                 $c3 => $c3,
@@ -372,7 +373,7 @@ class WP_FOFT_Loader_Settings
                 'description' => __( 'Specify the body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
                 'type'        => 'select',
                 'options'     => array(
-                $c0 => null,
+                0   => null,
                 $c1 => $c1,
                 $c2 => $c2,
                 $c3 => $c3,
@@ -387,7 +388,7 @@ class WP_FOFT_Loader_Settings
                 'description' => __( 'Specify non-body elements', 'wp-foft-loader' ) . ', <abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
                 'type'        => 'select',
                 'options'     => array(
-                $c0 => null,
+                0   => null,
                 $c1 => $c1,
                 $c2 => $c2,
                 $c3 => $c3,
@@ -402,7 +403,7 @@ class WP_FOFT_Loader_Settings
                 'description' => __( 'Specify monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wp-foft-loader' ),
                 'type'        => 'select',
                 'options'     => array(
-                $c0 => null,
+                0   => null,
                 $c1 => $c1,
                 $c2 => $c2,
                 $c3 => $c3,
@@ -458,7 +459,7 @@ class WP_FOFT_Loader_Settings
 <dd>' . __( 'Mandatory suffix. Append to', 'wp-foft-loader' ) . ' $family.</dd>
 <dt>$filetype</dt>
 <dd>' . __( 'The file type,', 'wp-foft-loader' ) . ' i.e., &ldquo;woff&rdquo; or &ldquo;woff2&rdquo;.</dd>
-</dl><p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'If you uploaded', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff2</code> ' . __( 'as your body font on the previous screen, name the subsetted versions ', 'wp-foft-loader' ) . ' <code>timenewroman-optimized.woff</code> ' . __( 'and', 'wp-foft-loader' ) . '  <code>timesnewroman-optimized.woff2</code> ' . __( 'respectively.', 'wp-foft-loader' ) . '</p>
+</dl><p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'If you uploaded', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff2</code> ' . __( 'as your body font on the previous screen, name the subsetted versions ', 'wp-foft-loader' ) . ' <code>timesnewroman-optimized.woff</code> ' . __( 'and', 'wp-foft-loader' ) . '  <code>timesnewroman-optimized.woff2</code> ' . __( 'respectively.', 'wp-foft-loader' ) . '</p>
 ' . $uploadmessage . '<ul class="col-3">' . wp_kses( $ofontlist, $allowed_html ) . '</ul>',
             'fields'      => array( array(
             'id'          => 'font',
@@ -933,8 +934,7 @@ class WP_FOFT_Loader_Settings
             $html .= '</h2>' . chr( 0xd ) . chr( 0xa );
         }
         
-        // settings_errors();
-        $html .= '<form method="post" action="options.php" id="wpflSettings" enctype="multipart/form-data">' . chr( 0xd ) . chr( 0xa );
+        $html .= '<form method="post" action="options.php" name="wpflSettings" id="wpflSettings" enctype="multipart/form-data">' . chr( 0xd ) . chr( 0xa );
         // Get settings fields.
         ob_start();
         settings_fields( $this->parent->token . '_settings' );
@@ -990,33 +990,13 @@ jQuery(document).ready(function() {
             jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-error is-dismissible"></div>`);
             jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . __( ' There was an error saving your settings. Please open a support ticket if the problem persists!', 'wp-foft-loader' ) . '</p>`).show();
          },
-         timeout: 2500
+         timeout: 1250
       }); 
-      setTimeout(`jQuery("#saveMessage").hide("slow");`, 5000);
+      setTimeout(`jQuery("#saveMessage").hide("slow");`, 7500);
       return false; 
    });
 });
-</script>
-<style>
-  .notice .dashicons {
-    line-height: 1.5rem;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-  }
-  .notice-success .dashicons {
-    color: #46b450;
-  }
-  .notice-error .dashicons {
-    color: #dc3232;
-  }
-</style>';
+</script>';
         echo  $html ;
         // phpcs:ignore
     }

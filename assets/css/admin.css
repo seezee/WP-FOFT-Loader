@@ -91,3 +91,40 @@ height:100%;
 .wp-admin-lite-blue {
 color:#21759b;
 }
+
+.notice .dashicons {
+  display: inline;
+  line-height: 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  -webkit-margin-start: 0;
+     -moz-margin-start: 0;
+          margin-inline-start: 0;
+  -webkit-margin-end: 0;
+     -moz-margin-end: 0;
+          margin-inline-end: 0;
+  vertical-align:middle;
+}
+
+.notice-success .dashicons {
+  color: #46b450;
+}
+
+.notice-info .dashicons {
+  color: #00a0d2;
+}
+
+.notice-warning .dashicons {
+  color: #ffb900;
+}
+
+.notice-error .dashicons {
+  color: #dc3232;
+}

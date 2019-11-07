@@ -80,6 +80,18 @@ class WP_FOFT_Loader_Admin_API {
 				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '" xpattern="[a-zA-Z0-9_]+" />' . chr( 0x0D ) . chr( 0x0A );
 				break;
 
+			case 'select':
+				$html .= '<select name="' . esc_attr( $option_name ) . '" id="' . esc_attr( $field['id'] ) . '">';
+				foreach ( $field['options'] as $k => $v ) {
+					$selected = false;
+					if ( $k === $data ) {
+						$selected = true;
+					}
+					$html .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
+				}
+				$html .= '</select> ';
+				break;
+
 			case 'hidden':
 				$min = '';
 				if ( isset( $field['min'] ) ) {
