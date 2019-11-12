@@ -36,14 +36,6 @@ class WP_FOFT_Loader
      */
     public  $settings = null ;
     /**
-     * The version number.
-     *
-     * @var     string
-     * @access  public
-     * @since   1.0.0
-     */
-    public  $version ;
-    /**
      * The token.
      *
      * @var     string
@@ -95,11 +87,9 @@ class WP_FOFT_Loader
      * Constructor function.
      *
      * @param string $file File constructor.
-     * @param string $version Plugin version.
      */
-    public function __construct( $file = '', $version = '2.0.3' )
+    public function __construct( $file = '' )
     {
-        $this->version = $version;
         $this->token = 'wp_foft_loader';
         // Load plugin environment variables.
         $this->file = $file;
@@ -107,6 +97,7 @@ class WP_FOFT_Loader
         $this->assets_dir = trailingslashit( $this->dir ) . 'assets';
         $this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', $this->file ) ) );
         $this->script_suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
+        // Use minified script.
         register_activation_hook( $this->file, array( $this, 'install' ) );
         // Load admin JS & CSS.
         add_action(
@@ -134,8 +125,10 @@ class WP_FOFT_Loader
         // Handle localisation.
         $this->load_plugin_textdomain();
         add_action( 'init', array( $this, 'load_localisation' ), 0 );
-        // Display the admin notification
-        add_action( 'admin_notices', array( $this, 'free_activation' ) );
+        if ( !wpfl_fs()->can_use_premium_code() ) {
+            // Display the admin notification
+            add_action( 'admin_notices', array( $this, 'free_activation' ) );
+        }
     }
     
     // End __construct ()
@@ -144,12 +137,16 @@ class WP_FOFT_Loader
      */
     public function free_activation()
     {
-        $html = '<div id="activated" class="notice notice-info is-dismissible">';
-        $html .= '<p>';
-        $html .= __( '<span class="dashicons dashicons-info"></span> Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/" rel="noopener noreferrer">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer">FREE 14-day trial.</a>', 'wp-foft-loader' );
-        $html .= '</p>';
-        $html .= '</div>';
-        echo  $html ;
+        
+        if ( !wpfl_fs()->can_use_premium_code() ) {
+            $html = '<div id="activated" class="notice notice-info is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-info"></span> Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/" rel="noopener noreferrer">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer">FREE 14-day trial.</a>', 'wp-foft-loader' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        }
+    
     }
     
     // end plugin_activation
@@ -265,16 +262,16 @@ class WP_FOFT_Loader
      * Ensures only one instance of WP_FOFT_Loader is loaded or can be loaded.
      *
      * @param string $file File instance.
-     * @param string $version Version parameter.
+     * @param string _VERSION_ Version parameter.
      *
      * @return Object WP_FOFT_Loader instance
      * @since 1.0.0
      * @static
      */
-    public static function instance( $file = '', $version = '2.0.3' )
+    public static function instance( $file = '' )
     {
         if ( is_null( self::$instance ) ) {
-            self::$instance = new self( $file, $version );
+            self::$instance = new self( $file, _VERSION_ );
         }
         return self::$instance;
     }

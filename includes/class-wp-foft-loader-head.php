@@ -33,33 +33,13 @@ class WP_FOFT_Loader_Head
      */
     public  $parent = null ;
     /**
-     * The version number.
+     * Prefix for plugin settings.
      *
      * @var     string
      * @access  public
      * @since   1.0.0
      */
-    public  $version ;
-    /**
-     * Suffix for Javascripts.
-     *
-     * @var     string
-     * @access  public
-     * @since   1.0.0
-     */
-    public  $script_suffix ;
-    /**
-     * Constructor function.
-     *
-     * @param string $file File constructor.
-     * @param string $version Plugin version.
-     */
-    public function __construct( $file = '', $version = '2.0.3' )
-    {
-        $this->version = $version;
-        $this->script_suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
-    }
-    
+    public  $base = '' ;
     /**
      * Generate CSS & Javascript to be loaded in <head>.
      *
@@ -75,15 +55,15 @@ class WP_FOFT_Loader_Head
         $font_path = $uploads['baseurl'] . '/fonts/';
         $font_dir = $uploads['basedir'] . '/fonts/';
         $files = glob( $font_dir . '*.woff', GLOB_BRACE );
-        // Preload the body font; inline subsets as base64.
+        // Preload the body font; load subsets.
         $arr = array();
         // Use this with wp_kses. Don't allow any HTML.
         // All options prefixed with $base value; see class-wp-foft-loader-settings constructor.
-        $heading = get_option( 'wpfl_s1-heading' );
-        $body = get_option( 'wpfl_s1-body' );
-        $alt = get_option( 'wpfl_s1-alt' );
-        $mono = get_option( 'wpfl_s1-mono' );
-        $fdisplay = get_option( 'wpfl_font_display' );
+        $heading = get_option( _BASE_ . 's1-heading' );
+        $body = get_option( _BASE_ . 's1-body' );
+        $alt = get_option( _BASE_ . 's1-alt' );
+        $mono = get_option( _BASE_ . 's1-mono' );
+        $fdisplay = get_option( _BASE_ . 'font_display' );
         if ( !is_null( $body ) ) {
             echo 
                 '<link rel="preload" href="',
@@ -214,24 +194,36 @@ class WP_FOFT_Loader_Head
             }
         
         }
-        $fs_heading = get_option( 'wpfl_fstack-heading' );
+        $fs_heading = get_option( _BASE_ . 'fstack-heading' );
         $fs_heading = ',' . $fs_heading;
-        $fs_body = get_option( 'wpfl_fstack-body' );
+        $fs_body = get_option( _BASE_ . 'fstack-body' );
         $fs_body = ',' . $fs_body;
-        $fs_alt = get_option( 'wpfl_fstack-alt' );
+        $fs_alt = get_option( _BASE_ . 'fstack-alt' );
         $fs_alt = ',' . $fs_alt;
-        $fs_mono = get_option( 'wpfl_fstack-mono' );
+        $fs_mono = get_option( _BASE_ . 'fstack-mono' );
         $fs_mono = ',' . $fs_mono;
         echo  'body{font-family:serif;font-weight:400;font-style:normal}' ;
-        $default_css = get_option( 'wpfl_default_css' );
+        $default_css = get_option( _BASE_ . 'default_css' );
+        
         if ( !is_null( $body ) && !is_null( $fs_body ) ) {
-            echo  '.fonts-stage-1 body{font-family:' . wp_kses( $body, $arr ) . 'Subset,serif}' ;
+            echo  '.fonts-stage-1 body{font-family:' . wp_kses( $body, $arr ) . 'Subset,' ;
+            if ( !wpfl_fs()->can_use_premium_code() ) {
+                echo  'serif' ;
+            }
+            echo  '}' ;
         }
+        
+        
+        if ( !is_null( $heading ) && !is_null( $fs_heading ) ) {
+            echo  '.fonts-stage-1 h1,.fonts-stage-1 h2,.fonts-stage-1 h3,.fonts-stage-1 h4,.fonts-stage-1 h5,.fonts-stage-1 h6{font-family:' . wp_kses( $heading, $arr ) . 'Subset,' ;
+            if ( !wpfl_fs()->can_use_premium_code() ) {
+                echo  'serif' ;
+            }
+            echo  '}' ;
+        }
+        
         if ( !is_null( $alt ) && !is_null( $fs_alt ) ) {
             echo  '.fonts-stage-1 button,.fonts-stage-1 input,.fonts-stage-1 nav,.fonts-stage-1 optgroup,.fonts-stage-1 select,.fonts-stage-1 textarea{font-family:' . wp_kses( $alt, $arr ) . 'Subset,sans-serif}' ;
-        }
-        if ( !is_null( $heading ) && !is_null( $fs_heading ) ) {
-            echo  '.fonts-stage-1 h1,.fonts-stage-1 h2,.fonts-stage-1 h3,.fonts-stage-1 h4,.fonts-stage-1 h5,.fonts-stage-1 h6{font-family:' . wp_kses( $heading, $arr ) . 'Subset,serif}' ;
         }
         if ( !is_null( $mono ) && !is_null( $fs_mono ) ) {
             echo  '.fonts-stage-1 code,.fonts-stage-1 kbd,.fonts-stage-1 samp{font-family:' . wp_kses( $mono, $arr ) . 'Subset,monospace}' ;
@@ -257,8 +249,8 @@ class WP_FOFT_Loader_Head
         
         }
         // User input custom CSS. Sanitize with HTMLPurifier + CSSTidy.
-        $css_dirty_1 = get_option( 'wpfl_stage_1' );
-        $css_dirty_2 = get_option( 'wpfl_stage_2' );
+        $css_dirty_1 = get_option( _BASE_ . 'stage_1' );
+        $css_dirty_2 = get_option( _BASE_ . 'stage_2' );
         // Create a new configuration object.
         $config = HTMLPurifier_Config::createDefault();
         $config->set( 'CSS.Proprietary', true );

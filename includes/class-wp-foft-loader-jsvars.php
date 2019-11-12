@@ -35,10 +35,10 @@ class WP_FOFT_Loader_JS_Vars
         $arr = array();
         // Use this with wp_kses. Don't allow any HTML.
         // All options prefixed with $base value; see class-wp-foft-loader-settings constructor.
-        $heading = get_option( 'wpfl_s1-heading' );
-        $body = get_option( 'wpfl_s1-body' );
-        $alt = get_option( 'wpfl_s1-alt' );
-        $mono = get_option( 'wpfl_s1-mono' );
+        $heading = get_option( _BASE_ . 's1-heading' );
+        $body = get_option( _BASE_ . 's1-body' );
+        $alt = get_option( _BASE_ . 's1-alt' );
+        $mono = get_option( _BASE_ . 's1-mono' );
         $body_sc = false;
         $heading_sc = false;
         $alt_sc = false;

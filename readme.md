@@ -5,7 +5,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.2.4  
 Requires PHP: 7.0  
-Stable tag: 2.0.3  
+Stable tag: 2.0.4  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -19,6 +19,13 @@ This plugin implements and automates [Zach Leatherman’s Critical FOFT with pre
 == Acknowledgement ==
 
 This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/hlashbrooke/WordPress-Plugin-Template), a robust and GNU-licensed code template for creating a standards-compliant WordPress plugin.
+
+== PRO only features ==
+
+* Support for additional font-weights
+* Small-caps support
+* Finer-grained control of default CSS
+* Default options reset
 
 == Installation ==
 
@@ -329,6 +336,16 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.4 =
+* 2019-11-12
+* BUGFIX: fixed improper Freemius "if" statements
+* BUGFIX: plugin no longer fails to uninstall
+* BUGFIX: plugin now deletes options properly on uninstall
+* Added new Admin messages for new installs & updates
+* Added _BASE_ & _VERSION_ constants & replaced limited-scope variables
+* New PRO feature: finer-grained control over default CSS output
+* New PRO feature: ability to restore plugin defaults
+
 = 2.0.3 =
 * 2019-11-07
 * Improved support for small-caps in PRO version
@@ -599,15 +616,15 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.3 =
-* 2019-11-07
-* Improved support for small-caps in PRO version
-* Warn on change without saving PRO version only
-* Added admin messages after plugin activation or update
-* Auto-disactivate FREE plugin when activating PRO version
-* Fix README typos & formatting
-* Remove out-of-date README info (translators)
-* Add version check in wp_options table
+= 2.0.4 =
+* 2019-11-12
+* BUGFIX: fixed improper Freemius "if" statements
+* BUGFIX: plugin no longer fails to uninstall
+* BUGFIX: plugin now deletes options properly on uninstall
+* Added new Admin messages for new installs & updates
+* Added _BASE_ & _VERSION_ constants & replaced limited-scope variables
+* New PRO feature: finer-grained control over default CSS output
+* New PRO feature: ability to restore plugin defaults
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

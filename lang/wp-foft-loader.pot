@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the WP FOFT Loader plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP FOFT Loader 2.0.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader\n"
+"Project-Id-Version: WP FOFT Loader 2.0.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader-dev\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-07-30T23:16:40+00:00\n"
+"POT-Creation-Date: 2019-11-12T20:27:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-foft-loader\n"
 
 #. Plugin Name of the plugin
-#: includes/class-wp-foft-loader-settings.php:132
+#: includes/class-wp-foft-loader-settings.php:122
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:132
 msgid "WP FOFT Loader"
 msgstr ""
 
@@ -24,7 +25,7 @@ msgid "https://github.com/seezee/WP-FOFTLoader/"
 msgstr ""
 
 #. Description of the plugin
-msgid "Implements and automates Zach Leatherman's"
+msgid "Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow."
 msgstr ""
 
 #. Author of the plugin
@@ -35,780 +36,1317 @@ msgstr ""
 msgid "https://messengerwebdesign.com/"
 msgstr ""
 
-#: includes/class-wp-foft-loader-upload.php:95
+#: includes/class-wp-foft-loader-upload.php:110
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-upload.php:110
 msgid "Cloning of WP_FOFT_Loader_Upload is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-upload.php:104
+#: includes/class-wp-foft-loader-upload.php:119
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-upload.php:119
 msgid "Unserializing instances of WP_FOFT_Loader_Upload is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-mimes.php:106
+#: includes/class-wp-foft-loader-mimes.php:92
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-mimes.php:92
 msgid "Cloning of WP_FOFT_Loader_Mimes is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-errors.php:47
-msgid "Good job! Your settings were saved!"
+#: includes/class-wp-foft-loader-meta.php:96
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-meta.php:96
+msgid "Cloning of WP_FOFT_Loader_Meta is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-errors.php:84
-msgid "Cloning of WP_FOFT_Loader_Errors is forbidden."
-msgstr ""
-
-#: includes/class-wp-foft-loader-errors.php:93
-msgid "Unserializing instances  of WP_FOFT_Loader_Errors is forbidden."
-msgstr ""
-
-#: includes/class-wp-foft-loader-head.php:386
+#: includes/class-wp-foft-loader-head.php:493
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-head.php:426
+#: .admin/class-wp-foft-loader-head-OLD.php:386
 msgid "Cloning of WP_FOFT_Loader_Head is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-head.php:395
+#: includes/class-wp-foft-loader-head.php:502
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-head.php:437
+#: .admin/class-wp-foft-loader-head-OLD.php:395
 msgid "Unserializing instances  of WP_FOFT_Loader_Head is forbidden."
 msgstr ""
 
-#: includes/lib/class-wp-foft-loader-admin-api.php:122
-msgid "Upload new font"
+#: includes/lib/class-wp-foft-loader-admin-api.php:134
+#: .admin/wp-foft-loader/includes/lib/class-wp-foft-loader-admin-api.php:134
+msgid "Upload new font(s)"
 msgstr ""
 
-#: includes/lib/class-wp-foft-loader-admin-api.php:122
+#: includes/lib/class-wp-foft-loader-admin-api.php:134
+#: .admin/wp-foft-loader/includes/lib/class-wp-foft-loader-admin-api.php:134
 msgid "Use font"
 msgstr ""
 
-#: includes/class-wp-foft-loader.php:218
+#: includes/class-wp-foft-loader.php:143
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader.php:149
+msgid "<span class=\"dashicons dashicons-info\"></span> Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/\" rel=\"noopener noreferrer\">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free\" rel=\"noopener noreferrer\">FREE 14-day trial.</a>"
+msgstr ""
+
+#: includes/class-wp-foft-loader.php:272
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader.php:290
 msgid "Cloning of Class_WP_FOFT_Loader is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader.php:227
+#: includes/class-wp-foft-loader.php:281
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader.php:301
 msgid "Unserializing instances of Class_WP_FOFT_Loader is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:131
+#: includes/class-wp-foft-loader-settings.php:121
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:131
 msgid "WP FOFT Loader Settings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:174
+#: includes/class-wp-foft-loader-settings.php:164
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:180
 msgid "Settings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:204
-#: includes/class-wp-foft-loader-settings.php:463
-msgid "Upload"
+#: includes/class-wp-foft-loader-settings.php:200
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:216
+msgid "You have uploaded the following fonts:"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:205
-msgid ""
-"\n"
-"Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:209
-#: includes/class-wp-foft-loader-settings.php:343
-msgid "Webfont Generator"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:209
-msgid "to generate the files. Recommended Font Squirrel settings are:"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:211
-#: includes/class-wp-foft-loader-settings.php:345
-msgid "Font Formats"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:214
-#: includes/class-wp-foft-loader-settings.php:347
-msgid "Truetype Hinting"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:215
-#: includes/class-wp-foft-loader-settings.php:348
-msgid "Keep Existing"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:216
-#: includes/class-wp-foft-loader-settings.php:349
-msgid "Rendering"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:217
-#: includes/class-wp-foft-loader-settings.php:221
-#: includes/class-wp-foft-loader-settings.php:350
-#: includes/class-wp-foft-loader-settings.php:354
-msgid "Default options (leave unchecked)"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:218
-#: includes/class-wp-foft-loader-settings.php:351
-msgid "Vertical Metrics"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:219
-#: includes/class-wp-foft-loader-settings.php:352
-msgid "No Adjustment"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:220
-#: includes/class-wp-foft-loader-settings.php:353
-msgid "Fix Missing Glyphs"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:222
-#: includes/class-wp-foft-loader-settings.php:355
-msgid "X-height Matching"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:223
-#: includes/class-wp-foft-loader-settings.php:231
-#: includes/class-wp-foft-loader-settings.php:233
-#: includes/class-wp-foft-loader-settings.php:346
-#: includes/class-wp-foft-loader-settings.php:356
-#: includes/class-wp-foft-loader-settings.php:363
-#: includes/class-wp-foft-loader-settings.php:365
-msgid "None"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:224
-#: includes/class-wp-foft-loader-settings.php:357
-msgid "Protection"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:225
-#: includes/class-wp-foft-loader-settings.php:358
-msgid "Select"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:225
-#: includes/class-wp-foft-loader-settings.php:358
-msgid "if you are using a commercially licensed font"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:226
-#: includes/class-wp-foft-loader-settings.php:359
-msgid "Subsetting"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:227
-msgid "Basic Subsetting"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:228
-#: includes/class-wp-foft-loader-settings.php:362
-msgid "OpenType Features"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:229
-msgid "Your choice, but we like"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:229
-msgid "Keep All Features"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:230
-#: includes/class-wp-foft-loader-settings.php:364
-msgid "OpenType Flattening"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:234
-#: includes/class-wp-foft-loader-settings.php:368
-msgid "Advanced Options"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:235
-#: includes/class-wp-foft-loader-settings.php:369
-msgid "Font Name Suffix"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:236
-#: includes/class-wp-foft-loader-settings.php:370
-msgid "Em Square Value"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:237
-#: includes/class-wp-foft-loader-settings.php:371
-msgid "Adjust Glyph Spacing"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:238
-#: includes/class-wp-foft-loader-settings.php:372
-msgid "Shortcuts"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:239
-#: includes/class-wp-foft-loader-settings.php:373
-msgid "Remember My Settings"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:242
-msgid "Filenames must follow the proper naming convention:"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:245
-msgid "The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:245
-msgid "no hyphens or spaces"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:247
-msgid "Small caps identifier"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:247
-msgid "Optional"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:247
-msgid "Append to $family only if it is a small caps variant."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:247
-#: includes/class-wp-foft-loader-settings.php:249
-msgid "Case-sensitive"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:249
-msgid "The font variant. Can be weight, style, or a combination of both."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:251
-msgid "Mandatory suffix. Append to"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:253
-msgid "The file type"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:253
-msgid "or"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-msgid "Example"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-msgid "for the bold weight, italic style of"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-msgid "rename the files to"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-#: includes/class-wp-foft-loader-settings.php:381
-#: includes/class-wp-foft-loader-settings.php:417
-#: includes/class-wp-foft-loader-settings.php:604
-#: includes/class-wp-foft-loader-settings.php:639
-msgid "and"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-msgid "For small caps style families, append"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-msgid "case-sensitive"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:255
-msgid "to the family name,"
+#: includes/class-wp-foft-loader-settings.php:202
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:218
+msgid "You have not uploaded any fonts."
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:256
-msgid "Allowed weights and styles and their CSS mappings are:"
+#: includes/class-wp-foft-loader-settings.php:435
+#: includes/class-wp-foft-loader-settings.php:675
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:281
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:518
+msgid "Upload"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:258
+#: includes/class-wp-foft-loader-settings.php:257
+#: includes/class-wp-foft-loader-settings.php:436
+#: includes/class-wp-foft-loader-settings.php:575
+msgid "Preparing the Files"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:257
+#: includes/class-wp-foft-loader-settings.php:436
+#: includes/class-wp-foft-loader-settings.php:575
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:420
+msgid "We recommend you use"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:257
+#: includes/class-wp-foft-loader-settings.php:436
+#: includes/class-wp-foft-loader-settings.php:575
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:283
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:420
+msgid "Webfont Generator"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:257
+#: includes/class-wp-foft-loader-settings.php:436
+#: includes/class-wp-foft-loader-settings.php:575
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:283
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:420
+msgid "to generate the files. Recommended Font Squirrel settings are:"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:259
-#: includes/class-wp-foft-loader-settings.php:260
-#: includes/class-wp-foft-loader-settings.php:261
+#: includes/class-wp-foft-loader-settings.php:438
+#: includes/class-wp-foft-loader-settings.php:577
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:285
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:422
+msgid "Font Formats"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:262
+#: includes/class-wp-foft-loader-settings.php:441
+#: includes/class-wp-foft-loader-settings.php:580
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:288
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:425
+msgid "Truetype Hinting"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:263
+#: includes/class-wp-foft-loader-settings.php:442
+#: includes/class-wp-foft-loader-settings.php:581
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:289
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:426
+msgid "Keep Existing"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:264
+#: includes/class-wp-foft-loader-settings.php:443
+#: includes/class-wp-foft-loader-settings.php:582
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:290
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:427
+msgid "Rendering"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:265
-#: includes/class-wp-foft-loader-settings.php:266
-#: includes/class-wp-foft-loader-settings.php:267
-#: includes/class-wp-foft-loader-settings.php:268
 #: includes/class-wp-foft-loader-settings.php:269
+#: includes/class-wp-foft-loader-settings.php:444
+#: includes/class-wp-foft-loader-settings.php:448
+#: includes/class-wp-foft-loader-settings.php:583
+#: includes/class-wp-foft-loader-settings.php:587
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:291
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:295
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:428
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:432
+msgid "Default options (leave unchecked)"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:266
+#: includes/class-wp-foft-loader-settings.php:445
+#: includes/class-wp-foft-loader-settings.php:584
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:292
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:429
+msgid "Vertical Metrics"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:267
+#: includes/class-wp-foft-loader-settings.php:446
+#: includes/class-wp-foft-loader-settings.php:585
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:293
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:430
+msgid "No Adjustment"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:268
+#: includes/class-wp-foft-loader-settings.php:447
+#: includes/class-wp-foft-loader-settings.php:586
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:294
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:431
+msgid "Fix Missing Glyphs"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:270
+#: includes/class-wp-foft-loader-settings.php:449
+#: includes/class-wp-foft-loader-settings.php:588
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:296
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:433
+msgid "X-height Matching"
+msgstr ""
+
 #: includes/class-wp-foft-loader-settings.php:271
-#: includes/class-wp-foft-loader-settings.php:272
-#: includes/class-wp-foft-loader-settings.php:273
-#: includes/class-wp-foft-loader-settings.php:274
-#: includes/class-wp-foft-loader-settings.php:275
-msgid "maps to"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:280
-msgid "Upload Fonts"
-msgstr ""
-
+#: includes/class-wp-foft-loader-settings.php:279
 #: includes/class-wp-foft-loader-settings.php:281
-msgid "This will upload a font file to your media library and store the attachment ID in the option field."
+#: includes/class-wp-foft-loader-settings.php:450
+#: includes/class-wp-foft-loader-settings.php:458
+#: includes/class-wp-foft-loader-settings.php:460
+#: includes/class-wp-foft-loader-settings.php:589
+#: includes/class-wp-foft-loader-settings.php:596
+#: includes/class-wp-foft-loader-settings.php:598
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:297
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:305
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:307
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:434
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:441
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:443
+msgid "None"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:272
+#: includes/class-wp-foft-loader-settings.php:451
+#: includes/class-wp-foft-loader-settings.php:590
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:298
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:435
+msgid "Protection"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:273
+#: includes/class-wp-foft-loader-settings.php:452
+#: includes/class-wp-foft-loader-settings.php:591
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:299
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:436
+msgid "Select"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:273
+#: includes/class-wp-foft-loader-settings.php:452
+#: includes/class-wp-foft-loader-settings.php:591
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:299
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:436
+msgid "if you are using a commercially licensed font"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:274
+#: includes/class-wp-foft-loader-settings.php:453
+#: includes/class-wp-foft-loader-settings.php:592
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:300
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:437
+msgid "Subsetting"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:275
+#: includes/class-wp-foft-loader-settings.php:454
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:301
+msgid "Basic Subsetting"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:275
+#: includes/class-wp-foft-loader-settings.php:454
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:301
+msgid "No Subsetting"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:276
+#: includes/class-wp-foft-loader-settings.php:455
+#: includes/class-wp-foft-loader-settings.php:595
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:302
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:440
+msgid "OpenType Features"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:277
+#: includes/class-wp-foft-loader-settings.php:456
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:303
+msgid "Your choice, but we like"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:277
+#: includes/class-wp-foft-loader-settings.php:456
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:303
+msgid "Keep All Features"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:278
+#: includes/class-wp-foft-loader-settings.php:457
+#: includes/class-wp-foft-loader-settings.php:597
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:304
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:442
+msgid "OpenType Flattening"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:282
+#: includes/class-wp-foft-loader-settings.php:461
+#: includes/class-wp-foft-loader-settings.php:601
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:308
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:446
+msgid "Advanced Options"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:283
+#: includes/class-wp-foft-loader-settings.php:462
+#: includes/class-wp-foft-loader-settings.php:602
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:309
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:447
+msgid "Font Name Suffix"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:284
+#: includes/class-wp-foft-loader-settings.php:463
+#: includes/class-wp-foft-loader-settings.php:603
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:310
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:448
+msgid "Em Square Value"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:285
+#: includes/class-wp-foft-loader-settings.php:464
+#: includes/class-wp-foft-loader-settings.php:604
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:311
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:449
+msgid "Adjust Glyph Spacing"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:286
+#: includes/class-wp-foft-loader-settings.php:465
+#: includes/class-wp-foft-loader-settings.php:605
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:312
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:450
+msgid "Shortcuts"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:287
+#: includes/class-wp-foft-loader-settings.php:466
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:313
+msgid "Remember My Settings"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:290
-#: includes/class-wp-foft-loader-settings.php:423
-#: includes/class-wp-foft-loader-settings.php:604
-msgid "Optimize"
+#: includes/class-wp-foft-loader-settings.php:469
+#: includes/class-wp-foft-loader-settings.php:607
+msgid "Naming the Files"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:291
-msgid "Load small subsetted font files before the page fully loads to improve performance."
+#: includes/class-wp-foft-loader-settings.php:290
+#: includes/class-wp-foft-loader-settings.php:469
+#: includes/class-wp-foft-loader-settings.php:608
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:316
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:454
+msgid "Filenames must follow the proper naming convention:"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:291
-msgid "This setting works with the Base64 settings in the next tab"
+#: includes/class-wp-foft-loader-settings.php:293
+#: includes/class-wp-foft-loader-settings.php:472
+#: includes/class-wp-foft-loader-settings.php:611
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:319
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:457
+msgid "The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:291
-msgid "All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Base64 settings field."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:292
-msgid "Enter the names of your Base64 subsetted fonts below. Only the family names are needed, not the styles. Names are case-insensitive. Hyphens and underscores are allowed,"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:292
-msgid "but spaces are not"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:294
-msgid "Correct"
+#: includes/class-wp-foft-loader-settings.php:293
+#: includes/class-wp-foft-loader-settings.php:472
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:319
+msgid "no hyphens or spaces"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:295
-msgid "all lowercase"
+msgid "Small caps identifier"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:296
-msgid "hyphens and underscores allowed"
+#: includes/class-wp-foft-loader-settings.php:295
+msgid "Optional"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:295
+msgid "Append to $family only if it is a small caps variant."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:295
+#: includes/class-wp-foft-loader-settings.php:297
+#: includes/class-wp-foft-loader-settings.php:474
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:321
+msgid "Case-sensitive"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:297
-msgid "mixed case allowed"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:298
-msgid "Incorrect"
+#: includes/class-wp-foft-loader-settings.php:474
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:321
+msgid "The font variant. Can be weight, style, or a combination of both."
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:299
-msgid "use the family name only; omit the style"
+#: includes/class-wp-foft-loader-settings.php:476
+#: includes/class-wp-foft-loader-settings.php:613
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:323
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:459
+msgid "Mandatory suffix. Append to"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:300
 #: includes/class-wp-foft-loader-settings.php:301
-msgid "spaces prohibited"
+#: includes/class-wp-foft-loader-settings.php:478
+#: includes/class-wp-foft-loader-settings.php:615
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:325
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:461
+msgid "The file type,"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+#: includes/class-wp-foft-loader-settings.php:616
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:327
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:462
+msgid "Example"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:327
+msgid "for the bold weight, italic style of"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:327
+msgid "rename the files to"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+#: includes/class-wp-foft-loader-settings.php:616
+#: includes/class-wp-foft-loader-settings.php:631
+#: includes/class-wp-foft-loader-settings.php:914
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:327
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:462
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:475
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:687
+msgid "and"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+msgid "For small caps style families, append"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+msgid "case-sensitive"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+msgid "to the family name,"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:303
+#: includes/class-wp-foft-loader-settings.php:480
+msgid "$family Examples"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:304
+#: includes/class-wp-foft-loader-settings.php:481
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:336
+msgid "Correct"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:305
+#: includes/class-wp-foft-loader-settings.php:482
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:337
+msgid "all lowercase"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:306
-#: includes/class-wp-foft-loader-settings.php:386
-#: includes/class-wp-foft-loader-settings.php:564
-msgid "Headings"
+#: includes/class-wp-foft-loader-settings.php:483
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:338
+msgid "underscores allowed"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:307
-msgid "Optimize the display font used for high-level headings"
+#: includes/class-wp-foft-loader-settings.php:484
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:339
+msgid "mixed case allowed"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:314
-#: includes/class-wp-foft-loader-settings.php:393
-#: includes/class-wp-foft-loader-settings.php:572
-msgid "Body"
+#: includes/class-wp-foft-loader-settings.php:308
+msgid "small-caps identifier"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:309
+#: includes/class-wp-foft-loader-settings.php:485
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:340
+msgid "Incorrect"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:310
+#: includes/class-wp-foft-loader-settings.php:486
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:342
+msgid "hyphens not allowed"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:311
+#: includes/class-wp-foft-loader-settings.php:312
+#: includes/class-wp-foft-loader-settings.php:487
+#: includes/class-wp-foft-loader-settings.php:488
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:343
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:344
+msgid "spaces prohibited"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:313
+msgid "small-caps identifier is case-sensitive"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:315
-msgid "Optimize body text. This can be a serif or sans-serif font."
+#: includes/class-wp-foft-loader-settings.php:490
+msgid "Allowed Weights &amp; Mappings"
 msgstr ""
 
+#: includes/class-wp-foft-loader-settings.php:315
+#: includes/class-wp-foft-loader-settings.php:490
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:327
+msgid "Allowed weights and styles and their CSS mappings are:"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:317
+#: includes/class-wp-foft-loader-settings.php:318
+#: includes/class-wp-foft-loader-settings.php:319
+#: includes/class-wp-foft-loader-settings.php:320
+#: includes/class-wp-foft-loader-settings.php:321
 #: includes/class-wp-foft-loader-settings.php:322
-#: includes/class-wp-foft-loader-settings.php:400
-#: includes/class-wp-foft-loader-settings.php:581
-msgid "Other elements"
-msgstr ""
-
 #: includes/class-wp-foft-loader-settings.php:323
-msgid "Optimize non`-body elements"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:323
-#: includes/class-wp-foft-loader-settings.php:401
-#: includes/class-wp-foft-loader-settings.php:582
-msgid "navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this."
-msgstr ""
-
+#: includes/class-wp-foft-loader-settings.php:324
+#: includes/class-wp-foft-loader-settings.php:325
+#: includes/class-wp-foft-loader-settings.php:326
+#: includes/class-wp-foft-loader-settings.php:327
+#: includes/class-wp-foft-loader-settings.php:328
+#: includes/class-wp-foft-loader-settings.php:329
 #: includes/class-wp-foft-loader-settings.php:330
-#: includes/class-wp-foft-loader-settings.php:407
-#: includes/class-wp-foft-loader-settings.php:590
-msgid "Monospaced"
+#: includes/class-wp-foft-loader-settings.php:331
+#: includes/class-wp-foft-loader-settings.php:332
+#: includes/class-wp-foft-loader-settings.php:333
+#: includes/class-wp-foft-loader-settings.php:334
+#: includes/class-wp-foft-loader-settings.php:492
+#: includes/class-wp-foft-loader-settings.php:493
+#: includes/class-wp-foft-loader-settings.php:494
+#: includes/class-wp-foft-loader-settings.php:495
+#: includes/class-wp-foft-loader-settings.php:496
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:329
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:330
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:331
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:332
+msgid "maps to"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:331
-msgid "Optimize monospaced fonts. Used for code examples, preformatted text, and tabular data."
+#: includes/class-wp-foft-loader-settings.php:335
+#: includes/class-wp-foft-loader-settings.php:497
+#: includes/class-wp-foft-loader-settings.php:616
+msgid "Your Fonts"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:335
+msgid "This plugin supports 1&thinsp;&ndash;&thinsp;4 font families (including unlimited weights, styles, and variants). After uploading your fonts, assign them as needed below."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:339
+#: includes/class-wp-foft-loader-settings.php:501
+#: includes/class-wp-foft-loader-settings.php:620
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:349
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:466
+msgid "Upload Fonts"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:340
-#: includes/class-wp-foft-loader-settings.php:604
-msgid "Base64"
+#: includes/class-wp-foft-loader-settings.php:502
+#: includes/class-wp-foft-loader-settings.php:621
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:350
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:467
+msgid "Upload font files to your media library and store the attachment ID in the option field."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:342
-msgid "This setting inlines Base64 encoded font in the document head to improve font loading speeds."
+#: includes/class-wp-foft-loader-settings.php:347
+msgid "Body Style"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:342
-msgid "This setting works with the Optimize settings in the previous tab."
+#: includes/class-wp-foft-loader-settings.php:348
+msgid "The plugin defaults to a serif body font. Override this setting here."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:342
-msgid "All of the fields are optional, but if you fill out any of them you should also fill out the corresponding Optimize settings field."
+#: includes/class-wp-foft-loader-settings.php:351
+msgid "Serif body font"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:343
-msgid "Fonts must be subsetted and encoded to Base64. To subset and encode your fonts, we recommend you use"
+#: includes/class-wp-foft-loader-settings.php:352
+msgid "Non-serif body font"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:343
-msgid "Recommended Font Squirrel settings are:"
+#: includes/class-wp-foft-loader-settings.php:358
+msgid "Display Font Style"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:360
-msgid "Custom Subsetting"
+#: includes/class-wp-foft-loader-settings.php:359
+msgid "The plugin defaults to a serif display font,"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:360
-msgid "with the Unicode Ranges"
+#: includes/class-wp-foft-loader-settings.php:359
+msgid "headings. Override this setting here."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:361
-msgid "Leave everything else unchecked or blank"
+#: includes/class-wp-foft-loader-settings.php:362
+msgid "Serif display font"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:367
-msgid "Base64 Encode"
+#: includes/class-wp-foft-loader-settings.php:363
+msgid "Non-serif display font"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:376
-msgid "The generator will produce a file that looks something like this:"
+#: includes/class-wp-foft-loader-settings.php:369
+#: includes/class-wp-foft-loader-settings.php:509
+#: includes/class-wp-foft-loader-settings.php:796
+#: includes/class-wp-foft-loader-settings.php:840
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:357
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:616
+msgid "Headings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:381
-msgid "Copy and paste the part the part between"
+#: includes/class-wp-foft-loader-settings.php:370
+#: includes/class-wp-foft-loader-settings.php:510
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:358
+msgid "Specify the display font used for high-level headings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:381
-msgid "into the appropriate field below. In this example that would be"
+#: includes/class-wp-foft-loader-settings.php:384
+#: includes/class-wp-foft-loader-settings.php:524
+#: includes/class-wp-foft-loader-settings.php:804
+#: includes/class-wp-foft-loader-settings.php:848
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:372
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:624
+msgid "Body"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:387
-msgid "The display font for high-level headings"
+#: includes/class-wp-foft-loader-settings.php:385
+#: includes/class-wp-foft-loader-settings.php:525
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:373
+msgid "Specify the body text. This can be a serif or sans-serif font."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:394
-msgid "The body text. This can be a serif or sans-serif font."
+#: includes/class-wp-foft-loader-settings.php:399
+#: includes/class-wp-foft-loader-settings.php:539
+#: includes/class-wp-foft-loader-settings.php:813
+#: includes/class-wp-foft-loader-settings.php:856
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:387
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:632
+msgid "Other elements"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:401
-msgid "Non-body elements,"
+#: includes/class-wp-foft-loader-settings.php:400
+#: includes/class-wp-foft-loader-settings.php:540
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:388
+msgid "Specify non-body elements"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:408
-msgid "Monospaced fonts. Used for code examples, preformatted text, and tabular data."
+#: includes/class-wp-foft-loader-settings.php:400
+#: includes/class-wp-foft-loader-settings.php:540
+#: includes/class-wp-foft-loader-settings.php:814
+#: includes/class-wp-foft-loader-settings.php:857
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:388
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:633
+msgid "navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:416
-msgid "CSS"
+#: includes/class-wp-foft-loader-settings.php:414
+#: includes/class-wp-foft-loader-settings.php:554
+#: includes/class-wp-foft-loader-settings.php:822
+#: includes/class-wp-foft-loader-settings.php:865
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:402
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:640
+msgid "Monospaced"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:417
-msgid "@import rules are automatically handled by this plugin. You may manually inline your font-related"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:417
-msgid "in the document"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:417
-msgid "here. Place rules pertaining only to the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:417
-msgid "properties here."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:419
-msgid "Stage 1 <abbr>CSS</abbr>"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:420
-msgid "Declarations placed in this field will load the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:420
-msgid "Base64 subset"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:422
-msgid "Use only the family name followed by"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:422
-msgid "(<em>case-insensitive</em>)"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:423
-msgid "Family names must match the names you input on the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:423
-#: includes/class-wp-foft-loader-settings.php:463
-msgid "screen."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:424
-#: includes/class-wp-foft-loader-settings.php:464
-msgid "Omit weights and styles from the font name"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:425
-#: includes/class-wp-foft-loader-settings.php:465
-msgid "All declarations must start with the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:425
-#: includes/class-wp-foft-loader-settings.php:465
-msgid "class"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:427
-#: includes/class-wp-foft-loader-settings.php:468
-msgid "See the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:427
-#: includes/class-wp-foft-loader-settings.php:468
-msgid "Documentation screen"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:427
-msgid "to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:429
-#: includes/class-wp-foft-loader-settings.php:470
-msgid "Incorrect:"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:430
-#: includes/class-wp-foft-loader-settings.php:471
-msgid "Missing class:"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:435
-msgid "Don&rsquo;t include the weight or style"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:439
-msgid "Missing"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:439
-msgid "Subset"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:444
-#: includes/class-wp-foft-loader-settings.php:485
-msgid "&ldquo;font-family,&rdquo; &ldquo;font-weight,&rdquo; &ldquo;font-style,&rdquo;"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:445
-#: includes/class-wp-foft-loader-settings.php:486
-msgid "and &ldquo;font-variant&rdquo; rules only"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:447
-#: includes/class-wp-foft-loader-settings.php:489
-msgid "Correct:"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:453
-msgid "Suffix is case-insensitive"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:460
-msgid "Stage 2 <abbr>CSS</abbr>"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:462
-msgid "Use only the family name"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:463
-msgid "Family names must match the file names for the fonts you uploaded on the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:466
-msgid "For best performance, please"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:466
-msgid "minify your <abbr>CSS</abbr></a> before pasting it into the form."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:468
-msgid "to view the Stage 2 <abbr>CSS</abbr> that this plugin loads by default."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:478
-msgid "Don&rsquo;t include style in font name."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:479
-msgid "Better yet, omit declaration altogether."
+#: includes/class-wp-foft-loader-settings.php:415
+#: includes/class-wp-foft-loader-settings.php:555
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:403
+msgid "Specify monospaced fonts. Used for code examples, preformatted text, and tabular data."
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:497
-msgid "No need to redeclare the font-family &mdash; all weights map to a single family name"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:507
-msgid "Plugin CSS"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:508
-msgid "The plugin loads some <abbr>CSS</abbr> by default."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:511
-msgid "Default <abbr>CSS</abbr> Off"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:512
-msgid "Default <abbr>CSS</abbr> On"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:518
-msgid "Font Display"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:519
-msgid "Override the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:519
-msgid " property here. The plugin uses"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:519
-msgid " by default."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:532
-msgid "Stage 1 CSS"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:533
-#: includes/class-wp-foft-loader-settings.php:544
-msgid "Place <abbr>CSS</abbr> font declarations here."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:536
-#: includes/class-wp-foft-loader-settings.php:547
-msgid "Example:"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:543
-msgid "Stage 2 CSS"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:559
-msgid "Font Stack"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:560
-msgid "Change the default font fallbacks in case your custom fonts don&rsquo;t load."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:560
-msgid "Don&rsquo;t include the names of your default custom fonts here."
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:565
-msgid "Font stack for display font. Applies to high-level headings"
+msgid "This plugin supports 1&thinsp;&ndash;&thinsp;4 font families. After uploading your fonts, assign them as needed below."
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:573
-msgid "Font stack for body text. This can be a serif or sans-serif font."
+#: includes/class-wp-foft-loader-settings.php:648
+#: includes/class-wp-foft-loader-settings.php:658
+#: includes/class-wp-foft-loader-settings.php:879
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:419
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:492
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:502
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:652
+msgid "Subset"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:582
-msgid "Font stack for non-body elements,"
+#: includes/class-wp-foft-loader-settings.php:574
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:420
+msgid "Upload up to 4 small, subsetted fonts. For each font, upload a WOFF &amp; WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:591
-msgid "Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data."
+#: includes/class-wp-foft-loader-settings.php:593
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:438
+msgid "Custom Subsetting"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:601
-msgid "Documentation"
+#: includes/class-wp-foft-loader-settings.php:593
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:438
+msgid "with the Unicode Ranges"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:603
-msgid "Fonts Stage 1"
+#: includes/class-wp-foft-loader-settings.php:594
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:439
+msgid "Leave everything else unchecked or blank"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:604
-msgid "This plugin always loads the following Stage 1 styles. The Stage 1 fonts are inlined, subsetted, base64 fonts. &lt;$bodySubset&gt;, &lt;$altSubset&gt;, &lt;$headingSubset&gt;, and &lt;$monoSubset&gt; correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the"
+#: includes/class-wp-foft-loader-settings.php:600
+#: includes/class-wp-foft-loader-settings.php:606
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:445
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:451
+msgid "Leave unchecked"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:611
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:457
+msgid "no hyphens or spaces."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:611
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:457
+msgid "Each"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:611
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:457
+msgid "base name should match the name used for the matching font uploaded on the previous upload screen."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:616
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:462
+msgid "If you uploaded"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:616
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:462
+msgid "as your body font on the previous screen, name the subsetted versions "
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:616
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:462
+msgid "respectively."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:630
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:474
+msgid "CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:631
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:475
+msgid "@import rules are automatically handled by this plugin. You may manually inline your font-related"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:631
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:475
+msgid "in the document"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:631
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:475
+msgid "here. Place rules pertaining only to the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:631
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:475
+msgid "properties here."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:633
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:477
+msgid "Stage 1 <abbr>CSS</abbr>"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:634
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:478
+msgid "Declarations placed in this field will load the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:634
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:478
+msgid "optimized subset"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:636
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:480
+msgid "Use only the family name followed by"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:636
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:480
+msgid "(case-sensitive)"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:637
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:481
+msgid "Family names must match the names you input on the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:637
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:481
+msgid "Optimize"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:637
+#: includes/class-wp-foft-loader-settings.php:675
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:481
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:518
+msgid "screen."
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:638
+#: includes/class-wp-foft-loader-settings.php:677
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:482
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:520
+msgid "All declarations must start with the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:638
+#: includes/class-wp-foft-loader-settings.php:677
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:482
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:520
+msgid "class"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:640
+#: includes/class-wp-foft-loader-settings.php:680
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:484
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:523
+msgid "See the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:640
+#: includes/class-wp-foft-loader-settings.php:680
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:484
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:523
+msgid "Documentation screen"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:640
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:484
+msgid "to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:642
+#: includes/class-wp-foft-loader-settings.php:682
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:486
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:525
+msgid "Incorrect:"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:643
+#: includes/class-wp-foft-loader-settings.php:683
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:487
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:526
+msgid "Missing class:"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:648
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:492
+msgid "Missing"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:653
+#: includes/class-wp-foft-loader-settings.php:697
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:497
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:540
+msgid "&ldquo;font-family,&rdquo; &ldquo;font-weight,&rdquo; &ldquo;font-style,&rdquo;"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:654
+#: includes/class-wp-foft-loader-settings.php:698
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:498
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:541
+msgid "and &ldquo;font-variant&rdquo; rules only"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:658
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:502
+msgid "suffix is case-sensitive"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:661
+#: includes/class-wp-foft-loader-settings.php:701
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:505
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:544
+msgid "Correct:"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:671
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:515
+msgid "Stage 2 <abbr>CSS</abbr>"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:674
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:517
+msgid "Use only the family name"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:675
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:518
+msgid "Family names must match the file names for the fonts you uploaded on the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:676
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:519
+msgid "Omit weights and styles from the font name"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:678
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:521
+msgid "For best performance, please"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:678
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:521
+msgid "minify your <abbr>CSS</abbr></a> before pasting it into the form."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:680
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:523
+msgid "to view the Stage 2 <abbr>CSS</abbr> that this plugin loads by default."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:690
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:533
+msgid "Don&rsquo;t include style in font name."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:691
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:534
+msgid "Better yet, omit declaration altogether."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:709
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:552
+msgid "No need to redeclare the font-family &mdash; all weights map to a single family name"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:719
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:562
+msgid "Plugin CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:720
+msgid "The plugin loads some <abbr>CSS</abbr> by default. See"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:720
+msgid "documentation"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:723
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:566
+msgid "Default <abbr>CSS</abbr> Off"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:724
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:567
+msgid "Default <abbr>CSS</abbr> On"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:730
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:573
+msgid "Font Display"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:731
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:574
+msgid "Override the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:731
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:574
+msgid " property here. The plugin uses"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:731
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:574
+msgid " by default."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:744
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:587
+msgid "Stage 1 CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:745
+msgid "Place <abbr>CSS</abbr> font declarations for subsetted fonts here."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:748
+#: includes/class-wp-foft-loader-settings.php:759
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:591
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:601
+msgid "Example:"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:755
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:597
+msgid "Stage 2 CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:756
+msgid "Place <abbr>CSS</abbr> font declarations for non-subsetted fonts here."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:791
+#: includes/class-wp-foft-loader-settings.php:835
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:611
+msgid "Font Stack"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:792
+#: includes/class-wp-foft-loader-settings.php:836
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:612
+msgid "Change the default font fallbacks in case your custom fonts don&rsquo;t load."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:792
+#: includes/class-wp-foft-loader-settings.php:836
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:612
+msgid "Don&rsquo;t include the names of your default custom fonts here."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:797
+#: includes/class-wp-foft-loader-settings.php:841
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:617
+msgid "Font stack for display font. Applies to high-level headings"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:805
+#: includes/class-wp-foft-loader-settings.php:849
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:625
+msgid "Font stack for body text. This can be a serif or sans-serif font."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:814
+#: includes/class-wp-foft-loader-settings.php:857
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:633
+msgid "Font stack for non-body elements,"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:823
+#: includes/class-wp-foft-loader-settings.php:866
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:641
+msgid "Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:876
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:649
+msgid "Documentation"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:878
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:651
+msgid "Fonts Stage 1"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:879
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:652
+msgid "This plugin always loads the following Stage 1 styles. The Stage 1 fonts are subsetted fonts, acting as placeholders until the full Stage 2 fonts load. &lt;$bodySubset&gt;, &lt;$altSubset&gt;, &lt;$headingSubset&gt;, and &lt;$monoSubset&gt; correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:913
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:686
 msgid "Fonts Stage 2"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:639
+#: includes/class-wp-foft-loader-settings.php:914
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:687
 msgid "This plugin also loads the following Stage 2 styles. You can disable these styles on the"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:639
+#: includes/class-wp-foft-loader-settings.php:914
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:687
 msgid "options screen"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:639
+#: includes/class-wp-foft-loader-settings.php:914
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:687
 msgid "correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:639
-msgid "Optimize screen"
+#: includes/class-wp-foft-loader-settings.php:914
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:687
+msgid "Subset screen"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:639
+#: includes/class-wp-foft-loader-settings.php:914
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:687
 msgid "Font Stack settings screen"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:737
+#: includes/class-wp-foft-loader-settings.php:1012
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:785
 msgid "Video Tutorials"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:845
+#: includes/class-wp-foft-loader-settings.php:1120
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:889
 msgid "WP <abbr>FOFT</abbr> Loader Settings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:845
-msgid "Please <strong>save your changes</strong> before navigating to the next tab. "
+#: includes/class-wp-foft-loader-settings.php:1120
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:889
+msgid "Automates"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:905
+#: includes/class-wp-foft-loader-settings.php:1120
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:889
+msgid "Critical"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1120
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:889
+msgid "with preload, with a polyfill fallback emulating font-display: optional"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1120
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:889
+msgid " to speed up font loading while eliminating Flash of Unstyled Text ("
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1120
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:889
+msgid "Based on the work of"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1124
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:891
+msgid "Upgrade to"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1128
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:893
+msgid "Please"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1128
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:893
+msgid "save your changes"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1128
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:893
+msgid "before navigating to the next tab. "
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1196
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:945
 msgid "Save Settings"
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:938
+#: includes/class-wp-foft-loader-settings.php:1200
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:949
+msgid "Yeehaw!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1201
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:950
+msgid "Good Job!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1202
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:951
+msgid "Hooray!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1203
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:952
+msgid "Yay!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1204
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:953
+msgid "Huzzah!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1205
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:954
+msgid "Bada bing bada boom!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1208
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:964
+msgid "Dangit!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1209
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:965
+msgid "Aw heck!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1210
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:966
+msgid "Egads!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1211
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:967
+msgid "D&rsquo;oh!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1212
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:968
+msgid "Drat!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1213
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:969
+msgid "Dagnabit!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1226
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:987
+msgid " Your settings were saved!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1230
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:991
+msgid " There was an error saving your settings. Please open a support ticket if the problem persists!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1245
+msgid "Reset styles &amp; font assignments"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1248
+msgid "Reset CSS"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1249
+msgid "Clears &amp; resets only plugin"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1249
+msgid "font-display property, &amp; custom"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1249
+msgid "To clear other settings visit the corresponding tab."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1251
+msgid "Reset Font Stacks"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1252
+msgid "Clears &amp; resets only the font stacks. To clear other settings visit the corresponding tab."
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1265
+msgid "Clear settings"
+msgstr ""
+
+#: includes/class-wp-foft-loader-settings.php:1343
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:1031
 msgid "Cloning of WP_FOFT_Loader_API is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-settings.php:947
+#: includes/class-wp-foft-loader-settings.php:1352
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:1042
 msgid "Unserializing instances of WP_FOFT_Loader_API is forbidden."
+msgstr ""
+
+#: includes/class-wp-foft-loader-jsvars.php:194
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-jsvars.php:183
+msgid "Cloning of WP_FOFT_Loader_JS_Vars is forbidden."
+msgstr ""
+
+#: includes/class-wp-foft-loader-jsvars.php:203
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-jsvars.php:194
+msgid "Unserializing instances  of WP_FOFT_Loader_JS_Vars is forbidden."
+msgstr ""
+
+#: wp-foft-loader.php:132
+msgid "<span class=\"dashicons dashicons-yes-alt\"></span> WP FOFT Loader updated successfully!"
+msgstr ""
+
+#: wp-foft-loader.php:140
+#: .admin/wp-foft-loader/wp-foft-loader.php:128
+msgid "<span class=\"dashicons dashicons-yes-alt\"></span> WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/\" rel=\"noopener noreferrer\">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free\" rel=\"noopener noreferrer\">FREE 14-day trial.</a>"
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-errors.php:47
+msgid "Good job! Your settings were saved!"
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-errors.php:84
+msgid "Cloning of WP_FOFT_Loader_Errors is forbidden."
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-errors.php:93
+msgid "Unserializing instances  of WP_FOFT_Loader_Errors is forbidden."
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:283
+msgid "Upload two files for each web font: a WOFF file and a WOFF2 file. In most cases you will upload regular, italic, bold, and bold italic versions of each font. We recommend you use"
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:341
+msgid "hyphens not allowed; use the family name only; omit the style"
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:563
+msgid "The plugin loads some <abbr>CSS</abbr> by default."
+msgstr ""
+
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:588
+#: .admin/wp-foft-loader/includes/class-wp-foft-loader-settings.php:598
+msgid "Place <abbr>CSS</abbr> font declarations here."
 msgstr ""

@@ -128,3 +128,14 @@ color:#21759b;
 .notice-error .dashicons {
   color: #dc3232;
 }
+
+details {
+  padding: 1rem;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: #21759b;
+}
+
+details:last-of-type {
+  border: 1px solid #21759b;
+}

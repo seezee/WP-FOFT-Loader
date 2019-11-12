@@ -30,14 +30,6 @@ class WP_FOFT_Loader_Settings
      */
     public  $parent = null ;
     /**
-     * Prefix for plugin settings.
-     *
-     * @var     string
-     * @access  public
-     * @since   1.0.0
-     */
-    public  $base = '' ;
-    /**
      * Available settings for plugin.
      *
      * @var     array
@@ -53,7 +45,6 @@ class WP_FOFT_Loader_Settings
     public function __construct( $parent )
     {
         $this->parent = $parent;
-        $this->base = 'wpfl_';
         // Initialise settings.
         add_action( 'init', array( $this, 'init_settings' ), 11 );
         // Register plugin settings.
@@ -63,7 +54,7 @@ class WP_FOFT_Loader_Settings
         // Add settings link to plugins page.
         add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ), array( $this, 'add_settings_link' ) );
         // Configure placement of plugin settings page. See readme for implementation.
-        add_filter( $this->base . 'menu_settings', array( $this, 'configure_settings' ) );
+        add_filter( _BASE_ . 'menu_settings', array( $this, 'configure_settings' ) );
     }
     
     /**
@@ -125,7 +116,7 @@ class WP_FOFT_Loader_Settings
      */
     private function menu_settings()
     {
-        return apply_filters( $this->base . 'menu_settings', array(
+        return apply_filters( _BASE_ . 'menu_settings', array(
             'location'    => 'options',
             'parent_slug' => 'options-general.php',
             'page_title'  => __( 'WP FOFT Loader Settings', 'wp-foft-loader' ),
@@ -220,6 +211,7 @@ class WP_FOFT_Loader_Settings
         
         $suffix = '-webfont';
         $fam = array();
+        // For wp_kses.
         $allowed_html = array(
             'li' => array(
             'class' => array(),
@@ -235,7 +227,7 @@ class WP_FOFT_Loader_Settings
                 $font = basename( $file, '.woff' );
                 // Remove the file type.
                 list( $family, $style, $type ) = explode( '-', $font, 3 );
-                // explode for 3 parts: family, style & type (-webfont).
+                // Explode for 3 parts: family, style & type (-webfont).
                 echo  '<li>' . $font . '</li>' ;
             }
         
@@ -248,12 +240,14 @@ class WP_FOFT_Loader_Settings
             if ( !fnmatch( "*optimized*", $file ) ) {
                 $font = basename( $file, '.woff' );
                 $fonts = explode( '-', $font, 3 );
-                // explode for 1 part: family.
+                // Explode for 1 part: family.
                 echo  $fonts[0] . ',' ;
             }
         
         }
         $choices = ob_get_clean();
+        $choices = wp_kses( $choices, $fam );
+        // Sanitize the input.
         $c_str = implode( ',', array_unique( explode( ',', $choices ) ) );
         // Remove duplicate font-families & convert the array to a string
         $c_str = rtrim( $c_str, ',' );
@@ -279,8 +273,7 @@ class WP_FOFT_Loader_Settings
             // Autoremoved from the PRO version.
             $settings['upload'] = array(
                 'title'       => __( 'Upload', 'wp-foft-loader' ),
-                'description' => '
-<p>' . __( 'Upload two files for each web font: a WOFF file and a WOFF2 file. In most cases you will upload regular, italic, bold, and bold italic versions of each font. We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
+                'description' => '<p>Upload two files for each web font: a WOFF file and a WOFF2 file. In most cases you will upload regular, italic, bold, and bold italic versions of each font.</p><details><summary class="wp-admin-lite-blue">' . __( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
 <dl class="col-3">
   <dt>' . __( 'Font Formats', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;<abbr>WOFF</abbr>&rdquo;</dd>
@@ -313,7 +306,7 @@ class WP_FOFT_Loader_Settings
   <dd>&ldquo;' . __( 'Remember My Settings', 'wp-foft-loader' ) . '&rdquo;</dd>
 </dl>
 <hr>
-<p><strong>' . __( 'Filenames must follow the proper naming convention:', 'wp-foft-loader' ) . '</strong> <code>$family</code>-<code>$variant</code>-webfont.<code>$filetype</code>.</p>
+<p></details><details><summary class="wp-admin-lite-blue">' . __( 'Naming the Files', 'wp-foft-loader' ) . '</summary><strong>' . __( 'Filenames must follow the proper naming convention:', 'wp-foft-loader' ) . '</strong> <code>$family</code>-<code>$variant</code>-webfont.<code>$filetype</code>.</p>
 <dl>
 <dt>$family</dt>
 <dd>' . __( 'The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but', 'wp-foft-loader' ) . ' <em>' . __( 'no hyphens or spaces', 'wp-foft-loader' ) . '</em>.</dd>
@@ -324,25 +317,24 @@ class WP_FOFT_Loader_Settings
 <dt>$filetype</dt>
 <dd>' . __( 'The file type,', 'wp-foft-loader' ) . ' i.e., &ldquo;woff&rdquo; or &ldquo;woff2&rdquo;.</dd>
 </dl>
-<p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'for the bold weight, italic style of', 'wp-foft-loader' ) . ' Times New Roman, ' . __( 'rename the files to', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff2</code>.</p><p>' . __( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '</p>
-<ul class="col-3">
-  <li>regular | normal (' . __( 'maps to', 'wp-foft-loader' ) . ' 400)</li>
-  <li>bold (' . __( 'maps to', 'wp-foft-loader' ) . ' 700)</li>
-  <li>italic (' . __( 'maps to', 'wp-foft-loader' ) . ' 400)</li>
-  <li>boldItalic (' . __( 'maps to', 'wp-foft-loader' ) . ' 700)</li>
-</li>
-</ul><p>' . __( 'This plugin supports 1&thinsp;&ndash;&thinsp;4 font families. For each font family you upload, specify its name in the appropriate setting below the uploader.' ) . '</p>
-<dl>
+<p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'for the bold weight, italic style of', 'wp-foft-loader' ) . ' Times New Roman, ' . __( 'rename the files to', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-boldItalic-webfont.woff2</code>. ' . __( 'For small caps style families, append', 'wp-foft-loader' ) . ' <code>SC</code> (' . __( 'case-sensitive', 'wp-foft-loader' ) . ') ' . __( 'to the family name,', 'wp-foft-loader' ) . ' e.g., <code>playfairdisplaySC-regular-webfont.woff</code>.</p><h3>' . __( '$family Examples', 'wp-foft-loader' ) . '</h3><dl>
 	<dt>' . __( 'Correct', 'wp-foft-loader' ) . ':</dt>
 	<dd><strong>playfairdisplay</strong> (' . __( 'all lowercase', 'wp-foft-loader' ) . ')</dd>
 	<dd><strong>playfair_display</strong> (' . __( 'underscores allowed', 'wp-foft-loader' ) . ')</dd>
 	<dd><strong>PlayfairDisplay</strong> (' . __( 'mixed case allowed', 'wp-foft-loader' ) . ')</dd>
 	<dt>' . __( 'Incorrect', 'wp-foft-loader' ) . ':</dt>
-	<dd><strong>playfairdisplay-bold</strong> (' . __( 'hyphens not allowed; use the family name only; omit the style', 'wp-foft-loader' ) . ', <abbr>i.e.</abbr>, &ldquo;bold&rdquo;)</dd>
 	<dd><strong>playfair-display</strong> (' . __( 'hyphens not allowed', 'wp-foft-loader' ) . ')</dd>
 	<dd><strong>playfair display</strong> (' . __( 'spaces prohibited', 'wp-foft-loader' ) . ')</dd>
 	<dd><strong>Playfair Display</strong> (' . __( 'spaces prohibited', 'wp-foft-loader' ) . ')</dd>
-</dl>' . $uploadmessage . '<ul class="col-3">' . wp_kses( $fontlist, $allowed_html ) . '</ul>',
+</dl>
+</details><details><summary class="wp-admin-lite-blue">' . __( 'Allowed Weights &amp; Mappings', 'wp-foft-loader' ) . '</summary>' . __( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '
+<ul class="col-3">
+	<li>regular | normal (' . __( 'maps to', 'wp-foft-loader' ) . ' 400)</li>
+	<li>bold (' . __( 'maps to', 'wp-foft-loader' ) . ' 700)</li>
+	<li>italic (' . __( 'maps to', 'wp-foft-loader' ) . ' 400)</li>
+	<li>mediumItalic (' . __( 'maps to', 'wp-foft-loader' ) . ' 500)</li>
+	<li>boldItalic (' . __( 'maps to', 'wp-foft-loader' ) . ' 700)</li>
+</ul></details><details><summary class="wp-admin-lite-blue">' . __( 'Your Fonts', 'wp-foft-loader' ) . '</summary>' . $uploadmessage . '<ul class="col-3">' . wp_kses( $fontlist, $allowed_html ) . '</ul></details><p>' . __( 'This plugin supports 1&thinsp;&ndash;&thinsp;4 font families. After uploading your fonts, assign them as needed below.', 'wp-foft-loader' ) . '</p>',
                 'fields'      => array(
                 array(
                 'id'          => 'font',
@@ -417,7 +409,7 @@ class WP_FOFT_Loader_Settings
         }
         $settings['subset'] = array(
             'title'       => __( 'Subset', 'wp-foft-loader' ),
-            'description' => '<p>' . __( 'Upload up to 4 small, subsetted fonts. For each font, upload a WOFF &amp; WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.', 'wp-foft-loader' ) . '<p><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
+            'description' => '<p>' . __( 'Upload up to 4 small, subsetted fonts. For each font, upload a WOFF &amp; WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.', 'wp-foft-loader' ) . '<p><details><summary class="wp-admin-lite-blue">' . __( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
 <dl class="col-3">
   <dt>' . __( 'Font Formats', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;<abbr>WOFF</abbr>&rdquo;</dd>
@@ -449,8 +441,7 @@ class WP_FOFT_Loader_Settings
   <dd>&ldquo;' . __( 'Adjust Glyph Spacing', 'wp-foft-loader' ) . '&rdquo; = 0</dd>
   <dt>' . __( 'Shortcuts', 'wp-foft-loader' ) . '</dt>
   <dd>' . __( 'Leave unchecked', 'wp-foft-loader' ) . '</dd>
-</dl>
-<hr>
+</dl></details><details><summary class="wp-admin-lite-blue">' . __( 'Naming the Files', 'wp-foft-loader' ) . '</summary>
 <p><strong>' . __( 'Filenames must follow the proper naming convention:', 'wp-foft-loader' ) . '</strong> <code>$family</code>-optimized.<code>$filetype</code>.</p>
 <dl>
 <dt>$family</dt>
@@ -459,8 +450,7 @@ class WP_FOFT_Loader_Settings
 <dd>' . __( 'Mandatory suffix. Append to', 'wp-foft-loader' ) . ' $family.</dd>
 <dt>$filetype</dt>
 <dd>' . __( 'The file type,', 'wp-foft-loader' ) . ' i.e., &ldquo;woff&rdquo; or &ldquo;woff2&rdquo;.</dd>
-</dl><p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'If you uploaded', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff2</code> ' . __( 'as your body font on the previous screen, name the subsetted versions ', 'wp-foft-loader' ) . ' <code>timesnewroman-optimized.woff</code> ' . __( 'and', 'wp-foft-loader' ) . '  <code>timesnewroman-optimized.woff2</code> ' . __( 'respectively.', 'wp-foft-loader' ) . '</p>
-' . $uploadmessage . '<ul class="col-3">' . wp_kses( $ofontlist, $allowed_html ) . '</ul>',
+</dl><p><strong>' . __( 'Example', 'wp-foft-loader' ) . '</strong>: ' . __( 'If you uploaded', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff</code> ' . __( 'and', 'wp-foft-loader' ) . ' <code>timesnewroman-regular-webfont.woff2</code> ' . __( 'as your body font on the previous screen, name the subsetted versions ', 'wp-foft-loader' ) . ' <code>timesnewroman-optimized.woff</code> ' . __( 'and', 'wp-foft-loader' ) . '  <code>timesnewroman-optimized.woff2</code> ' . __( 'respectively.', 'wp-foft-loader' ) . '</p></details><details><summary class="wp-admin-lite-blue">' . __( 'Your Fonts', 'wp-foft-loader' ) . '</summary>' . $uploadmessage . '<ul class="col-3">' . wp_kses( $ofontlist, $allowed_html ) . '</ul></details>',
             'fields'      => array( array(
             'id'          => 'font',
             'label'       => __( 'Upload Fonts', 'wp-foft-loader' ),
@@ -473,9 +463,9 @@ class WP_FOFT_Loader_Settings
         $settings['css'] = array(
             'title'       => __( 'CSS', 'wp-foft-loader' ),
             'description' => '<p>' . __( '@import rules are automatically handled by this plugin. You may manually inline your font-related', 'wp-foft-loader' ) . ' <abbr>CSS</abbr> ' . __( 'in the document', 'wp-foft-loader' ) . ' <code>&lt;head&gt;</code> ' . __( 'here. Place rules pertaining only to the', 'wp-foft-loader' ) . ' <code>font-family</code>, <code>font-weight</code>, <code>font-style</code>, ' . __( 'and', 'wp-foft-loader' ) . ' <code>font-variation</code> ' . __( 'properties here.', 'wp-foft-loader' ) . '</p>
-<section>
-	<h3>' . __( 'Stage 1 <abbr>CSS</abbr>', 'wp-foft-loader' ) . '</h3>
-	<p>' . __( 'Declarations placed in this field will load the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=subset">' . __( 'optimized subset', 'wp-foft-loader' ) . '</a> ' . __( 'as a placeholder while the external fonts load.', 'wp-foftloader' ) . '</p>
+<details>
+	<summary>' . __( 'Stage 1 <abbr>CSS</abbr>', 'wp-foft-loader' ) . '</summary>
+	<p>' . __( 'Declarations placed in this field will load the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=subset">' . __( 'optimized subset', 'wp-foft-loader' ) . '</a> ' . __( 'as a placeholder while the non-subsetted fonts load.', 'wp-foftloader' ) . '</p>
 	<ul class="wpfl">
 		<li>' . __( 'Use only the family name followed by', 'wp-foft-loader' ) . ' <code>Subset</code> ' . __( '(case-sensitive)', 'wp-foft-loader' ) . '</li>
 		<li>' . __( 'Family names must match the names you input on the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=optimize">&ldquo;' . __( 'Optimize', 'wp-foft-loader' ) . '&rdquo; ' . __( 'screen.', 'wp-foft-loader' ) . '</a></li>
@@ -510,9 +500,10 @@ class WP_FOFT_Loader_Settings
 		</dd>
 	</dl>
 	<p>
-</section>
-<section>
-	<h3>' . __( 'Stage 2 <abbr>CSS</abbr>', 'wp-foft-loader' ) . '</h3>
+</details>
+<details>
+	<summary>' . __( 'Stage 2 <abbr>CSS</abbr>', 'wp-foft-loader' ) . '</summary>
+	<p>' . __( 'Declarations placed in this field will load after non-subsetted fonts load.', 'wp-foftloader' ) . '</p>
 	<ul class="wpfl">
 		<li>' . __( 'Use only the family name', 'wp-foft-loader' ) . '</li>
 		<li>' . __( 'Family names must match the file names for the fonts you uploaded on the', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=upload">&ldquo;' . __( 'Upload', 'wp-foft-loader' ) . '&rdquo; ' . __( 'screen.', 'wp-foft-loader' ) . '</a></li>
@@ -555,12 +546,12 @@ class WP_FOFT_Loader_Settings
 		</dd>
 	</dl>
 	<p>
-</section>',
+</details>',
             'fields'      => array(
             array(
             'id'          => 'default_css',
             'label'       => __( 'Plugin CSS', 'wp-foft-loader' ),
-            'description' => __( 'The plugin loads some <abbr>CSS</abbr> by default.', 'wp-foft-loader' ),
+            'description' => __( 'The plugin loads some <abbr>CSS</abbr> by default. See', 'wp-foft-loader' ) . ' <a href="?page=wp_foft_loader_settings&tab=documentation">' . __( 'documentation', 'wp-foft-loader' ) . '</a>.',
             'type'        => 'radio',
             'options'     => array(
             'off' => __( 'Default <abbr>CSS</abbr> Off', 'wp-foft-loader' ),
@@ -585,7 +576,7 @@ class WP_FOFT_Loader_Settings
             array(
             'id'          => 'stage_1',
             'label'       => __( 'Stage 1 CSS', 'wp-foft-loader' ),
-            'description' => __( 'Place <abbr>CSS</abbr> font declarations here.', 'wp-foft-loader' ),
+            'description' => __( 'Place <abbr>CSS</abbr> font declarations for subsetted fonts here.', 'wp-foft-loader' ),
             'type'        => 'textarea',
             'default'     => null,
             'placeholder' => __( 'Example:', 'wp-foft-loader' ) . '.fonts-stage-1 body {
@@ -595,7 +586,7 @@ class WP_FOFT_Loader_Settings
             array(
             'id'          => 'stage_2',
             'label'       => __( 'Stage 2 CSS', 'wp-foft-loader' ),
-            'description' => __( 'Place <abbr>CSS</abbr> font declarations here.', 'wp-foft-loader' ),
+            'description' => __( 'Place <abbr>CSS</abbr> font declarations for non-subsetted fonts here.', 'wp-foft-loader' ),
             'type'        => 'textarea_large',
             'default'     => null,
             'placeholder' => __( 'Example:', 'wp-foft-loader' ) . '.fonts-stage-2 body {
@@ -607,44 +598,46 @@ class WP_FOFT_Loader_Settings
         )
         ),
         );
-        $settings['fstack'] = array(
-            'title'       => __( 'Font Stack', 'wp-foft-loader' ),
-            'description' => '<p>' . __( 'Change the default font fallbacks in case your custom fonts don&rsquo;t load.', 'wp-foft-loader' ) . ' <strong>' . __( 'Don&rsquo;t include the names of your default custom fonts here.', 'wp-foft-loader' ) . '</strong></p>',
-            'fields'      => array(
-            array(
-            'id'          => 'fstack-heading',
-            'label'       => __( 'Headings', 'wp-foft-loader' ),
-            'description' => __( 'Font stack for display font. Applies to high-level headings', 'wp-foft-loader' ) . '(H1, H2, &amp; H3).',
-            'type'        => 'textarea',
-            'default'     => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
-            'placeholder' => '',
-        ),
-            array(
-            'id'          => 'fstack-body',
-            'label'       => __( 'Body', 'wp-foft-loader' ),
-            'description' => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
-            'type'        => 'textarea',
-            'default'     => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
-            'placeholder' => '',
-        ),
-            array(
-            'id'          => 'fstack-alt',
-            'label'       => __( 'Other elements', 'wp-foft-loader' ),
-            'description' => __( 'Font stack for non-body elements,', 'wp-foft-loader' ) . '<abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
-            'type'        => 'textarea',
-            'default'     => '-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-            'placeholder' => '',
-        ),
-            array(
-            'id'          => 'fstack-mono',
-            'label'       => __( 'Monospaced', 'wp-foft-loader' ),
-            'description' => __( 'Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wp-foft-loader' ),
-            'type'        => 'textarea',
-            'default'     => 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,monospace',
-            'placeholder' => '',
-        )
-        ),
-        );
+        if ( !wpfl_fs()->can_use_premium_code() ) {
+            $settings['fstack'] = array(
+                'title'       => __( 'Font Stack', 'wp-foft-loader' ),
+                'description' => '<p>' . __( 'Change the default font fallbacks in case your custom fonts don&rsquo;t load.', 'wp-foft-loader' ) . ' <strong>' . __( 'Don&rsquo;t include the names of your default custom fonts here.', 'wp-foft-loader' ) . '</strong></p>',
+                'fields'      => array(
+                array(
+                'id'          => 'fstack-heading',
+                'label'       => __( 'Headings', 'wp-foft-loader' ),
+                'description' => __( 'Font stack for display font. Applies to high-level headings', 'wp-foft-loader' ) . '(H1, H2, &amp; H3).',
+                'type'        => 'textarea',
+                'default'     => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
+                'placeholder' => '',
+            ),
+                array(
+                'id'          => 'fstack-body',
+                'label'       => __( 'Body', 'wp-foft-loader' ),
+                'description' => __( 'Font stack for body text. This can be a serif or sans-serif font.', 'wp-foft-loader' ),
+                'type'        => 'textarea',
+                'default'     => '"Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif',
+                'placeholder' => '',
+            ),
+                array(
+                'id'          => 'fstack-alt',
+                'label'       => __( 'Other elements', 'wp-foft-loader' ),
+                'description' => __( 'Font stack for non-body elements,', 'wp-foft-loader' ) . '<abbr>e.g.</abbr>,' . __( 'navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ),
+                'type'        => 'textarea',
+                'default'     => '-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+                'placeholder' => '',
+            ),
+                array(
+                'id'          => 'fstack-mono',
+                'label'       => __( 'Monospaced', 'wp-foft-loader' ),
+                'description' => __( 'Font stack for monospaced fonts. Used for code examples, preformatted text, and tabular data.', 'wp-foft-loader' ),
+                'type'        => 'textarea',
+                'default'     => 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,monospace',
+                'placeholder' => '',
+            )
+            ),
+            );
+        }
         $settings['documentation'] = array(
             'title'       => __( 'Documentation', 'wp-foft-loader' ),
             'description' => '<section>
@@ -714,14 +707,14 @@ class WP_FOFT_Loader_Settings
 .fonts-stage-2 strong h1,
 .fonts-stage-2 strong h2,
 .fonts-stage-2 strong h3 {
-  font-weight: 900
+  font-weight: 700
 }
 
 .fonts-stage-2 em strong h1,
 .fonts-stage-2 h1 em strong,
 .fonts-stage-2 h1 strong em,
 .fonts-stage-2 strong em h1 {
-  font-weight: 900;
+  font-weight: 700;
   font-style: italic
 }
 
@@ -843,7 +836,7 @@ class WP_FOFT_Loader_Settings
                         $validation = $field['callback'];
                     }
                     // Register field.
-                    $option_name = $this->base . $field['id'];
+                    $option_name = _BASE_ . $field['id'];
                     register_setting( $this->parent->token . '_settings', $option_name, $validation );
                     // Add field to page.
                     add_settings_field(
@@ -854,7 +847,7 @@ class WP_FOFT_Loader_Settings
                         $section,
                         array(
                         'field'  => $field,
-                        'prefix' => $this->base,
+                        'prefix' => _BASE_,
                     )
                     );
                 }
@@ -940,12 +933,21 @@ class WP_FOFT_Loader_Settings
         settings_fields( $this->parent->token . '_settings' );
         do_settings_sections( $this->parent->token . '_settings' );
         $html .= ob_get_clean();
+        global  $pagenow ;
+        // Run certain logic ONLY if we are on the correct settings page.
         $html .= '<p class="submit">' . chr( 0xd ) . chr( 0xa );
         $html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . chr( 0xd ) . chr( 0xa );
-        $html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wp-foft-loader' ) ) . '" />' . chr( 0xd ) . chr( 0xa );
-        $html .= '</p>' . chr( 0xd ) . chr( 0xa );
-        $html .= '</form>' . chr( 0xd ) . chr( 0xa );
-        $html .= '</div>' . chr( 0xd ) . chr( 0xa );
+        echo  $html ;
+        // phpcs:ignore
+        submit_button(
+            __( 'Save Settings', 'wp-foft-loader' ),
+            'primary',
+            'save_wpfl_options',
+            false
+        );
+        $html2 .= '</p>' . chr( 0xd ) . chr( 0xa );
+        $html2 .= '</form>' . chr( 0xd ) . chr( 0xa );
+        $html2 .= '</div>' . chr( 0xd ) . chr( 0xa );
         $success1 = __( 'Yeehaw!', 'wp-foft-loader' );
         $success2 = __( 'Good Job!', 'wp-foft-loader' );
         $success3 = __( 'Hooray!', 'wp-foft-loader' );
@@ -976,29 +978,30 @@ class WP_FOFT_Loader_Settings
             $error6
         );
         $message2 = $message2[array_rand( $message2 )];
-        // Ajaxify the form.
-        $html .= '<div id="saveResult"></div>
-<script type="text/javascript">
-jQuery(document).ready(function() {
-   jQuery("#wpflSettings").submit(function() { 
-      jQuery(this).ajaxSubmit({
-         success: function(){
-            jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-success is-dismissible"></div>`);
-            jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-yes-alt"></span> ' . $message1 . __( ' Your settings were saved!', 'wp-foft-loader' ) . '</p>`).show();
-         },
-         error: function(){
-            jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-error is-dismissible"></div>`);
-            jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . __( ' There was an error saving your settings. Please open a support ticket if the problem persists!', 'wp-foft-loader' ) . '</p>`).show();
-         },
-         timeout: 1250
-      }); 
-      setTimeout(`jQuery("#saveMessage").hide("slow");`, 7500);
-      return false; 
-   });
-});
-</script>';
-        echo  $html ;
-        // phpcs:ignore
+        if ( 'options-general.php' === $pagenow && 'wp_foft_loader_settings' === $_GET['page'] ) {
+            // Ajaxify the form. Timeout should be >= 5000 or you'll get errors.
+            $html2 .= '<div id="saveResult"></div>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	   jQuery("#wpflSettings").submit(function() { 
+		  jQuery(this).ajaxSubmit({
+			 success: function(){
+				jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-success is-dismissible"></div>`);
+				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-yes-alt"></span> ' . $message1 . __( ' Your settings were saved!', 'wp-foft-loader' ) . '</p>`).show();
+			 },
+			 error: function(){
+				jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-error is-dismissible"></div>`);
+				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . __( ' There was an error saving your settings. Please open a support ticket if the problem persists!', 'wp-foft-loader' ) . '</p>`).show();
+			 },
+			 timeout: 10000
+		  }); 
+		  setTimeout(`jQuery("#saveMessage").hide("slow");`, 7500);
+		  return false; 
+	   });
+	});
+	</script>';
+        }
+        echo  $html2 ;
     }
     
     /**
