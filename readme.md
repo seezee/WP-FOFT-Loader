@@ -52,12 +52,10 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Activate the plugin in the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
-[//]: # fs_free_only_begin
 ### UPGRADING TO WP FOFT LOADER PRO
 1. Go to Settings -> WP FOFT Loader -> Upgrade
 2. Fill out the payment form and submit
 3. Your license key will automatically be entered
-[//]: # fs_free_only_end
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
@@ -82,21 +80,10 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 
 For detailed recommended settings, see the plugin Upload options screen.
 
-[//]: # fs_premium_only_begin
-**Filenames must follow the proper naming convention:** `$family`SC-`$variant`-webfont.`$filetype`.
-[//]: # fs_premium_only_end
-
-[//]: # fs_free_only_begin
 **Filenames must follow the proper naming convention:** `$family`-`$variant`-webfont.`$filetype`.
-[//]: # fs_free_only_end
 
 **$family**
 : The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces.
-
-[//]: # fs_premium_only_begin
-**SC**
-: Small caps identifier. *Optional*. Append to $family only if it is a small caps variant. *Case-sensitive*.
-[//]: # fs_premium_only_end
 
 **$variant**
 : The font style. Can be weight, style, or a combination of both. *Case-sensitive*.
@@ -107,44 +94,16 @@ For detailed recommended settings, see the plugin Upload options screen.
 **$filetype**
 : The file type, i.e., “woff” or “woff2”.
 
-[//]: # fs_premium_only_begin
-**Example**: for the bold weight italic style of Times New Roman, rename the files to timesnewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2. For small caps style families, append SC (case-sensitive) to the family name, e.g., playfairdisplaySC-bold-webfont.woff.
-[//]: # fs_premium_only_end
-
-[//]: # fs_free_only_begin
 **Example**: for the bold weight italic style of Times New Roman, rename the files to timesnewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2.
-[//]: # fs_free_only_end
 
 Allowed weights and styles and their CSS mappings are:
 
-[//]: # fs_premium_only_begin
-thin | hairline (maps to 100)  
-extraLight | ultraLight (maps to 200)  
-light (maps to 300)  
 regular | normal (maps to 400)  
-medium (maps to 500)  
-demiBold | semiBold (maps to 600)  
-[//]: # fs_premium_only_end
 bold (maps to 700)  
-[//]: # fs_premium_only_begin
-extraBold | ultraBold (maps to 800)  
-black | heavy (maps to 900)  
-thinItalic | hairlineItalic(maps to 100)  
-extraLightItalic | ultraLightItalic (maps to 200)  
-lightItalic (maps to 300)  
-[//]: # fs_premium_only_end
-italic (maps to 400)  
-[//]: # fs_premium_only_begin
-mediumItalic (maps to 500)  
-demiBoldItalic | semiBoldItalic (maps to 600)  
-boldItalic (maps to 700)  
-extraBoldItalic | ultraBoldItalic (maps to 800)  
-blackItalic | heavyItalic (maps to 900)  
-[//]: # fs_premium_only_end
+italic (maps to 400)   
+boldItalic (maps to 700)
 
-[//]: # fs_free_only_begin
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
-[//]: # fs_free_only_end
 
 This plugin supports 1 – 4 font families. For each font family you upload, specify its name in the appropriate setting below the uploader.
 
