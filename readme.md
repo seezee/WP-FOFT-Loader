@@ -3,9 +3,9 @@ Contributors: seezee
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
-Tested up to: 5.2.4  
+Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.4  
+Stable tag: 2.0.5  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -295,6 +295,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.5 =
+* 2019-11-15
+* Tested up to WordPress 5.3
+
 = 2.0.4 =
 * 2019-11-12
 * BUGFIX: fixed improper Freemius "if" statements
@@ -575,15 +579,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.4 =
-* 2019-11-12
-* BUGFIX: fixed improper Freemius "if" statements
-* BUGFIX: plugin no longer fails to uninstall
-* BUGFIX: plugin now deletes options properly on uninstall
-* Added new Admin messages for new installs & updates
-* Added _BASE_ & _VERSION_ constants & replaced limited-scope variables
-* New PRO feature: finer-grained control over default CSS output
-* New PRO feature: ability to restore plugin defaults
+= 2.0.5 =
+* 2019-11-15
+* Tested up to WordPress 5.3
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

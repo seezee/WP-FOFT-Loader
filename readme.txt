@@ -3,9 +3,9 @@ Contributors: seezee  , freemius
 Donate link: https://messengerwebdesign.com/donate  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
-Tested up to: 5.2.4  
+Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.4  
+Stable tag: 2.0.5  
 License: GPLv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -108,9 +108,11 @@ For detailed recommended settings, see the plugin Upload options screen.
 Allowed weights and styles and their CSS mappings are:
 
 
-bold (maps to 700)  
+regular | normal (maps to 400)  
 
 italic (maps to 400)  
+
+boldItalic (maps to 700)  
 
 
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
@@ -305,6 +307,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.5 =
+* 2019-11-15
+* Tested up to WordPress 5.3
 
 = 2.0.4 =
 * 2019-11-12
@@ -584,14 +590,8 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.4 =
-* 2019-11-12
-* BUGFIX: fixed improper Freemius "if" statements
-* BUGFIX: plugin no longer fails to uninstall
-* BUGFIX: plugin now deletes options properly on uninstall
-* Added new Admin messages for new installs & updates
-* Added _BASE_ & _VERSION_ constants & replaced limited-scope variables
-* New PRO feature: finer-grained control over default CSS output
-* New PRO feature: ability to restore plugin defaults
+= 2.0.5 =
+* 2019-11-15
+* Tested up to WordPress 5.3
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
