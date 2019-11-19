@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.5
+ * Version: 2.0.6
  * Plugin URI: https://github.com/seezee/WP-FOFTLoader/
  * Description: Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
  * Author: Chris J. Zähller / Messenger Web Design
@@ -78,7 +78,7 @@ if ( function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.5' ;
+const  _VERSION_ = '2.0.6' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
@@ -88,8 +88,8 @@ require_once 'includes/class-wp-foft-loader-meta.php';
 require_once 'includes/class-wp-foft-loader-mimes.php';
 require_once 'includes/class-wp-foft-loader-settings.php';
 require_once 'includes/class-wp-foft-loader-upload.php';
-require_once 'includes/htmlpurifier/library/HTMLPurifier.auto.php';
-require_once 'includes/csstidy/class.csstidy.php';
+require_once 'includes/vendor/htmlpurifier/library/HTMLPurifier.auto.php';
+require_once 'includes/vendor/csstidy/class.csstidy.php';
 // Load plugin library.
 require_once 'includes/lib/class-wp-foft-loader-admin-api.php';
 /**

@@ -53,10 +53,11 @@ class WP_FOFT_Loader_Meta {
 		if ( strpos( $file, $plugin ) !== false ) {
 
 			$supportlink = 'https://wordpress.org/support/plugin/wp-foft-loader';
-			$donatelink = 'https://paypal.me/messengerwebdesign?locale.x=en_US';
-			$reviewlink = 'https://wordpress.org/support/view/plugin-reviews/wp-foft-loader?rate=5#postform';
-			$twitterlink = 'http://twitter.com/czahller';
-			$iconstyle = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
+			$donatelink  = 'https://paypal.me/messengerwebdesign?locale.x=en_US';
+			$reviewlink  = 'https://wordpress.org/support/view/plugin-reviews/wp-foft-loader?rate=5#postform';
+			$twitterlink = 'https://twitter.com/czahller';
+			$coffeelink  = 'https://www.buymeacoffee.com/chrisjzahller';
+			$iconstyle   = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
 			return array_merge( $links, array(
 				'<a href="' . $supportlink . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="WP FOFT Loader Support"></span></a>',

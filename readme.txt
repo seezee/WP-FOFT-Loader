@@ -1,13 +1,15 @@
 === WP FOFT Loader ===  
 Contributors: seezee  , freemius
 Donate link: https://messengerwebdesign.com/donate  
+Author URI: https://messengerwebdesign.com/about/  
+Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.5  
-License: GPLv3 or later  
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: 2.0.6  
+License: GNUv3 or later  
+License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
 [//]: # (*********************************************************************          **********Short description: 150 characters or fewer; no markup! *****          *********************************************************************)
 Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
@@ -308,6 +310,12 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.6 =
+* 2019-11-19
+* Move HTMLPurifier & CSSTidy to vendor directory
+* Fix "Buy the Developer a Coffee" link in plugin meta
+* Add author & plugin URIs to readme
+
 = 2.0.5 =
 * 2019-11-15
 * Tested up to WordPress 5.3
@@ -590,8 +598,10 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.5 =
-* 2019-11-15
-* Tested up to WordPress 5.3
+= 2.0.6 =
+* 2019-11-19
+* Move HTMLPurifier & CSSTidy to vendor directory
+* Fix "Buy the Developer a Coffee" link in plugin meta
+* Add author & plugin URIs to readme
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
