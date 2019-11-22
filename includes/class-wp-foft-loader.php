@@ -321,7 +321,7 @@ class WP_FOFT_Loader
      */
     private function logversion_number()
     {
-        update_option( $this->token . 'version', esc_html( $this->version ) );
+        update_option( $this->token . 'version', esc_html( _VERSION_ ) );
     }
 
 }

@@ -254,8 +254,12 @@ class WP_FOFT_Loader_Settings
         // Trim trailing comma & space.
         $c_arr = explode( ',', $c_str );
         // Split at comma & make an array
-        list( $c1, $c2, $c3, $c4, $c5 ) = $c_arr;
-        // Assign variables to the array values. Used below to assign $heading, $body, $alt, & $mono.
+        
+        if ( !empty($c_arr) ) {
+            list( $c1, $c2, $c3, $c4, $c5 ) = $c_arr;
+            // Assign variables to the array values. Used below to assign $heading, $body, $alt, & $mono.
+        }
+        
         ob_start();
         foreach ( $files as &$file ) {
             
@@ -945,7 +949,7 @@ class WP_FOFT_Loader_Settings
             'save_wpfl_options',
             false
         );
-        $html2 .= '</p>' . chr( 0xd ) . chr( 0xa );
+        $html2 = '</p>' . chr( 0xd ) . chr( 0xa );
         $html2 .= '</form>' . chr( 0xd ) . chr( 0xa );
         $html2 .= '</div>' . chr( 0xd ) . chr( 0xa );
         $success1 = __( 'Yeehaw!', 'wp-foft-loader' );

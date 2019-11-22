@@ -41,6 +41,25 @@ class WP_FOFT_Loader_Head
      */
     public  $base = '' ;
     /**
+     * Suffix for Javascripts.
+     *
+     * @var     string
+     * @access  public
+     * @since   1.0.0
+     */
+    public  $script_suffix ;
+    /**
+     * Constructor function.
+     *
+     * @param string $file File constructor.
+     */
+    public function __construct()
+    {
+        $this->script_suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
+        // Use minified script.
+    }
+    
+    /**
      * Generate CSS & Javascript to be loaded in <head>.
      *
      * @access  public
@@ -58,11 +77,35 @@ class WP_FOFT_Loader_Head
         // Preload the body font; load subsets.
         $arr = array();
         // Use this with wp_kses. Don't allow any HTML.
-        // All options prefixed with $base value; see class-wp-foft-loader-settings constructor.
-        $heading = get_option( _BASE_ . 's1-heading' );
-        $body = get_option( _BASE_ . 's1-body' );
-        $alt = get_option( _BASE_ . 's1-alt' );
-        $mono = get_option( _BASE_ . 's1-mono' );
+        // All options prefixed with _BASE_ value; see wp-foft-loader.php constants.
+        
+        if ( get_option( _BASE_ . 's1-heading' ) != false ) {
+            $heading = get_option( _BASE_ . 's1-heading' );
+        } else {
+            $heading = '';
+        }
+        
+        
+        if ( get_option( _BASE_ . 's1-body' ) != false ) {
+            $body = get_option( _BASE_ . 's1-body' );
+        } else {
+            $body = '';
+        }
+        
+        
+        if ( get_option( _BASE_ . 's1-alt' ) != false ) {
+            $alt = get_option( _BASE_ . 's1-alt' );
+        } else {
+            $alt = '';
+        }
+        
+        
+        if ( get_option( _BASE_ . 's1-mono' ) != false ) {
+            $mono = get_option( _BASE_ . 's1-mono' );
+        } else {
+            $mono = '';
+        }
+        
         $fdisplay = get_option( _BASE_ . 'font_display' );
         if ( !is_null( $body ) ) {
             echo 
@@ -353,7 +396,18 @@ class WP_FOFT_Loader_Head
 				document.fonts.load("italic 1em ' . wp_kses( $mono, $arr ) . '"),
 				document.fonts.load("italic 700 1em ' . wp_kses( $mono, $arr ) . '"),';
         }
-        $promises = $promise1 . $promise2 . $promise3 . $promise4;
+        if ( !is_null( $promise1 ) ) {
+            $promises = $promise1;
+        }
+        if ( !is_null( $promise2 ) ) {
+            $promises .= $promise2;
+        }
+        if ( !is_null( $promise3 ) ) {
+            $promises .= $promise3;
+        }
+        if ( !is_null( $promise4 ) ) {
+            $promises .= $promise4;
+        }
         echo  rtrim( $promises, "," ) ;
         // Trim trailing comma.
         echo  '
