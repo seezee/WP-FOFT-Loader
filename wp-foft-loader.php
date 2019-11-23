@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.8
+ * Version: 2.0.9
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -31,56 +31,52 @@ if ( !defined( 'ABSPATH' ) ) {
  *
  */
 
-if ( function_exists( 'wpfl_fs' ) ) {
-    wpfl_fs()->set_basename( false, __FILE__ );
-} else {
-    
-    if ( !function_exists( 'wpfl_fs' ) ) {
-        // Create a helper function for easy SDK access.
-        function wpfl_fs()
-        {
-            global  $wpfl_fs ;
-            
-            if ( !isset( $wpfl_fs ) ) {
-                // Include Freemius SDK.
-                require_once dirname( __FILE__ ) . '/freemius/start.php';
-                $wpfl_fs = fs_dynamic_init( array(
-                    'id'             => '4955',
-                    'slug'           => 'wp-foft-loader',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_687d46aecb0d682d1bb34aa19e066',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'PRO',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'trial'          => array(
-                    'days'               => 14,
-                    'is_require_payment' => false,
-                ),
-                    'menu'           => array(
-                    'slug'   => 'wp_foft_loader_settings',
-                    'parent' => array(
-                    'slug' => 'options-general.php',
-                ),
-                ),
-                    'is_live'        => true,
-                ) );
-            }
-            
-            return $wpfl_fs;
+if ( !function_exists( 'wpfl_fs' ) ) {
+    // Create a helper function for easy SDK access.
+    function wpfl_fs()
+    {
+        global  $wpfl_fs ;
+        
+        if ( !isset( $wpfl_fs ) ) {
+            // Include Freemius SDK.
+            require_once dirname( __FILE__ ) . '/freemius/start.php';
+            $wpfl_fs = fs_dynamic_init( array(
+                'id'              => '4955',
+                'slug'            => 'wp-foft-loader',
+                'premium_slug'    => 'wp-foft-loader-pro',
+                'type'            => 'plugin',
+                'public_key'      => 'pk_687d46aecb0d682d1bb34aa19e066',
+                'is_premium'      => false,
+                'premium_suffix'  => 'PRO',
+                'has_addons'      => false,
+                'has_paid_plans'  => true,
+                'trial'           => array(
+                'days'               => 14,
+                'is_require_payment' => false,
+            ),
+                'has_affiliation' => 'all',
+                'menu'            => array(
+                'slug'   => 'wp_foft_loader_settings',
+                'parent' => array(
+                'slug' => 'options-general.php',
+            ),
+            ),
+                'is_live'         => true,
+            ) );
         }
         
-        // Init Freemius.
-        wpfl_fs();
-        // Signal that SDK was initiated.
-        do_action( 'wpfl_fs_loaded' );
+        return $wpfl_fs;
     }
-
+    
+    // Init Freemius.
+    wpfl_fs();
+    // Signal that SDK was initiated.
+    do_action( 'wpfl_fs_loaded' );
 }
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.8' ;
+const  _VERSION_ = '2.0.9' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';

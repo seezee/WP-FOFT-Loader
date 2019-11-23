@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.8  
+Stable tag: 2.0.9  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -296,6 +296,11 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.9 =
+* 2019-11-24
+* BUGFIX: fix more undefined offsets
+* BUGFIX: change "$" to "jQuery" in "ays-beforeunload-shim.min.js"
 
 = 2.0.8 =
 * 2019-11-23
@@ -598,12 +603,10 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.8 =
-* 2019-11-23
-* Sanitize variables jsObs & jsLoad with wp_json_encode()
-* BUGFIX: replace all instances of undefined variable $version with constant _VERSION_
-* BUGFIX: fix more undefined variables & offsets
-* BUGFIX: fix constant referring to wrong directory path
+= 2.0.9 =
+* 2019-11-24
+* BUGFIX: fix more undefined offsets
+* BUGFIX: change "$" to "jQuery" in "ays-beforeunload-shim.min.js"
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

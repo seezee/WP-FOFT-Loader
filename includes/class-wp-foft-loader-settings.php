@@ -248,11 +248,6 @@ class WP_FOFT_Loader_Settings
         $choices = ob_get_clean();
         $choices = wp_kses( $choices, $fam );
         // Sanitize the input.
-        $c1 = NULL;
-        $c2 = NULL;
-        $c3 = NULL;
-        $c4 = NULL;
-        $c5 = NULL;
         $c_str = implode( ',', array_unique( explode( ',', $choices ) ) );
         // Remove duplicate font-families & convert the array to a string
         $c_str = rtrim( $c_str, ',' );
@@ -260,7 +255,9 @@ class WP_FOFT_Loader_Settings
         $c_arr = explode( ',', $c_str );
         // Split at comma & make an array
         
-        if ( !empty($c_arr) ) {
+        if ( empty($c_arr) ) {
+            $c_arr = NULL;
+        } else {
             list( $c1, $c2, $c3, $c4, $c5 ) = $c_arr;
             // Assign variables to the array values. Used below to assign $heading, $body, $alt, & $mono.
         }
