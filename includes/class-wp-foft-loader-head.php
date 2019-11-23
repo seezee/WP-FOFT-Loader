@@ -67,8 +67,8 @@ class WP_FOFT_Loader_Head
      */
     public function fontload()
     {
-        $plugin_path = plugin_dir_url( __FILE__ );
-        define( 'WPFL_PLUGIN_URL', $plugin_path );
+        $plugin_path = plugin_dir_path( __DIR__ );
+        define( '_WPFL_PLUGIN_URL_', $plugin_path );
         // Locate font files.
         $uploads = wp_get_upload_dir();
         $font_path = $uploads['baseurl'] . '/fonts/';
@@ -335,6 +335,10 @@ class WP_FOFT_Loader_Head
         // Styles end.
         ob_end_flush();
         // End minification.
+        $bodyload = NULL;
+        $headingload = NULL;
+        $altload = NULL;
+        $monoload = NULL;
         if ( !is_null( $body ) ) {
             $bodyload = '"1em ' . wp_kses( $body, $arr ) . '", ';
         }
@@ -365,8 +369,12 @@ class WP_FOFT_Loader_Head
 			document.documentElement.className += " fonts-stage-1";
 
 			Promise.all([' ;
+        $promise1 = NULL;
+        $promise2 = NULL;
+        $promise3 = NULL;
+        $promise4 = NULL;
         if ( !is_null( $body ) ) {
-            $promise1 = '
+            $promise1 .= '
 				document.fonts.load("400 1em ' . wp_kses( $body, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $body, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $body, $arr ) . '"),
@@ -374,7 +382,7 @@ class WP_FOFT_Loader_Head
         }
         if ( !is_null( $heading ) && (!is_null( $body ) && $body !== $heading) ) {
             // Output only if it doesn't duplicate the body font.
-            $promise2 = '
+            $promise2 .= '
 				document.fonts.load("400 1em ' . wp_kses( $heading, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $heading, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $heading, $arr ) . '"),
@@ -382,7 +390,7 @@ class WP_FOFT_Loader_Head
         }
         if ( !is_null( $alt ) && (!is_null( $body ) && $alt !== $heading) ) {
             // Output only if it doesn't duplicate the body font.
-            $promise3 = '
+            $promise3 .= '
 				document.fonts.load("400 1em ' . wp_kses( $alt, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $alt, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $alt, $arr ) . '"),
@@ -390,7 +398,7 @@ class WP_FOFT_Loader_Head
         }
         if ( !is_null( $mono ) && (!is_null( $body ) && $body !== $mono) ) {
             // Output only if it doesn't duplicate the body font.
-            $promise4 = '
+            $promise4 .= '
 				document.fonts.load("400 1em ' . wp_kses( $mono, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $mono, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $mono, $arr ) . '"),
@@ -422,7 +430,7 @@ class WP_FOFT_Loader_Head
 		// use fallback
 		var ref = document.getElementsByTagName( "script" )[ 0 ];
 		var script = document.createElement( "script" );
-		script.src = "' . $plugin_path . '../assets/js/fallback' . $this->script_suffix . '.js?' . $this->version . '";
+		script.src = "' . _WPFL_PLUGIN_URL_ . 'assets/js/fallback' . $this->script_suffix . '.js?' . _VERSION_ . '";
 		script.async = true;
 		ref.parentNode.insertBefore( script, ref );
 
@@ -469,7 +477,7 @@ class WP_FOFT_Loader_Head
      */
     public function __clone()
     {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( _VERSION_ ) );
     }
     
     // End __clone()
@@ -480,7 +488,7 @@ class WP_FOFT_Loader_Head
      */
     public function __wakeup()
     {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( _VERSION_ ) );
     }
 
 }

@@ -163,7 +163,7 @@ class WP_FOFT_Loader
             $this->token . '-admin',
             esc_url( $this->assets_url ) . 'css/admin.css',
             array(),
-            esc_html( $this->version )
+            esc_html( _VERSION_ )
         );
         wp_enqueue_style( $this->token . '-admin' );
     }
@@ -212,7 +212,7 @@ class WP_FOFT_Loader
             $this->token . '-fa-solid',
             esc_url( $this->assets_url ) . 'js/fa-solid' . $this->script_suffix . '.js',
             array(),
-            $this->version,
+            _VERSION_,
             true
         );
         wp_enqueue_script( $this->token . '-fa-solid' );
@@ -220,7 +220,7 @@ class WP_FOFT_Loader
             $this->token . '-fa-main',
             esc_url( $this->assets_url ) . 'js/fontawesome' . $this->script_suffix . '.js',
             array(),
-            $this->version,
+            _VERSION_,
             true
         );
         wp_enqueue_script( $this->token . '-fa-main' );
@@ -284,7 +284,7 @@ class WP_FOFT_Loader
      */
     public function __clone()
     {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( $this->version ) );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( _VERSION_ ) );
     }
     
     // End __clone ()
@@ -295,7 +295,7 @@ class WP_FOFT_Loader
      */
     public function __wakeup()
     {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( $this->version ) );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( _VERSION_ ) );
     }
     
     // End __wakeup ()

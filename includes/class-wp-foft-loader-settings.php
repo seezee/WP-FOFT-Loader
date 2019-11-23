@@ -248,6 +248,11 @@ class WP_FOFT_Loader_Settings
         $choices = ob_get_clean();
         $choices = wp_kses( $choices, $fam );
         // Sanitize the input.
+        $c1 = NULL;
+        $c2 = NULL;
+        $c3 = NULL;
+        $c4 = NULL;
+        $c5 = NULL;
         $c_str = implode( ',', array_unique( explode( ',', $choices ) ) );
         // Remove duplicate font-families & convert the array to a string
         $c_str = rtrim( $c_str, ',' );
@@ -1035,7 +1040,7 @@ class WP_FOFT_Loader_Settings
      */
     public function __clone()
     {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( _VERSION_ ) );
     }
     
     // End __clone()
@@ -1046,7 +1051,7 @@ class WP_FOFT_Loader_Settings
      */
     public function __wakeup()
     {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( $this->parent->version ) );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( _VERSION_ ) );
     }
 
 }
