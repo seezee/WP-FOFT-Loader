@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.11  
+Stable tag: 2.0.12  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -24,10 +24,11 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == PRO only features ==
 
-* Support for additional font-weights
+* Support for 7 additional font-weights
 * Small-caps support
 * Finer-grained control of default CSS
 * Default options reset
+* Warn user of unsaved changes when navigating plugin tabs
 
 == Installation ==
 
@@ -296,6 +297,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.12 =
+* 2019-11-25
+* Fix missing fontawesome glyphs in plugins settings page main heading
 
 = 2.0.11 =
 * 2019-11-24
@@ -611,9 +616,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.11 =
-* 2019-11-24
-* BUGFIX: Fix mixed content error in file upload path
+= 2.0.12 =
+* 2019-11-25
+* Fix missing fontawesome glyphs in plugins settings page main heading
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

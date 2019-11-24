@@ -114,7 +114,7 @@ class WP_FOFT_Loader
         );
         add_action(
             'admin_enqueue_scripts',
-            array( $this, 'admin_enqueue_meta_scripts' ),
+            array( $this, 'admin_enqueue_fa_scripts' ),
             10,
             1
         );
@@ -202,31 +202,34 @@ class WP_FOFT_Loader
      * @return  void
      * @since   1.0.0
      */
-    public function admin_enqueue_meta_scripts( $hook = '' )
+    public function admin_enqueue_fa_scripts( $hook = '' )
     {
         global  $pagenow ;
-        if ( $pagenow != 'plugins.php' ) {
+        
+        if ( ($pagenow = 'plugins.php') || ($pagenow = 'general-options.php') ) {
+            wp_register_script(
+                $this->token . '-fa-main',
+                esc_url( $this->assets_url ) . 'js/fontawesome' . $this->script_suffix . '.js',
+                array(),
+                _VERSION_,
+                true
+            );
+            wp_enqueue_script( $this->token . '-fa-main' );
+            wp_register_script(
+                $this->token . '-fa-solid',
+                esc_url( $this->assets_url ) . 'js/fa-solid' . $this->script_suffix . '.js',
+                array(),
+                _VERSION_,
+                true
+            );
+            wp_enqueue_script( $this->token . '-fa-solid' );
+        } else {
             return;
         }
-        wp_register_script(
-            $this->token . '-fa-solid',
-            esc_url( $this->assets_url ) . 'js/fa-solid' . $this->script_suffix . '.js',
-            array(),
-            _VERSION_,
-            true
-        );
-        wp_enqueue_script( $this->token . '-fa-solid' );
-        wp_register_script(
-            $this->token . '-fa-main',
-            esc_url( $this->assets_url ) . 'js/fontawesome' . $this->script_suffix . '.js',
-            array(),
-            _VERSION_,
-            true
-        );
-        wp_enqueue_script( $this->token . '-fa-main' );
+    
     }
     
-    // End admin_enqueue_meta_scripts () */
+    // End admin_enqueue_fa_scripts () */
     /**
      * Load plugin localisation
      *
