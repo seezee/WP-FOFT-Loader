@@ -72,6 +72,10 @@ class WP_FOFT_Loader_Head
         // Locate font files.
         $uploads = wp_get_upload_dir();
         $font_path = $uploads['baseurl'] . '/fonts/';
+        if ( $uploads['baseurl'] != NULL && is_ssl() ) {
+            // Rewrite to HTTPS if needed.
+            $font_path = str_replace( 'http://', 'https://', $font_path );
+        }
         $font_dir = $uploads['basedir'] . '/fonts/';
         $files = glob( $font_dir . '*.woff', GLOB_BRACE );
         // Preload the body font; load subsets.
