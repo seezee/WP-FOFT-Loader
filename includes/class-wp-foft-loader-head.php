@@ -86,28 +86,28 @@ class WP_FOFT_Loader_Head
         if ( get_option( _BASE_ . 's1-heading' ) != false ) {
             $heading = get_option( _BASE_ . 's1-heading' );
         } else {
-            $heading = '';
+            $heading = NULL;
         }
         
         
         if ( get_option( _BASE_ . 's1-body' ) != false ) {
             $body = get_option( _BASE_ . 's1-body' );
         } else {
-            $body = '';
+            $body = NULL;
         }
         
         
         if ( get_option( _BASE_ . 's1-alt' ) != false ) {
             $alt = get_option( _BASE_ . 's1-alt' );
         } else {
-            $alt = '';
+            $alt = NULL;
         }
         
         
         if ( get_option( _BASE_ . 's1-mono' ) != false ) {
             $mono = get_option( _BASE_ . 's1-mono' );
         } else {
-            $mono = '';
+            $mono = NULL;
         }
         
         $fdisplay = get_option( _BASE_ . 'font_display' );

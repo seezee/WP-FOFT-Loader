@@ -92,6 +92,10 @@ height:100%;
 color:#21759b;
 }
 
+.wp-admin-red {
+  color: #d64e07;
+}
+
 .notice .dashicons {
   display: inline;
   line-height: 1.5rem;
@@ -127,6 +131,10 @@ color:#21759b;
 
 .notice-error .dashicons {
   color: #dc3232;
+}
+
+summary {
+  cursor: pointer;
 }
 
 details {
