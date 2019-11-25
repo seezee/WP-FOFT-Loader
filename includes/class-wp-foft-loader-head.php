@@ -377,6 +377,7 @@ class WP_FOFT_Loader_Head
         $promise2 = NULL;
         $promise3 = NULL;
         $promise4 = NULL;
+        $promises = NULL;
         if ( !is_null( $body ) ) {
             $promise1 .= '
 				document.fonts.load("400 1em ' . wp_kses( $body, $arr ) . '"),
