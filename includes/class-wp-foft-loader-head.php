@@ -361,69 +361,71 @@ class WP_FOFT_Loader_Head
         $fontsloaded = $bodyload . $headingload . $altload . $monoload;
         $fontsloaded = rtrim( $fontsloaded, ", " );
         // Trim trailing comma & space.
-        echo  '<script>
+        
+        if ( !is_null( $bodyload ) || !is_null( $headingload ) || !is_null( $altload ) || !is_null( $monoload ) ) {
+            echo  '<script>
 (function() {
 	"use strict";
 
-	if( sessionStorage.fontsLoadedCriticalFoftPreloadFallback ) {
+	if ( sessionStorage.fontsLoadedCriticalFoftPreloadFallback ) {
 		document.documentElement.className += " fonts-stage-2";
 		return;
-	} else if( "fonts" in document ) {
+	} else if ( "fonts" in document ) {
 		document.fonts.load(' . $fontsloaded . ').then(function () {
 			document.documentElement.className += " fonts-stage-1";
 
 			Promise.all([' ;
-        $promise1 = NULL;
-        $promise2 = NULL;
-        $promise3 = NULL;
-        $promise4 = NULL;
-        $promises = NULL;
-        if ( !is_null( $body ) ) {
-            $promise1 .= '
+            $promise1 = NULL;
+            $promise2 = NULL;
+            $promise3 = NULL;
+            $promise4 = NULL;
+            $promises = NULL;
+            if ( !is_null( $body ) ) {
+                $promise1 .= '
 				document.fonts.load("400 1em ' . wp_kses( $body, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $body, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $body, $arr ) . '"),
 				document.fonts.load("italic 700 1em ' . wp_kses( $body, $arr ) . '"),';
-        }
-        if ( !is_null( $heading ) && (!is_null( $body ) && $body !== $heading) ) {
-            // Output only if it doesn't duplicate the body font.
-            $promise2 .= '
+            }
+            if ( !is_null( $heading ) && (!is_null( $body ) && $body !== $heading) ) {
+                // Output only if it doesn't duplicate the body font.
+                $promise2 .= '
 				document.fonts.load("400 1em ' . wp_kses( $heading, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $heading, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $heading, $arr ) . '"),
 				document.fonts.load("italic 700 1em ' . wp_kses( $heading, $arr ) . '"),';
-        }
-        if ( !is_null( $alt ) && (!is_null( $body ) && $alt !== $heading) ) {
-            // Output only if it doesn't duplicate the body font.
-            $promise3 .= '
+            }
+            if ( !is_null( $alt ) && (!is_null( $body ) && $alt !== $heading) ) {
+                // Output only if it doesn't duplicate the body font.
+                $promise3 .= '
 				document.fonts.load("400 1em ' . wp_kses( $alt, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $alt, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $alt, $arr ) . '"),
 				document.fonts.load("italic 700 1em ' . wp_kses( $alt, $arr ) . '"),';
-        }
-        if ( !is_null( $mono ) && (!is_null( $body ) && $body !== $mono) ) {
-            // Output only if it doesn't duplicate the body font.
-            $promise4 .= '
+            }
+            if ( !is_null( $mono ) && (!is_null( $body ) && $body !== $mono) ) {
+                // Output only if it doesn't duplicate the body font.
+                $promise4 .= '
 				document.fonts.load("400 1em ' . wp_kses( $mono, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $mono, $arr ) . '"),
 				document.fonts.load("italic 1em ' . wp_kses( $mono, $arr ) . '"),
 				document.fonts.load("italic 700 1em ' . wp_kses( $mono, $arr ) . '"),';
-        }
-        if ( !is_null( $promise1 ) ) {
-            $promises = $promise1;
-        }
-        if ( !is_null( $promise2 ) ) {
-            $promises .= $promise2;
-        }
-        if ( !is_null( $promise3 ) ) {
-            $promises .= $promise3;
-        }
-        if ( !is_null( $promise4 ) ) {
-            $promises .= $promise4;
-        }
-        echo  rtrim( $promises, "," ) ;
-        // Trim trailing comma.
-        echo  '
+            }
+            if ( !is_null( $promise1 ) ) {
+                $promises = $promise1;
+            }
+            if ( !is_null( $promise2 ) ) {
+                $promises .= $promise2;
+            }
+            if ( !is_null( $promise3 ) ) {
+                $promises .= $promise3;
+            }
+            if ( !is_null( $promise4 ) ) {
+                $promises .= $promise4;
+            }
+            echo  rtrim( $promises, "," ) ;
+            // Trim trailing comma.
+            echo  '
 			]).then(function () {
 				document.documentElement.className += " fonts-stage-2";
 
@@ -442,6 +444,8 @@ class WP_FOFT_Loader_Head
 	}
 })();
 </script>' ;
+        }
+    
     }
     
     /**

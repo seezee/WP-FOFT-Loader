@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.14  
+Stable tag: 2.0.15  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -310,6 +310,11 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.15 =
+* 2019-11-25
+* BUGFIX: proper check for whether options are set in class-wp-foft-loader-jsvars.php
+* BUGFIX: prevent loading of inline Font Face Observer JS until user uploads at least one font & sets at least one option on main screen
 
 = 2.0.14 =
 * 2019-11-25
@@ -638,8 +643,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.14 =
+= 2.0.15 =
 * 2019-11-25
-* BUGFIX: fix undefined variable $promises in class-wp-foft-loader-head.php
+* BUGFIX: proper check for whether options are set in class-wp-foft-loader-jsvars.php
+* BUGFIX: prevent loading of inline Font Face Observer JS until user uploads at least one font & sets at least one option on main screen
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

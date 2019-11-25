@@ -44,8 +44,15 @@ class WP_FOFT_Loader_JS_Vars
         $alt_sc = false;
         $mono_sc = false;
         $bobserver = NULL;
+        $hobserver = NULL;
+        $aobserver = NULL;
+        $mobserver = NULL;
+        $bodyload = NULL;
+        $headingload = NULL;
+        $altload = NULL;
+        $monoload = NULL;
         
-        if ( !is_null( $body ) ) {
+        if ( isset( $body ) && !empty($body) ) {
             $bobserver = 'var fontA = new FontFaceObserver(' . $body;
             if ( $body_sc === true ) {
                 $bobserver .= ', {font-variant: \'small-caps\'}';
@@ -66,9 +73,8 @@ class WP_FOFT_Loader_JS_Vars
             $bodyload = 'fontA.load(),fontB.load(),fontC.load(),fontD.load(),';
         }
         
-        $hobserver = NULL;
         
-        if ( !is_null( $heading ) ) {
+        if ( isset( $heading ) && !empty($heading) ) {
             $hobserver = 'var fontE = new FontFaceObserver(' . $heading;
             if ( $heading_sc === true ) {
                 $hobserver .= ', {font-variant: \'small-caps\'}';
@@ -89,9 +95,8 @@ class WP_FOFT_Loader_JS_Vars
             $headingload = 'fontE.load(),fontF.load(),fontG.load(),fontH.load(),';
         }
         
-        $aobserver = NULL;
         
-        if ( !is_null( $alt ) ) {
+        if ( isset( $alt ) && !empty($alt) ) {
             $aobserver = 'var fontI = new FontFaceObserver(' . $alt;
             if ( $alt_sc === true ) {
                 $aobserver .= ', {font-variant: \'small-caps\'}';
@@ -112,9 +117,8 @@ class WP_FOFT_Loader_JS_Vars
             $altload = 'fontI.load(),fontJ.load(),fontK.load(),fontL.load(),';
         }
         
-        $mobservers = NULL;
         
-        if ( !is_null( $mono ) ) {
+        if ( isset( $mono ) && !empty($mono) ) {
             $mobserver = 'var fontM = new FontFaceObserver(' . $mono;
             if ( $mono_sc === true ) {
                 $mobserver .= ', {font-variant: \'small-caps\'}';
