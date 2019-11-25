@@ -16,7 +16,7 @@ GitHub Plugin URI: seezee/WP-FOFT-Loader
 
 This plugin implements and automates [Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
-[![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)
+[![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)[![WP compatibility](https://plugintests.com/plugins/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)[![PHP compatibility](https://plugintests.com/plugins/wp-foft-loader/php-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)
 
 == Acknowledgement ==
 
