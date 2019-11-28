@@ -90,7 +90,7 @@ class WP_FOFT_Loader
      */
     public function __construct( $file = '' )
     {
-        $this->token = 'wp_foft_loader';
+        $this->token = 'wp-foft-loader';
         // Load plugin environment variables.
         $this->file = $file;
         $this->dir = dirname( $this->file );
@@ -139,6 +139,12 @@ class WP_FOFT_Loader
     {
         
         if ( !wpfl_fs()->can_use_premium_code() ) {
+            // $pagenow is a global variable referring to the filename of the
+            // current page, such as ‘admin.php’, ‘post-new.php’.
+            global  $pagenow ;
+            if ( $pagenow != 'options-general.php' || !current_user_can( 'install_plugins' ) ) {
+                return;
+            }
             $html = '<div id="activated" class="notice notice-info is-dismissible">';
             $html .= '<p>';
             $html .= __( '<span class="dashicons dashicons-info"></span> Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/" rel="noopener noreferrer">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer">FREE 14-day trial.</a>', 'wp-foft-loader' );
@@ -181,10 +187,8 @@ class WP_FOFT_Loader
      */
     public function admin_enqueue_scripts( $hook = '' )
     {
-        // $pagenow is a global variable referring to the filename of the
-        // current page, such as ‘admin.php’, ‘post-new.php’.
         global  $pagenow ;
-        if ( $pagenow != 'options-general.php' ) {
+        if ( $pagenow != 'options-general.php' || !current_user_can( 'install_plugins' ) ) {
             return;
         }
         wp_enqueue_script( 'jquery' );

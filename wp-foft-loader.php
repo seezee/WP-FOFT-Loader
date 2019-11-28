@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.15
+ * Version: 2.0.16
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -23,13 +23,6 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-/**
- * Freemius; handles activating PRO features for licensed users and stripping
- * PRO features from free plugin version.
- *
- * @since  1.0.0
- *
- */
 
 if ( !function_exists( 'wpfl_fs' ) ) {
     // Create a helper function for easy SDK access.
@@ -56,7 +49,7 @@ if ( !function_exists( 'wpfl_fs' ) ) {
             ),
                 'has_affiliation' => 'all',
                 'menu'            => array(
-                'slug'   => 'wp_foft_loader_settings',
+                'slug'   => 'wp-foft-loader',
                 'parent' => array(
                 'slug' => 'options-general.php',
             ),
@@ -76,7 +69,7 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.15' ;
+const  _VERSION_ = '2.0.16' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
@@ -84,6 +77,7 @@ require_once 'includes/class-wp-foft-loader-jsvars.php';
 require_once 'includes/class-wp-foft-loader-head.php';
 require_once 'includes/class-wp-foft-loader-meta.php';
 require_once 'includes/class-wp-foft-loader-mimes.php';
+require_once 'includes/class-wp-foft-loader-ratings.php';
 require_once 'includes/class-wp-foft-loader-settings.php';
 require_once 'includes/class-wp-foft-loader-upload.php';
 require_once 'includes/vendor/htmlpurifier/library/HTMLPurifier.auto.php';
@@ -120,13 +114,30 @@ function wpfl_check_version()
     
     if ( _BASE_ !== get_option( 'wpfl_version' ) ) {
         wpfl_activation();
-        // Notice for FREE users.
-        $html = '<div id="updated" class="notice notice-success is-dismissible">';
-        $html .= '<p>';
-        $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/" rel="noopener noreferrer">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer">FREE 14-day trial.</a>', 'wp-foft-loader' );
-        $html .= '</p>';
-        $html .= '</div>';
-        echo  $html ;
+        // $pagenow is a global variable referring to the filename of the
+        // current page, such as ‘admin.php’, ‘post-new.php’.
+        global  $pagenow ;
+        
+        if ( $pagenow != 'options-general.php' || !current_user_can( 'install_plugins' ) ) {
+            return;
+        } elseif ( wpfl_fs()->is__premium_only() ) {
+            // Notice for PRO users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader updated successfully!', 'wp-foft-loader' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        } else {
+            // Notice for FREE users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/" rel="noopener noreferrer">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer">FREE 14-day trial.</a>', 'wp-foft-loader' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        }
+    
     }
 
 }
