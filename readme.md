@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.16  
+Stable tag: 2.0.17  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -299,6 +299,14 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.17 =
+* 2019-11-29
+* Add aria-label to meta links
+* Improved URL sanitization with esc_url()
+* Some internationalization fixes
+* Regenerate .POT file
+* Tweaks to ratings microcopy
 
 = 2.0.16 =
 * 2019-11-29
@@ -640,11 +648,13 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.16 =
+= 2.0.17 =
 * 2019-11-29
-* Change settings page slug to wp-foft-loader
-* Add class-wp-foft-loader-ratings.php
-* Additional capability & pagenow() checks
+* Add aria-label to meta links
+* Improved URL sanitization with esc_url()
+* Some internationalization fixes
+* Regenerate .POT file
+* Tweaks to ratings microcopy
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

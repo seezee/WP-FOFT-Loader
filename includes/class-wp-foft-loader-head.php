@@ -112,36 +112,16 @@ class WP_FOFT_Loader_Head
         
         $fdisplay = get_option( _BASE_ . 'font_display' );
         if ( !is_null( $body ) ) {
-            echo 
-                '<link rel="preload" href="',
-                wp_kses( $font_path, $arr ),
-                wp_kses( $body, $arr ),
-                '-optimized.woff2" as="font" type="font/woff2" crossorigin>'
-            ;
+            echo  '<link rel="preload" href="' . esc_url( $font_path . $body . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>' ;
         }
         if ( !is_null( $heading ) ) {
-            echo 
-                '<link rel="preload" href="',
-                wp_kses( $font_path, $arr ),
-                wp_kses( $heading, $arr ),
-                '-optimized.woff2" as="font" type="font/woff2" crossorigin>'
-            ;
+            echo  '<link rel="preload" href="' . esc_url( $font_path . $heading . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>' ;
         }
         if ( !is_null( $alt ) ) {
-            echo 
-                '<link rel="preload" href="',
-                wp_kses( $font_path, $arr ),
-                wp_kses( $alt, $arr ),
-                '-optimized.woff2" as="font" type="font/woff2" crossorigin>'
-            ;
+            echo  '<link rel="preload" href="' . esc_url( $font_path . $alt . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>' ;
         }
         if ( !is_null( $mono ) ) {
-            echo 
-                '<link rel="preload" href="',
-                wp_kses( $font_path, $arr ),
-                wp_kses( $mono, $arr ),
-                '-optimized.woff2" as="font" type="font/woff2" crossorigin>'
-            ;
+            echo  '<link rel="preload" href="' . esc_url( $font_path . $mono . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>' ;
         }
         echo  '<style type="text/css">' ;
         // Styles start.

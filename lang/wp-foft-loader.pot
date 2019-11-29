@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WP FOFT Loader plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP FOFT Loader 2.0.16\n"
+"Project-Id-Version: WP FOFT Loader 2.0.17\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-foft-loader\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-24T22:42:53+00:00\n"
+"POT-Creation-Date: 2019-11-29T16:26:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-foft-loader\n"
@@ -47,15 +47,43 @@ msgstr ""
 msgid "Cloning of WP_FOFT_Loader_Mimes is forbidden."
 msgstr ""
 
+#: includes/class-wp-foft-loader-ratings.php:148
+msgid "Hi there! You&rsquo;ve been using the"
+msgstr ""
+
+#: includes/class-wp-foft-loader-ratings.php:148
+msgid "plugin for"
+msgstr ""
+
+#: includes/class-wp-foft-loader-ratings.php:148
+msgid "now. Please leave us a 5-star review with your feedback! It helps others to find"
+msgstr ""
+
+#: includes/class-wp-foft-loader-ratings.php:148
+msgid "and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts, and web fonts load quickly and smoothly</strong>!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-ratings.php:150
+msgid "Leave a Review"
+msgstr ""
+
+#: includes/class-wp-foft-loader-ratings.php:151
+msgid "I&rsquo;ve already done it!"
+msgstr ""
+
+#: includes/class-wp-foft-loader-ratings.php:152
+msgid "No thanks."
+msgstr ""
+
 #: includes/class-wp-foft-loader-meta.php:97
 msgid "Cloning of WP_FOFT_Loader_Meta is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-head.php:542
+#: includes/class-wp-foft-loader-head.php:534
 msgid "Cloning of WP_FOFT_Loader_Head is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-head.php:551
+#: includes/class-wp-foft-loader-head.php:543
 msgid "Unserializing instances  of WP_FOFT_Loader_Head is forbidden."
 msgstr ""
 
@@ -67,15 +95,25 @@ msgstr ""
 msgid "Use font"
 msgstr ""
 
-#: includes/class-wp-foft-loader.php:143
-msgid "<span class=\"dashicons dashicons-info\"></span> Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/\" rel=\"noopener noreferrer\">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free\" rel=\"noopener noreferrer\">FREE 14-day trial.</a>"
+#: includes/class-wp-foft-loader.php:151
+msgid "Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to"
 msgstr ""
 
-#: includes/class-wp-foft-loader.php:292
+#: includes/class-wp-foft-loader.php:151
+#: wp-foft-loader.php:140
+msgid "Not sure if you need those features? We have a"
+msgstr ""
+
+#: includes/class-wp-foft-loader.php:151
+#: wp-foft-loader.php:140
+msgid "FREE 14-day trial."
+msgstr ""
+
+#: includes/class-wp-foft-loader.php:299
 msgid "Cloning of Class_WP_FOFT_Loader is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader.php:301
+#: includes/class-wp-foft-loader.php:308
 msgid "Unserializing instances of Class_WP_FOFT_Loader is forbidden."
 msgstr ""
 
@@ -586,6 +624,7 @@ msgid "This plugin supports 1&thinsp;&ndash;&thinsp;4 font families. After uploa
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:583
+#: includes/class-wp-foft-loader-settings.php:647
 #: includes/class-wp-foft-loader-settings.php:658
 #: includes/class-wp-foft-loader-settings.php:668
 #: includes/class-wp-foft-loader-settings.php:889
@@ -679,10 +718,6 @@ msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:647
 msgid "Family names must match the names you input on the"
-msgstr ""
-
-#: includes/class-wp-foft-loader-settings.php:647
-msgid "Optimize"
 msgstr ""
 
 #: includes/class-wp-foft-loader-settings.php:647
@@ -1063,11 +1098,11 @@ msgstr ""
 msgid "Unserializing instances of WP_FOFT_Loader_API is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-jsvars.php:198
+#: includes/class-wp-foft-loader-jsvars.php:204
 msgid "Cloning of WP_FOFT_Loader_JS_Vars is forbidden."
 msgstr ""
 
-#: includes/class-wp-foft-loader-jsvars.php:207
+#: includes/class-wp-foft-loader-jsvars.php:213
 msgid "Unserializing instances  of WP_FOFT_Loader_JS_Vars is forbidden."
 msgstr ""
 
@@ -1076,5 +1111,5 @@ msgid "<span class=\"dashicons dashicons-yes-alt\"></span> WP FOFT Loader update
 msgstr ""
 
 #: wp-foft-loader.php:140
-msgid "<span class=\"dashicons dashicons-yes-alt\"></span> WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/\" rel=\"noopener noreferrer\">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href=\"//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free\" rel=\"noopener noreferrer\">FREE 14-day trial.</a>"
+msgid "WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to"
 msgstr ""

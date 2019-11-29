@@ -168,7 +168,7 @@ class WP_FOFT_Loader_Settings
      */
     public function add_settings_link( $links )
     {
-        $settings_link = '<a href="options-general.php?page=' . $this->parent->token . '">' . __( 'Settings', 'wp-foft-loader' ) . '</a>';
+        $settings_link = '<a href="' . esc_url( 'options-general.php?page=' . $this->parent->token ) . '">' . __( 'Settings', 'wp-foft-loader' ) . '</a>';
         array_push( $links, $settings_link );
         return $links;
     }
@@ -283,7 +283,7 @@ class WP_FOFT_Loader_Settings
             // Autoremoved from the PRO version.
             $settings['upload'] = array(
                 'title'       => __( 'Upload', 'wp-foft-loader' ),
-                'description' => '<p>Upload two files for each web font: a WOFF file and a WOFF2 file. In most cases you will upload regular, italic, bold, and bold italic versions of each font.</p><details><summary class="wp-admin-lite-blue">' . __( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
+                'description' => '<p>Upload two files for each web font: a WOFF file and a WOFF2 file. In most cases you will upload regular, italic, bold, and bold italic versions of each font.</p><details><summary class="wp-admin-lite-blue">' . __( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="' . esc_url( 'https://www.fontsquirrel.com/tools/webfont-generator' ) . '" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
 <dl class="col-3">
   <dt>' . __( 'Font Formats', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;<abbr>WOFF</abbr>&rdquo;</dd>
@@ -419,7 +419,7 @@ class WP_FOFT_Loader_Settings
         }
         $settings['subset'] = array(
             'title'       => __( 'Subset', 'wp-foft-loader' ),
-            'description' => '<p>' . __( 'Upload up to 4 small, subsetted fonts. For each font, upload a WOFF &amp; WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.', 'wp-foft-loader' ) . '<p><details><summary class="wp-admin-lite-blue">' . __( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
+            'description' => '<p>' . __( 'Upload up to 4 small, subsetted fonts. For each font, upload a WOFF &amp; WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.', 'wp-foft-loader' ) . '<p><details><summary class="wp-admin-lite-blue">' . __( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . __( 'We recommend you use', 'wp-foft-loader' ) . ' <a href="' . esc_url( 'https://www.fontsquirrel.com/tools/webfont-generator' ) . '" target="_blank" rel="external noreferrer noopener">Font Squirrel’s ' . __( 'Webfont Generator', 'wp-foft-loader' ) . '</a> ' . __( 'to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ) . '</p>
 <dl class="col-3">
   <dt>' . __( 'Font Formats', 'wp-foft-loader' ) . '</dt>
   <dd>&ldquo;<abbr>WOFF</abbr>&rdquo;</dd>
@@ -475,13 +475,13 @@ class WP_FOFT_Loader_Settings
             'description' => '<p>' . __( '@import rules are automatically handled by this plugin. You may manually inline your font-related', 'wp-foft-loader' ) . ' <abbr>CSS</abbr> ' . __( 'in the document', 'wp-foft-loader' ) . ' <code>&lt;head&gt;</code> ' . __( 'here. Place rules pertaining only to the', 'wp-foft-loader' ) . ' <code>font-family</code>, <code>font-weight</code>, <code>font-style</code>, ' . __( 'and', 'wp-foft-loader' ) . ' <code>font-variation</code> ' . __( 'properties here.', 'wp-foft-loader' ) . '</p>
 <details>
 	<summary>' . __( 'Stage 1 <abbr>CSS</abbr>', 'wp-foft-loader' ) . '</summary>
-	<p>' . __( 'Declarations placed in this field will load the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=subset">' . __( 'optimized subset', 'wp-foft-loader' ) . '</a> ' . __( 'as a placeholder while the non-subsetted fonts load.', 'wp-foftloader' ) . '</p>
+	<p>' . __( 'Declarations placed in this field will load the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=subset' ) . '">' . __( 'optimized subset', 'wp-foft-loader' ) . '</a> ' . __( 'as a placeholder while the non-subsetted fonts load.', 'wp-foftloader' ) . '</p>
 	<ul class="wpfl">
 		<li>' . __( 'Use only the family name followed by', 'wp-foft-loader' ) . ' <code>Subset</code> ' . __( '(case-sensitive)', 'wp-foft-loader' ) . '</li>
-		<li>' . __( 'Family names must match the names you input on the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=optimize">&ldquo;' . __( 'Optimize', 'wp-foft-loader' ) . '&rdquo; ' . __( 'screen.', 'wp-foft-loader' ) . '</a></li>
+		<li>' . __( 'Family names must match the names you input on the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=subset' ) . '">&ldquo;' . __( 'Subset', 'wp-foft-loader' ) . '&rdquo; ' . __( 'screen.', 'wp-foft-loader' ) . '</a></li>
 		<li>' . __( 'All declarations must start with the', 'wp-foft-loader' ) . '  <code>fonts-stage-1</code> ' . __( 'class', 'wp-foft-loader' ) . '</li>
 	</ul>
-	<p>' . __( 'See the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=documentation">' . __( 'Documentation screen', 'wp-foft-loader' ) . '</a> ' . __( 'to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
+	<p>' . __( 'See the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=documentation' ) . '">' . __( 'Documentation screen', 'wp-foft-loader' ) . '</a> ' . __( 'to view the Stage 1 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
 	<dl class="col-2">
 	  <dt>' . __( 'Incorrect:', 'wp-foft-loader' ) . '</dt>
 		<dd><pre><code>.nav-primary { <mark>// ' . __( 'Missing class:', 'wp-foft-loader' ) . ' .fonts-stage-1</mark>
@@ -516,12 +516,12 @@ class WP_FOFT_Loader_Settings
 	<p>' . __( 'Declarations placed in this field will load after non-subsetted fonts load.', 'wp-foftloader' ) . '</p>
 	<ul class="wpfl">
 		<li>' . __( 'Use only the family name', 'wp-foft-loader' ) . '</li>
-		<li>' . __( 'Family names must match the file names for the fonts you uploaded on the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=upload">&ldquo;' . __( 'Upload', 'wp-foft-loader' ) . '&rdquo; ' . __( 'screen.', 'wp-foft-loader' ) . '</a></li>
+		<li>' . __( 'Family names must match the file names for the fonts you uploaded on the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=upload' ) . '">&ldquo;' . __( 'Upload', 'wp-foft-loader' ) . '&rdquo; ' . __( 'screen.', 'wp-foft-loader' ) . '</a></li>
 		<li>' . __( 'Omit weights and styles from the font name', 'wp-foft-loader' ) . '</li>
 		<li>' . __( 'All declarations must start with the', 'wp-foft-loader' ) . '  <code>fonts-stage-2</code> ' . __( 'class', 'wp-foft-loader' ) . '</li>
-		<li>' . __( 'For best performance, please', 'wp-foft-loader' ) . ' <a href="//cssminifier.com" rel="external noreferrer noopener">' . __( 'minify your <abbr>CSS</abbr></a> before pasting it into the form.', 'wp-foft-loader' ) . '</li>
+		<li>' . __( 'For best performance, please', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//cssminifier.com' ) . '" rel="external noreferrer noopener">' . __( 'minify your <abbr>CSS</abbr></a> before pasting it into the form.', 'wp-foft-loader' ) . '</li>
 	</ul>
-	<p>' . __( 'See the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=documentation">' . __( 'Documentation screen', 'wp-foft-loader' ) . '</a> ' . __( 'to view the Stage 2 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
+	<p>' . __( 'See the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=documentation' ) . '">' . __( 'Documentation screen', 'wp-foft-loader' ) . '</a> ' . __( 'to view the Stage 2 <abbr>CSS</abbr> that this plugin loads by default.', 'wp-foft-loader' ) . '</p>
 	<dl class="col-2">
 		<dt>' . __( 'Incorrect:', 'wp-foft-loader' ) . '</dt>
 		<dd><pre><code>tbody { <mark>// ' . __( 'Missing class:', 'wp-foft-loader' ) . ' .fonts-stage-2</mark>
@@ -561,7 +561,7 @@ class WP_FOFT_Loader_Settings
             array(
             'id'          => 'default_css',
             'label'       => __( 'Plugin CSS', 'wp-foft-loader' ),
-            'description' => __( 'The plugin loads some <abbr>CSS</abbr> by default. See', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=documentation">' . __( 'documentation', 'wp-foft-loader' ) . '</a>.',
+            'description' => __( 'The plugin loads some <abbr>CSS</abbr> by default. See', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=documentation' ) . '">' . __( 'documentation', 'wp-foft-loader' ) . '</a>.',
             'type'        => 'radio',
             'options'     => array(
             'off' => __( 'Default <abbr>CSS</abbr> Off', 'wp-foft-loader' ),
@@ -572,7 +572,7 @@ class WP_FOFT_Loader_Settings
             array(
             'id'          => 'font_display',
             'label'       => __( 'Font Display', 'wp-foft-loader' ),
-            'description' => __( 'Override the', 'wp-foft-loader' ) . '<code><a href="//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display" rel="external noopener noreferrer">font-display</a></code>' . __( ' property here. The plugin uses', 'wp-foft-loader' ) . ' <code>font-display: swap</code>' . __( ' by default.', 'wp-foft-loader' ),
+            'description' => __( 'Override the', 'wp-foft-loader' ) . '<code><a href="' . esc_url( '//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display' ) . '" rel="external noopener noreferrer">font-display</a></code>' . __( ' property here. The plugin uses', 'wp-foft-loader' ) . ' <code>font-display: swap</code>' . __( ' by default.', 'wp-foft-loader' ),
             'type'        => 'radio',
             'options'     => array(
             'swap'     => 'Swap',
@@ -652,7 +652,7 @@ class WP_FOFT_Loader_Settings
             'title'       => __( 'Documentation', 'wp-foft-loader' ),
             'description' => '<section>
 	<h3>' . __( 'Fonts Stage 1', 'wp-foft-loader' ) . '</h3>
-	<p>' . __( 'This plugin always loads the following Stage 1 styles. The Stage 1 fonts are subsetted fonts, acting as placeholders until the full Stage 2 fonts load. &lt;$bodySubset&gt;, &lt;$altSubset&gt;, &lt;$headingSubset&gt;, and &lt;$monoSubset&gt; correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=optimize">' . __( 'Subset', 'wp-foft-loader' ) . '</a> options screen.</p>
+	<p>' . __( 'This plugin always loads the following Stage 1 styles. The Stage 1 fonts are subsetted fonts, acting as placeholders until the full Stage 2 fonts load. &lt;$bodySubset&gt;, &lt;$altSubset&gt;, &lt;$headingSubset&gt;, and &lt;$monoSubset&gt; correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=wp-foft-loader&tab=optimize' ) . '">' . __( 'Subset', 'wp-foft-loader' ) . '</a> options screen.</p>
 <pre class="col-3"><code>body {
   font-family: serif;
   font-weight: 400;
@@ -687,7 +687,7 @@ class WP_FOFT_Loader_Settings
 </section>
 <section>
 	<h3>' . __( 'Fonts Stage 2', 'wp-foft-loader' ) . '</h3>
-	<p>' . __( 'This plugin also loads the following Stage 2 styles. You can disable these styles on the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=css"><abbr>CSS</abbr> ' . __( 'options screen', 'wp-foft-loader' ) . '</a>. <$body>, <$alt>, <$heading>, ' . __( 'and', 'wp-foft-loader' ) . ' <$mono> ' . __( 'correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader' ) . ' <a href="?page=wp-foft-loader&tab=subset">' . __( 'Subset screen', 'wp-foft-loader' ) . '</a>. ' . __( 'You can change the default font fallbacks on the', 'wp-foftloader' ) . ' <a href="?page=wp-foft-loader&tab=fstack">' . __( 'Font Stack settings screen', 'wp-foft-loader' ) . '</a>.</p>
+	<p>' . __( 'This plugin also loads the following Stage 2 styles. You can disable these styles on the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=css' ) . '"><abbr>CSS</abbr> ' . __( 'options screen', 'wp-foft-loader' ) . '</a>. <$body>, <$alt>, <$heading>, ' . __( 'and', 'wp-foft-loader' ) . ' <$mono> ' . __( 'correspond to the Body, Other Elements, Headings, and Monospaced font-families configured on the', 'wp-foft-loader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=subset' ) . '">' . __( 'Subset screen', 'wp-foft-loader' ) . '</a>. ' . __( 'You can change the default font fallbacks on the', 'wp-foftloader' ) . ' <a href="' . esc_url( '?page=' . $this->parent->token . '&tab=fstack' ) . '">' . __( 'Font Stack settings screen', 'wp-foft-loader' ) . '</a>.</p>
 <pre class="col-3"><code>.fonts-stage-2 body,
 .fonts-stage-2 h4,
 .fonts-stage-2 h5,
@@ -889,7 +889,7 @@ class WP_FOFT_Loader_Settings
      */
     public function settings_page()
     {
-        $html = '<div class="wrap" id="' . $this->parent->token . '">' . chr( 0xd ) . chr( 0xa ) . '<h2><span class="wp-admin-lite-blue"><i class="fas fa-3x fa-font" aria-hidden="true"></i> <span class="wp-admin-red"><i class="fas fa-2x fa-font" aria-hidden="true"></i></span> <i class="fas fa-font" aria-hidden="true"></i></span> ' . __( 'WP <abbr>FOFT</abbr> Loader Settings', 'wp-foft-loader' ) . '</h2>' . chr( 0xd ) . chr( 0xa ) . '<p>' . __( 'Automates', 'wp-foft-loader' ) . ' &ldquo;<a href="https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional" rel="external noreferrer noopener"><strong>' . __( 'Critical', 'wp-foft-loader' ) . ' <abbr title="Flash of Faux Text">FOFT</abbr> ' . __( 'with preload, with a polyfill fallback emulating font-display: optional', 'wp-foft-loader' ) . '</strong></a>&rdquo; ' . __( 'to speed up web font loading while eliminating Flash of Unstyled Text (', 'wp-foft-loader' ) . '<abbr>FOUT</abbr>) ' . __( 'and Flash of Invisible Text (', 'wp-foft-loader' ) . '<abbr>FOIT</abbr>). ' . __( 'Based on the work of', 'wp-foft-loader' ) . ' <span class="h-card"><a class="p-name u-url" href="https://www.zachleat.com/">Zach Leatherman</a></span>.</p>' . chr( 0xd ) . chr( 0xa );
+        $html = '<div class="wrap" id="' . $this->parent->token . '">' . chr( 0xd ) . chr( 0xa ) . '<h2><span class="wp-admin-lite-blue"><i class="fas fa-3x fa-font" aria-hidden="true"></i> <span class="wp-admin-red"><i class="fas fa-2x fa-font" aria-hidden="true"></i></span> <i class="fas fa-font" aria-hidden="true"></i></span> ' . __( 'WP <abbr>FOFT</abbr> Loader Settings', 'wp-foft-loader' ) . '</h2>' . chr( 0xd ) . chr( 0xa ) . '<p>' . __( 'Automates', 'wp-foft-loader' ) . ' &ldquo;<a href="' . esc_url( 'https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional' ) . '" rel="external noreferrer noopener"><strong>' . __( 'Critical', 'wp-foft-loader' ) . ' <abbr title="Flash of Faux Text">FOFT</abbr> ' . __( 'with preload, with a polyfill fallback emulating font-display: optional', 'wp-foft-loader' ) . '</strong></a>&rdquo; ' . __( 'to speed up web font loading while eliminating Flash of Unstyled Text (', 'wp-foft-loader' ) . '<abbr>FOUT</abbr>) ' . __( 'and Flash of Invisible Text (', 'wp-foft-loader' ) . '<abbr>FOIT</abbr>). ' . __( 'Based on the work of', 'wp-foft-loader' ) . ' <span class="h-card"><a class="p-name u-url" href="' . esc_url( 'https://www.zachleat.com/' ) . '">Zach Leatherman</a></span>.</p>' . chr( 0xd ) . chr( 0xa );
         if ( !wpfl_fs()->can_use_premium_code() ) {
             $html .= '<p><strong>' . __( 'Upgrade to', 'wp-foft-loader' ) . ' <abbr>WP</abbr> <abbr>FOFT</abbr> Loader PRO ' . __( 'for additional font weights and small-caps support', 'wp-foft-loader.' ) . '.</strong></p>' . chr( 0xd ) . chr( 0xa );
         }
@@ -931,7 +931,7 @@ class WP_FOFT_Loader_Settings
                 }
                 // phpcs:enable
                 // Output tab.
-                $html .= '<a href="' . esc_attr( $tab_link ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr( 0xd ) . chr( 0xa );
+                $html .= '<a href="' . esc_url( $tab_link ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . chr( 0xd ) . chr( 0xa );
                 ++$c;
             }
             $html .= '</h2>' . chr( 0xd ) . chr( 0xa );

@@ -145,10 +145,10 @@ class WP_FOFT_Loader_Ratings {
 
 	echo '
 	<div class="updated" class="notice notice-success is-dismissible">
-		<p>' . sprintf( __( 'Hi there! You&rsquo;ve been using the <strong>%s</strong> plugin for %s now. Please leave us a 5-star review with your feedback! It helps others to find <strong>%s</strong> and <strong>makes the world a better place</strong> where puppies and kittens abound, ice cream never melts, and web fonts load quickly and smoothly!', 'wp-foft-loader' ), $this->name, $time, $this->name ) . '
+		<p>' . sprintf( '<span class="dashicons dashicons-star-filled wp-admin-lite-blue"></span> ' . __( 'Hi there! You&rsquo;ve been using the', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'plugin for', 'wp-foft-loader' ) . ' %s ' . __( 'now. Please leave us a 5-star review with your feedback! It helps others to find', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts, and web fonts load quickly and smoothly</strong>!', 'wp-foft-loader' ), $this->name, $time, $this->name ) . '
 			<br /><br />
 			<a class="button button-primary" href="' . esc_url( 'https://wordpress.org/support/view/plugin-reviews/' . $this->slug . '#postform' ) . '" target="_blank">' . __( 'Leave a Review', 'wp-foft-loader' ) . '</a> 
-			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . __( 'Dismiss This Notice Forever', 'wp-foft-loader' ) . '</a> 
+			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . __( 'I&rsquo;ve already done it!', 'wp-foft-loader' ) . '</a> 
 			<a href="' . esc_url( $no_bug_url ) . '">' . __( 'No thanks.', 'wp-foft-loader' ) . '</a>
 		</p>
 	</div>';
@@ -187,5 +187,5 @@ endif;
 new WP_FOFT_Loader_Ratings( array(
 	'slug'        => 'wp-foft-loader', // The plugin slug.
 	'name'        => 'WP FOFT Loader', // The plugin name.
-	'time_limit'  => 1209600,          // The time limit at which notice is shown (2 weeks).
+	'time_limit'  => 5 //1209600,          // The time limit at which notice is shown (2 weeks).
 ) );

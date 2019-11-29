@@ -60,11 +60,11 @@ class WP_FOFT_Loader_Meta {
 			$iconstyle   = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
 			return array_merge( $links, array(
-				'<a href="' . $supportlink . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="WP FOFT Loader Support"></span></a>',
-				'<a href="' . $twitterlink . '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="Chris J. Zähller on Twitter"></span></a>',
-				'<a href="' . $reviewlink . '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="Give a 5 Star Review"></span></a>',
-				'<a href="' . $donatelink . '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="Donate"></span></a>',
-				'<a href="' . $coffeelink . '"><span class="fas fa-coffee"' . $iconstyle . 'title="Buy the Developer a Coffee"></span></a>',			) );
+				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="WP FOFT Loader Support" aria-label="WP FOFT Loader Support"></span></a>',
+				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="Chris J. Zähller on Twitter" aria-label="Chris J. Zähller on Twitter"></span></a>',
+				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="Give a 5-Star Review" aria-label="Give a 5-Star Review"></span></a>',
+				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="Donate" aria-label="Donate"></span></a>',
+				'<a href="' . esc_url( $coffeelink ). '"><span class="fas fa-coffee"' . $iconstyle . 'title="Buy the Developer a Coffee" aria-label="Buy the Developer a Coffee"></span></a>', ) );
 		}
 
 		return $links;
