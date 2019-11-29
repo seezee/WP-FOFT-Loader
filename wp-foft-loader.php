@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.17
+ * Version: 2.0.18
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -69,7 +69,7 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.17' ;
+const  _VERSION_ = '2.0.18' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
@@ -104,7 +104,7 @@ wp_foft_loader();
 // Activation / upgrade
 function wpfl_activation()
 {
-    update_option( 'wpfl_version', _BASE_ );
+    update_option( _BASE_ . 'version', _VERSION_ );
 }
 
 register_activation_hook( __FILE__, 'wpfl_activation' );

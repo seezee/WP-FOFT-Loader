@@ -187,5 +187,5 @@ endif;
 new WP_FOFT_Loader_Ratings( array(
 	'slug'        => 'wp-foft-loader', // The plugin slug.
 	'name'        => 'WP FOFT Loader', // The plugin name.
-	'time_limit'  => 5 //1209600,          // The time limit at which notice is shown (2 weeks).
+	'time_limit'  => 1209600,          // The time limit at which notice is shown (2 weeks).
 ) );
