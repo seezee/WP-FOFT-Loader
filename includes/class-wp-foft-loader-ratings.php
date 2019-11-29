@@ -144,7 +144,7 @@ class WP_FOFT_Loader_Ratings {
 	$time = $this->seconds_to_words( time() - get_site_option( _BASE_ . 'activation-date' ) );
 
 	echo '
-	<div class="updated" class="notice notice-success is-dismissible">
+	<div class="ratings" class="notice notice-success is-dismissible">
 		<p>' . sprintf( '<span class="dashicons dashicons-star-filled wp-admin-lite-blue"></span> ' . __( 'Hi there! You&rsquo;ve been using the', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'plugin for', 'wp-foft-loader' ) . ' %s ' . __( 'now. Please leave us a 5-star review with your feedback! It helps others to find', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts, and web fonts load quickly and smoothly</strong>!', 'wp-foft-loader' ), $this->name, $time, $this->name ) . '
 			<br /><br />
 			<a class="button button-primary" href="' . esc_url( 'https://wordpress.org/support/view/plugin-reviews/' . $this->slug . '#postform' ) . '" target="_blank">' . __( 'Leave a Review', 'wp-foft-loader' ) . '</a> 

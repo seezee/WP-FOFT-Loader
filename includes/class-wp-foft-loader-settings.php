@@ -997,11 +997,11 @@ class WP_FOFT_Loader_Settings
 		  jQuery(this).ajaxSubmit({
 			 success: function(){
 				jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-success is-dismissible"></div>`);
-				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-yes-alt"></span> ' . $message1 . __( ' Your settings were saved!', 'wp-foft-loader' ) . '</p>`).show();
+				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-yes-alt"></span> ' . $message1 . __( 'Your settings were saved!', 'wp-foft-loader' ) . '</p>`).show();
 			 },
 			 error: function(){
 				jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-error is-dismissible"></div>`);
-				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . __( ' There was an error saving your settings. Please open a support ticket if the problem persists!', 'wp-foft-loader' ) . '</p>`).show();
+				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . __( 'There was an error saving your settings. Please open a support ticket if the problem persists!', 'wp-foft-loader' ) . '</p>`).show();
 			 },
 			 timeout: 10000
 		  }); 

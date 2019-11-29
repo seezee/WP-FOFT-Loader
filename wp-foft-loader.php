@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.20
+ * Version: 2.0.21
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -69,7 +69,7 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.20' ;
+const  _VERSION_ = '2.0.21' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
@@ -101,17 +101,22 @@ function wp_foft_loader()
 }
 
 wp_foft_loader();
-// Checks the version number. Run wpfl_activation only if numbers mismatch.
+/**
+ * Checks the version number in the DB. If they don't match we just upgraded, * so show a notice and update the DB.
+ *
+ * @since  1.0.0
+ */
 function wpfl_check_version()
 {
     
-    if ( _BASE_ !== get_option( _BASE_ . 'version' ) || get_option( _BASE_ . 'version' ) !== FALSE ) {
-        wpfl_activation();
+    if ( _VERSION_ !== get_option( _BASE_ . 'version' ) || get_option( _BASE_ . 'version' ) == FALSE ) {
+        // Runs if version mismatch or doesn't exist.
         // $pagenow is a global variable referring to the filename of the
         // current page, such as ‘admin.php’, ‘post-new.php’.
         global  $pagenow ;
         
         if ( $pagenow != 'options-general.php' || !current_user_can( 'install_plugins' ) ) {
+            // Show only on settings pages.
             return;
         } elseif ( wpfl_fs()->is__premium_only() ) {
             // Notice for PRO users.
@@ -130,25 +135,13 @@ function wpfl_check_version()
             $html .= '</div>';
             echo  $html ;
         }
-    
+        
+        update_option( _BASE_ . 'version', _VERSION_ );
     }
 
 }
 
 add_action( 'plugins_loaded', 'wpfl_check_version' );
-// Activation / upgrade
-function wpfl_activation()
-{
-    update_option( _BASE_ . 'version', _VERSION_ );
-}
-
-register_activation_hook( __FILE__, 'wpfl_activation' );
-/**
- * Runs only if plugin is uninstalled.
- *
- * @since  1.0.0
- * @return object WP_UNINSTALL_PLUGIN
- */
 function wpfl_fs_uninstall_cleanup()
 {
     foreach ( wp_load_alloptions() as $option => $value ) {
