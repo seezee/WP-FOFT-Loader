@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.18
+ * Version: 2.0.19
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -69,7 +69,7 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.18' ;
+const  _VERSION_ = '2.0.19' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
@@ -101,18 +101,11 @@ function wp_foft_loader()
 }
 
 wp_foft_loader();
-// Activation / upgrade
-function wpfl_activation()
-{
-    update_option( _BASE_ . 'version', _VERSION_ );
-}
-
-register_activation_hook( __FILE__, 'wpfl_activation' );
 // Checks the version number. Run wpfl_activation only if numbers mismatch.
 function wpfl_check_version()
 {
     
-    if ( _BASE_ !== get_option( 'wpfl_version' ) ) {
+    if ( _BASE_ !== get_option( _BASE_ . 'version' ) || get_option( _BASE_ . 'version' ) !== FALSE ) {
         wpfl_activation();
         // $pagenow is a global variable referring to the filename of the
         // current page, such as ‘admin.php’, ‘post-new.php’.
@@ -143,6 +136,13 @@ function wpfl_check_version()
 }
 
 add_action( 'plugins_loaded', 'wpfl_check_version' );
+// Activation / upgrade
+function wpfl_activation()
+{
+    update_option( _BASE_ . 'version', _VERSION_ );
+}
+
+register_activation_hook( __FILE__, 'wpfl_activation' );
 /**
  * Runs only if plugin is uninstalled.
  *
