@@ -67,8 +67,7 @@ class WP_FOFT_Loader_Head
      */
     public function fontload()
     {
-        $plugin_path = plugin_dir_path( __DIR__ );
-        define( '_WPFL_PLUGIN_URL_', $plugin_path );
+        $plugin_url = plugin_dir_url( __DIR__ );
         // Locate font files.
         $uploads = wp_get_upload_dir();
         $font_path = $uploads['baseurl'] . '/fonts/';
@@ -417,7 +416,7 @@ class WP_FOFT_Loader_Head
 		// use fallback
 		var ref = document.getElementsByTagName( "script" )[ 0 ];
 		var script = document.createElement( "script" );
-		script.src = "' . _WPFL_PLUGIN_URL_ . 'assets/js/fallback' . $this->script_suffix . '.js?' . _VERSION_ . '";
+		script.src = "' . $plugin_url . 'assets/js/fallback' . $this->script_suffix . '.js?' . _VERSION_ . '";
 		script.async = true;
 		ref.parentNode.insertBefore( script, ref );
 

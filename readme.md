@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.22  
+Stable tag: 2.0.23  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -300,9 +300,14 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.23 =
+* 2019-12-02
+* BUGFIX: fix broken path for fallback.min.js
+
 = 2.0.22 =
 * 2019-12-02
 * BUGFIX: fix improper Freemius filter in wp-foft-loader.php
+* BUGFIX: fix path error that prevents one of the optimized fonts from loading
 * Add font-display property to subsetted font declaration
 
 = 2.0.21 =
@@ -670,10 +675,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.22 =
+= 2.0.23 =
 * 2019-12-02
-* BUGFIX: fix improper Freemius filter in wp-foft-loader.php
-* Add font-display property to subsetted font declaration
+* BUGFIX: fix broken path for fallback.min.js
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
