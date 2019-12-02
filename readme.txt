@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.21  
+Stable tag: 2.0.22  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -310,6 +310,11 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.22 =
+* 2019-12-02
+* BUGFIX: fix improper Freemius filter in wp-foft-loader.php
+* Add font-display property to subsetted font declaration
 
 = 2.0.21 =
 * 2019-11-29
@@ -674,8 +679,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.21 =
-* 2019-11-29
-* BUGFIX: Fix update success notice showing if not updated
+= 2.0.22 =
+* 2019-12-02
+* BUGFIX: fix improper Freemius filter in wp-foft-loader.php
+* Add font-display property to subsetted font declaration
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

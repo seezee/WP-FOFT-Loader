@@ -136,7 +136,7 @@ class WP_FOFT_Loader_Head
                 '-optimized.woff2)format("woff2"),url(',
                 wp_kses( $font_path, $arr ),
                 wp_kses( $body, $arr ),
-                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}'
+                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;font-display:' . wp_kses( $fdisplay, $arr ) . '}'
             ;
         }
         if ( !is_null( $heading ) ) {
@@ -150,7 +150,7 @@ class WP_FOFT_Loader_Head
                 '-optimized.woff2)format("woff2"),url(',
                 wp_kses( $font_path, $arr ),
                 wp_kses( $heading, $arr ),
-                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}'
+                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;font-display:' . wp_kses( $fdisplay, $arr ) . '}'
             ;
         }
         if ( !is_null( $alt ) ) {
@@ -164,7 +164,7 @@ class WP_FOFT_Loader_Head
                 '-optimized.woff2)format("woff2"),url(',
                 wp_kses( $font_path, $arr ),
                 wp_kses( $alt, $arr ),
-                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}'
+                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;font-display:' . wp_kses( $fdisplay, $arr ) . '}'
             ;
         }
         if ( !is_null( $mono ) ) {
@@ -178,7 +178,7 @@ class WP_FOFT_Loader_Head
                 '-optimized.woff2)format("woff2"),url(',
                 wp_kses( $font_path, $arr ),
                 wp_kses( $mono, $arr ),
-                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;}'
+                '-optimized.woff)format("woff");unicode-range:U+41-5A, U+61-7A;font-display:' . wp_kses( $fdisplay, $arr ) . '}'
             ;
         }
         $suffix = '-webfont';
