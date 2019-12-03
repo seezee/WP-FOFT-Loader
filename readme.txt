@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.24  
+Stable tag: 2.0.25  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -17,8 +17,6 @@ Optimize and speed up webfont loading and improve UX by minimizing Flash of Invi
 == Description ==
 
 This plugin implements and automates Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional).
-
-[![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)[![WP compatibility](https://plugintests.com/plugins/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)[![PHP compatibility](https://plugintests.com/plugins/wp-foft-loader/php-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)
 
 == Acknowledgement ==
 
@@ -310,6 +308,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.25 =
+* 2019-12-03
+* Improvements to configuration instructions on upload & subset screens
 
 = 2.0.24 =
 * 2019-12-03
@@ -688,8 +690,8 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.24 =
+= 2.0.25 =
 * 2019-12-03
-* Include unminified scripts in assets to aid debugging
+* Improvements to configuration instructions on upload & subset screens
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
