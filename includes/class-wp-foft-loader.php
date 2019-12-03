@@ -167,7 +167,7 @@ class WP_FOFT_Loader
     {
         wp_register_style(
             $this->token . '-admin',
-            esc_url( $this->assets_url ) . 'css/admin.css',
+            esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css',
             array(),
             esc_html( _VERSION_ )
         );

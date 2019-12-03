@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.23
+ * Version: 2.0.24
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -69,7 +69,7 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.23' ;
+const  _VERSION_ = '2.0.24' ;
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
