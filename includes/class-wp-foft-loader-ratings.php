@@ -45,7 +45,7 @@ class WP_FOFT_Loader_Ratings {
 			$this->time_limit = WEEK_IN_SECONDS;
 		}
 
-		$this->nobug_option = _BASE_ . 'no_bug';
+		$this->nobug_option = _WPFL_BASE_ . 'no_bug';
 
 		// Loading main functionality
 		add_action( 'admin_init', array( $this, 'check_installation_date' ) );
@@ -116,9 +116,9 @@ class WP_FOFT_Loader_Ratings {
 		if ( true != get_site_option( $this->nobug_option ) ) {
 
 			// If installation date is not set, then add it
-			$install_date = get_site_option( _BASE_ . 'activation-date' );
+			$install_date = get_site_option( _WPFL_BASE_ . 'activation-date' );
 			if ( '' == $install_date ) {
-				add_site_option( _BASE_ . 'activation-date', time() );
+				add_site_option( _WPFL_BASE_ . 'activation-date', time() );
 			}
 
 			// If difference between install date and now is greater than time limit, then display notice
@@ -141,7 +141,7 @@ class WP_FOFT_Loader_Ratings {
 	} elseif ( ($pagenow = 'options-general.php') && ( $_GET['page'] == 'wp-foft-loader') ) {
 
 	$no_bug_url = wp_nonce_url( admin_url( 'options-general.php?page=' . $this->slug . '&' . $this->nobug_option . '=true' ), 'review-nonce' );
-	$time = $this->seconds_to_words( time() - get_site_option( _BASE_ . 'activation-date' ) );
+	$time = $this->seconds_to_words( time() - get_site_option( _WPFL_BASE_ . 'activation-date' ) );
 
 	echo '
 	<div class="ratings" class="notice notice-success is-dismissible">

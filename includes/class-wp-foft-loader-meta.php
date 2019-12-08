@@ -64,7 +64,7 @@ class WP_FOFT_Loader_Meta {
 				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="Chris J. Zähller on Twitter" aria-label="Chris J. Zähller on Twitter"></span></a>',
 				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="Give a 5-Star Review" aria-label="Give a 5-Star Review"></span></a>',
 				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="Donate" aria-label="Donate"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="fas fa-coffee"' . $iconstyle . 'title="Buy the Developer a Coffee" aria-label="Buy the Developer a Coffee"></span></a>', ) );
+				'<a href="' . esc_url( $coffeelink ). '"><span class="wpfl-fas fa-coffee"' . $iconstyle . 'title="Buy the Developer a Coffee" aria-label="Buy the Developer a Coffee"></span></a>', ) );
 		}
 
 		return $links;
@@ -94,7 +94,7 @@ class WP_FOFT_Loader_Meta {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Meta is forbidden.', 'wp-foft-loader' ), esc_attr( _VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Meta is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
 	} // End __clone()
 
 	/**
@@ -103,7 +103,7 @@ class WP_FOFT_Loader_Meta {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Meta is forbidden.' ), esc_attr( _VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Meta is forbidden.' ), esc_attr( _WPFL_VERSION_ ) );
 	} // End __wakeup()
 
 }

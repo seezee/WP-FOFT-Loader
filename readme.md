@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.25  
+Stable tag: 2.0.27  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -300,6 +300,21 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.27 =
+* 2019-12-08
+* BUGFIX: Fix reset form not displaying
+* BUGFIX: Check for NULL tab before displaying reset form
+* Use define() instead of const to define globals
+* Check if globals are already set & show error message if they are
+* Refactor Freemius checks: concatenate instead of nesting, use if … else instead of additional if statement
+
+= 2.0.26 =
+* 2019-12-06
+* BUGFIX: Fix AJAX not firing on save
+* Fixed missing space in success & error admin messages on save
+* Renamed Font Awesome scripts & modified classname to avoid collisions with other themes & plugins
+* Load main Font Awesome script from CDN
+
 = 2.0.25 =
 * 2019-12-03
 * Improvements to configuration instructions on upload & subset screens
@@ -385,7 +400,7 @@ This plugin includes these third-party libraries in its package.
 = 2.0.8 =
 * 2019-11-23
 * Sanitize variables jsObs & jsLoad with wp_json_encode()
-* BUGFIX: replace all instances of undefined variable $version with constant _VERSION_
+* BUGFIX: replace all instances of undefined variable $version with constant _WPFL_VERSION_
 * BUGFIX: fix more undefined variables & offsets
 * BUGFIX: fix constant referring to wrong directory path
 
@@ -409,7 +424,7 @@ This plugin includes these third-party libraries in its package.
 * BUGFIX: plugin no longer fails to uninstall
 * BUGFIX: plugin now deletes options properly on uninstall
 * Added new Admin messages for new installs & updates
-* Added _BASE_ & _VERSION_ constants & replaced limited-scope variables
+* Added _WPFL_BASE_ & _WPFL_VERSION_ constants & replaced limited-scope variables
 * New PRO feature: finer-grained control over default CSS output
 * New PRO feature: ability to restore plugin defaults
 
@@ -683,9 +698,13 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 2.0.25 =
-* 2019-12-03
-* Improvements to configuration instructions on upload & subset screens
+= 2.0.27 =
+* 2019-12-08
+* BUGFIX: Fix reset form not displaying
+* BUGFIX: Check for NULL tab before displaying reset form
+* Use define() instead of const to define globals
+* Check if globals are already set & show error message if they are
+* Refactor Freemius checks: concatenate instead of nesting, use if … else instead of additional if statement
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

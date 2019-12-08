@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.25
+ * Version: 2.0.27
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.0
- * Tested up to: 5.2.1
+ * Tested up to: 5.3
  * PHP Version 7.0
  * Text Domain: wp-foft-loader
  * Domain Path: /lang/
@@ -68,8 +68,20 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 }
 
 // Plugin constants.
-const  _BASE_ = 'wpfl_' ;
-const  _VERSION_ = '2.0.25' ;
+
+if ( !defined( '_WPFL_BASE_' ) ) {
+    define( '_WPFL_BASE_', 'wpfl_' );
+} else {
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;_WPFL_BASE_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
+}
+
+
+if ( !defined( '_WPFL_VERSION_' ) ) {
+    define( '_WPFL_VERSION_', '2.0.27' );
+} else {
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;_WPFL_VERSION_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
+}
+
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
 require_once 'includes/class-wp-foft-loader-jsvars.php';
@@ -93,7 +105,7 @@ require_once 'includes/lib/class-wp-foft-loader-admin-api.php';
  */
 function wp_foft_loader()
 {
-    $instance = wp_foft_loader::instance( __FILE__, _VERSION_ );
+    $instance = wp_foft_loader::instance( __FILE__, _WPFL_VERSION_ );
     if ( is_null( $instance->settings ) ) {
         $instance->settings = WP_FOFT_Loader_Settings::instance( $instance );
     }
@@ -109,7 +121,7 @@ wp_foft_loader();
 function wpfl_check_version()
 {
     
-    if ( _VERSION_ !== get_option( _BASE_ . 'version' ) || get_option( _BASE_ . 'version' ) == FALSE ) {
+    if ( _WPFL_VERSION_ !== get_option( _WPFL_BASE_ . 'version' ) || get_option( _WPFL_BASE_ . 'version' ) == FALSE ) {
         // Runs if version mismatch or doesn't exist.
         // $pagenow is a global variable referring to the filename of the
         // current page, such as ‘admin.php’, ‘post-new.php’.
@@ -118,14 +130,34 @@ function wpfl_check_version()
             // Show only on settings pages.
             return;
         }
-        // Notice for FREE users.
-        $html = '<div id="updated" class="notice notice-success is-dismissible">';
-        $html .= '<p>';
-        $html .= '<span class="dashicons dashicons-yes-alt"></span> ' . __( 'WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/' ) . '" rel="noopener noreferrer">WP FOFT Loader PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer' ) . '">' . __( 'FREE 14-day trial.', 'wp-foft-loader' ) . '</a>';
-        $html .= '</p>';
-        $html .= '</div>';
-        echo  $html ;
-        update_option( _BASE_ . 'version', _VERSION_ );
+        
+        if ( wpfl_fs()->is__premium_only() && wpfl_fs()->can_use_premium_code() ) {
+            // Notice for PRO users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader PRO updated successfully!', 'wp-foft-loader' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        } elseif ( wpfl_fs()->is__premium_only() && !wpfl_fs()->can_use_premium_code() ) {
+            // Notice for PRO users who have not activated their licenses.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader PRO updated successfully! <a href="' . esc_url( 'options-general.php?page=' . $this->parent->token ) . '-account">' . __( 'Please activate your license', 'wp-foft-loader' ) . '</a> to enable PRO features.', 'wp-foft-loader' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        } else {
+            // Notice for FREE users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= '<span class="dashicons dashicons-yes-alt"></span> ' . __( 'WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/' ) . '" rel="noopener noreferrer">WP FOFT Loader PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer' ) . '">' . __( 'FREE 14-day trial.', 'wp-foft-loader' ) . '</a>';
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        }
+        
+        update_option( _WPFL_BASE_ . 'version', _WPFL_VERSION_ );
     }
 
 }
@@ -134,7 +166,7 @@ add_action( 'plugins_loaded', 'wpfl_check_version' );
 function wpfl_fs_uninstall_cleanup()
 {
     foreach ( wp_load_alloptions() as $option => $value ) {
-        if ( strpos( $option, _BASE_ ) === 0 ) {
+        if ( strpos( $option, _WPFL_BASE_ ) === 0 ) {
             delete_option( $option );
         }
     }
