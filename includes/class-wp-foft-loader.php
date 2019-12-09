@@ -251,7 +251,11 @@ class WP_FOFT_Loader {
 	public function hash_js( $tag, $handle ) {
 		// add script handles to the array below.
 		if ( $this->token . '-fa-main' === $handle ) {
-			return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+			if ( SCRIPT_DEBUG ) {
+				return str_replace( ' src', ' integrity="sha256-CfCEIeLBlKY5VZMluECsaKs5O74E/lSeRag1WJe1Pzs=" crossorigin="anonymous" src', $tag );
+			} else {
+				return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+			}
 		}
 		return $tag;
 	}

@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.27  
+Stable tag: 2.0.28  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -308,6 +308,11 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.28 =
+* 2019-12-09
+* BUGFIX: Fix CORS policy error
+* Add translation strings for plugin meta
 
 = 2.0.27 =
 * 2019-12-08
@@ -705,12 +710,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 2.0.27 =
-* 2019-12-08
-* BUGFIX: Fix reset form not displaying
-* BUGFIX: Check for NULL tab before displaying reset form
-* Use define() instead of const to define globals
-* Check if globals are already set & show error message if they are
-* Refactor Freemius checks: concatenate instead of nesting, use if … else instead of additional if statement
+= 2.0.28 =
+* 2019-12-09
+* BUGFIX: Fix CORS policy error
+* Add translation strings for plugin meta
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
