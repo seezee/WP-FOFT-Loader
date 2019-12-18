@@ -64,7 +64,7 @@ class WP_FOFT_Loader_Meta {
 				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . __( 'Chris J. Zähller on Twitter', 'wp-foft-loader' ) . '" aria-label="' . __( 'Chris J. Zähller on Twitter', 'wp-foft-loader' ) . '"></span></a>',
 				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . __( 'Give a 5-Star Review', 'wp-foft-loader' ) . '" aria-label="' . __( 'Give a 5-Star Review', 'wp-foft-loader' ) . '"></span></a>',
 				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . __( 'Donate', 'wp-foft-loader' ) . '" aria-label="' . __( 'Donate', 'wp-foft-loader' ) . '"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="fas fa-coffee"' . $iconstyle . 'title="' . __('Buy the Developer a Coffee', 'wp-foft-loader' ) . '" aria-label="' . __('Buy the Developer a Coffee', 'wp-foft-loader' ) . '"></span></a>', ) );
+				'<a href="' . esc_url( $coffeelink ). '"><span class="wpfl-fas fa-coffee"' . $iconstyle . 'title="' . __('Buy the Developer a Coffee', 'wp-foft-loader' ) . '" aria-label="' . __('Buy the Developer a Coffee', 'wp-foft-loader' ) . '"></span></a>', ) );
 		}
 
 		return $links;

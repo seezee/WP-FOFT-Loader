@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 2.0.28  
+Stable tag: 2.0.29  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -308,6 +308,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.29 =
+* 2019-12-18
+* MINOR BUGFIX: Fix missing coffee cup icon in plugin meta
 
 = 2.0.28 =
 * 2019-12-09
@@ -706,13 +710,6 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-[//]: # (*********************************************************************          **********Update version tag in main file at lines _4_ and _45_!*****          *********************************************************************)
-
-[//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
-
-= 2.0.28 =
-* 2019-12-09
-* BUGFIX: Fix CORS policy error
-* Add translation strings for plugin meta
-
-[//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
+= 2.0.29 =
+* 2019-12-18
+* MINOR BUGFIX: Fix missing coffee cup icon in plugin meta
