@@ -952,6 +952,24 @@ class WP_FOFT_Loader_Settings {
 			);
 		};
 
+		$settings['advanced'] = array(
+			'title'       => __( 'Advanced Settings', 'wp-foft-loader' ),
+			'description' =>  __( 'Uninstalling this plugin automatically deletes its options from the database. To leave the options intact,', 'wp-foft-loader' ) . ' <abbr>e.g.</abbr>, ' . __( 'when upgrading from the FREE version to the PRO version, change this setting.', 'wp-foft-loader' ),
+			'fields'      => array(
+                  array(
+                      'id'          => 'uninstall',
+                      'label'       => __( 'Uninstall Options', 'wp-foft-loader' ),
+                      'description' => __( 'Keep or delete database options. Defaults to', 'wp-foft-loader' ) . ' &ldquo;' . __( 'delete', 'wp-foft-loader' ) . '.&rdquo;',
+                      'type'        => 'radio',
+                      'options'     => array(
+                          'delete' => __( 'Delete all', 'wp-foft-loader' ) . ' <abbr>WP</abbr> <abbr>FOFT</abbr> ' . __( 'Loader options from the database when the plugin is uninstalled.', 'wp-foft-loader' ) . '<br />',
+                          'retain' => __( 'Leave all', 'wp-foft-loader' ) . ' <abbr>WP</abbr> <abbr>FOFT</abbr> ' . __( 'Loader options in the database when the plugin is uninstalled.', 'wp-foft-loader' ),
+                      ),
+                      'default'     => 'delete',
+                  ),
+			),
+		);
+
 		$settings['documentation'] = array(
 			'title'       => __( 'Documentation', 'wp-foft-loader' ),
 			'description' => '<section>

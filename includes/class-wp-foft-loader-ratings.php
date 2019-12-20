@@ -144,8 +144,8 @@ class WP_FOFT_Loader_Ratings {
 	$time = $this->seconds_to_words( time() - get_site_option( _WPFL_BASE_ . 'activation-date' ) );
 
 	echo '
-	<div class="ratings" class="notice notice-success is-dismissible">
-		<p>' . sprintf( '<span class="dashicons dashicons-star-filled wp-admin-lite-blue"></span> ' . __( 'Hi there! You&rsquo;ve been using the', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'plugin for', 'wp-foft-loader' ) . ' %s ' . __( 'now. Please leave us a 5-star review with your feedback! It helps others to find', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts, and web fonts load quickly and smoothly</strong>!', 'wp-foft-loader' ), $this->name, $time, $this->name ) . '
+	<div class=" ratings notice notice-success is-dismissible">
+		<p>' . sprintf( '<span class="dashicons dashicons-star-filled wp-admin-lite-blue"></span> ' . __( 'Hi there! You&rsquo;ve been using the', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'plugin for', 'wp-foft-loader' ) . ' %s ' . __( 'now. Please leave us a 5-star review with your feedback! It helps others to find', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts,', 'wp-foft-loader' ) . '</strong> ' . __( 'and', 'wp-foft-loader' ) . ' <strong>' . __( 'web fonts load quickly and smoothly</strong>!', 'wp-foft-loader' ), $this->name, $time, $this->name ) . '
 			<br /><br />
 			<a class="button button-primary" href="' . esc_url( 'https://wordpress.org/support/view/plugin-reviews/' . $this->slug . '#postform' ) . '" target="_blank">' . __( 'Leave a Review', 'wp-foft-loader' ) . '</a> 
 			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . __( 'I&rsquo;ve already done it!', 'wp-foft-loader' ) . '</a> 
