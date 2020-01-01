@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: WP FOFT Loader DEV
+ * Plugin Name: WP FOFT Loader
  * Version: 2.0.31
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
