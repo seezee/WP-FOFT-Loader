@@ -210,7 +210,7 @@ class WP_FOFT_Loader {
 	 */
 	public function admin_enqueue_fa_scripts( $hook = '' ) {
 		global  $pagenow;
-		if ( ( $pagenow = 'plugins.php' ) || ( $pagenow = 'general-options.php' ) ) {
+		if ( ( $pagenow == 'plugins.php' ) || ( $pagenow == 'general-options.php' ) ) {
 
 			wp_register_script(
 				$this->token . '-fa-main',

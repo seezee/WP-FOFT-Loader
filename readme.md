@@ -7,14 +7,14 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3.2  
 Requires PHP: 7.0  
-Stable tag: 2.0.30  
+Stable tag: 2.0.31  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
 == Description ==
 
-This plugin implements and automates [Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+This plugin implements and automates “[Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional)” to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 [![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)
 [![WP compatibility](https://plugintests.com/plugins/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)
@@ -63,7 +63,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
-1. Download the plugin via https://github.com/seezee/WP-FOFT-Loader
+1. Download the plugin via [https://github.com/seezee/WP-FOFT-Loader](https://github.com/seezee/WP-FOFT-Loader)
 2. Follow the directions for using FTP
 
 == Configuration ==
@@ -300,9 +300,13 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.31 =
+* 2020-01-01
+* BUGFIX: change assigment operators to comparisons in class-wp-foft-loader.php & class-wp-foft-loader-ratings.php
+
 = 2.0.30 =
 * 2019-12-20
-* Add option to keep database option on uninstall in case of upgrading to PRO version
+* Add option to keep database options on uninstall in case of upgrading to PRO version
 
 = 2.0.29 =
 * 2019-12-18
@@ -706,6 +710,6 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.0.30 =
-* 2019-12-20
-* Add option to keep database option on uninstall in case of upgrading to PRO version
+= 2.0.31 =
+* 2020-01-01
+* BUGFIX: change assigment operators to comparisons in class-wp-foft-loader.php & class-wp-foft-loader-ratings.php

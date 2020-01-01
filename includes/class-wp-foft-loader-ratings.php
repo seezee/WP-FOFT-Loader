@@ -138,7 +138,7 @@ class WP_FOFT_Loader_Ratings {
 	global $pagenow;
 	if ( !isset($_GET['page']) ) {
 		return;
-	} elseif ( ($pagenow = 'options-general.php') && ( $_GET['page'] == 'wp-foft-loader') ) {
+	} elseif ( ($pagenow == 'options-general.php') && ( $_GET['page'] == 'wp-foft-loader') ) {
 
 	$no_bug_url = wp_nonce_url( admin_url( 'options-general.php?page=' . $this->slug . '&' . $this->nobug_option . '=true' ), 'review-nonce' );
 	$time = $this->seconds_to_words( time() - get_site_option( _WPFL_BASE_ . 'activation-date' ) );
