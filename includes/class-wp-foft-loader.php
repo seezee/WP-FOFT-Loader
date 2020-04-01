@@ -164,7 +164,7 @@ class WP_FOFT_Loader {
 	 * @return void
 	 */
 	public function admin_enqueue_styles( $hook = '' ) {
-		wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css', array(), esc_html( _WPFL_VERSION_ ) );
+		wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css', array(), esc_html( WPFL_VERSION ) );
 		wp_enqueue_style( $this->token . '-admin' );
 	} // End admin_enqueue_styles ()
 
@@ -231,7 +231,7 @@ class WP_FOFT_Loader {
 				$this->token . '-fa-solid',
 				esc_url( $this->assets_url ) . 'js/fa-wpfl-solid' . $this->script_suffix . '.js',
 				array(),
-				_WPFL_VERSION_,
+				WPFL_VERSION,
 				true
 			);
 
@@ -293,7 +293,7 @@ class WP_FOFT_Loader {
 	 * Ensures only one instance of WP_FOFT_Loader is loaded or can be loaded.
 	 *
 	 * @param string $file File instance.
-	 * @param string _WPFL_VERSION_ Version parameter.
+	 * @param string WPFL_VERSION Version parameter.
 	 *
 	 * @return Object WP_FOFT_Loader instance
 	 * @since 1.0.0
@@ -301,7 +301,7 @@ class WP_FOFT_Loader {
 	 */
 	public static function instance( $file = '' ) {
 		if ( is_null( self::$instance ) ) {
-			self::$instance = new self( $file, _WPFL_VERSION_ );
+			self::$instance = new self( $file, WPFL_VERSION );
 		}
 		return self::$instance;
 	} // End instance ()
@@ -312,7 +312,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( WPFL_VERSION ) );
 	} // End __clone ()
 
 	/**
@@ -321,7 +321,7 @@ class WP_FOFT_Loader {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_WP_FOFT_Loader is forbidden.', 'wp-foft-loader' ), esc_html( WPFL_VERSION ) );
 	} // End __wakeup ()
 
 	/**
@@ -343,6 +343,6 @@ class WP_FOFT_Loader {
 	 * @return  void
 	 */
 	private function logversion_number() {
-		update_option( $this->token . 'version', esc_html( _WPFL_VERSION_ ) );
+		update_option( $this->token . 'version', esc_html( WPFL_VERSION ) );
 	} // End logversion_number ()
 }

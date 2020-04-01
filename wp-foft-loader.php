@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.31
+ * Version: 2.0.32
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -69,17 +69,17 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 
 // Plugin constants.
 
-if ( !defined( '_WPFL_BASE_' ) ) {
-    define( '_WPFL_BASE_', 'wpfl_' );
+if ( !defined( 'WPFL_BASE' ) ) {
+    define( 'WPFL_BASE', 'wpfl_' );
 } else {
-    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;_WPFL_BASE_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;WPFL_BASE&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
 }
 
 
-if ( !defined( '_WPFL_VERSION_' ) ) {
-    define( '_WPFL_VERSION_', '2.0.31' );
+if ( !defined( 'WPFL_VERSION' ) ) {
+    define( 'WPFL_VERSION', '2.0.32' );
 } else {
-    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;_WPFL_VERSION_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;WPFL_VERSION&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
 }
 
 // Load plugin class files.
@@ -105,7 +105,7 @@ require_once 'includes/lib/class-wp-foft-loader-admin-api.php';
  */
 function wp_foft_loader()
 {
-    $instance = wp_foft_loader::instance( __FILE__, _WPFL_VERSION_ );
+    $instance = wp_foft_loader::instance( __FILE__, WPFL_VERSION );
     if ( is_null( $instance->settings ) ) {
         $instance->settings = WP_FOFT_Loader_Settings::instance( $instance );
     }
@@ -121,7 +121,7 @@ wp_foft_loader();
 function wpfl_check_version()
 {
     
-    if ( _WPFL_VERSION_ !== get_option( _WPFL_BASE_ . 'version' ) || get_option( _WPFL_BASE_ . 'version' ) == FALSE ) {
+    if ( WPFL_VERSION !== get_option( WPFL_BASE . 'version' ) || get_option( WPFL_BASE . 'version' ) == FALSE ) {
         // Runs if version mismatch or doesn't exist.
         // $pagenow is a global variable referring to the filename of the
         // current page, such as ‘admin.php’, ‘post-new.php’.
@@ -157,7 +157,7 @@ function wpfl_check_version()
             echo  $html ;
         }
         
-        update_option( _WPFL_BASE_ . 'version', _WPFL_VERSION_ );
+        update_option( WPFL_BASE . 'version', WPFL_VERSION );
     }
 
 }
@@ -166,8 +166,8 @@ add_action( 'plugins_loaded', 'wpfl_check_version' );
 function wpfl_fs_uninstall_cleanup()
 {
     
-    if ( get_option( _WPFL_BASE_ . 'uninstall' ) !== NULL ) {
-        $uninstall = get_option( _WPFL_BASE_ . 'uninstall' );
+    if ( get_option( WPFL_BASE . 'uninstall' ) !== NULL ) {
+        $uninstall = get_option( WPFL_BASE . 'uninstall' );
     } else {
         $uninstall = NULL;
     }
@@ -177,7 +177,7 @@ function wpfl_fs_uninstall_cleanup()
         return;
     } else {
         foreach ( wp_load_alloptions() as $option => $value ) {
-            if ( strpos( $option, _WPFL_BASE_ ) === 0 ) {
+            if ( strpos( $option, WPFL_BASE ) === 0 ) {
                 delete_option( $option );
             }
         }

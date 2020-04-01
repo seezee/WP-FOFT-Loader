@@ -125,7 +125,7 @@ class WP_FOFT_Loader_Admin_API {
 
 			case 'font':
 				/*
-							$image_thumb = '';
+				$image_thumb = '';
 				if ( $data ) {
 					$image_thumb = wp_get_attachment_thumb_url( $data );
 				}

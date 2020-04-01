@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
-Tested up to: 5.3.2  
+Tested up to: 5.4  
 Requires PHP: 7.0  
-Stable tag: 2.0.31  
+Stable tag: 2.0.32  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -300,6 +300,11 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.0.32 =
+* 2020-04-01
+* Tested up to WordPress 5.4
+* Remove surrounding underscores in plugin constants per WordPress coding standards
+
 = 2.0.31 =
 * 2020-01-01
 * BUGFIX: change assigment operators to comparisons in class-wp-foft-loader.php & class-wp-foft-loader-ratings.php
@@ -417,7 +422,7 @@ This plugin includes these third-party libraries in its package.
 = 2.0.8 =
 * 2019-11-23
 * Sanitize variables jsObs & jsLoad with wp_json_encode()
-* BUGFIX: replace all instances of undefined variable $version with constant _WPFL_VERSION_
+* BUGFIX: replace all instances of undefined variable $version with constant WPFL_VERSION
 * BUGFIX: fix more undefined variables & offsets
 * BUGFIX: fix constant referring to wrong directory path
 
@@ -441,7 +446,7 @@ This plugin includes these third-party libraries in its package.
 * BUGFIX: plugin no longer fails to uninstall
 * BUGFIX: plugin now deletes options properly on uninstall
 * Added new Admin messages for new installs & updates
-* Added _WPFL_BASE_ & _WPFL_VERSION_ constants & replaced limited-scope variables
+* Added WPFL_BASE & WPFL_VERSION constants & replaced limited-scope variables
 * New PRO feature: finer-grained control over default CSS output
 * New PRO feature: ability to restore plugin defaults
 
@@ -710,6 +715,8 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.0.31 =
-* 2020-01-01
-* BUGFIX: change assigment operators to comparisons in class-wp-foft-loader.php & class-wp-foft-loader-ratings.php
+= 2.0.32 =
+* 2020-04-01
+* Tested up to WordPress 5.4
+* Remove surrounding underscores in plugin constants per WordPress coding standards
+

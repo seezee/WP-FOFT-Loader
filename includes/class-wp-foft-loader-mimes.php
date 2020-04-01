@@ -89,7 +89,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Mimes is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Mimes is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __clone()
 
 	/**
@@ -98,7 +98,7 @@ class WP_FOFT_Loader_Mimes {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Mimes is forbidden.' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Mimes is forbidden.' ), esc_attr( WPFL_VERSION ) );
 	} // End __wakeup()
 
 }

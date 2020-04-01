@@ -86,21 +86,21 @@ class WP_FOFT_Loader_Head {
 
 		$arr = array(); // Use this with wp_kses. Don't allow any HTML.
 
-		// All options prefixed with _WPFL_BASE_ value; see wp-foft-loader.php constants.
-		if ( get_option( _WPFL_BASE_ . 's1-heading' ) != false ) {
-			$heading = get_option( _WPFL_BASE_ . 's1-heading' );
+		// All options prefixed with WPFL_BASE value; see wp-foft-loader.php constants.
+		if ( get_option( WPFL_BASE . 's1-heading' ) != false ) {
+			$heading = get_option( WPFL_BASE . 's1-heading' );
 		} else $heading = NULL;
-		if ( get_option( _WPFL_BASE_ . 's1-body' ) != false ) {
-			$body = get_option( _WPFL_BASE_ . 's1-body' );
+		if ( get_option( WPFL_BASE . 's1-body' ) != false ) {
+			$body = get_option( WPFL_BASE . 's1-body' );
 		} else $body = NULL;
-		if ( get_option( _WPFL_BASE_ . 's1-alt' ) != false ) {
-			$alt = get_option( _WPFL_BASE_ . 's1-alt' );
+		if ( get_option( WPFL_BASE . 's1-alt' ) != false ) {
+			$alt = get_option( WPFL_BASE . 's1-alt' );
 		} else $alt = NULL;
-		if ( get_option( _WPFL_BASE_ . 's1-mono' ) != false ) {
-			$mono = get_option( _WPFL_BASE_ . 's1-mono' );
+		if ( get_option( WPFL_BASE . 's1-mono' ) != false ) {
+			$mono = get_option( WPFL_BASE . 's1-mono' );
 		} else $mono = NULL;
 
-		$fdisplay = get_option( _WPFL_BASE_ . 'font_display' );
+		$fdisplay = get_option( WPFL_BASE . 'font_display' );
 
 
 		if ( ! is_null( $body ) ) {
@@ -241,26 +241,26 @@ class WP_FOFT_Loader_Head {
 			}
 		}
 
-		$fs_heading = get_option( _WPFL_BASE_ . 'fstack-heading' );
+		$fs_heading = get_option( WPFL_BASE . 'fstack-heading' );
 		$fs_heading = ',' . $fs_heading;
-		$fs_body    = get_option( _WPFL_BASE_ . 'fstack-body' );
+		$fs_body    = get_option( WPFL_BASE . 'fstack-body' );
 		$fs_body    = ',' . $fs_body;
 
-		$fs_alt  = get_option( _WPFL_BASE_ . 'fstack-alt' );
+		$fs_alt  = get_option( WPFL_BASE . 'fstack-alt' );
 		$fs_alt  = ',' . $fs_alt;
-		$fs_mono = get_option( _WPFL_BASE_ . 'fstack-mono' );
+		$fs_mono = get_option( WPFL_BASE . 'fstack-mono' );
 		$fs_mono = ',' . $fs_mono;
 
 		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
 			if ( wpfl_fs()->can_use_premium_code() ) {
-				$body_serif    = get_option ( _WPFL_BASE_ . 'body-serif' );
-				$heading_serif = get_option ( _WPFL_BASE_ . 'heading-serif' );
+				$body_serif    = get_option ( WPFL_BASE . 'body-serif' );
+				$heading_serif = get_option ( WPFL_BASE . 'heading-serif' );
 			}
 		}
 
 		echo 'body{font-family:serif;font-weight:400;font-style:normal}';
 
-		$default_css = get_option( _WPFL_BASE_ . 'default_css' );
+		$default_css = get_option( WPFL_BASE . 'default_css' );
 
 		if ( ! is_null( $body ) && ! is_null( $fs_body ) ) {
 			echo '.fonts-stage-1 body{font-family:' . wp_kses( $body, $arr ) . 'Subset,';
@@ -315,8 +315,8 @@ class WP_FOFT_Loader_Head {
 		};
 
 		// User input custom CSS. Sanitize with HTMLPurifier + CSSTidy.
-		$css_dirty_1 = get_option( _WPFL_BASE_ . 'stage_1' );
-		$css_dirty_2 = get_option( _WPFL_BASE_ . 'stage_2' );
+		$css_dirty_1 = get_option( WPFL_BASE . 'stage_1' );
+		$css_dirty_2 = get_option( WPFL_BASE . 'stage_2' );
 
 		// Create a new configuration object.
 		$config = HTMLPurifier_Config::createDefault();
@@ -472,7 +472,7 @@ class WP_FOFT_Loader_Head {
 		// use fallback
 		var ref = document.getElementsByTagName( "script" )[ 0 ];
 		var script = document.createElement( "script" );
-		script.src = "' . $plugin_url . 'assets/js/fallback' . $this->script_suffix . '.js?' . _WPFL_VERSION_ . '";
+		script.src = "' . $plugin_url . 'assets/js/fallback' . $this->script_suffix . '.js?' . WPFL_VERSION . '";
 		script.async = true;
 		ref.parentNode.insertBefore( script, ref );
 
@@ -517,7 +517,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __clone()
 
 	/**
@@ -526,7 +526,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __wakeup()
 
 }

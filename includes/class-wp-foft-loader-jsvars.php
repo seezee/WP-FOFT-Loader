@@ -35,11 +35,11 @@ class WP_FOFT_Loader_JS_Vars {
 	public function jsload() {
 
 		$arr = array(); // Use this with wp_kses. Don't allow any HTML.
-		// All options prefixed with _WPFL_BASE_ constant; see wp-foft-loader.php.
-		$heading = get_option( _WPFL_BASE_ . 's1-heading' );
-		$body    = get_option( _WPFL_BASE_ . 's1-body' );
-		$alt     = get_option( _WPFL_BASE_ . 's1-alt' );
-		$mono    = get_option( _WPFL_BASE_ . 's1-mono' );
+		// All options prefixed with WPFL_BASE constant; see wp-foft-loader.php.
+		$heading = get_option( WPFL_BASE . 's1-heading' );
+		$body    = get_option( WPFL_BASE . 's1-body' );
+		$alt     = get_option( WPFL_BASE . 's1-alt' );
+		$mono    = get_option( WPFL_BASE . 's1-mono' );
 
 		$body_sc    = false;
 		$heading_sc = false;
@@ -201,7 +201,7 @@ class WP_FOFT_Loader_JS_Vars {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_JS_Vars is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_JS_Vars is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __clone()
 
 	/**
@@ -210,7 +210,7 @@ class WP_FOFT_Loader_JS_Vars {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_JS_Vars is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_JS_Vars is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __wakeup()
 
 }

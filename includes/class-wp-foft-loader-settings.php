@@ -68,7 +68,7 @@ class WP_FOFT_Loader_Settings {
 		);
 
 		// Configure placement of plugin settings page. See readme for implementation.
-		add_filter( _WPFL_BASE_ . 'menu_settings', array( $this, 'configure_settings' ) );
+		add_filter( WPFL_BASE . 'menu_settings', array( $this, 'configure_settings' ) );
 
 	}
 
@@ -114,7 +114,7 @@ class WP_FOFT_Loader_Settings {
 	 */
 	private function menu_settings() {
 		return apply_filters(
-			_WPFL_BASE_ . 'menu_settings',
+			WPFL_BASE . 'menu_settings',
 			array(
 				'location'    => 'options', // Possible settings: options, menu, submenu.
 				'parent_slug' => 'options-general.php',
@@ -852,8 +852,8 @@ class WP_FOFT_Loader_Settings {
 		);
 
 		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
-			$body_serif    = get_option ( _WPFL_BASE_ . 'body-serif' );
-			$heading_serif = get_option ( _WPFL_BASE_ . 'heading-serif' );
+			$body_serif    = get_option ( WPFL_BASE . 'body-serif' );
+			$heading_serif = get_option ( WPFL_BASE . 'heading-serif' );
 
 			if ( $body_serif == 'non-serif' ) {
 				$body_s2_default = '-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
@@ -1171,7 +1171,7 @@ class WP_FOFT_Loader_Settings {
 					}
 
 					// Register field.
-					$option_name = _WPFL_BASE_ . $field['id'];
+					$option_name = WPFL_BASE . $field['id'];
 					register_setting( $this->parent->token, $option_name, $validation );
 
 					// Add field to page.
@@ -1183,7 +1183,7 @@ class WP_FOFT_Loader_Settings {
 						$section,
 						array(
 							'field'  => $field,
-							'prefix' => _WPFL_BASE_,
+							'prefix' => WPFL_BASE,
 						)
 					);
 				}
@@ -1355,12 +1355,12 @@ class WP_FOFT_Loader_Settings {
 			$html3  = '<form method="post" action="" name="wpflReset" id="wpflReset" enctype="multipart/form-data">' . chr( 0x0D ) . chr( 0x0A );
 			$html3 .= '<table class="form-table" role="presentation"><tbody><tr><th scope="row">' . $reset_label . '</th><td>';
 			$html3     .= '<p class="submit">' . chr( 0x0D ) . chr( 0x0A );
-			$html3     .= '<input type="hidden" name="action" value="' . _WPFL_BASE_ . 'plugin-reset" />';
+			$html3     .= '<input type="hidden" name="action" value="' . WPFL_BASE . 'plugin-reset" />';
 			if ( ( 'plugins.php' === $pagenow ) && ( 'wp-foft-loader' === $_GET['page'] ) ) {
 				if ( ( $tab == 'upload' ) || ( $tab == 'css' ) || ( $tab == 'fstack' )  || ( $tab == NULL )) {
 					echo $html3; // phpcs:ignore
-					submit_button( __( 'Clear settings', 'wp-foft-loader' ), 'secondary', _WPFL_BASE_ . 'plugin-reset', false );
-					$html4     = '<br /><label for="' . _WPFL_BASE_ .'plugin-reset"><span class="description">' . $reset_desc . '</span></label>';
+					submit_button( __( 'Clear settings', 'wp-foft-loader' ), 'secondary', WPFL_BASE . 'plugin-reset', false );
+					$html4     = '<br /><label for="' . WPFL_BASE .'plugin-reset"><span class="description">' . $reset_desc . '</span></label>';
 					$html4     .= '</p></td></tr></table>' . chr( 0x0D ) . chr( 0x0A );
 					$html4     .= '</form>' . chr( 0x0D ) . chr( 0x0A );
 
@@ -1368,8 +1368,8 @@ class WP_FOFT_Loader_Settings {
 				}
 			}
 
-			$body_serif    = get_option ( _WPFL_BASE_ . 'body-serif' );
-			$heading_serif = get_option ( _WPFL_BASE_ . 'heading-serif' );
+			$body_serif    = get_option ( WPFL_BASE . 'body-serif' );
+			$heading_serif = get_option ( WPFL_BASE . 'heading-serif' );
 
 			if ( $body_serif == 'non-serif' ) {
 				$body_s2_default = '-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
@@ -1386,25 +1386,25 @@ class WP_FOFT_Loader_Settings {
 			$alt_s2_default  = '-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
 			$mono_s2_default = 'Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,monospace';
 
-			if ( ( 'options-general.php' === $pagenow ) && ( 'wp-foft-loader' === $_GET['page'] ) && ( isset( $_POST[_WPFL_BASE_ . 'plugin-reset'] ) ) ) {
+			if ( ( 'options-general.php' === $pagenow ) && ( 'wp-foft-loader' === $_GET['page'] ) && ( isset( $_POST[WPFL_BASE . 'plugin-reset'] ) ) ) {
 				if ( $tab == 'upload' ) {
-					update_option( _WPFL_BASE_ . 'font', '', true);
-					update_option( _WPFL_BASE_ . 'body-serif', 'serif', true);
-					update_option( _WPFL_BASE_ . 'heading-serif', 'serif', true);
-					update_option( _WPFL_BASE_ . 's1-heading', null, true);
-					update_option( _WPFL_BASE_ . 's1-body', null, true);
-					update_option( _WPFL_BASE_ . 's1-alt', null, true);
-					update_option( _WPFL_BASE_ . 's1-mono', null, true);
+					update_option( WPFL_BASE . 'font', '', true);
+					update_option( WPFL_BASE . 'body-serif', 'serif', true);
+					update_option( WPFL_BASE . 'heading-serif', 'serif', true);
+					update_option( WPFL_BASE . 's1-heading', null, true);
+					update_option( WPFL_BASE . 's1-body', null, true);
+					update_option( WPFL_BASE . 's1-alt', null, true);
+					update_option( WPFL_BASE . 's1-mono', null, true);
 				} elseif ( $tab == 'css' ) {
-					update_option( _WPFL_BASE_ . 'default_css', 'on', true);
-					update_option( _WPFL_BASE_ . 'font_display', 'swap', true);
-					update_option( _WPFL_BASE_ . 'stage_1', null, true);
-					update_option( _WPFL_BASE_ . 'stage_2', null, true);
+					update_option( WPFL_BASE . 'default_css', 'on', true);
+					update_option( WPFL_BASE . 'font_display', 'swap', true);
+					update_option( WPFL_BASE . 'stage_1', null, true);
+					update_option( WPFL_BASE . 'stage_2', null, true);
 				} elseif ( $tab == 'fstack' ) {
-					update_option( _WPFL_BASE_ . 'fstack-heading', $heading_s2_default, true );
-					update_option( _WPFL_BASE_ . 'fstack-body', $body_s2_default, true );
-					update_option( _WPFL_BASE_ . 'fstack-alt', $alt_s2_default, true );
-					update_option( _WPFL_BASE_ . 'fstack-mono', $mono_s2_default, true );
+					update_option( WPFL_BASE . 'fstack-heading', $heading_s2_default, true );
+					update_option( WPFL_BASE . 'fstack-body', $body_s2_default, true );
+					update_option( WPFL_BASE . 'fstack-alt', $alt_s2_default, true );
+					update_option( WPFL_BASE . 'fstack-mono', $mono_s2_default, true );
 					echo '<meta http-equiv="refresh" content="0">';
 				}
 			}
@@ -1435,7 +1435,7 @@ class WP_FOFT_Loader_Settings {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __clone()
 
 	/**
@@ -1444,7 +1444,7 @@ class WP_FOFT_Loader_Settings {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( _WPFL_VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_API is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __wakeup()
 
 }
