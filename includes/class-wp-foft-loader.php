@@ -214,7 +214,7 @@ class WP_FOFT_Loader {
 
 			wp_register_script(
 				$this->token . '-fa-main',
-				'//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/fontawesome' . $this->script_suffix . '.js',
+				'//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome' . $this->script_suffix . '.js',
 				array(),
 				'',
 				true
@@ -252,9 +252,9 @@ class WP_FOFT_Loader {
 		// add script handles to the array below.
 		if ( $this->token . '-fa-main' === $handle ) {
 			if ( SCRIPT_DEBUG ) {
-				return str_replace( ' src', ' integrity="sha256-CfCEIeLBlKY5VZMluECsaKs5O74E/lSeRag1WJe1Pzs=" crossorigin="anonymous" src', $tag );
+				return str_replace( ' src', ' integrity="sha256-Zrud/hioxze9Q1aEUNes9uTrF4ym/CR0JCGvzcVZX9I=" crossorigin="anonymous" src', $tag );
 			} else {
-				return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+				return str_replace( ' src', ' integrity="sha256-NP9NujdEzS5m4ZxvNqkcbxyHB0dTRy9hG13RwTVBGwo=" crossorigin="anonymous" src', $tag );
 			}
 		}
 		return $tag;
