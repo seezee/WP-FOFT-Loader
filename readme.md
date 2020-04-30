@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
 Tags: wordpress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 3.9  
-Tested up to: 5.4  
+Tested up to: 5.4.1  
 Requires PHP: 7.0  
-Stable tag: 2.0.33  
+Stable tag: 2.0.34  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -299,6 +299,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.0.34 =
+* 2020-04-30
+* Tested up to 5.4.1
 
 = 2.0.33 =
 * 2020-04-21
@@ -720,8 +724,6 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.0.33 =
-* 2020-04-21
-* Update Fontawesome library
-* Correct typo in LICENSE
-
+= 2.0.34 =
+* 2020-04-30
+* Tested up to 5.4.1

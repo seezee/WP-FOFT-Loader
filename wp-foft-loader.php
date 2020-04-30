@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.33
+ * Version: 2.0.34
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -77,7 +77,7 @@ if ( !defined( 'WPFL_BASE' ) ) {
 
 
 if ( !defined( 'WPFL_VERSION' ) ) {
-    define( 'WPFL_VERSION', '2.0.33' );
+    define( 'WPFL_VERSION', '2.0.34' );
 } else {
     echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;WPFL_VERSION&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
 }
