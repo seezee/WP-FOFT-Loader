@@ -253,7 +253,7 @@ class WP_FOFT_Loader_Settings {
 		foreach ( $files as &$file ) {
 			if ( fnmatch("*optimized*",$file)) { // Subsetted files only.
 				$font = basename( $file, '.woff' );
-				list($family, $style, $type) = explode( '-', $font, 3 ); // explode for 3 parts: family, style & type (-optimized).
+				list($family, $type) = explode( '-', $font, 2 ); // explode for 2 parts: family & type (-optimized).
 				echo '<li>' . $font . '</li>';
 			}
 		};
