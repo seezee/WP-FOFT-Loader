@@ -148,8 +148,23 @@ class WP_FOFT_Loader {
 
 			$html = '<div id="activated" class="notice notice-info is-dismissible">';
 				$html .= '<p>';
-					$html .= '<span class="dashicons dashicons-info"></span> ' . __( 'Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/' ) . '" rel="noopener noreferrer">WP FOFT Loader PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free' ) . '" rel="noopener noreferrer">' . __( 'FREE 14-day trial.', 'wp-foft-loader' ) . '</a>';
-				$html .= '</p>';
+				$url1 = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/';
+				$url2 = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free';
+				$rel = 'noreferrer noopener';
+				$link = sprintf(
+					wp_kses( /* translators: ignore the placeholders in the URL */
+						__( 'Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href="%1$s" rel="%3$s">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="%2$s" rel="%3$s">FREE 14-day trial</a>.', 'wp-foft-loader' ),
+						array(
+							'a' => array(
+								'href' => array(),
+								'rel' => array()
+							)
+						)
+					),
+					esc_url( $url1 ), esc_url( $url2 ), $rel
+				);
+                $html .= $link;
+			$html .= '</p>';
 			$html .= '</div>';
 
 			echo $html;

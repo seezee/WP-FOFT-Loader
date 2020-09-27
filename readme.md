@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 2.0.37  
+Stable tag: 2.1.0  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -16,9 +16,8 @@ GitHub Plugin URI: seezee/WP-FOFT-Loader
 
 This plugin implements and automates “[Zach Leatherman’s Critical FOFT with preload, with a polyfill fallback emulating font-display: optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional)” to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
-[![RIPS CodeRisk](https://coderisk.com/wp/plugin/wp-foft-loader/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/wp-foft-loader)
-[![WP compatibility](https://plugintests.com/plugins/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)
-[![PHP compatibility](https://plugintests.com/plugins/wp-foft-loader/php-badge.svg)](https://plugintests.com/plugins/wp-foft-loader/latest)
+[![WP compatibility](https://plugintests.com/plugins/wporg/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wporg/wp-foft-loader/latest)
+[![PHP compatibility](https://plugintests.com/plugins/wporg/wp-foft-loader/php-badge.svg)](https://plugintests.com/plugins/wporg/wp-foft-loader/latest)
 
 == Acknowledgement ==
 
@@ -299,6 +298,12 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.1.0 =
+* 2020-09-27
+* BUGFIX: Restore ajax for form submissions
+* BUGFIX: Restore missing form reset button
+* Refactor i18n
 
 = 2.0.37 =
 * 2020-09-02
@@ -738,8 +743,8 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.0.37 =
-* 2020-09-02
-* BUGFIX: Fix missing offset in class-wp-foft-loader-settings.php
-* Remove unused JS files from FREE version
-* Tested up to v5.5.1
+= 2.1.0 =
+* 2020-09-27
+* BUGFIX: Restore ajax for form submissions
+* BUGFIX: Restore missing form reset button
+* Refactor i18n

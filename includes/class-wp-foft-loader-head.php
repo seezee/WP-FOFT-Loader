@@ -526,7 +526,7 @@ class WP_FOFT_Loader_Head {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances  of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Head is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
 	} // End __wakeup()
 
 }

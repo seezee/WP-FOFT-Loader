@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.0.37
+ * Version: 2.1.0
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -73,14 +73,16 @@ if ( !function_exists( 'wpfl_fs' ) ) {
 if ( !defined( 'WPFL_BASE' ) ) {
     define( 'WPFL_BASE', 'wpfl_' );
 } else {
-    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;WPFL_BASE&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
+    /* translators: don't translate “WPFL_BASE”. */
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_BASE”; has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
 }
 
 
 if ( !defined( 'WPFL_VERSION' ) ) {
-    define( 'WPFL_VERSION', '2.0.37' );
+    define( 'WPFL_VERSION', '2.1.0' );
 } else {
-    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant', 'wp-foft-loader' ) . ' &ldquo;WPFL_VERSION&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
+    /* translators: don't translate “WPFL_VERSION”. */
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ) . '</div>' ;
 }
 
 // Load plugin class files.
@@ -136,7 +138,7 @@ function wpfl_check_version()
             // Notice for PRO users.
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
             $html .= '<p>';
-            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader PRO updated successfully!', 'wp-foft-loader' );
+            $html .= '<span class="dashicons dashicons-yes-alt"></span> ' . __( 'WP FOFT Loader PRO updated successfully!', 'wp-foft-loader' );
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;
@@ -144,7 +146,19 @@ function wpfl_check_version()
             // Notice for PRO users who have not activated their licenses.
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
             $html .= '<p>';
-            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> WP FOFT Loader PRO updated successfully! <a href="' . esc_url( 'options-general.php?page=' . $this->parent->token ) . '-account">' . __( 'Please activate your license', 'wp-foft-loader' ) . '</a> to enable PRO features.', 'wp-foft-loader' );
+            $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
+            $url = 'options-general.php?page=';
+            $slug = 'wp-foft-loader-account';
+            $link = sprintf( wp_kses(
+                /* translators: ignore the placeholders in the URL */
+                __( 'WP FOFT Loader PRO updated successfully! <a href="%1$s%2$s">Please activate your license</a> to enable PRO features.', 'wp-foft-loader' ),
+                array(
+                    'a' => array(
+                    'href' => array(),
+                ),
+                )
+            ), esc_url( $url ), $slug );
+            $html .= $link;
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;
@@ -152,7 +166,26 @@ function wpfl_check_version()
             // Notice for FREE users.
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
             $html .= '<p>';
-            $html .= '<span class="dashicons dashicons-yes-alt"></span> ' . __( 'WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/' ) . '" rel="noopener noreferrer">WP FOFT Loader PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'wp-foft-loader' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free" rel="noopener noreferrer' ) . '">' . __( 'FREE 14-day trial.', 'wp-foft-loader' ) . '</a>';
+            $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
+            $url1 = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/';
+            $url2 = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free';
+            $rel = 'noreferrer noopener';
+            $link = sprintf(
+                wp_kses(
+                /* translators: ignore the placeholders in the URL */
+                __( 'WP FOFT Loader updated successfully. For small-caps and additional font weights support, please upgrade to <a href="%1$s" rel="%3$s">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="%2$s" rel="%3$s">FREE 14-day trial</a>.', 'wp-foft-loader' ),
+                array(
+                    'a' => array(
+                    'href' => array(),
+                    'rel'  => array(),
+                ),
+                )
+            ),
+                esc_url( $url1 ),
+                esc_url( $url2 ),
+                $rel
+            );
+            $html .= $link;
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;

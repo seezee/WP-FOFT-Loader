@@ -57,52 +57,53 @@ class WP_FOFT_Loader_Ratings {
 	 */
 	public function seconds_to_words( $seconds ) {
 
+		$arr = array();
 		// Get the years
 		$years = ( intval( $seconds ) / YEAR_IN_SECONDS ) % 100;
-		if ( $years > 1 ) {
-			return sprintf( __( '%s years', $this->slug ), $years );
-		} elseif ( $years > 0) {
-			return __( 'a year', $this->slug );
+		if ( $years > 1 ) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for $number years", where $number is the number of years since the plugin was activated. */
+			return sprintf( wp_kses( __( '%s years', 'wp-foft-loader' ), $arr ), $years );
+		} elseif ( $years > 0) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for a year". */
+			return wp_kses( __( 'a year', 'wp-foft-loader' ), $arr );
 		}
 
 		// Get the weeks
 		$weeks = ( intval( $seconds ) / WEEK_IN_SECONDS ) % 52;
-		if ( $weeks > 1 ) {
-			return sprintf( __( '%s weeks', $this->slug ), $weeks );
-		} elseif ( $weeks > 0) {
-			return __( 'a week', $this->slug );
+		if ( $weeks > 1 ) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for $number weeks", where $number is the number of weeks since the plugin was activated. */
+			return sprintf( wp_kses( __( '%s weeks', 'wp-foft-loader' ), $arr ), $weeks );
+		} elseif ( $weeks > 0) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for a week". */
+			return wp_kses( __( 'a week', 'wp-foft-loader' ), $arr );
 		}
 
 		// Get the days
 		$days = ( intval( $seconds ) / DAY_IN_SECONDS ) % 7;
-		if ( $days > 1 ) {
-			return sprintf( __( '%s days', $this->slug ), $days );
-		} elseif ( $days > 0) {
-			return __( 'a day', $this->slug );
+		if ( $days > 1 ) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for $number days", where $number is the number of days since the plugin was activated. */
+			return sprintf( wp_kses( __( '%s days', 'wp-foft-loader' ), $arr ), $days );
+		} elseif ( $days > 0) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for a day". */
+			return wp_kses( __( 'a day', 'wp-foft-loader' ), $arr );
 		}
 
 		// Get the hours
 		$hours = ( intval( $seconds ) / HOUR_IN_SECONDS ) % 24;
-		if ( $hours > 1 ) {
-			return sprintf( __( '%s hours', $this->slug ), $hours );
-		} elseif ( $hours > 0) {
-			return __( 'an hour', $this->slug );
+		if ( $hours > 1 ) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for $number hours", where $number is the number of hours since the plugin was activated. */
+			return sprintf( wp_kses( __( '%s hours', 'wp-foft-loader' ), $arr ), $hours );
+		} elseif ( $hours > 0) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for an hour". */
+			return wp_kses( __( 'an hour', 'wp-foft-loader' ), $arr );
 		}
 
 		// Get the minutes
 		$minutes = ( intval( $seconds ) / MINUTE_IN_SECONDS ) % 60;
-		if ( $minutes > 1 ) {
-			return sprintf( __( '%s minutes', $this->slug ), $minutes );
-		} elseif ( $minutes > 0) {
-			return __( 'a minute', $this->slug );
+		if ( $minutes > 1 ) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for $number minutes", where $number is the number of minutes since the plugin was activated. */
+			return sprintf( wp_kses( __( '%s minutes', 'wp-foft-loader' ), $arr ), $minutes );
+		} elseif ( $minutes > 0) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for a minute". */
+			return __( 'a minute', 'wp-foft-loader' );
 		}
 
 		// Get the seconds
 		$seconds = intval( $seconds ) % 60;
-		if ( $seconds > 1 ) {
-			return sprintf( __( '%s seconds', $this->slug ), $seconds );
-		} elseif ( $seconds > 0) {
-			return __( 'a second', $this->slug );
+		if ( $seconds > 1 ) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for $number seconds", where $number is the number of seconds since the plugin was activated. */
+			return sprintf( wp_kses( __( '%s seconds', 'wp-foft-loader' ), $arr ), $seconds );
+		} elseif ( $seconds > 0) { /* translators: this is part of a sentence that reads "You’ve been using the $plugin_name plugin for a second". */
+			return __( 'a second', 'wp-foft-loader' );
 		}
 
 		return;
@@ -145,10 +146,18 @@ class WP_FOFT_Loader_Ratings {
 
 	echo '
 	<div class=" ratings notice notice-success is-dismissible">
-		<p>' . sprintf( '<span class="dashicons dashicons-star-filled wp-admin-lite-blue"></span> ' . __( 'Hi there! You&rsquo;ve been using the', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'plugin for', 'wp-foft-loader' ) . ' %s ' . __( 'now. Please leave us a 5-star review with your feedback! It helps others to find', 'wp-foft-loader' ) . ' <strong>%s</strong> ' . __( 'and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts,', 'wp-foft-loader' ) . '</strong> ' . __( 'and', 'wp-foft-loader' ) . ' <strong>' . __( 'web fonts load quickly and smoothly</strong>!', 'wp-foft-loader' ), $this->name, $time, $this->name ) . '
+		<p><span class="dashicons dashicons-star-filled wp-admin-lite-blue"></span> ' . sprintf(
+					wp_kses( /* translators: the placeholders represent the plugin name and the period of time since the plugin was activated, respectively. */
+						__( 'Hi there! You’ve been using the <strong>%1$s</strong> plugin for %2$s. Please leave us a 5-star review with your feedback! It helps others to find <strong>%1$s</strong> and makes the world a better place where <strong>puppies and kittens abound, ice cream never melts</strong>, and <strong>web fonts load quickly and smoothly</strong>!', 'wp-foft-loader' ),
+						array(
+							'strong' => array()
+						)
+					),
+					$this->name, $time
+				) . '
 			<br /><br />
 			<a class="button button-primary" href="' . esc_url( 'https://wordpress.org/support/view/plugin-reviews/' . $this->slug . '#postform' ) . '" target="_blank">' . __( 'Leave a Review', 'wp-foft-loader' ) . '</a> 
-			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . __( 'I&rsquo;ve already done it!', 'wp-foft-loader' ) . '</a> 
+			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . __( 'I’ve already done it!', 'wp-foft-loader' ) . '</a> 
 			<a href="' . esc_url( $no_bug_url ) . '">' . __( 'No thanks.', 'wp-foft-loader' ) . '</a>
 		</p>
 	</div>';
@@ -158,6 +167,7 @@ class WP_FOFT_Loader_Ratings {
 	/**
 	 * Set the plugin to no longer bug users if user asks not to be.
 	 */
+
 	public function set_no_bug() {
 
 		// Bail out if not on correct page
