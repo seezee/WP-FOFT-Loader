@@ -275,17 +275,17 @@ class WP_FOFT_Loader_Settings {
 
 		$ofontlist = ob_get_clean(); // Get buffer & display list of subsetted fonts.
 
-		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) { // Auto-removed from the FREE version & executed only if the user in a trial mode or has a valid license.
+		$sqUrl   = '//www.fontsquirrel.com/tools/webfont-generator';
+		$mozUrl  = '//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display';
+		$subsUrl = '?page=' . $this->parent->token . '&tab=subset';
+		$docsUrl = '?page=' . $this->parent->token . '&tab=documentation';
+		$upldUrl = '?page=' . $this->parent->token . '&tab=upload';
+		$cssUrl  = '?page=' . $this->parent->token . '&tab=css';
+		$fstkUrl = '?page=' . $this->parent->token . '&tab=fstack';
+		$rel     = 'external noreferrer noopener';
+		$target  = '_blank';
 
-			$sqUrl   = '//www.fontsquirrel.com/tools/webfont-generator';
-			$mozUrl  = '//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display';
-			$subsUrl = '?page=' . $this->parent->token . '&tab=subset';
-			$docsUrl = '?page=' . $this->parent->token . '&tab=documentation';
-			$upldUrl = '?page=' . $this->parent->token . '&tab=upload';
-			$cssUrl  = '?page=' . $this->parent->token . '&tab=css';
-			$fstkUrl = '?page=' . $this->parent->token . '&tab=fstack';
-			$rel     = 'external noreferrer noopener';
-			$target  = '_blank';
+		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) { // Auto-removed from the FREE version & executed only if the user in a trial mode or has a valid license.
 
 			$settings['upload'] = array(
 				'title'       => __( 'Upload', 'wp-foft-loader' ),

@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 2.1.0  
+Stable tag: 2.1.1  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -308,6 +308,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.1.1 =
+* 2020-09-27
+* BUGFIX: (FREE version only) Fix missing variables in class-wp-foft-loader-settings.php
 
 = 2.1.0 =
 * 2020-09-27
@@ -752,8 +756,6 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.0 =
+= 2.1.1 =
 * 2020-09-27
-* BUGFIX: Restore ajax for form submissions
-* BUGFIX: Restore missing form reset button
-* Refactor i18n
+* BUGFIX: (FREE version only) Fix missing variables in class-wp-foft-loader-settings.php
