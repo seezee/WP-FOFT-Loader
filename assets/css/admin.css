@@ -1,143 +1,173 @@
-/* CSS document */
+/* SCSS document */
 .description code {
-  font-style: normal;
+	font-style: normal;
 }
 
 pre {
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
 }
 
 ul.wpfl {
-  list-style-position: inside;
-  list-style-type: disc;
+	list-style-position: inside;
+	list-style-type: disc;
 }
 
 ol.wpfl {
-  list-style-position: inside;
-  list-style-type: decimal;
+	list-style-position: inside;
+	list-style-type: decimal;
 }
 
 ul.wpfl ul,
 ol.wpfl ul {
-  margin-left: 15px;
-  list-style-position: inside;
-  list-style-type: circle;
+	margin-left: 15px;
+	list-style-position: inside;
+	list-style-type: circle;
 }
 
 ol.wpfl ol,
 ul.wpfl ol {
-  margin-left: 15px;
-  list-style-position: inside;
-  list-style-type: lower-latin;
+	margin-left: 15px;
+	list-style-position: inside;
+	list-style-type: lower-latin;
 }
 
 dt {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 dd,
 dt,
 span.nobreak {
-  break-after: avoid;
-  break-inside: avoid;
-  -webkit-column-break-after: avoid;
-  -webkit-column-break-inside: avoid;
+	break-after: avoid;
+	break-inside: avoid;
+	-webkit-column-break-after: avoid;
+	-webkit-column-break-inside: avoid;
 }
 
 .video-responsive {
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  margin-bottom: 0 1em 1em 1em;
-  padding-bottom: 56.25%;
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	margin-bottom: 0 1em 1em 1em;
+	padding-bottom: 56.25%;
 }
 
 .video-responsive iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .col-2 {
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-  -webkit-column-rule: 1px solid;
-          column-rule: 1px solid;
-  -webkit-columns: 2 15rem;
-          columns: 2 15rem;
+	-webkit-column-gap: 2rem;
+	        column-gap: 2rem;
+	-webkit-column-rule: 1px solid;
+	        column-rule: 1px solid;
+	-webkit-columns: 2 15rem;
+	        columns: 2 15rem;
 }
 
 .col-3 {
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-  -webkit-column-rule: 1px solid;
-          column-rule: 1px solid;
-  -webkit-columns: 3 15rem;
-          columns: 3 15rem;
+	-webkit-column-gap: 2rem;
+	        column-gap: 2rem;
+	-webkit-column-rule: 1px solid;
+	        column-rule: 1px solid;
+	-webkit-columns: 3 15rem;
+	        columns: 3 15rem;
 }
 
 .wp-admin-lite-blue {
-  color: #21759b;
+	color: #21759b;
 }
 
 .wp-admin-red {
-  color: #d64e07;
+	color: #d64e07;
 }
 
 .notice .dashicons {
-  display: inline;
-  line-height: 1.5rem;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 0;
-  -webkit-margin-before: 0;
-  margin-block-start: 0;
-  -webkit-margin-after: 0;
-  margin-block-end: 0;
-  -webkit-margin-start: 0;
-  -moz-margin-start: 0;
-  margin-inline-start: 0;
-  -webkit-margin-end: 0;
-  -moz-margin-end: 0;
-  margin-inline-end: 0;
-  vertical-align: middle;
+	display: inline;
+	line-height: 1.5rem;
+	font-weight: 700;
+	font-size: 1rem;
+	color: #333;
+	margin-top: 0;
+	margin-bottom: 0;
+	-webkit-margin-before: 0;
+	margin-block-start: 0;
+	-webkit-margin-after: 0;
+	margin-block-end: 0;
+	-webkit-margin-start: 0;
+	-moz-margin-start: 0;
+	margin-inline-start: 0;
+	-webkit-margin-end: 0;
+	-moz-margin-end: 0;
+	margin-inline-end: 0;
+	vertical-align: middle;
 }
 
 .notice-success .dashicons {
-  color: #46b450;
+	color: #46b450;
 }
 
 .notice-info .dashicons {
-  color: #00a0d2;
+	color: #00a0d2;
 }
 
 .notice-warning .dashicons {
-  color: #ffb900;
+	color: #ffb900;
 }
 
 .notice-error .dashicons {
-  color: #dc3232;
+	color: #dc3232;
 }
 
 summary {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 details {
-  border: 1px 1px 0 1px solid #21759b;
-  padding: 1rem;
+	border: 1px solid #21759b;
+	border-bottom: none;
+	padding: 1rem;
 }
 
 details:last-of-type {
-  border: 1px solid #21759b;
+	border: 1px solid #21759b;
+}
+
+details[open] summary ~ * {
+	-webkit-animation: sweep .5s ease-in-out;
+	        animation: sweep .5s ease-in-out;
+}
+
+@-webkit-keyframes sweep {
+	0% {
+		opacity: 0;
+		margin-left: -10px;
+	}
+
+	100% {
+		opacity: 1;
+		margin-left: 0px;
+	}
+}
+
+@keyframes sweep {
+	0% {
+		opacity: 0;
+		margin-left: -10px;
+	}
+
+	100% {
+		opacity: 1;
+		margin-left: 0px;
+	}
 }
 
 #stage_1,
@@ -146,5 +176,5 @@ details:last-of-type {
 #fstack-body,
 #fstack-alt,
 #fstack-mono {
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, monospace;
+	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, monospace;
 }

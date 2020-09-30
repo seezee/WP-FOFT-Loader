@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 2.1.1  
+Stable tag: 2.1.2  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -299,6 +299,13 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.1.2 =
+* 2020-09-30
+* SECURITY FIX: escape or sanitize all translatable strings
+* Remove deprecated custom message from AreYouSure.js
+* Minor copy improvements
+* Other minor fixes
+
 = 2.1.1 =
 * 2020-09-27
 * BUGFIX: (FREE version only) Fix missing variables in class-wp-foft-loader-settings.php
@@ -584,7 +591,7 @@ This plugin includes these third-party libraries in its package.
 
 = 1.0.32 =
 * 2019-07-05
-* Bugfix in class-wp-foft-loader-settings.php
+* BUGFIX in class-wp-foft-loader-settings.php
 * Better installation instructions
 
 = 1.0.31 =
@@ -630,7 +637,7 @@ This plugin includes these third-party libraries in its package.
 
 = 1.0.24 =
 * 2019-06-19
-* Bugfixes: fixed typos in output CSS
+* BUGFIXes: fixed typos in output CSS
 * Separated Stage 1 and Stage 2 CSS in CSS screen
 * Added Documentation screen
 * Major edits to body copy
@@ -643,7 +650,7 @@ This plugin includes these third-party libraries in its package.
 = 1.0.22 =
 * 2019-06-17
 * Improve introductory microcopy on Settings page
-* Bugfix: fixed incorrect textdomain
+* BUGFIX: fixed incorrect textdomain
 
 = 1.0.21 =
 * 2019-06-17
@@ -747,6 +754,9 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.1 =
-* 2020-09-27
-* BUGFIX: (FREE version only) Fix missing variables in class-wp-foft-loader-settings.php
+= 2.1.2 =
+* 2020-09-30
+* SECURITY FIX: escape or sanitize all translatable strings
+* Remove deprecated custom message from AreYouSure.js
+* Minor copy improvements
+* Other minor fixes

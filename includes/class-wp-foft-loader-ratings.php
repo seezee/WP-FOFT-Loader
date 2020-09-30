@@ -116,13 +116,13 @@ class WP_FOFT_Loader_Ratings {
 
 		if ( true != get_site_option( $this->nobug_option ) ) {
 
-			// If installation date is not set, then add it
+			// If installation date is not set, then add it.
 			$install_date = get_site_option( WPFL_BASE . 'activation-date' );
 			if ( '' == $install_date ) {
 				add_site_option( WPFL_BASE . 'activation-date', time() );
 			}
 
-			// If difference between install date and now is greater than time limit, then display notice
+			// If difference between install date and now is greater than time limit, then display notice.
 			if ( ( time() - $install_date ) >  $this->time_limit  ) {
 				add_action( 'admin_notices', array( $this, 'display_admin_notice' ) );
 			}
@@ -156,9 +156,9 @@ class WP_FOFT_Loader_Ratings {
 					$this->name, $time
 				) . '
 			<br /><br />
-			<a class="button button-primary" href="' . esc_url( 'https://wordpress.org/support/view/plugin-reviews/' . $this->slug . '#postform' ) . '" target="_blank">' . __( 'Leave a Review', 'wp-foft-loader' ) . '</a> 
-			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . __( 'I’ve already done it!', 'wp-foft-loader' ) . '</a> 
-			<a href="' . esc_url( $no_bug_url ) . '">' . __( 'No thanks.', 'wp-foft-loader' ) . '</a>
+			<a class="button button-primary" href="' . esc_url( 'https://wordpress.org/support/view/plugin-reviews/' . $this->slug . '#postform' ) . '" target="_blank">' . esc_html__( 'Leave a Review', 'wp-foft-loader' ) . '</a> 
+			<a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( $no_bug_url ) . '">' . esc_html__( 'I’ve already done it!', 'wp-foft-loader' ) . '</a> 
+			<a href="' . esc_url( $no_bug_url ) . '">' . esc_html__( 'No thanks.', 'wp-foft-loader' ) . '</a>
 		</p>
 	</div>';
 		}
