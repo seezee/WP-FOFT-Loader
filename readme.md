@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 2.1.2  
+Stable tag: 2.1.3  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -298,6 +298,10 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.1.3 =
+* 2020-09-30
+* BUGFIX: prior release contained an undefined variable and a typo'd function name, causing a fatal error in the FREE plugin
 
 = 2.1.2 =
 * 2020-09-30
@@ -754,9 +758,6 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.2 =
+= 2.1.3 =
 * 2020-09-30
-* SECURITY FIX: escape or sanitize all translatable strings
-* (PRO only) Remove deprecated custom message from AreYouSure.js
-* Minor copy improvements
-* Other minor fixes
+* BUGFIX: prior release contained an undefined variable and a typo'd function name, causing a fatal error in the FREE plugin

@@ -577,7 +577,7 @@ class WP_FOFT_Loader_Settings {
   </dl>
 </details>
 <details>
-  <summary class="wp-admin-lite-blue">' . ç__( 'Allowed Weights & Mappings', 'wp-foft-loader' ) . '</summary>' . esc_html__( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '
+  <summary class="wp-admin-lite-blue">' . esc_html__( 'Allowed Weights & Mappings', 'wp-foft-loader' ) . '</summary>' . esc_html__( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '
   <ul class="col-3">
     <li>thin | hairline (<strong>' . esc_html__( 'PRO only', 'wp-foft-loader' ) . '</strong>; ' . esc_html__( 'maps to', 'wp-foft-loader' ) . ' 100)</li>
     <li>extraLight | ultraLight (<strong>' . esc_html__( 'PRO only', 'wp-foft-loader' ) . '</strong>; ' . esc_html__( 'maps to', 'wp-foft-loader' ) . ' 200)</li>
