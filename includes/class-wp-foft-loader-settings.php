@@ -807,7 +807,7 @@ class WP_FOFT_Loader_Settings {
       <dt>-optimized</dt>
       <dd>' . /* translators: see previous note regarding $placeholders */ esc_html__( 'Mandatory suffix. Append to $family.', 'wp-foft-loader' ) . '</dd>
       <dt>' . /* translators: see previous note regarding $placeholders */ esc_html__( '$filetype', 'wp-foft-loader' ) . '</dt>
-      <dd>' . /* translators: don't translate quoted strings */ _wp_kses( _( 'The file type, <abbr>i.e.</abbr>, “woff” or “woff2”.', 'wp-foft-loader' ), $arr ) . '</dd>
+      <dd>' . /* translators: don't translate quoted strings */ wp_kses( __( 'The file type, <abbr>i.e.</abbr>, “woff” or “woff2”.', 'wp-foft-loader' ), $arr ) . '</dd>
     </dl>
     <p>' . /* translators: don't alter the file names (between <code></code> tags) */ wp_kses( __( '<strong>Example</strong>: If you uploaded <code>timesnewroman-regular-webfont.woff</code> and <code>timesnewroman-regular-webfont.woff2</code> as your body font on the previous screen, name the subsetted versions  <code>timesnewroman-optimized.woff</code> and  <code>timesnewroman-optimized.woff2</code> respectively.', 'wp-foft-loader' ), $arr ) . '</p>
   </details>
