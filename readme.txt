@@ -312,7 +312,7 @@ This plugin includes these third-party libraries in its package.
 = 2.1.2 =
 * 2020-09-30
 * SECURITY FIX: escape or sanitize all translatable strings
-* Remove deprecated custom message from AreYouSure.js
+* (PRO only) Remove deprecated custom message from AreYouSure.js
 * Minor copy improvements
 * Other minor fixes
 
@@ -766,6 +766,6 @@ This plugin includes these third-party libraries in its package.
 = 2.1.2 =
 * 2020-09-30
 * SECURITY FIX: escape or sanitize all translatable strings
-* Remove deprecated custom message from AreYouSure.js
+* (PRO only) Remove deprecated custom message from AreYouSure.js
 * Minor copy improvements
 * Other minor fixes

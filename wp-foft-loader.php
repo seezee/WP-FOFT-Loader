@@ -136,6 +136,12 @@ function wpfl_check_version()
             // Show only on settings pages.
             return;
         }
+        $arr = array(
+            'a' => array(
+            'href' => array(),
+            'rel'  => array(),
+        ),
+        );
         
         if ( wpfl_fs()->is__premium_only() && wpfl_fs()->can_use_premium_code() ) {
             // Notice for PRO users.
@@ -147,12 +153,6 @@ function wpfl_check_version()
             echo  $html ;
         } elseif ( wpfl_fs()->is__premium_only() && !wpfl_fs()->can_use_premium_code() ) {
             // Notice for PRO users who have not activated their licenses.
-            $arr = array(
-                'a' => array(
-                'href' => array(),
-                'rel'  => array(),
-            ),
-            );
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
             $html .= '<p>';
             $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
