@@ -238,8 +238,8 @@ class WP_FOFT_Loader {
 			wp_enqueue_script( $this->token . '-fa-main' );
 
 			// We're using a specially optimized and renamed version of
-			// fa-solid.js to load only the necessary Fontawesome glyphs, i.e. 
-			// fa-coffee & fa-font. In the event we ever need to add more 
+			// fa-solid.js to load only the necessary Fontawesome glyphs, i.e.,
+			// fa-font. In the event we ever need to add more 
 			// glyphs, both scripts, i.e., fa-wpfl-solid.js &
 			// fa-wpfl-solid.min.js, will need to be updated.
 			wp_register_script(

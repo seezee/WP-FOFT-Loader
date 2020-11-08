@@ -881,7 +881,7 @@ class WP_FOFT_Loader_Settings {
 		<dd><pre><code>.fonts-stage-1 .nav-primary {
   font-family: latoSubset, sans-serif;
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
   font-variant: initial;
 }
 </code></pre>
@@ -991,8 +991,9 @@ class WP_FOFT_Loader_Settings {
 					'description' => wp_kses( __( 'Place <abbr>CSS</abbr> font declarations for subsetted fonts here.', 'wp-foft-loader' ), $arr ),
 					'type'        => 'textarea',
 					'default'     => null,
-					'placeholder' => esc_html__( 'Example:', 'wp-foft-loader' ) .
-					'.fonts-stage-1 body {
+					'placeholder' => '// ' . esc_html__( 'Example:', 'wp-foft-loader' ) .
+					'
+.fonts-stage-1 body {
   font-family: merriweatherSubset, serif;
 }',
 				),
@@ -1002,8 +1003,9 @@ class WP_FOFT_Loader_Settings {
 					'description' => wp_kses( __( 'Place <abbr>CSS</abbr> font declarations for non-subsetted fonts here.', 'wp-foft-loader' ), $arr ),
 					'type'        => 'textarea_large',
 					'default'     => null,
-					'placeholder' => esc_html__( 'Example:', 'wp-foft-loader' ) .
-					'.fonts-stage-2 body {
+					'placeholder' => '// ' . esc_html__( 'Example:', 'wp-foft-loader' ) .
+					'
+.fonts-stage-2 body {
   font-family: merriweather, "Century Schoolbook L", Georgia, serif;
 }
 .fonts-stage-2 strong {
