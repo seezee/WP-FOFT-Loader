@@ -316,6 +316,7 @@ This plugin includes these third-party libraries in its package.
 = 2.1.4 =
 * 2020-10-08
 * Tested up to 5.5.3
+* Update FREEMIUS SDK to v.2.4.1
 * Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
 * Corrected and improved usage examples
 
@@ -780,5 +781,6 @@ This plugin includes these third-party libraries in its package.
 = 2.1.4 =
 * 2020-10-08
 * Tested up to 5.5.3
+* Update FREEMIUS SDK to v.2.4.1
 * Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
 * Corrected and improved usage examples
