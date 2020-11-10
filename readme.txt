@@ -1,5 +1,5 @@
 === WP FOFT Loader ===  
-Contributors: seezee  , freemius
+Contributors: seezee, freemius
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
