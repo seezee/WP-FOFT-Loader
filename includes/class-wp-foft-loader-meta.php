@@ -35,7 +35,7 @@ class WP_FOFT_Loader_Meta {
 	/**
 	 * Constructor function.
 	 */
-	public function __links() {
+	public function links() {
 
 		// Filter the plugin meta.
 		add_filter( 'plugin_row_meta', array( $this, 'meta_links' ), 10, 2 );
@@ -59,13 +59,17 @@ class WP_FOFT_Loader_Meta {
 			$coffeelink  = 'https://www.buymeacoffee.com/chrisjzahller';
 			$iconstyle   = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
-			return array_merge( $links, array(
-				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="WP FOFT Loader ' . esc_attr_x( 'Support', 'noun', 'wp-foft-loader' ) . '" aria-label="WP FOFT Loader ' . esc_attr_x( 'Support', 'noun', 'wp-foft-loader' ) . '"></span></a>',
-				/* translators: "Chris J. Zähller" is the plugin author. */
-				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . esc_attr__( 'Give a 5-Star Review', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__( 'Give a 5-Star Review', 'wp-foft-loader' ) . '"></span></a>',
-				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . esc_attr__( 'Donate', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__( 'Donate', 'wp-foft-loader' ) . '"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__('Buy the Developer a Coffee', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__('Buy the Developer a Coffee', 'wp-foft-loader' ) . '"></span></a>', ) );
+			return array_merge(
+				$links,
+				array(
+					'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="WP FOFT Loader ' . esc_attr_x( 'Support', 'noun', 'wp-foft-loader' ) . '" aria-label="WP FOFT Loader ' . esc_attr_x( 'Support', 'noun', 'wp-foft-loader' ) . '"></span></a>',
+					/* translators: "Chris J. Zähller" is the plugin author. */
+					'<a href="' . esc_url( $twitterlink ) . '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
+					'<a href="' . esc_url( $reviewlink ) . '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . esc_attr__( 'Give a 5-Star Review', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__( 'Give a 5-Star Review', 'wp-foft-loader' ) . '"></span></a>',
+					'<a href="' . esc_url( $donatelink ) . '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . esc_attr__( 'Donate', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__( 'Donate', 'wp-foft-loader' ) . '"></span></a>',
+					'<a href="' . esc_url( $coffeelink ) . '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__( 'Buy the Developer a Coffee', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__( 'Buy the Developer a Coffee', 'wp-foft-loader' ) . '"></span></a>',
+				)
+			);
 		}
 
 		return $links;
@@ -110,4 +114,4 @@ class WP_FOFT_Loader_Meta {
 }
 
 $meta = new WP_FOFT_Loader_Meta();
-$meta -> __links();
+$meta->links();

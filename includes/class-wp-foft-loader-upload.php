@@ -35,9 +35,9 @@ class WP_FOFT_Loader_Upload {
 	/**
 	 * Constructor function.
 	 */
-	public function __handle_upload() {
+	public function handle_upload() {
 		// Load & unload the custom upload path.
-		add_filter( 'wp_handle_upload_prefilter', array( $this, 'pre_upload' )  );
+		add_filter( 'wp_handle_upload_prefilter', array( $this, 'pre_upload' ) );
 		add_filter( 'wp_handle_upload', array( $this, 'post_upload' ) );
 	}
 
@@ -63,19 +63,23 @@ class WP_FOFT_Loader_Upload {
 
 	/**
 	 * Set upload directory for fonts
+	 *
 	 * @param object $path  The default file path.
-	 * @param string $fonts The strings we're looking for.
-	 * @param string $extension Get the substring.
-	 * @param $customdir The new directory.
+	 * @var string $fonts The strings we're looking for.
+	 * @var string $extension Get the substring.
+	 * @var string $customdir The new directory.
 	 */
-	 public function custom_upload_dir( $path ) {
-		$fonts     = array( 'woff', 'woff2' );
-		$extension = substr( strrchr( $_POST['name'], '.' ), 1 );
-		if ( ! empty( $path['error'] ) || ! in_array( $extension, $fonts ) ) {
+	public function custom_upload_dir( $path ) {
+		$fonts = array( 'woff', 'woff2' );
+		if ( isset( $_POST['name'] ) ) { // phpcs:ignore
+			$extension = substr( strrchr( $_POST['name'], '.' ), 1 ); // phpcs:ignore
+		}
+
+		if ( ! empty( $path['error'] ) || ! in_array( $extension, $fonts, true ) ) {
 			return $path;
-		} //error or other filetype; do nothing.
-		$customdir      = '/fonts'; // relative to uploads directory
-		$path['path']   = str_replace( $path['subdir'], '', $path['path'] ); // remove default subdir (year/month)
+		} // error or other filetype; do nothing.
+		$customdir      = '/fonts'; // relative to uploads directory.
+		$path['path']   = str_replace( $path['subdir'], '', $path['path'] ); // remove default subdir (year/month).
 		$path['url']    = str_replace( $path['subdir'], '', $path['url'] );
 		$path['subdir'] = $customdir;
 		$path['path']  .= $customdir;
@@ -122,4 +126,4 @@ class WP_FOFT_Loader_Upload {
 }
 
 $upload = new WP_FOFT_Loader_Upload();
-$upload -> __handle_upload();
+$upload->handle_upload();

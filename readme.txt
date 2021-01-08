@@ -3,14 +3,11 @@ Contributors: seezee  , freemius
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
-Tags: wordpress, plugin, fonts, webfonts, performance, UX  
+Tags: WordPress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 4.6.0  
-Tested up to: 5.5.3  
+Tested up to: 5.6 
 Requires PHP: 7.0  
-Stable tag: 2.1.4
-= 2.1.3 =
-* 2020-09-30
-* BUGFIX: prior release contained an undefined variable and a typo'd function name, causing a fatal error in the FREE plugin
+Stable tag: 2.1.5
   
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
@@ -36,7 +33,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == Installation ==
 
-### USING THE WORDPRESS DASHBOARD
+### USING THE WordPress DASHBOARD
 1. Navigate to “Add New” in the plugins dashboard
 2. Search for “WP FOFT Loader”
 3. Click “Install Now”
@@ -44,7 +41,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 
-### UPLOADING IN WORDPRESS DASHBOARD
+### UPLOADING IN WordPress DASHBOARD
 1. Click the download button on this and save “wp-foft-loader.zip” to your computer
 2. Navigate to “Add New” in the plugins dashboard
 3. Navigate to the “Upload” area
@@ -292,7 +289,7 @@ I’d love to hear your feedback. In particular, tell me about your experience c
 
 ### I’d like to do more
 
-I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
+I’m looking for collaborators to improve the code. If you are an experienced WordPress programmer, hit me up!
 
 ### I’d like to do even more
 
@@ -313,9 +310,16 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.1.5 =
+* 2021-01-08
+* Tested up to 5.6
+* BUGFIX: Restored missing upload button on plugin main page
+* Reformatted and updated code to meet WordPress coding standards
+
 = 2.1.4 =
 * 2020-10-08
 * Tested up to 5.5.3
+* Update FREEMIUS SDK to v.2.4.1
 * Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
 * Corrected and improved usage examples
 
@@ -642,7 +646,7 @@ This plugin includes these third-party libraries in its package.
 
 = 1.0.27 =
 * 2019-06-27
-* Code formatting now meets Wordpress standards
+* Code formatting now meets WordPress standards
 * Strict type checking on comparisons
 * Use Yoda case where appropriate
 * Convert unnecessary concatenations to single strings
@@ -777,8 +781,8 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.4 =
-* 2020-10-08
-* Tested up to 5.5.3
-* Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
-* Corrected and improved usage examples
+= 2.1.5 =
+* 2021-01-08
+* Tested up to 5.6
+* BUGFIX: Restored missing upload button on plugin main page
+* Reformatted and updated code to meet WordPress coding standards

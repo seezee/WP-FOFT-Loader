@@ -99,7 +99,7 @@ class WP_FOFT_Loader {
 	 * @param string $file File constructor.
 	 */
 	public function __construct( $file = '' ) {
-		$this->token   = 'wp-foft-loader';
+		$this->token = 'wp-foft-loader';
 
 		// Load plugin environment variables.
 		$this->file       = $file;
@@ -126,50 +126,52 @@ class WP_FOFT_Loader {
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );
 
 		if ( ! wpfl_fs()->can_use_premium_code() ) {
-			// Display the admin notification
-			add_action( 'admin_notices', array( $this, 'free_activation' ) ) ;
+			// Display the admin notification.
+			add_action( 'admin_notices', array( $this, 'free_activation' ) );
 		}
 
 	} // End __construct ()
-	
+
 	/**
 	 * Displays an activation notice.
 	 */
 	public function free_activation() {
 
 		if ( ! wpfl_fs()->can_use_premium_code() ) {
-			// $pagenow is a global variable referring to the filename of the 
+			// $pagenow is a global variable referring to the filename of the
 			// current page, such as ‘admin.php’, ‘post-new.php’.
 			global $pagenow;
 
-			if ( ($pagenow != 'options-general.php') || ( ! current_user_can( 'install_plugins' ) ) ) {
+			if ( ( 'options-general.php' !== $pagenow ) || ( ! current_user_can( 'install_plugins' ) ) ) {
 				return;
 			}
 
-			$html = '<div id="activated" class="notice notice-info is-dismissible">';
+			$html      = '<div id="activated" class="notice notice-info is-dismissible">';
 				$html .= '<p>';
-				$url1 = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/';
-				$url2 = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free';
-				$rel = 'noreferrer noopener';
-				$link = sprintf(
+				$url1  = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/';
+				$url2  = '//checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/?trial=free';
+				$rel   = 'noreferrer noopener';
+				$link  = sprintf(
 					wp_kses( /* translators: ignore the placeholders in the URL */
 						__( 'Thank you for installing WP FOFT Loader. For small-caps and additional font weights support, please upgrade to <a href="%1$s" rel="%3$s">WP FOFT Loader PRO</a>. Not sure if you need those features? We have a <a href="%2$s" rel="%3$s">FREE 14-day trial</a>.', 'wp-foft-loader' ),
 						array(
 							'a' => array(
 								'href' => array(),
-								'rel' => array()
-							)
+								'rel'  => array(),
+							),
 						)
 					),
-					esc_url( $url1 ), esc_url( $url2 ), $rel
+					esc_url( $url1 ),
+					esc_url( $url2 ),
+					$rel
 				);
-                $html .= $link;
-			$html .= '</p>';
-			$html .= '</div>';
+				$html .= $link;
+			$html     .= '</p>';
+			$html     .= '</div>';
 
-			echo $html;
+			echo $html; // phpcs:ignore
 		}
-	}// end plugin_activation
+	}//end free_activation()
 
 	/**
 	 * Admin enqueue style.
@@ -196,14 +198,14 @@ class WP_FOFT_Loader {
 	public function admin_enqueue_scripts( $hook = '' ) {
 		global $pagenow;
 
-		if ( ($pagenow != 'options-general.php') || ( ! current_user_can( 'install_plugins' ) ) ) {
+		if ( ( 'options-general.php' !== $pagenow ) || ( ! current_user_can( 'install_plugins' ) ) ) {
 			return;
 		}
 
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'jquery-form' );
 
-		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
+		if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
 			wp_register_script( $this->token . '-ays', $this->assets_url . 'js/jquery.AreYouSure' . $this->script_suffix . '.js', 'jquery', '1.0.18', true );
 			wp_enqueue_script( $this->token . '-ays' );
 
@@ -225,13 +227,13 @@ class WP_FOFT_Loader {
 	 */
 	public function admin_enqueue_fa_scripts( $hook = '' ) {
 		global  $pagenow;
-		if ( ( $pagenow == 'plugins.php' ) || ( $pagenow == 'options-general.php' ) ) {
+		if ( ( 'plugins.php' === $pagenow ) || ( 'options-general.php' === $pagenow ) ) {
 
 			wp_register_script(
 				$this->token . '-fa-main',
 				'//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome' . $this->script_suffix . '.js',
 				array(),
-				'',
+				WPFL_VERSION,
 				true
 			);
 
@@ -239,7 +241,7 @@ class WP_FOFT_Loader {
 
 			// We're using a specially optimized and renamed version of
 			// fa-solid.js to load only the necessary Fontawesome glyphs, i.e.,
-			// fa-font. In the event we ever need to add more 
+			// fa-font. In the event we ever need to add more
 			// glyphs, both scripts, i.e., fa-wpfl-solid.js &
 			// fa-wpfl-solid.min.js, will need to be updated.
 			wp_register_script(
@@ -308,7 +310,7 @@ class WP_FOFT_Loader {
 	 * Ensures only one instance of WP_FOFT_Loader is loaded or can be loaded.
 	 *
 	 * @param string $file File instance.
-	 * @param string WPFL_VERSION Version parameter.
+	 * @var string WPFL_VERSION Version constant.
 	 *
 	 * @return Object WP_FOFT_Loader instance
 	 * @since 1.0.0

@@ -55,8 +55,6 @@ class WP_FOFT_Loader_Head {
 
 	/**
 	 * Constructor function.
-	 *
-	 * @param string $file File constructor.
 	 */
 	public function __construct() {
 		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min'; // Use minified script.
@@ -74,11 +72,11 @@ class WP_FOFT_Loader_Head {
 		// Locate font files.
 		$uploads   = wp_get_upload_dir();
 		$font_path = $uploads['baseurl'] . '/fonts/';
-		if ( $uploads['baseurl'] != NULL && is_ssl() ) {
+		if ( null !== $uploads['baseurl'] && is_ssl() ) {
 			// Rewrite to HTTPS if needed.
 			$font_path = str_replace( 'http://', 'https://', $font_path );
 		};
-		$font_dir  = $uploads['basedir'] . '/fonts/';
+		$font_dir = $uploads['basedir'] . '/fonts/';
 
 		$files = glob( $font_dir . '*.woff', GLOB_BRACE );
 
@@ -87,33 +85,40 @@ class WP_FOFT_Loader_Head {
 		$arr = array(); // Use this with wp_kses. Don't allow any HTML.
 
 		// All options prefixed with WPFL_BASE value; see wp-foft-loader.php constants.
-		if ( get_option( WPFL_BASE . 's1-heading' ) != false ) {
+		if ( get_option( WPFL_BASE . 's1-heading' ) !== false ) {
 			$heading = get_option( WPFL_BASE . 's1-heading' );
-		} else $heading = NULL;
-		if ( get_option( WPFL_BASE . 's1-body' ) != false ) {
+		} else {
+			$heading = null;
+		}
+		if ( get_option( WPFL_BASE . 's1-body' ) !== false ) {
 			$body = get_option( WPFL_BASE . 's1-body' );
-		} else $body = NULL;
-		if ( get_option( WPFL_BASE . 's1-alt' ) != false ) {
+		} else {
+			$body = null;
+		}
+		if ( get_option( WPFL_BASE . 's1-alt' ) !== false ) {
 			$alt = get_option( WPFL_BASE . 's1-alt' );
-		} else $alt = NULL;
-		if ( get_option( WPFL_BASE . 's1-mono' ) != false ) {
+		} else {
+			$alt = null;
+		}
+		if ( get_option( WPFL_BASE . 's1-mono' ) !== false ) {
 			$mono = get_option( WPFL_BASE . 's1-mono' );
-		} else $mono = NULL;
+		} else {
+			$mono = null;
+		}
 
 		$fdisplay = get_option( WPFL_BASE . 'font_display' );
 
-
 		if ( ! is_null( $body ) ) {
-			echo '<link rel="preload" href="' . esc_url( $font_path . $body . '-optimized.woff2') . '" as="font" type="font/woff2" crossorigin>';
+			echo '<link rel="preload" href="' . esc_url( $font_path . $body . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>';
 		};
 		if ( ! is_null( $heading ) ) {
-			echo '<link rel="preload" href="' . esc_url( $font_path . $heading . '-optimized.woff2') . '" as="font" type="font/woff2" crossorigin>';
+			echo '<link rel="preload" href="' . esc_url( $font_path . $heading . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>';
 		};
 		if ( ! is_null( $alt ) ) {
-			echo '<link rel="preload" href="' . esc_url( $font_path . $alt . '-optimized.woff2') . '" as="font" type="font/woff2" crossorigin>';
+			echo '<link rel="preload" href="' . esc_url( $font_path . $alt . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>';
 		};
 		if ( ! is_null( $mono ) ) {
-			echo '<link rel="preload" href="' . esc_url( $font_path . $mono . '-optimized.woff2') . '" as="font" type="font/woff2" crossorigin>';
+			echo '<link rel="preload" href="' . esc_url( $font_path . $mono . '-optimized.woff2' ) . '" as="font" type="font/woff2" crossorigin>';
 		};
 		echo '<style type="text/css">'; // Styles start.
 		if ( ! is_null( $body ) ) { // Body subset @font-face.
@@ -168,7 +173,7 @@ class WP_FOFT_Loader_Head {
 		$fam    = array();
 
 		foreach ( $files as &$file ) {
-			if  (! fnmatch("*optimized*",$file)) {
+			if ( ! fnmatch( '*optimized*', $file ) ) {
 
 				$font                 = basename( $file, '.woff' ); // remove the file type.
 				$font                 = str_replace( $suffix, '', $font ); // remove the -webfont suffix.
@@ -178,7 +183,7 @@ class WP_FOFT_Loader_Head {
 
 				$fontstyle = 'normal';
 
-				if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) { // Auto-removed from the FREE version & executed only if the user in a trial mode or has a valid license.
+				if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) { // Auto-removed from the FREE version & executed only if the user in a trial mode or has a valid license.
 					if ( in_array( $style, [ 'italic', 'Italic', 'thinItalic', 'hairlineItalic', 'lightItalic', 'mediumItalic', 'semiBoldItalic', 'demiBoldItalic', 'boldItalic', 'extraBoldItalic', 'ultraBoldItalic', 'blackItalic', 'blackItalic' ], true ) ) {
 						$fontstyle = 'italic';
 					};
@@ -190,11 +195,11 @@ class WP_FOFT_Loader_Head {
 
 				$fontweight = '400';
 
-				if ( in_array( $style, [ 'bold', 'boldItalic', ], true ) ) {
+				if ( in_array( $style, [ 'bold', 'boldItalic' ], true ) ) {
 					$fontweight = '700';
 				}
 
-				if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
+				if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
 					if ( in_array( $style, [ 'thin', 'hairline', 'thinItalic', 'hairlineItalic' ], true ) ) {
 						$fontweight = '100';
 					} elseif ( in_array( $style, [ 'extraLight', 'ultraLight', 'extraLightItalic', 'extraLightItalic' ], true ) ) {
@@ -213,9 +218,9 @@ class WP_FOFT_Loader_Head {
 
 				};
 
-				echo 'font-weight:' . $fontweight . ';font-style:' . wp_kses( $fontstyle, $arr ) . ';';
+				echo 'font-weight:' . wp_kses( $fontweight, $arr ) . ';font-style:' . wp_kses( $fontstyle, $arr ) . ';';
 
-				if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
+				if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
 					// Small caps.
 					$fam = array( $family );
 					if ( preg_grep( '/.+SC$/D', $fam ) ) { // 1 or more character followed by "SC" at end of string; case-sensitive.
@@ -251,10 +256,10 @@ class WP_FOFT_Loader_Head {
 		$fs_mono = get_option( WPFL_BASE . 'fstack-mono' );
 		$fs_mono = ',' . $fs_mono;
 
-		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
+		if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
 			if ( wpfl_fs()->can_use_premium_code() ) {
-				$body_serif    = get_option ( WPFL_BASE . 'body-serif' );
-				$heading_serif = get_option ( WPFL_BASE . 'heading-serif' );
+				$body_serif    = get_option( WPFL_BASE . 'body-serif' );
+				$heading_serif = get_option( WPFL_BASE . 'heading-serif' );
 			}
 		}
 
@@ -264,20 +269,20 @@ class WP_FOFT_Loader_Head {
 
 		if ( ! is_null( $body ) && ! is_null( $fs_body ) ) {
 			echo '.fonts-stage-1 body{font-family:' . wp_kses( $body, $arr ) . 'Subset,';
-			if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
-					echo wp_kses( $body_serif, $arr);
+			if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
+					echo wp_kses( $body_serif, $arr );
 			} else {
-			echo 'serif';
+				echo 'serif';
 			}
 			echo '}';
 		}
 
 		if ( ! is_null( $heading ) && ! is_null( $fs_heading ) ) {
 			echo '.fonts-stage-1 h1,.fonts-stage-1 h2,.fonts-stage-1 h3,.fonts-stage-1 h4,.fonts-stage-1 h5,.fonts-stage-1 h6{font-family:' . wp_kses( $heading, $arr ) . 'Subset,';
-			if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
-				echo wp_kses( $heading_serif, $arr);
+			if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
+				echo wp_kses( $heading_serif, $arr );
 			} else {
-			echo 'serif';
+				echo 'serif';
 			}
 			echo '}';
 		}
@@ -367,31 +372,31 @@ class WP_FOFT_Loader_Head {
 
 		ob_end_flush(); // End minification.
 
-		$bodyload    = NULL;
-		$headingload = NULL;
-		$altload     = NULL;
-		$monoload    = NULL;
+		$bodyload    = null;
+		$headingload = null;
+		$altload     = null;
+		$monoload    = null;
 
-		if  ( ! is_null( $body ) ) {
-			$bodyload =  '"1em ' . wp_kses( $body, $arr ) . '", ';
+		if ( ! is_null( $body ) ) {
+			$bodyload = '"1em ' . wp_kses( $body, $arr ) . '", ';
 		};
 
-		if  ( ( ! is_null( $heading ) ) &&  ( ! is_null( $body ) && ( $body !== $heading ) ) ) { // Output only if it doesn't duplicate the body font.
-			$headingload =  '"1em ' . wp_kses( $heading, $arr ) . '", ';
+		if ( ( ! is_null( $heading ) ) && ( ! is_null( $body ) && ( $body !== $heading ) ) ) { // Output only if it doesn't duplicate the body font.
+			$headingload = '"1em ' . wp_kses( $heading, $arr ) . '", ';
 		};
 
-		if  ( ( ! is_null( $alt ) ) &&  ( ! is_null( $body ) && ( $body !== $alt ) && ( $heading !== $alt ) ) ) { // Output only if it doesn't duplicate the body or heading fonts.
-			$altload =  '"1em ' . wp_kses( $alt, $arr ) . '", ';
+		if ( ( ! is_null( $alt ) ) && ( ! is_null( $body ) && ( $body !== $alt ) && ( $heading !== $alt ) ) ) { // Output only if it doesn't duplicate the body or heading fonts.
+			$altload = '"1em ' . wp_kses( $alt, $arr ) . '", ';
 		};
 
-		if  ( ( ! is_null( $mono ) ) &&  ( ! is_null( $body ) && ( $body !== $mono ) ) ) { // Output only if it doesn't duplicate the body font.
-			$monoload =  '"1em ' . wp_kses( $mono, $arr ) . '", ';
+		if ( ( ! is_null( $mono ) ) && ( ! is_null( $body ) && ( $body !== $mono ) ) ) { // Output only if it doesn't duplicate the body font.
+			$monoload = '"1em ' . wp_kses( $mono, $arr ) . '", ';
 		};
 
 		$fontsloaded = $bodyload . $headingload . $altload . $monoload;
-		$fontsloaded = rtrim($fontsloaded, ", "); // Trim trailing comma & space.
+		$fontsloaded = rtrim( $fontsloaded, ', ' ); // Trim trailing comma & space.
 
-		if ( ( !is_null ( $bodyload ) ) || ( !is_null ( $headingload ) ) || ( !is_null ( $altload ) ) || ( !is_null ( $monoload ) ) ) {
+		if ( ( ! is_null( $bodyload ) ) || ( ! is_null( $headingload ) ) || ( ! is_null( $altload ) ) || ( ! is_null( $monoload ) ) ) {
 
 			echo '<script>
 (function() {
@@ -401,16 +406,16 @@ class WP_FOFT_Loader_Head {
 		document.documentElement.className += " fonts-stage-2";
 		return;
 	} else if ( "fonts" in document ) {
-		document.fonts.load(' . $fontsloaded . ').then(function () {
+		document.fonts.load(' . wp_kses( $fontsloaded, $arr ) . ').then(function () {
 			document.documentElement.className += " fonts-stage-1";
 
 			Promise.all([';
-			$promise1 = NULL;
-			$promise2 = NULL;
-			$promise3 = NULL;
-			$promise4 = NULL;
-			$promises = NULL;
-			if  ( ! is_null( $body ) ) {
+			$promise1 = null;
+			$promise2 = null;
+			$promise3 = null;
+			$promise4 = null;
+			$promises = null;
+			if ( ! is_null( $body ) ) {
 				$promise1 .= '
 				document.fonts.load("400 1em ' . wp_kses( $body, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $body, $arr ) . '"),
@@ -418,7 +423,7 @@ class WP_FOFT_Loader_Head {
 				document.fonts.load("italic 700 1em ' . wp_kses( $body, $arr ) . '"),';
 			};
 
-			if  ( ( ! is_null( $heading ) ) &&  ( ! is_null( $body ) && ( $body !== $heading ) ) ) { // Output only if it doesn't duplicate the body font.
+			if ( ( ! is_null( $heading ) ) && ( ! is_null( $body ) && ( $body !== $heading ) ) ) { // Output only if it doesn't duplicate the body font.
 				$promise2 .= '
 				document.fonts.load("400 1em ' . wp_kses( $heading, $arr ) . '"),
 				document.fonts.load("700 1em ' . wp_kses( $heading, $arr ) . '"),
@@ -426,7 +431,7 @@ class WP_FOFT_Loader_Head {
 				document.fonts.load("italic 700 1em ' . wp_kses( $heading, $arr ) . '"),';
 			};
 
-			if  ( ( ! is_null( $alt ) ) &&  ( ! is_null( $body ) && ( $alt !== $heading ) ) ) { // Output only if it doesn't duplicate the body font.
+			if ( ( ! is_null( $alt ) ) && ( ! is_null( $body ) && ( $alt !== $heading ) ) ) { // Output only if it doesn't duplicate the body font.
 				$promise3 .= '
 				document.fonts.load("400 1em ' .
 				wp_kses( $alt, $arr ) . '"),
@@ -438,27 +443,27 @@ class WP_FOFT_Loader_Head {
 				wp_kses( $alt, $arr ) . '"),';
 			};
 
-			if  ( ( ! is_null( $mono ) ) &&  ( ! is_null( $body ) && ( $body !== $mono ) ) ) { // Output only if it doesn't duplicate the body font.
+			if ( ( ! is_null( $mono ) ) && ( ! is_null( $body ) && ( $body !== $mono ) ) ) { // Output only if it doesn't duplicate the body font.
 				$promise4 .= '
-				document.fonts.load("400 1em '. wp_kses( $mono, $arr ) . '"),
-				document.fonts.load("700 1em '. wp_kses( $mono, $arr ) . '"),
-				document.fonts.load("italic 1em '. wp_kses( $mono, $arr ) . '"),
-				document.fonts.load("italic 700 1em '. wp_kses( $mono, $arr ) . '"),';
+				document.fonts.load("400 1em ' . wp_kses( $mono, $arr ) . '"),
+				document.fonts.load("700 1em ' . wp_kses( $mono, $arr ) . '"),
+				document.fonts.load("italic 1em ' . wp_kses( $mono, $arr ) . '"),
+				document.fonts.load("italic 700 1em ' . wp_kses( $mono, $arr ) . '"),';
 			};
-			if ( !is_null ($promise1) ) {
-				$promises  = $promise1;
+			if ( ! is_null( $promise1 ) ) {
+				$promises = $promise1;
 			};
-			if ( !is_null ($promise2) ) {
+			if ( ! is_null( $promise2 ) ) {
 				$promises .= $promise2;
 			}
-			if ( !is_null ($promise3) ) {
+			if ( ! is_null( $promise3 ) ) {
 				$promises .= $promise3;
 			}
-			if ( !is_null ($promise4) ) {
+			if ( ! is_null( $promise4 ) ) {
 				$promises .= $promise4;
 			}
 
-			echo rtrim($promises, ","); // Trim trailing comma.
+			echo wp_kses( rtrim( $promises, ',' ), $arr ); // Trim trailing comma.
 
 			echo '
 			]).then(function () {
@@ -472,7 +477,7 @@ class WP_FOFT_Loader_Head {
 		// use fallback
 		var ref = document.getElementsByTagName( "script" )[ 0 ];
 		var script = document.createElement( "script" );
-		script.src = "' . $plugin_url . 'assets/js/fallback' . $this->script_suffix . '.js?' . WPFL_VERSION . '";
+		script.src = "' . wp_kses( $plugin_url, $arr ) . 'assets/js/fallback' . wp_kses( $this->script_suffix, $arr ) . '.js?' . wp_kses( WPFL_VERSION, $arr ) . '";
 		script.async = true;
 		ref.parentNode.insertBefore( script, ref );
 

@@ -46,118 +46,118 @@ class WP_FOFT_Loader_JS_Vars {
 		$alt_sc     = false;
 		$mono_sc    = false;
 
-		$bobserver   = NULL;
-		$hobserver   = NULL;
-		$aobserver   = NULL;
-		$mobserver   = NULL;
+		$bobserver = null;
+		$hobserver = null;
+		$aobserver = null;
+		$mobserver = null;
 
-		$bodyload    = NULL;
-		$headingload = NULL;
-		$altload     = NULL;
-		$monoload    = NULL;
+		$bodyload    = null;
+		$headingload = null;
+		$altload     = null;
+		$monoload    = null;
 
-		if ( ( wpfl_fs()->is__premium_only() ) &&  ( wpfl_fs()->can_use_premium_code() )) {
-			if ( ( preg_match_all( '/(\w*)(SC)$/', $body ) ) &&( wpfl_fs()->is__premium_only() ) ) {
+		if ( ( wpfl_fs()->is__premium_only() ) && ( wpfl_fs()->can_use_premium_code() ) ) {
+			if ( ( preg_match_all( '/(\w*)(SC)$/', $body ) ) && ( wpfl_fs()->is__premium_only() ) ) {
 				$body_sc = true;
 			}
-			if ( ( preg_match_all( '/(\w*)(SC)$/', $heading ) ) &&( wpfl_fs()->is__premium_only() ) ) {
+			if ( ( preg_match_all( '/(\w*)(SC)$/', $heading ) ) && ( wpfl_fs()->is__premium_only() ) ) {
 				$heading_sc = true;
 			}
-			if ( ( preg_match_all( '/(\w*)(SC)$/', $alt ) ) &&( wpfl_fs()->is__premium_only() ) ) {
+			if ( ( preg_match_all( '/(\w*)(SC)$/', $alt ) ) && ( wpfl_fs()->is__premium_only() ) ) {
 				$alt_sc = true;
 			}
-			if ( ( preg_match_all( '/(\w*)(SC)$/', $mono ) ) &&( wpfl_fs()->is__premium_only() ) ) {
+			if ( ( preg_match_all( '/(\w*)(SC)$/', $mono ) ) && ( wpfl_fs()->is__premium_only() ) ) {
 				$mono_sc = true;
 			}
 		}
 
-		if ( ( isset( $body ) ) && ( !empty ( $body ) ) ) {
+		if ( ( isset( $body ) ) && ( ! empty( $body ) ) ) {
 			$bobserver = 'var fontA = new FontFaceObserver(' . $body;
-			if ( $body_sc === true ) {
+			if ( true === $body_sc ) {
 				$bobserver .= ', {font-variant: \'small-caps\'}';
 			}
-			$bobserver .= ');var fontB = new FontFaceObserver(' . $body. ', {weight: 700';
-			if ( $body_sc === true ) {
+			$bobserver .= ');var fontB = new FontFaceObserver(' . $body . ', {weight: 700';
+			if ( true === $body_sc ) {
 				$bobserver .= ', font-variant: \'small-caps\'';
 			}
-			$bobserver .= '});var fontC = new FontFaceObserver(' . $body. ', {style: \'italic\'';
-			if ( $body_sc === true ) {
+			$bobserver .= '});var fontC = new FontFaceObserver(' . $body . ', {style: \'italic\'';
+			if ( true === $body_sc ) {
 				$bobserver .= ', font-variant: \'small-caps\'';
 			}
-			$bobserver .= '});var fontD = new FontFaceObserver(' . $body. ', {weight: 700,style: \'italic\'';
-			if ( $body_sc === true ) {
+			$bobserver .= '});var fontD = new FontFaceObserver(' . $body . ', {weight: 700,style: \'italic\'';
+			if ( true === $body_sc ) {
 				$bobserver .= ', font-variant: \'small-caps\'';
 			}
 			$bobserver .= '});';
-			$bodyload = 'fontA.load(),fontB.load(),fontC.load(),fontD.load(),';
+			$bodyload   = 'fontA.load(),fontB.load(),fontC.load(),fontD.load(),';
 		}
 
-		if ( ( isset( $heading ) ) && ( !empty ( $heading ) ) ) {
+		if ( ( isset( $heading ) ) && ( ! empty( $heading ) ) ) {
 			$hobserver = 'var fontE = new FontFaceObserver(' . $heading;
-			if ( $heading_sc === true ) {
+			if ( true === $heading_sc ) {
 				$hobserver .= ', {font-variant: \'small-caps\'}';
 			}
-			$hobserver .= ');var fontF = new FontFaceObserver(' . $heading. ', {weight: 700';
-			if ( $heading_sc === true ) {
+			$hobserver .= ');var fontF = new FontFaceObserver(' . $heading . ', {weight: 700';
+			if ( true === $heading_sc ) {
 				$hobserver .= ', font-variant: \'small-caps\'';
 			}
-			$hobserver .= '});var fontG = new FontFaceObserver(' . $heading. ', {style: \'italic\'';
-			if ( $heading_sc === true ) {
+			$hobserver .= '});var fontG = new FontFaceObserver(' . $heading . ', {style: \'italic\'';
+			if ( true === $heading_sc ) {
 				$hobserver .= ', font-variant: \'small-caps\'';
 			}
-			$hobserver .= '});var fontH = new FontFaceObserver(' . $heading. ', {weight: 700,style: \'italic\'';
-			if ( $heading_sc === true ) {
+			$hobserver .= '});var fontH = new FontFaceObserver(' . $heading . ', {weight: 700,style: \'italic\'';
+			if ( true === $heading_sc ) {
 				$hobserver .= ', font-variant: \'small-caps\'';
 			}
-			$hobserver .= '});';
+			$hobserver  .= '});';
 			$headingload = 'fontE.load(),fontF.load(),fontG.load(),fontH.load(),';
 		}
 
-		if ( ( isset( $alt ) ) && ( !empty ( $alt ) ) ) {
+		if ( ( isset( $alt ) ) && ( ! empty( $alt ) ) ) {
 			$aobserver = 'var fontI = new FontFaceObserver(' . $alt;
-			if ( $alt_sc === true ) {
+			if ( true === $alt_sc ) {
 				$aobserver .= ', {font-variant: \'small-caps\'}';
 			}
-			$aobserver .= ');var fontJ = new FontFaceObserver(' . $alt. ', {weight: 700';
-			if ( $alt_sc === true ) {
+			$aobserver .= ');var fontJ = new FontFaceObserver(' . $alt . ', {weight: 700';
+			if ( true === $alt_sc ) {
 				$aobserver .= ', font-variant: \'small-caps\'';
 			}
-			$aobserver .= '});var fontK = new FontFaceObserver(' . $alt. ', {style: \'italic\'';
-			if ( $alt_sc === true ) {
+			$aobserver .= '});var fontK = new FontFaceObserver(' . $alt . ', {style: \'italic\'';
+			if ( true === $alt_sc ) {
 				$aobserver .= ', font-variant: \'small-caps\'';
 			}
-			$aobserver .= '});var fontL = new FontFaceObserver(' . $alt. ', {weight: 700,style: \'italic\'';
-			if ( $alt_sc === true ) {
+			$aobserver .= '});var fontL = new FontFaceObserver(' . $alt . ', {weight: 700,style: \'italic\'';
+			if ( true === $alt_sc ) {
 				$aobserver .= ', font-variant: \'small-caps\'';
 			}
 			$aobserver .= '});';
-			$altload = 'fontI.load(),fontJ.load(),fontK.load(),fontL.load(),';
+			$altload    = 'fontI.load(),fontJ.load(),fontK.load(),fontL.load(),';
 		}
 
-		if ( ( isset( $mono ) ) && ( !empty ( $mono ) ) ) {
+		if ( ( isset( $mono ) ) && ( ! empty( $mono ) ) ) {
 			$mobserver = 'var fontM = new FontFaceObserver(' . $mono;
-			if ( $mono_sc === true ) {
+			if ( true === $mono_sc ) {
 				$mobserver .= ', {font-variant: \'small-caps\'}';
 			}
-			$mobserver .= ');var fontN = new FontFaceObserver(' . $mono. ', {weight: 700';
-			if ( $mono_sc === true ) {
+			$mobserver .= ');var fontN = new FontFaceObserver(' . $mono . ', {weight: 700';
+			if ( true === $mono_sc ) {
 				$mobserver .= ', font-variant: \'small-caps\'';
 			}
-			$mobserver .= '});var fontO = new FontFaceObserver(' . $mono. ', {style: \'italic\'';
-			if ( $mono_sc === true ) {
+			$mobserver .= '});var fontO = new FontFaceObserver(' . $mono . ', {style: \'italic\'';
+			if ( true === $mono_sc ) {
 				$mobserver .= ', font-variant: \'small-caps\'';
 			}
-			$mobserver .= '});var fontP = new FontFaceObserver(' . $mono. ', {weight: 700,style: \'italic\'';
-			if ( $mono_sc === true ) {
+			$mobserver .= '});var fontP = new FontFaceObserver(' . $mono . ', {weight: 700,style: \'italic\'';
+			if ( true === $mono_sc ) {
 				$mobserver .= ', font-variant: \'small-caps\'';
 			}
 			$mobserver .= '});';
-			$monoload = 'fontM.load(),fontN.load(),fontO.load(),fontP.load(),';
+			$monoload   = 'fontM.load(),fontN.load(),fontO.load(),fontP.load(),';
 		}
 
 		$observers = $bobserver . $hobserver . $aobserver . $mobserver;
 		$loaded    = $bodyload . $headingload . $altload . $monoload;
-		$loaded    = rtrim($loaded, ", "); // Trim trailing comma & space.
+		$loaded    = rtrim( $loaded, ', ' ); // Trim trailing comma & space.
 
 		$output = $observers . 'Promise.all([' . $loaded . '])';
 

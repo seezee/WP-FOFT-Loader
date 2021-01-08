@@ -26,7 +26,7 @@ class WP_FOFT_Loader_Mimes {
 	/**
 	 * Constructor function.
 	 */
-	public function __allow_woff() {
+	public function allow_woff() {
 
 		add_filter( 'wp_check_filetype_and_ext', array( $this, 'file_and_ext' ), 10, 4 );
 
@@ -104,4 +104,4 @@ class WP_FOFT_Loader_Mimes {
 }
 
 $mimes = new WP_FOFT_Loader_Mimes();
-$mimes -> __allow_woff();
+$mimes->allow_woff();

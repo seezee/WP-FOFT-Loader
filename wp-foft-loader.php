@@ -2,10 +2,10 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.1.4
+ * Version: 2.1.5
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
- * GitHub Plugin URI: seezee/WP-FOFT-Loader  
+ * GitHub Plugin URI: seezee/WP-FOFT-Loader
  * Description: Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
@@ -26,7 +26,9 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 if ( !function_exists( 'wpfl_fs' ) ) {
-    // Create a helper function for easy SDK access.
+    /**
+     * Create a helper function for easy SDK access.
+     *  */
     function wpfl_fs()
     {
         global  $wpfl_fs ;
@@ -77,20 +79,20 @@ if ( !defined( 'WPFL_BASE' ) ) {
     define( 'WPFL_BASE', 'wpfl_' );
 } else {
     /* translators: don't translate “WPFL_BASE”. */
-    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . wp_kskes( __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_BASE”; has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ), $arr ) . '</div>' ;
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . wp_kses( __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_BASE”; has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ), $arr ) . '</div>' ;
 }
 
 
 if ( !defined( 'WPFL_VERSION' ) ) {
-    define( 'WPFL_VERSION', '2.1.4' );
+    define( 'WPFL_VERSION', '2.1.5' );
 } else {
     /* translators: don't translate “WPFL_VERSION”. */
-    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . wp_kskes( __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ), $arr ) . '</div>' ;
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . wp_kses( __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ), $arr ) . '</div>' ;
 }
 
 // Load plugin class files.
 require_once 'includes/class-wp-foft-loader.php';
-require_once 'includes/class-wp-foft-loader-jsvars.php';
+require_once 'includes/class-wp-foft-loader-js-vars.php';
 // Must run before next file.
 require_once 'includes/class-wp-foft-loader-head.php';
 require_once 'includes/class-wp-foft-loader-meta.php';
@@ -127,12 +129,12 @@ wp_foft_loader();
 function wpfl_check_version()
 {
     
-    if ( WPFL_VERSION !== get_option( WPFL_BASE . 'version' ) || get_option( WPFL_BASE . 'version' ) == FALSE ) {
+    if ( WPFL_VERSION !== get_option( WPFL_BASE . 'version' ) || get_option( WPFL_BASE . 'version' ) === false ) {
         // Runs if version mismatch or doesn't exist.
         // $pagenow is a global variable referring to the filename of the
         // current page, such as ‘admin.php’, ‘post-new.php’.
         global  $pagenow ;
-        if ( $pagenow != 'options-general.php' || !current_user_can( 'install_plugins' ) ) {
+        if ( 'options-general.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
             // Show only on settings pages.
             return;
         }
@@ -151,6 +153,7 @@ function wpfl_check_version()
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;
+            // phpcs:ignore
         } elseif ( wpfl_fs()->is__premium_only() && !wpfl_fs()->can_use_premium_code() ) {
             // Notice for PRO users who have not activated their licenses.
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
@@ -167,6 +170,7 @@ function wpfl_check_version()
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;
+            // phpcs:ignore
         } else {
             // Notice for FREE users.
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
@@ -189,6 +193,7 @@ function wpfl_check_version()
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;
+            //phpcs:ignore
         }
         
         update_option( WPFL_BASE . 'version', WPFL_VERSION );
@@ -197,17 +202,20 @@ function wpfl_check_version()
 }
 
 add_action( 'plugins_loaded', 'wpfl_check_version' );
+/**
+ * Delete optioons on uninstall.
+ */
 function wpfl_fs_uninstall_cleanup()
 {
     
-    if ( get_option( WPFL_BASE . 'uninstall' ) !== NULL ) {
+    if ( get_option( WPFL_BASE . 'uninstall' ) !== null ) {
         $uninstall = get_option( WPFL_BASE . 'uninstall' );
     } else {
-        $uninstall = NULL;
+        $uninstall = null;
     }
     
     
-    if ( $uninstall !== NULL && $uninstall !== 'delete' ) {
+    if ( null !== $uninstall && 'delete' !== $uninstall ) {
         return;
     } else {
         foreach ( wp_load_alloptions() as $option => $value ) {

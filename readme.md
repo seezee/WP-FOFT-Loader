@@ -3,11 +3,11 @@ Contributors: seezee
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
-Tags: wordpress, plugin, fonts, webfonts, performance, UX  
+Tags: WordPress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 4.6.0  
-Tested up to: 5.5.3  
+Tested up to: 5.6  
 Requires PHP: 7.0  
-Stable tag: 2.1.4  
+Stable tag: 2.1.5  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -33,14 +33,16 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == Installation ==
 
-### USING THE WORDPRESS DASHBOARD
+### USING THE WordPress DASHBOARD
+
 1. Navigate to “Add New” in the plugins dashboard
 2. Search for “WP FOFT Loader”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
-### UPLOADING IN WORDPRESS DASHBOARD
+### UPLOADING IN WordPress DASHBOARD
+
 1. Click the download button on this and save “wp-foft-loader.zip” to your computer
 2. Navigate to “Add New” in the plugins dashboard
 3. Navigate to the “Upload” area
@@ -50,6 +52,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 7. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### USING FTP
+
 1. Download the WP FOFT Loader ZIP file
 2. Extract the WP FOFT Loader ZIP file to your computer
 3. Upload the “wp-foft-loader” directory to the `/wp-content/plugins/` directory
@@ -57,11 +60,13 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
 
 ### UPGRADING TO WP FOFT LOADER PRO
+
 1. Go to Settings -> WP FOFT Loader -> Upgrade
 2. Fill out the payment form and submit
 3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
+
 1. Download the plugin via [https://github.com/seezee/WP-FOFT-Loader](https://github.com/seezee/WP-FOFT-Loader)
 2. Follow the directions for using FTP
 
@@ -104,7 +109,7 @@ Allowed weights and styles and their CSS mappings are:
 
 regular | normal (maps to 400)  
 bold (maps to 700)  
-italic (maps to 400)   
+italic (maps to 400)
 boldItalic (maps to 700)
 
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
@@ -278,7 +283,7 @@ I’d love to hear your feedback. In particular, tell me about your experience c
 
 ### I’d like to do more
 
-I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
+I’m looking for collaborators to improve the code. If you are an experienced WordPress programmer, hit me up!
 
 ### I’d like to do even more
 
@@ -299,17 +304,28 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.1.5 =
+
+* 2021-01-08
+* Tested up to 5.6
+* BUGFIX: Restored missing upload button on plugin main page
+* Reformatted and updated code to meet WordPress coding standards
+
 = 2.1.4 =
+
 * 2020-10-08
 * Tested up to 5.5.3
+* Update FREEMIUS SDK to v.2.4.1
 * Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
 * Corrected and improved usage examples
 
 = 2.1.3 =
+
 * 2020-09-30
 * BUGFIX: prior release contained an undefined variable and a typo'd function name, causing a fatal error in the FREE plugin
 
 = 2.1.2 =
+
 * 2020-09-30
 * SECURITY FIX: escape or sanitize all translatable strings
 * (PRO only) Remove deprecated custom message from AreYouSure.js
@@ -317,61 +333,74 @@ This plugin includes these third-party libraries in its package.
 * Other minor fixes
 
 = 2.1.1 =
+
 * 2020-09-27
 * BUGFIX: (FREE version only) Fix missing variables in class-wp-foft-loader-settings.php
 
 = 2.1.0 =
+
 * 2020-09-27
 * BUGFIX: Restore ajax for form submissions
 * BUGFIX: Restore missing form reset button
 * Refactor i18n
 
 = 2.0.37 =
+
 * 2020-09-02
 * BUGFIX: Fix missing offset in class-wp-foft-loader-settings.php
 * Remove unused JS files from FREE version
 * Tested up to v5.5.1
 
 = 2.0.36 =
+
 * 2020-06-17
 * BUGFIX: Fix missing Fontawesome glyphs on admin settings page
 
 = 2.0.35 =
+
 * 2020-06-16
 * Tested up to 5.4.2
 
 = 2.0.34 =
+
 * 2020-04-30
 * Tested up to 5.4.1
 
 = 2.0.33 =
+
 * 2020-04-21
 * Update Fontawesome library
 * Correct typo in LICENSE
 
 = 2.0.32 =
+
 * 2020-04-01
 * Tested up to WordPress 5.4
 * Remove surrounding underscores in plugin constants per WordPress coding standards
 
 = 2.0.31 =
+
 * 2020-01-01
 * BUGFIX: change assigment operators to comparisons in class-wp-foft-loader.php & class-wp-foft-loader-ratings.php
 
 = 2.0.30 =
+
 * 2019-12-20
 * Add option to keep database options on uninstall in case of upgrading to PRO version
 
 = 2.0.29 =
+
 * 2019-12-18
 * MINOR BUGFIX: Fix missing coffee cup icon in plugin meta
 
 = 2.0.28 =
+
 * 2019-12-09
 * BUGFIX: Fix CORS policy error
 * Add translation strings for plugin meta
 
 = 2.0.27 =
+
 * 2019-12-08
 * BUGFIX: Fix reset form not displaying
 * BUGFIX: Check for NULL tab before displaying reset form
@@ -380,6 +409,7 @@ This plugin includes these third-party libraries in its package.
 * Refactor Freemius checks: concatenate instead of nesting, use if … else instead of additional if statement
 
 = 2.0.26 =
+
 * 2019-12-06
 * BUGFIX: Fix AJAX not firing on save
 * Fixed missing space in success & error admin messages on save
@@ -387,41 +417,50 @@ This plugin includes these third-party libraries in its package.
 * Load main Font Awesome script from CDN
 
 = 2.0.25 =
+
 * 2019-12-03
 * Improvements to configuration instructions on upload & subset screens
 
 = 2.0.24 =
+
 * 2019-12-03
 * Include unminified scripts in assets to aid debugging
 
 = 2.0.23 =
+
 * 2019-12-02
 * BUGFIX: fix broken path for fallback.min.js
 
 = 2.0.22 =
+
 * 2019-12-02
 * BUGFIX: fix improper Freemius filter in wp-foft-loader.php
 * BUGFIX: fix path error that prevents one of the optimized fonts from loading
 * Add font-display property to subsetted font declaration
 
 = 2.0.21 =
+
 * 2019-11-29
 * BUGFIX: Fix update success notice showing if not updated
 
 = 2.0.20 =
+
 * 2019-11-29
 * Fixed missing spaces to upgrade success notice v2.0.17 – v2.0.19
 
 = 2.0.19 =
+
 * 2019-11-29
 * BUGFIX: moved wpfl_activation() below wpfl_check_version() so they fire in correct order
 * Added get_option() check for FALSE in wpfl_check_version()
 
 = 2.0.18 =
+
 * 2019-11-29
 * BUGFIX: corrected version check error
 
 = 2.0.17 =
+
 * 2019-11-29
 * Add aria-label to meta links
 * Improved URL sanitization with esc_url()
@@ -430,21 +469,25 @@ This plugin includes these third-party libraries in its package.
 * Tweaks to ratings microcopy
 
 = 2.0.16 =
+
 * 2019-11-29
 * Change settings page slug to wp-foft-loader
 * Add class-wp-foft-loader-ratings.php
 * Additional capability & pagenow() checks
 
 = 2.0.15 =
+
 * 2019-11-25
 * BUGFIX: proper check for whether options are set in class-wp-foft-loader-jsvars.php
 * BUGFIX: prevent loading of inline Font Face Observer JS until user uploads at least one font & sets at least one option on main screen
 
 = 2.0.14 =
+
 * 2019-11-25
 * BUGFIX: fix undefined variable $promises in class-wp-foft-loader-head.php
 
 = 2.0.13 =
+
 * 2019-11-25
 * BUGFIX: change default options from empty to NULL to avoid missing font in Javascript font preload
 * Minor admin CSS changes
@@ -452,23 +495,28 @@ This plugin includes these third-party libraries in its package.
 * POT file updated
 
 = 2.0.12 =
+
 * 2019-11-25
 * Fix missing fontawesome glyphs in plugins settings page main heading
 
 = 2.0.11 =
+
 * 2019-11-24
 * BUGFIX: Fix mixed content error in file upload path
 
 = 2.0.10 =
+
 * 2019-11-24
 * BUGFIX: use array_pad() to finally fix undefined offset in class-wp-foft-loader-settings.php
 
 = 2.0.9 =
+
 * 2019-11-24
 * BUGFIX: fix more undefined offsets
 * BUGFIX: change "$" to "jQuery" in "ays-beforeunload-shim.min.js"
 
 = 2.0.8 =
+
 * 2019-11-23
 * Sanitize variables jsObs & jsLoad with wp_json_encode()
 * BUGFIX: replace all instances of undefined variable $version with constant WPFL_VERSION
@@ -476,20 +524,24 @@ This plugin includes these third-party libraries in its package.
 * BUGFIX: fix constant referring to wrong directory path
 
 = 2.0.7 =
+
 * 2019-11-22
 * BUGFIXES: Check for existence of variables and arrays & fix undefined offsets
 
 = 2.0.6 =
+
 * 2019-11-19
 * Move HTMLPurifier & CSSTidy to vendor directory
 * Fix "Buy the Developer a Coffee" link in plugin meta
 * Add author & plugin URIs to readme
 
 = 2.0.5 =
+
 * 2019-11-15
 * Tested up to WordPress 5.3
 
 = 2.0.4 =
+
 * 2019-11-12
 * BUGFIX: fixed improper Freemius "if" statements
 * BUGFIX: plugin no longer fails to uninstall
@@ -500,6 +552,7 @@ This plugin includes these third-party libraries in its package.
 * New PRO feature: ability to restore plugin defaults
 
 = 2.0.3 =
+
 * 2019-11-07
 * Improved support for small-caps in PRO version
 * Warn on change without saving PRO version only
@@ -510,6 +563,7 @@ This plugin includes these third-party libraries in its package.
 * Add version check in wp_options table
 
 = 2.0.2 =
+
 * 2019-11-05
 * Moved support for extended font weights and small-caps to PRO plugin
 * Integrated FREEMIUS code for PRO plugin
@@ -524,121 +578,146 @@ This plugin includes these third-party libraries in its package.
 * Removed out-of-date translation files
 
 = 2.0.1 =
+
 * 2019-10-30
 * **IMPORTANT** Versions >= 2.0.0 and up introduce breaking changes from versions <= 1.0.47
 * Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
 * Fixed error in class-wp-foft-loader-jsvars
 
 = 2.0.0 =
+
 * 2019-10-30
 * **IMPORTANT** This is a major update with breaking changes
 * Users upgrading from v1.x.x will need to visit the “Subset” screen and configure subsetted fonts
 * Move from “Critical FOFT with Data URI” to “Critical FOFT with preload, with a polyfill fallback emulating font-display”
 
 = 1.0.47 =
+
 * 2019-10-16
 * Tested up to WordPress 1.0.46
 
 = 1.0.46 =
+
 * 2019-09-26
 * Fix undefined offset `0`
 * Fix undefined index `placeholder`
 
 = 1.0.45 =
+
 * 2019-09-26
 * Remove undefined variable $parent from class mimes
 * Add variable $plugin to class meta
 
 = 1.0.44 =
+
 * 2019-09-25
 * Add links to plugin meta
 
 = 1.0.43 =
+
 * 2019-09-25
 * Update plugin description in main file
 
 = 1.0.42 =
+
 * 2019-09-25
 * Add `samp` tag to default CSS
 
 = 1.0.41 =
+
 * 2019-09-25
 * Add `kbd` tag to default CSS
 
 = 1.0.40 =
+
 * 2019-09-12
 * Remove unused dev code from HTMLPurifier & CSSTidy
 
 = 1.0.39 =
+
 * 2019-09-08
 * Security update: Fix XSS double-quoted attribute flaw in class-wp-foft-loader-settings.php
 
 = 1.0.38 =
+
 * 2019-09-05
 * Remove admin script enqueuing since we’re not using it and it throws a 404
 
 = 1.0.37 =
+
 * 2012-08-19
 * Added package.json
 * Minor updates to readme.txt & readme.md
 
 = 1.0.36 =
+
 * 2019-08.13
 * Fixed uploader bug. WOFF & WOFF2 files now permitted & upload to correct folder
 
 = 1.0.35 =
+
 * 2019-07-31
 * Update CSSTidy library to v1.7.0
 
 = 1.0.34 =
+
 * 2019-07-29
 * Modifed HTMLTidy config in class-wp-foft-loader-head.php
 
 = 1.0.33 =
+
 * 2019-07-07
 * Updated .pot file
 * Replaced incorrect Dutch .po & .mo
 
 = 1.0.32 =
+
 * 2019-07-05
 * BUGFIX in class-wp-foft-loader-settings.php
 * Better installation instructions
 
 = 1.0.31 =
+
 * 2019-07-04
 * More sanitization
 * Pass PHPCS/WPCS checks
 * Remove unused metabox code
 
 = 1.0.30 =
+
 * 2019-06-27
 * Fixed incorrect Dutch .po filenames
 
 = 1.0.29 =
+
 * 2019-06-28
 * More sanitizing
 * Changes to README content
 * Corrected some errors in Dutch translation
 
 = 1.0.28 =
+
 * 2019-06-27
 * Create correct icon sizes for WP Plugin Repository
 * Fix readme.txt formatting
 * Changes to README content
 
 = 1.0.27 =
+
 * 2019-06-27
-* Code formatting now meets Wordpress standards
+* Code formatting now meets WordPress standards
 * Strict type checking on comparisons
 * Use Yoda case where appropriate
 * Convert unnecessary concatenations to single strings
 * Added Dutch translation
 
 = 1.0.26 =
+
 * 2019-06-25
 * Minor bugfix (fixed typo in code)
 
 = 1.0.25 =
+
 * 2019-06-21
 * Additional NULL value checks before outputting styles
 * Other code improvements
@@ -646,6 +725,7 @@ This plugin includes these third-party libraries in its package.
 * Added first two video tutorials (more to come)
 
 = 1.0.24 =
+
 * 2019-06-19
 * BUGFIXes: fixed typos in output CSS
 * Separated Stage 1 and Stage 2 CSS in CSS screen
@@ -654,29 +734,35 @@ This plugin includes these third-party libraries in its package.
 * Removed internationalization where it’s not needed
 
 = 1.0.23 =
+
 * 2019-06-18
 * Use HTMLPurifier & CSSTidy to sanitize user input custom CSS
 
 = 1.0.22 =
+
 * 2019-06-17
 * Improve introductory microcopy on Settings page
 * BUGFIX: fixed incorrect textdomain
 
 = 1.0.21 =
+
 * 2019-06-17
 * Update custom CSS output in /includes/class-wp-foft-loader-head.php (convert `&lt;` back to `>` child selector after sanitizing)
 * Update default CSS output in /includes/class-wp-foft-loader-head.php (don’t escape `>`)
 
 = 1.0.20 =
+
 * 2019-06-16
 * Add font-display option to CSS Settings screen
 * Update .pot, .po, & .mo language files
 
 = 1.0.19 =
+
 * 2019-06-16
 * Improve file-naming convention documentation
 
 = 1.0.18 =
+
 * 2019-06-16
 * Improve file-naming convention documentation
 * Use definition list for Font Squirrel suggested settings
@@ -685,87 +771,106 @@ This plugin includes these third-party libraries in its package.
 * Update .pot, .po, & .mo language files
 
 = 1.0.17 =
+
 * 2019-06-15
 * Reverted recommended Em Square Value setting
 
 = 1.0.16 =
+
 * 2019-06-15
 * Corrected font weight mapping in README & upload instructions
 * Updated recommended Font Squirrel Generator settings
 
 = 1.0.15 =
+
 * 2019-06-14
 * Added missing change to changelog & re-assigned version numbers
 
 = 1.0.14 =
+
 * 2019-06-14
 * Added plugin banner & icon
 
 = 1.0.13 =
+
 * 2019-06-14
 * Corrected GNU License info
 
 = 1.0.12 =
+
 * 2019-06-14
 * Corrected version numbering error
 * Fixed typo in README description
 
 = 1.0.11 =
+
 * 2019-06-14
 * Corrected license URI
 
 = 1.0.10 =
+
 * 2019-06-14
 * Upgraded GNU Public License from v2 to v3
 
 = 1.0.9 =
+
 * 2019-06-14
 * Corrected Contributers username
 
 = 1.0.8 =
+
 * 2019-06-14
 * Add Requires PHP to README
 
 = 1.0.7 =
+
 * 2019-06-14
 * Add screenshots
 
 = 1.0.6 =
+
 * 2019-06-14
 * Create readme.txt
 * Add comments to readme.md
 
 = 1.0.5 =
+
 * 2019-06-14
 * Upgrade license from GNU GNU 2 to GNU GNU 3
 * Fix Undefined index: placeholder in class-wp-foft-loader-admin-api.php
 * Add acknowledgement to README
 
 = 1.0.4 =
+
 * 2019-06-13
 * README formatting fix
 
 = 1.0.3 =
+
 * 2019-06-13
 * Further README formatting improvements
 
 = 1.0.2 =
+
 * 2019-06-13
 * Fixed README formatting & added Pros & Cons to FAQ
 
 = 1.0.1 =
+
 * 2019-06-13
 * Removed trailing comma if font stack is not set
 
 = 1.0 =
+
 * 2019-06-13
 * Initial release
 
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.4 =
-* 2020-10-08
-* Tested up to 5.5.3
-* Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
-* Corrected and improved usage examples
+= 2.1.5 =
+
+* 2021-01-08
+* Tested up to 5.6
+* BUGFIX: Restored missing upload button on plugin main page
+* Reformatted and updated code to meet WordPress coding standards
