@@ -1,5 +1,5 @@
 === WP FOFT Loader ===  
-Contributors: seezee  , freemius
+Contributors: seezee, freemius
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
@@ -781,8 +781,17 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
+<<<<<<< HEAD
 = 2.1.5 =
 * 2021-01-08
 * Tested up to 5.6
 * BUGFIX: Restored missing upload button on plugin main page
 * Reformatted and updated code to meet WordPress coding standards
+=======
+= 2.1.4 =
+* 2020-10-08
+* Tested up to 5.5.3
+* Update FREEMIUS SDK to v.2.4.1
+* Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
+* Corrected and improved usage examples
+>>>>>>> 151765498ad251f2af967f06f56228fdfa5646f4
