@@ -222,20 +222,51 @@ class WP_FOFT_Loader {
 	 *
 	 * @param string $hook Hook parameter.
 	 *
-	 * @return  void
+	 * @return  bool
 	 * @since   1.0.0
 	 */
 	public function admin_enqueue_fa_scripts( $hook = '' ) {
 		global  $pagenow;
 		if ( ( 'plugins.php' === $pagenow ) || ( 'options-general.php' === $pagenow ) ) {
 
-			wp_register_script(
-				$this->token . '-fa-main',
-				'//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome' . $this->script_suffix . '.js',
-				array(),
-				WPFL_VERSION,
-				true
-			);
+			$protocol = 'https:';
+			$url      = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
+			$fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
+			$suffix   = $this->script_suffix . '.js';
+			$link     = $protocol . $url . $suffix;
+
+			/**
+			 * Check whether external files are available.
+			 *
+			 * @access public
+			 *
+			 * @param string $link Link parameter.
+			 *
+			 * @since   1.0.0
+			 */
+			function checklink( $link ) {
+				return (bool) @fopen( $link, 'r' ); // phpcs:ignore
+			}
+
+			// If boolean is TRUE.
+			if ( checklink( $link ) ) {
+				wp_register_script(
+					$this->token . '-fa-main',
+					$url . $this->script_suffix . '.js',
+					array(),
+					WPFL_VERSION,
+					true
+				);
+				// Otherwise use local copy.
+			} else {
+				wp_register_script(
+					$this->token . '-fa-main',
+					$fallback . $this->script_suffix . '.js',
+					array(),
+					esc_html( FSRS_VERSION ),
+					true
+				);
+			}
 
 			wp_enqueue_script( $this->token . '-fa-main' );
 
