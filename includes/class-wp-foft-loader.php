@@ -244,12 +244,12 @@ class WP_FOFT_Loader {
 			 *
 			 * @since   1.0.0
 			 */
-			function checklink( $link ) {
+			function wpfl_checklink( $link ) {
 				return (bool) @fopen( $link, 'r' ); // phpcs:ignore
 			}
 
 			// If boolean is TRUE.
-			if ( checklink( $link ) ) {
+			if ( wpfl_checklink( $link ) ) {
 				wp_register_script(
 					$this->token . '-fa-main',
 					$url . $this->script_suffix . '.js',

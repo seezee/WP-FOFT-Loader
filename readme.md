@@ -7,7 +7,7 @@ Tags: WordPress, plugin, fonts, webfonts, performance, UX
 Requires at least: 4.6.0  
 Tested up to: 5.6  
 Requires PHP: 7.0  
-Stable tag: 2.1.6  
+Stable tag: 2.1.7  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -303,6 +303,11 @@ This plugin includes these third-party libraries in its package.
 * [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
 
 == Changelog ==
+
+= 2.1.7 =
+
+* 2021-01-08
+* BUGFIX: Fix checklink() naming collision
 
 = 2.1.6 =
 
@@ -873,7 +878,7 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.6 =
+= 2.1.7 =
 
 * 2021-01-08
-* Provide fallback for external Fontawesome script per WordPress standards
+* BUGFIX: Fix checklink() naming collision
