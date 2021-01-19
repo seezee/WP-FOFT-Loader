@@ -7,7 +7,7 @@ Tags: WordPress, plugin, fonts, webfonts, performance, UX
 Requires at least: 4.6.0  
 Tested up to: 5.6 
 Requires PHP: 7.0  
-Stable tag: 2.1.7
+Stable tag: 2.1.8
   
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
@@ -310,12 +310,17 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.1.8 =
+* 2021-01-19
+* BUGFIX: Fix undefined variable $uploadmessage
+* Update to Fontawesome 5.15.2
+
 = 2.1.7 =
-* 2021-01-08
+* 2021-01-18
 * BUGFIX: Fix checklink() naming collision
 
 = 2.1.6 =
-* 2021-01-08
+* 2021-01-18
 * Provide fallback for external Fontawesome script per WordPress standards
 
 = 2.1.5 =
@@ -789,6 +794,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.7 =
-* 2021-01-08
-* BUGFIX: Fix checklink() naming collision
+= 2.1.8 =
+* 2021-01-19
+* BUGFIX: Fix undefined variable $uploadmessage
+* Update to Fontawesome 5.15.2

@@ -230,7 +230,7 @@ class WP_FOFT_Loader {
 		if ( ( 'plugins.php' === $pagenow ) || ( 'options-general.php' === $pagenow ) ) {
 
 			$protocol = 'https:';
-			$url      = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
+			$url      = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/fontawesome';
 			$fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
 			$suffix   = $this->script_suffix . '.js';
 			$link     = $protocol . $url . $suffix;
@@ -300,9 +300,9 @@ class WP_FOFT_Loader {
 		// add script handles to the array below.
 		if ( $this->token . '-fa-main' === $handle ) {
 			if ( SCRIPT_DEBUG ) {
-				return str_replace( ' src', ' integrity="sha256-Zrud/hioxze9Q1aEUNes9uTrF4ym/CR0JCGvzcVZX9I=" crossorigin="anonymous" src', $tag );
+				return str_replace( ' src', ' integrity="sha512-5dPAL40pRRefHhHtDbDGbi6O0EfZof2fwSdjNvpyA1g5Ww3yI/GNVpK8Itc8+5cdKL/78nx6eHKnKmXbmd8ZMQ===" crossorigin="anonymous" src', $tag );
 			} else {
-				return str_replace( ' src', ' integrity="sha256-NP9NujdEzS5m4ZxvNqkcbxyHB0dTRy9hG13RwTVBGwo=" crossorigin="anonymous" src', $tag );
+				return str_replace( ' src', ' integrity="sha512-pafh0hrrT9ZPZl/jx0cwyp7N2+ozgQf+YK94jSupHHLD2lcEYTLxEju4mW/2sbn4qFEfxJGZyIX/yJiQvgglpw==" crossorigin="anonymous" src', $tag );
 			}
 		}
 		return $tag;

@@ -175,7 +175,8 @@ class WP_FOFT_Loader_Settings {
 <script type="text/javascript">
 jQuery(document).ready(function($) {
   wp.media.controller.Library.prototype.defaults.contentUserSetting = false;
-  wp.media.controller.FeaturedImage.prototype.defaults.contentUserSetting = false;
+  wp.media.controller.FeaturedImage.prototype.defaults.contentUserSetting =
+    false;
 });
 </script>
 <?php
@@ -213,7 +214,7 @@ jQuery(document).ready(function($) {
 				$uploadmessage2 = '<h3>' . esc_html__( 'You have uploaded the following fonts:', 'wp-foft-loader' ) . '</h3> ';
 			}
 		} else {
-			$uploadmessage1 = '<h3>' . esc_html__( 'You have not uploaded any fonts.', 'wp-foft-loader' ) . '</h3>';
+			$uploadmessage  = '<h3>' . esc_html__( 'You have not uploaded any fonts.', 'wp-foft-loader' ) . '</h3>';
 			$uploadmessage2 = $uploadmessage;
 		}
 
