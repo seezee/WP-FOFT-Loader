@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
 Tags: WordPress, plugin, fonts, webfonts, performance, UX  
 Requires at least: 4.6.0  
-Tested up to: 5.6  
+Tested up to: 5.7  
 Requires PHP: 7.0  
-Stable tag: 2.1.8  
+Stable tag: 2.1.9  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -299,10 +299,16 @@ Would you like to help translate WP FOFT Loader into your own language? [You can
 
 This plugin includes these third-party libraries in its package.
 
-* [HTMLPurifier](https://github.com/ezyang/htmlpurifier): v1.7.1
-* [CSSTidy](https://github.com/Cerdic/CSSTidy): v4.12.0
+* [HTMLPurifier](https://github.com/ezyang/htmlpurifier)
+* [CSSTidy](https://github.com/Cerdic/CSSTidy)
+* [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.9 =
+
+* 2021-03-12
+* Tested up to WordPress 5.7
 
 = 2.1.8 =
 
@@ -884,8 +890,7 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.8 =
+= 2.1.9 =
 
-* 2021-01-19
-* BUGFIX: Fix undefined variable $uploadmessage
-* Update to Fontawesome 5.15.2
+* 2021-03-12
+* Tested up to WordPress 5.7

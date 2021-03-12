@@ -180,7 +180,11 @@ class WP_FOFT_Loader {
 	 *
 	 * @return void
 	 */
-	public function admin_enqueue_styles( $hook = '' ) {
+	public function admin_enqueue_styles( $hook ) {
+		if ( ( 'plugins.php' !== $pagenow && 'settings_page_wp-foft-loader' !== $hook ) || ! current_user_can( 'install_plugins' ) ) {
+			return;
+		}
+
 		wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css', array(), esc_html( WPFL_VERSION ) );
 		wp_enqueue_style( $this->token . '-admin' );
 	} // End admin_enqueue_styles ()
@@ -190,12 +194,10 @@ class WP_FOFT_Loader {
 	 *
 	 * @access  public
 	 *
-	 * @param string $hook Hook parameter.
-	 *
 	 * @return  void
 	 * @since   1.0.0
 	 */
-	public function admin_enqueue_scripts( $hook = '' ) {
+	public function admin_enqueue_scripts() {
 		global $pagenow;
 
 		if ( ( 'options-general.php' !== $pagenow ) || ( ! current_user_can( 'install_plugins' ) ) ) {
