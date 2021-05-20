@@ -3,11 +3,11 @@ Contributors: seezee  , freemius
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
-Tags: WordPress, plugin, fonts, webfonts, performance, UX  
+Tags: font, webfont, performance, UX, speed, FOIT, FOUT, DOM reflow  
 Requires at least: 4.6.0  
-Tested up to: 5.7 
+Tested up to: 5.7.2 
 Requires PHP: 7.0  
-Stable tag: 2.1.11
+Stable tag: 2.1.12
   
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
@@ -310,6 +310,14 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.12 =
+
+* 2021-05-20
+* Added short description to README
+* Updated plugin tags
+* Other README changes
+* Updated header in main plugin file
 
 = 2.1.11 =
 
@@ -814,7 +822,10 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.11 =
+= 2.1.12 =
 
-* 2021-05-13
-* Tested up to WordPress 5.7.2
+* 2021-05-20
+* Added short description to README
+* Updated plugin tags
+* Other README changes
+* Updated header in main plugin file
