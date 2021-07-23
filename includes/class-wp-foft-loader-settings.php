@@ -327,7 +327,7 @@ jQuery(document).ready(function($) {
                 'title'       => esc_html__( 'Upload', 'wp-foft-loader' ),
                 'description' => '<p>' . esc_html__( 'Upload two files for each web font: a WOFF file and a WOFF2 file. In most cases you will upload regular, italic, bold, and bold italic versions of each font.', 'wp-foft-loader' ) . '</p>
 <details>
-  <summary class="wp-admin-lite-blue">' . esc_html__( 'Preparing the Files', 'wp-foft-loader' ) . '
+  <summary>' . esc_html__( 'Preparing the Files', 'wp-foft-loader' ) . '
   </summary>
 	<p>' . sprintf(
                 wp_kses(
@@ -372,7 +372,7 @@ jQuery(document).ready(function($) {
   </dl>
 </details>
 <details>
-  <summary class="wp-admin-lite-blue">' . esc_html__( 'Naming the Files', 'wp-foft-loader' ) . '</summary>
+  <summary>' . esc_html__( 'Naming the Files', 'wp-foft-loader' ) . '</summary>
   <p>' . wp_kses( __( '<strong>Filenames must follow the proper naming convention:</strong> <code>$family</code>SC-<code>$variant</code>-webfont.<code>$filetype</code>.', 'wp-foft-loader' ), $arr ) . '</p>
   <dl>
     <dt>' . esc_html__( '$family', 'wp-foft-loader' ) . '</dt>
@@ -402,7 +402,7 @@ jQuery(document).ready(function($) {
   </dl>
 </details>
 <details>
-  <summary class="wp-admin-lite-blue">' . esc_html__( 'Allowed Weights & Mappings', 'wp-foft-loader' ) . '</summary>' . esc_html__( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '
+  <summary>' . esc_html__( 'Allowed Weights & Mappings', 'wp-foft-loader' ) . '</summary>' . esc_html__( 'Allowed weights and styles and their CSS mappings are:', 'wp-foft-loader' ) . '
   <ul class="col-3">
     <li>thin | hairline (<strong>' . esc_html__( 'PRO only', 'wp-foft-loader' ) . '</strong>; ' . esc_html__( 'maps to', 'wp-foft-loader' ) . ' 100)</li>
     <li>extraLight | ultraLight (<strong>' . esc_html__( 'PRO only', 'wp-foft-loader' ) . '</strong>; ' . esc_html__( 'maps to', 'wp-foft-loader' ) . ' 200)</li>
@@ -425,7 +425,7 @@ jQuery(document).ready(function($) {
 </ul>
 </details>
 <details>
-  <summary class="wp-admin-lite-blue">' . esc_html__( 'Your Fonts', 'wp-foft-loader' ) . '</summary>' . $uploadmessage . '
+  <summary>' . esc_html__( 'Your Fonts', 'wp-foft-loader' ) . '</summary>' . $uploadmessage . '
   <ul class="col-3">' . wp_kses( $fontlist, $allowed_html ) . '</ul>
 </details>
 <p>' . esc_html__( 'This plugin supports 1&thinsp;&ndash;&thinsp;4 font families. After uploading your fonts, assign them as needed below.', 'wp-foft-loader' ) . '</p>',
@@ -505,7 +505,7 @@ jQuery(document).ready(function($) {
             // FREE version & PRO users without a valid license.
             $settings['subset'] = array(
                 'title'       => esc_html__( 'Subset', 'wp-foft-loader' ),
-                'description' => '<p>' . esc_html__( 'Upload up to 4 subsetted fonts. For each font, upload a WOFF & WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.', 'wp-foft-loader' ) . '</p><details><summary class="wp-admin-lite-blue">' . esc_html__( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . sprintf(
+                'description' => '<p>' . esc_html__( 'Upload up to 4 subsetted fonts. For each font, upload a WOFF & WOFF2 file (for a total of up to 8 files). Each font will act as a placeholder until the full fonts load.', 'wp-foft-loader' ) . '</p><details><summary>' . esc_html__( 'Preparing the Files', 'wp-foft-loader' ) . '</summary><p>' . sprintf(
                 wp_kses(
                 /* translators: ignore the placeholders in the URL */
                 __( 'We recommend you use <a href="%1$s" rel="%2$s" target="%3$s">Font Squirrel’s Webfont Generator</a> to generate the files. Recommended Font Squirrel settings are:', 'wp-foft-loader' ),
@@ -549,7 +549,7 @@ jQuery(document).ready(function($) {
     </dl>
   </details>
   <details>
-    <summary class="wp-admin-lite-blue">' . esc_html__( 'Naming the Files', 'wp-foft-loader' ) . '</summary>
+    <summary>' . esc_html__( 'Naming the Files', 'wp-foft-loader' ) . '</summary>
     <p>' . wp_kses( __( '<strong>Filenames must follow the proper naming convention:</strong> <code>$family</code>SC-optimized.<code>$filetype</code>.', 'wp-foft-loader' ), $arr ) . '</p>
     <dl>
       <dt>' . esc_html__( '$family', 'wp-foft-loader' ) . '</dt>
@@ -564,7 +564,7 @@ jQuery(document).ready(function($) {
     <p>' . wp_kses( __( '<strong>Example</strong>: If you uploaded <code>timesnewroman-regular-webfont.woff</code> and <code>timesnewroman-regular-webfont.woff2</code> as your body font on the previous screen, name the subsetted versions  <code>timesnewroman-optimized.woff</code> and  <code>timesnewroman-optimized.woff2</code> respectively.', 'wp-foft-loader' ), $arr ) . '</p>
   </details>
   <details>
-    <summary class="wp-admin-lite-blue">' . esc_html__( 'Your Fonts', 'wp-foft-loader' ) . '</summary>' . $uploadmessage2 . '
+    <summary>' . esc_html__( 'Your Fonts', 'wp-foft-loader' ) . '</summary>' . $uploadmessage2 . '
     <ul class="col-3">' . wp_kses( $ofontlist, $allowed_html ) . '</ul>
   </details>',
                 'fields'      => array( array(

@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
 Tags: font, webfont, performance, UX, speed, FOIT, FOUT, DOM reflow  
 Requires at least: 4.6.0  
-Tested up to: 5.7.2  
+Tested up to: 5.8  
 Requires PHP: 7.0  
-Stable tag: 2.1.12  
+Stable tag: 2.1.13  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -116,20 +116,7 @@ boldItalic (maps to 700)
 
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
 
-This plugin supports 1 – 4 font families. For each font family you upload, specify its name in the appropriate setting below the uploader.
-
-**Correct:**
-
-`playfairdisplay` (all lowercase)  
-`playfair_display` (hyphens allowed)  
-`PlayfairDisplay` (mixed case allowed)  
-
-**Incorrect:**
-
-`playfairdisplay-bold` (hyphens not allowed; use the family name only; omit the style, i.e., “bold”)  
-`playfair-display` (hyphens not allowed)  
-`playfair display` (spaces prohibited)  
-`Playfair Display` (spaces prohibited)  
+This plugin supports 1 – 4 font families. For example, you might have a display font for headings, a serif-font for body text, a sans-serif font for UI elements, such as navigation labels, and a monospaced font for tabular data and code examples.
 
 ### Subset
 
@@ -306,6 +293,13 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.13 =
+
+* 2021-07-23
+* Tested up to WordPress 5.8
+* Minor changes to README
+* Update documentation in the settings screen
 
 = 2.1.12 =
 
@@ -913,10 +907,9 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.12 =
+= 2.1.13 =
 
-* 2021-05-20
-* Added short description to README
-* Updated plugin tags
-* Other README changes
-* Updated header in main plugin file
+* 2021-07-23
+* Tested up to WordPress 5.8
+* Minor changes to README
+* Update documentation in the settings screen
