@@ -5,7 +5,7 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
 Tags: font, webfont, performance, UX, speed, FOIT, FOUT, DOM reflow  
 Requires at least: 4.6.0  
-Tested up to: 5.8.1 
+Tested up to: 5.8.2 
 Requires PHP: 7.0  
 Stable tag: 2.1.15
   
