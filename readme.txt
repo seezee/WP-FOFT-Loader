@@ -7,7 +7,7 @@ Tags: font, webfont, performance, UX, speed, FOIT, FOUT, DOM reflow
 Requires at least: 4.6.0  
 Tested up to: 5.8.1 
 Requires PHP: 7.0  
-Stable tag: 2.1.14
+Stable tag: 2.1.15
   
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
@@ -298,7 +298,12 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
-= 2.1.14 =
+= 2.1.15 =
+
+* 2021-11-11
+* Tested up to WordPress 5.8.2
+
+= 2.1.15 =
 
 * 2021-09-09
 * Tested up to WordPress 5.8.1
@@ -821,7 +826,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.14 =
+= 2.1.15 =
 
-* 2021-09-09
-* Tested up to WordPress 5.8.1
+* 2021-11-11
+* Tested up to WordPress 5.8.2

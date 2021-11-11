@@ -6,7 +6,7 @@
  * @package WP FOFT Loader/Includes
  */
 if ( !defined( 'ABSPATH' ) ) {
-    die( 'Sorry, you are not allowed to access this page directly.' );
+    'Sorry, you are not allowed to access this page directly.';
 }
 /**
  * Enqueue custom fonts.
@@ -19,33 +19,33 @@ class WP_FOFT_Loader_Head
     /**
      * The single instance of WP_FOFT_Loader_Head.
      *
-     * @var     object
-     * @access  private
-     * @since   1.0.0
+     * @var    object
+     * @access private
+     * @since  1.0.0
      */
     private static  $instance = null ;
     /**
      * The main plugin object.
      *
-     * @var     object
-     * @access  public
-     * @since   1.0.0
+     * @var    object
+     * @access public
+     * @since  1.0.0
      */
     public  $parent = null ;
     /**
      * Prefix for plugin settings.
      *
-     * @var     string
-     * @access  public
-     * @since   1.0.0
+     * @var    string
+     * @access public
+     * @since  1.0.0
      */
     public  $base = '' ;
     /**
      * Suffix for Javascripts.
      *
-     * @var     string
-     * @access  public
-     * @since   1.0.0
+     * @var    string
+     * @access public
+     * @since  1.0.0
      */
     public  $script_suffix ;
     /**
@@ -60,8 +60,8 @@ class WP_FOFT_Loader_Head
     /**
      * Generate CSS & Javascript to be loaded in <head>.
      *
-     * @access  public
-     * @since   1.0.0
+     * @access public
+     * @since  1.0.0
      */
     public function fontload()
     {
@@ -192,14 +192,14 @@ class WP_FOFT_Loader_Head
                 echo  '@font-face{font-family:\'' . wp_kses( $family, $arr ) . '\';src:url(' . esc_url( $font_path . basename( $file ) ) . '2)format(\'woff2\'),url(' . esc_url( $font_path . basename( $file ) ) . ')format(\'woff\');' ;
                 $fontstyle = 'normal';
                 if ( !wpfl_fs()->can_use_premium_code() ) {
-                    if ( in_array( $style, [ 'italic', 'boldItalic' ], true ) ) {
+                    if ( in_array( $style, array( 'italic', 'boldItalic' ), true ) ) {
                         // Third parameter enables strict type checking -- see
                         // https://php.net/manual/en/function.in-array.php.
                         $fontstyle = 'italic';
                     }
                 }
                 $fontweight = '400';
-                if ( in_array( $style, [ 'bold', 'boldItalic' ], true ) ) {
+                if ( in_array( $style, array( 'bold', 'boldItalic' ), true ) ) {
                     $fontweight = '700';
                 }
                 echo  'font-weight:' . wp_kses( $fontweight, $arr ) . ';font-style:' . wp_kses( $fontstyle, $arr ) . ';' ;
@@ -429,8 +429,8 @@ class WP_FOFT_Loader_Head
     /**
      * Place the CSS & JS in the head.
      *
-     * @access  public
-     * @since   1.0.0
+     * @access public
+     * @since  1.0.0
      */
     public function foft_head()
     {
@@ -442,10 +442,10 @@ class WP_FOFT_Loader_Head
      *
      * Ensures only one instance of WP_FOFT_Loader_Head is loaded or can be loaded.
      *
-     * @since 1.0.0
+     * @since  1.0.0
      * @static
-     * @see WP_FOFT_Loader()
-     * @param object $parent Object instance.
+     * @see    WP_FOFT_Loader()
+     * @param  object $parent Object instance.
      * @return Main WP_FOFT_Loader_Head instance
      */
     public static function instance( $parent )

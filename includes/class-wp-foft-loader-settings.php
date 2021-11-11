@@ -186,7 +186,7 @@ jQuery(document).ready(function($) {
   wp.media.controller.FeaturedImage.prototype.defaults.contentUserSetting = false;
 });
 </script>
-<?php 
+			<?php 
         }
     }
     
