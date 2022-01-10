@@ -3,20 +3,20 @@ Contributors: seezee
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
-Tags: font, webfont, performance, UX, speed, FOIT, FOUT, DOM reflow  
+Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow  
 Requires at least: 4.6.0  
-Tested up to: 5.8.2  
+Tested up to: 5.8.3  
 Requires PHP: 7.0  
-Stable tag: 2.1.15  
+Stable tag: 2.1.16  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
-Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+Optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Description ==
 
-This plugin implements and automates Zach Leatherman’s [“Critical FOFT with preload, with a polyfill fallback emulating font-display: optional”](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+This plugin implements and automates Zach Leatherman’s [“Critical FOFT with preload, with a polyfill fallback emulating font-display: optional”](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 [![WP compatibility](https://plugintests.com/plugins/wporg/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wporg/wp-foft-loader/latest)
 [![PHP compatibility](https://plugintests.com/plugins/wporg/wp-foft-loader/php-badge.svg)](https://plugintests.com/plugins/wporg/wp-foft-loader/latest)
@@ -109,10 +109,10 @@ For detailed recommended settings, see the plugin Upload options screen.
 
 Allowed weights and styles and their CSS mappings are:
 
-regular | normal (maps to 400)  
-bold (maps to 700)  
-italic (maps to 400)
-boldItalic (maps to 700)
+* regular | normal (maps to 400)  
+* bold (maps to 700)  
+* italic (maps to 400)  
+* boldItalic (maps to 700)
 
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
 
@@ -294,12 +294,18 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
-= 2.1.15 =
+= 2.1.16 =
+
+* 2022-01-10
+* Tested up to WordPress 5.8.3
+* Check for FREE vs. PRO and serve appropriate support URL
+
+= 2.1.16 =
 
 * 2021-11-11
 * Tested up to WordPress 5.8.2
 
-= 2.1.15 =
+= 2.1.16 =
 
 * 2021-09-09
 * Tested up to WordPress 5.8.1
@@ -917,7 +923,8 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.15 =
+= 2.1.16 =
 
-* 2021-11-11
-* Tested up to WordPress 5.8.2
+* 2022-01-10
+* Tested up to WordPress 5.8.3
+* Check for FREE vs. PRO and serve appropriate support URL

@@ -1,23 +1,23 @@
-=== WP FOFT Loader ===  
-Contributors: seezee  , freemius
-Donate link: https://messengerwebdesign.com/donate  
-Author URI: https://github.com/seezee  
-Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
-Tags: font, webfont, performance, UX, speed, FOIT, FOUT, DOM reflow  
-Requires at least: 4.6.0  
-Tested up to: 5.8.2 
-Requires PHP: 7.0  
-Stable tag: 2.1.15
-  
-License: GNUv3 or later  
-License URI: https://www.gnu.org/licenses/gpl-3.0.html  
+=== WP FOFT Loader ===
+Contributors: seezee, freemius
+Donate link: https://messengerwebdesign.com/donate
+Author URI: https://github.com/seezee
+Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
+Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
+Requires at least: 4.6.0
+Tested up to: 5.8.3
+Requires PHP: 7.0
+Stable tag: 2.1.16
+
+License: GNUv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 [//]: # (*********************************************************************          **********Short description: 150 characters or fewer; no markup! *****          *********************************************************************)
-Optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+Optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Description ==
 
-This plugin implements and automates Zach Leatherman’s “Critical FOFT with preload, with a polyfill fallback emulating font-display: optional” to optimize and speed up webfont loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional).
+This plugin implements and automates Zach Leatherman’s “Critical FOFT with preload, with a polyfill fallback emulating font-display: optional” to optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional).
 
 == Acknowledgement ==
 
@@ -70,9 +70,9 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 = Video Tutorials =
 
-[Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)  
+[Episode 1. Intro and Background](https://youtu.be/0C0lDJ3T12o)
 
-[Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)  
+[Episode 2. Font Squirrel Generator (WOFF & WOFF2)](https://youtu.be/-StFYcOSDCU)
 
 = Generating and Uploading the Font Files =
 
@@ -110,11 +110,11 @@ For detailed recommended settings, see the plugin Upload options screen.
 Allowed weights and styles and their CSS mappings are:
 
 
-regular | normal (maps to 400)  
+- regular | normal (maps to 400)
 
-italic (maps to 400)  
+- italic (maps to 400)
 
-boldItalic (maps to 700)  
+- boldItalic (maps to 700)
 
 
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
@@ -145,7 +145,7 @@ To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont 
 							“WOFF2”
 	Fix Missing Glyphs:		None
 	Subsetting:				“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
-							Leave everything else unchecked  
+							Leave everything else unchecked
 	OpenType Features:		None
 	OpenType Flattening:	None
 	CSS:					Leave unchecked
@@ -298,12 +298,18 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
-= 2.1.15 =
+= 2.1.16 =
+
+* 2022-01-10
+* Tested up to WordPress 5.8.3
+* Check for FREE vs. PRO and serve appropriate support URL
+
+= 2.1.16 =
 
 * 2021-11-11
 * Tested up to WordPress 5.8.2
 
-= 2.1.15 =
+= 2.1.16 =
 
 * 2021-09-09
 * Tested up to WordPress 5.8.1
@@ -826,7 +832,8 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.15 =
+= 2.1.16 =
 
-* 2021-11-11
-* Tested up to WordPress 5.8.2
+* 2022-01-10
+* Tested up to WordPress 5.8.3
+* Check for FREE vs. PRO and serve appropriate support URL
