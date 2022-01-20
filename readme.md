@@ -1,15 +1,15 @@
 === WP FOFT Loader ===  
 Contributors: seezee  
-Donate link: https://messengerwebdesign.com/donate  
-Author URI: https://github.com/seezee  
-Plugin URI: https://wordpress.org/plugins/wp-foft-loader/  
+Donate link: <https://messengerwebdesign.com/donate>  
+Author URI: <https://github.com/seezee>  
+Plugin URI: <https://wordpress.org/plugins/wp-foft-loader/>  
 Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow  
 Requires at least: 4.6.0  
 Tested up to: 5.8.3  
 Requires PHP: 7.0  
-Stable tag: 2.1.16  
+Stable tag: 2.1.17  
 License: GNUv3 or later  
-License URI: https://www.gnu.org/licenses/gpl-3.0.html  
+License URI: <https://www.gnu.org/licenses/gpl-3.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
 Optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
@@ -84,10 +84,10 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend you use [Font Squirrel’s Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to generate the files. Mandatory Font Squirrel settings are:
 
-	Select “Expert”
-	Font Formats:			“WOFF”
-					“WOFF2”
-	Advanced Options:		“Font Name Suffix” = -webfont
+ Select “Expert”
+ Font Formats:   “WOFF”
+     “WOFF2”
+ Advanced Options:  “Font Name Suffix” = -webfont
 
 For detailed recommended settings, see the plugin Upload options screen.
 
@@ -137,16 +137,16 @@ Upload up to 4 small, subsetted fonts. For each font, upload a WOFF & WOFF2 file
 
 To subset and encode your fonts, we recommend you use Font Squirrel’s Webfont Generator. Mandatory Font Squirrel settings are:
 
-	Select “Expert”
-	Font Formats:			“WOFF”
-					    “WOFF2”
-	Fix Missing Glyphs:		None
-	Subsetting:			“Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
-					Leave everything else unchecked  
-	OpenType Features:		None
-	OpenType Flattening:		None
-	CSS:				Leave unchecked
-	Advanced Options:		“Font Name Suffix” = -optimized
+ Select “Expert”
+ Font Formats:   “WOFF”
+         “WOFF2”
+ Fix Missing Glyphs:  None
+ Subsetting:   “Custom Subsetting” with the Unicode Ranges 0065-0041-005A,0061-007A
+     Leave everything else unchecked  
+ OpenType Features:  None
+ OpenType Flattening:  None
+ CSS:    Leave unchecked
+ Advanced Options:  “Font Name Suffix” = -optimized
 
 For detailed recommended settings, see the plugin Subset options screen.
 
@@ -174,29 +174,29 @@ See the Documentation screen to view the Stage 1 CSS that this plugin loads by d
 
 Incorrect:
 
-	.nav-primary { // Missing class: .fonts-stage-1
-	  font-family: latoSubset, sans-serif;
-	}
+ .nav-primary { // Missing class: .fonts-stage-1
+   font-family: latoSubset, sans-serif;
+ }
 
-	.fonts-stage-1 #footer-secondary {
-	  font-family: lato, san-serif; // Missing “Subset” suffix
-	}
+ .fonts-stage-1 #footer-secondary {
+   font-family: lato, san-serif; // Missing “Subset” suffix
+ }
 
-	.fonts-stage-1 div.callout {
-	  font-family: latoSubset, san-serif;
-	  font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
-					   // and “font-variant” rules only
-	}
+ .fonts-stage-1 div.callout {
+   font-family: latoSubset, san-serif;
+   font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
+        // and “font-variant” rules only
+ }
 
-	.fonts-stage-1 div.callout {
-	  font-family: latosubset, san-serif; // “Subset” suffix is case-sensitive
-	}
+ .fonts-stage-1 div.callout {
+   font-family: latosubset, san-serif; // “Subset” suffix is case-sensitive
+ }
 
 Correct:
 
-	.fonts-stage-1 .nav-primary {
-	  font-family: latoSubset, sans-serif;
-	}
+ .fonts-stage-1 .nav-primary {
+   font-family: latoSubset, sans-serif;
+ }
 
 #### CSS Stage 2
 
@@ -210,36 +210,36 @@ See the Documentation screen to view the Stage 2 CSS that this plugin loads by d
 
 Incorrect:
 
-	tbody { // Missing class: .fonts-stage-2
-	  font-family: lato, Corbel, "Lucida Grande", sans-serif;
-	  font-weight: 400;
-	  font-style: normal;
-	}
+ tbody { // Missing class: .fonts-stage-2
+   font-family: lato, Corbel, "Lucida Grande", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+ }
 
-	.fonts-stage-2 span.bolder {
-	  font-family: lato-bold, Corbel, "Lucida Grande", sans-serif; // Don’t include style in font name.
-	  // Better yet, omit declaration altogether.
-	  font-weight: 700;
-	}
+ .fonts-stage-2 span.bolder {
+   font-family: lato-bold, Corbel, "Lucida Grande", sans-serif; // Don’t include style in font name.
+   // Better yet, omit declaration altogether.
+   font-weight: 700;
+ }
 
-	.fonts-stage-2 div.callout {
-	  font-family: lato-regular, Corbel, "Lucida Grande", san-serif;
-	  font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
-					   // and “font-variant” rules only
-	}
+ .fonts-stage-2 div.callout {
+   font-family: lato-regular, Corbel, "Lucida Grande", san-serif;
+   font-size: 1rem; // “font-family,” “font-weight,” “font-style,”
+        // and “font-variant” rules only
+ }
 
 Correct:
 
-	.fonts-stage-2 div.callout {
-	  font-family: lato, Corbel, "Lucida Grande", sans-serif;
-	  font-weight: 400;
-	  font-style: normal;
-	}
+ .fonts-stage-2 div.callout {
+   font-family: lato, Corbel, "Lucida Grande", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+ }
 
-	.fonts-stage-2 div.callout {
-	  // No need to redeclare the font-family — all weights map to a single family name
-	  font-weight: 700; // This will use the lato-bold font
-	}
+ .fonts-stage-2 div.callout {
+   // No need to redeclare the font-family — all weights map to a single family name
+   font-weight: 700; // This will use the lato-bold font
+ }
 
 For best performance, please [minify your CSS](https://cssminifier.com/) before pasting it into the form.
 
@@ -293,6 +293,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.17 =
+
+* 2022-01-20
+* Update contact & support URL on plugins page for PRO users
 
 = 2.1.16 =
 
@@ -923,8 +928,7 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.16 =
+= 2.1.17 =
 
-* 2022-01-10
-* Tested up to WordPress 5.8.3
-* Check for FREE vs. PRO and serve appropriate support URL
+* 2022-01-20
+* Update contact & support URL on plugins page for PRO users
