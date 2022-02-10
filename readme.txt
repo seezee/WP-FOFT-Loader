@@ -298,6 +298,8 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.1.19 =
+
 * 2022-02-10
 * Updated to Fontawesome 6.0.0
 * Don’t add SRI hash to fallback scripts if external scripts don’t load
@@ -845,6 +847,8 @@ This plugin includes these third-party libraries in its package.
 * Initial release
 
 == Upgrade Notice ==
+
+= 2.1.19 =
 
 * 2022-02-10
 * Updated to Fontawesome 6.0.0
