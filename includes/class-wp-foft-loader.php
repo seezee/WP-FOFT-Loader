@@ -233,7 +233,7 @@ class WP_FOFT_Loader
         
         if ( 'plugins.php' === $pagenow || 'options-general.php' === $pagenow ) {
             $protocol = 'https:';
-            $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/fontawesome';
+            $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome';
             $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
             $suffix = $this->script_suffix . '.js';
             $link = $protocol . $url . $suffix;
@@ -268,7 +268,7 @@ class WP_FOFT_Loader
                     $this->token . '-fa-main',
                     $fallback . $this->script_suffix . '.js',
                     array(),
-                    esc_html( FSRS_VERSION ),
+                    esc_html( WPFL_VERSION ),
                     true
                 );
             }
@@ -303,16 +303,20 @@ class WP_FOFT_Loader
     public function hash_js( $tag, $handle )
     {
         // add script handles to the array below.
-        if ( $this->token . '-fa-main' === $handle ) {
-            
-            if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha512-5dPAL40pRRefHhHtDbDGbi6O0EfZof2fwSdjNvpyA1g5Ww3yI/GNVpK8Itc8+5cdKL/78nx6eHKnKmXbmd8ZMQ===" crossorigin="anonymous" src', $tag );
-            } else {
-                return str_replace( ' src', ' integrity="sha512-pafh0hrrT9ZPZl/jx0cwyp7N2+ozgQf+YK94jSupHHLD2lcEYTLxEju4mW/2sbn4qFEfxJGZyIX/yJiQvgglpw==" crossorigin="anonymous" src', $tag );
-            }
         
+        if ( wpfl_checklink( $link ) ) {
+            if ( $this->token . '-fa-main' === $handle ) {
+                
+                if ( SCRIPT_DEBUG ) {
+                    return str_replace( ' src', ' integrity="sha512-QTB14R2JdqeamILPFRrAgHOWmjlOGmwMg9WB9hrw6IoaX8OdY8J1kiuIAlAFswHCzgeY18PwTqp4g4utWdy6HA==" crossorigin="anonymous" src', $tag );
+                } else {
+                    return str_replace( ' src', ' integrity="sha512-PoFg70xtc+rAkD9xsjaZwIMkhkgbl1TkoaRrgucfsct7SVy9KvTj5LtECit+ZjQ3ts+7xWzgfHOGzdolfWEgrw==" crossorigin="anonymous" src', $tag );
+                }
+            
+            }
+            return $tag;
         }
-        return $tag;
+    
     }
     
     /**

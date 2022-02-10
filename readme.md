@@ -7,16 +7,16 @@ Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
 Requires at least: 4.6.0  
 Tested up to: 5.9  
 Requires PHP: 7.0  
-Stable tag: 2.1.18  
+Stable tag: 2.1.19  
 License: GNUv3 or later  
 License URI: <https://www.gnu.org/licenses/gpl-3.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
-Optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+Optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Description ==
 
-This plugin implements and automates Zach Leatherman’s [“Critical FOFT with preload, with a polyfill fallback emulating font-display: optional”](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+This plugin implements and automates Zach Leatherman’s [“Critical FOFT with preload, with a polyfill fallback emulating font-display: optional”](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 [![WP compatibility](https://plugintests.com/plugins/wporg/wp-foft-loader/wp-badge.svg)](https://plugintests.com/plugins/wporg/wp-foft-loader/latest)
 [![PHP compatibility](https://plugintests.com/plugins/wporg/wp-foft-loader/php-badge.svg)](https://plugintests.com/plugins/wporg/wp-foft-loader/latest)
@@ -114,7 +114,7 @@ Allowed weights and styles and their CSS mappings are:
 * italic (maps to 400)  
 * boldItalic (maps to 700)
 
-__For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
+**For small-caps support and extended font-weight support, please upgrade to** [**WP FOFT Loader PRO**](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
 
 This plugin supports 1 – 4 font families. For example, you might have a display font for headings, a serif-font for body text, a sans-serif font for UI elements, such as navigation labels, and a monospaced font for tabular data and code examples.
 
@@ -293,6 +293,12 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.19 =
+
+* 2022-02-10
+* Updated to Fontawesome 6.0.0
+* Don’t add SRI hash to fallback scripts if external scripts don’t load
 
 = 2.1.18 =
 
@@ -933,7 +939,8 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.18 =
+= 2.1.19 =
 
-* 2022-01-26
-* Tested up to WordPress 5.9
+* 2022-02-10
+* Updated to Fontawesome 6.0.0
+* Don’t add SRI hash to fallback scripts if external scripts don’t load

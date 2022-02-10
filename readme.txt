@@ -7,17 +7,17 @@ Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
 Requires at least: 4.6.0
 Tested up to: 5.9
 Requires PHP: 7.0
-Stable tag: 2.1.18
+Stable tag: 2.1.19
 
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 [//]: # (*********************************************************************          **********Short description: 150 characters or fewer; no markup! *****          *********************************************************************)
-Optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
+Optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Description ==
 
-This plugin implements and automates Zach Leatherman’s “Critical FOFT with preload, with a polyfill fallback emulating font-display: optional” to optimize and speed upweb font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional).
+This plugin implements and automates Zach Leatherman’s “Critical FOFT with preload, with a polyfill fallback emulating font-display: optional” to optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional).
 
 == Acknowledgement ==
 
@@ -297,6 +297,10 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+* 2022-02-10
+* Updated to Fontawesome 6.0.0
+* Don’t add SRI hash to fallback scripts if external scripts don’t load
 
 = 2.1.18 =
 
@@ -842,7 +846,6 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.18 =
-
-* 2022-01-26
-* Tested up to WordPress 5.9
+* 2022-02-10
+* Updated to Fontawesome 6.0.0
+* Don’t add SRI hash to fallback scripts if external scripts don’t load

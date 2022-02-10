@@ -470,8 +470,8 @@ jQuery(document).ready(function($) {
             ),
                 array(
                 'id'          => 's1-alt',
-                'label'       => esc_html__( 'Other elements', 'wp-foft-loader' ),
-                'description' => wp_kses( __( 'Specify non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ), $arr ),
+                'label'       => esc_html__( 'Functional text', 'wp-foft-loader' ),
+                'description' => wp_kses( __( 'Specify non-body, functional text elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ), $arr ),
                 'type'        => 'select',
                 'options'     => array(
                 0   => null,
@@ -777,8 +777,8 @@ jQuery(document).ready(function($) {
             ),
                 array(
                 'id'          => 'fstack-alt',
-                'label'       => esc_html__( 'Other elements', 'wp-foft-loader' ),
-                'description' => wp_kses( __( 'Font stack for non-body elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ), $arr ),
+                'label'       => esc_html__( 'Functional text', 'wp-foft-loader' ),
+                'description' => wp_kses( __( 'Font stack for non-body, functional text elements, <abbr>e.g.</abbr>, navigation labels, button labels, <abbr>etc.</abbr> A sans-serif font works best for this.', 'wp-foft-loader' ), $arr ),
                 'type'        => 'textarea',
                 'default'     => '-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
                 'placeholder' => '',
@@ -1211,9 +1211,9 @@ jQuery(document).ready(function($) {
 				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . ' ' . esc_html__( 'There was an error saving your settings. Please open a support ticket if the problem persists!', 'wp-foft-loader' ) . '</p>`).show();
 			 },
 			 timeout: 10000
-		  }); 
+		  });
 		  setTimeout(`jQuery("#saveMessage").hide("slow");`, 7500);
-		  return false; 
+		  return false;
 	   });
 	});
 	</script>';
