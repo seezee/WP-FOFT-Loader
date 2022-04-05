@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
 Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
 Requires at least: 4.6.0
-Tested up to: 5.9.2
+Tested up to: 5.9.3
 Requires PHP: 7.0
-Stable tag: 2.1.22
+Stable tag: 2.1.23
 
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -297,6 +297,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.23 =
+
+* 2022-04-05
+* Tested up to WordPres 5.9.3
 
 = 2.1.22 =
 
@@ -863,7 +868,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.22 =
+= 2.1.23 =
 
-* 2022-03-11
-* Tested up to WordPres 5.9.2
+* 2022-04-05
+* Tested up to WordPres 5.9.3
