@@ -284,7 +284,7 @@ class WP_FOFT_Loader_Head
         $purifier = new HTMLPurifier( $config );
         // Wrap our CSS in style tags and pass to purifier.
         // We're not actually interested in the html response though.
-        $html = $purifier->purify( '<style>' . $css_dirty_1 . $css_dirty_2 . '</style>' );
+        $html = $purifier->purify( '<style type="text/css">' . $css_dirty_1 . $css_dirty_2 . '</style>' );
         // The "style" blocks are stored seperately.
         $clean_css = $purifier->context->get( 'StyleBlocks' );
         /**
