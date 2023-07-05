@@ -7,7 +7,7 @@ Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
 Requires at least: 4.6.0
 Tested up to: 6.2
 Requires PHP: 7.0
-Stable tag: 2.1.28
+Stable tag: 2.1.29
 
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -297,6 +297,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.29 =
+
+* 2023-07-05
+* Freemius SDK update to 2.5.10
 
 = 2.1.28 =
 
@@ -893,7 +898,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.28 =
+= 2.1.29 =
 
-* 2023-04-21
-* Tested up to WordPress 6.2
+* 2023-07-05
+* Freemius SDK update to 2.5.10
