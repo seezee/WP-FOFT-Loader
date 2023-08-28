@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.1.29
+ * Version: 2.1.30
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader
@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.0
- * Tested up to: 6.2
+ * Tested up to: 6.3
  * PHP Version 7.0
  * Text Domain: wp-foft-loader
  * Domain Path: /lang/
@@ -84,7 +84,7 @@ if ( !defined( 'WPFL_BASE' ) ) {
 
 
 if ( !defined( 'WPFL_VERSION' ) ) {
-    define( 'WPFL_VERSION', '2.1.29' );
+    define( 'WPFL_VERSION', '2.1.30' );
 } else {
     /* translators: don't translate “WPFL_VERSION”. */
     echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . wp_kses( __( 'WP <abb>FOFT</abbr> Loader ERROR! The <abbr>PHP</abbr> constant “WPFL_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'wp-foft-loader' ), $arr ) . '</div>' ;
