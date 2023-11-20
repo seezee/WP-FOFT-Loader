@@ -5,9 +5,9 @@ Author URI: <https://github.com/seezee>
 Plugin URI: <https://wordpress.org/plugins/wp-foft-loader/>  
 Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow  
 Requires at least: 4.6.0  
-Tested up to: 6.3  
+Tested up to: 6.4.1  
 Requires PHP: 7.0  
-Stable tag: 2.1.30  
+Stable tag: 2.1.31  
 License: GNUv3 or later  
 License URI: <https://www.gnu.org/licenses/gpl-3.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -293,6 +293,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.31 =
+
+* 2023-11-20
+* Tested up to WordPress 6.4.11
 
 = 2.1.30 =
 
@@ -995,8 +1000,7 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.30 =
+= 2.1.31 =
 
-* 2023-08-28
-* Tested up to WordPress 6.3
-* Freemius SDK update to 2.5.11
+* 2023-11-20
+* Tested up to WordPress 6.4.11
