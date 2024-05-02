@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
 Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
 Requires at least: 4.6.0
-Tested up to: 6.4.2
+Tested up to: 6.5.2
 Requires PHP: 7.0
-Stable tag: 2.1.32
+Stable tag: 2.1.33
 
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -39,7 +39,6 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
 5. Go to Settings -> WP FOFT Loader, upload your fonts, and configure the settings.
-
 
 ### UPLOADING IN WordPress DASHBOARD
 1. Click the download button on this and save “wp-foft-loader.zip” to your computer
@@ -86,12 +85,10 @@ Upload two files for each web font: a WOFF file and a WOFF2 file. We recommend y
 For detailed recommended settings, see the plugin Upload options screen.
 
 
-
 **Filenames must follow the proper naming convention:** `$family`-`$variant`-webfont.`$filetype`.
 
 **$family**
 : The font family base name without style. Case-insensitive. May contain letters, numerals, and underscores but no hyphens or spaces.
-
 
 
 **$variant**
@@ -104,18 +101,13 @@ For detailed recommended settings, see the plugin Upload options screen.
 : The file type, i.e., “woff” or “woff2”.
 
 
-
 **Example**: for the bold weight italic style of Times New Roman, rename the files to timesnewroman-boldItalic-webfont.woff and timesnewroman-boldItalic-webfont.woff2.
 
 Allowed weights and styles and their CSS mappings are:
 
-
 - regular | normal (maps to 400)
-
 - italic (maps to 400)
-
 - boldItalic (maps to 700)
-
 
 __For small-caps support and extended font-weight support, please upgrade to__ [__WP FOFT Loader PRO__](https://checkout.freemius.com/mode/dialog/plugin/4955/plan/7984/licenses/1/).
 
@@ -297,6 +289,13 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.33 =
+
+* 2024-05-02
+* Tested up to WordPress 6.5.2
+* BUGFIX: Cast variables to integers to avoid precision error in PHP 8.3
+* Update Freemius SDK
 
 = 2.1.32 =
 
@@ -914,7 +913,9 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.32 =
+= 2.1.33 =
 
-* 2023-12-21
-* Tested up to WordPress 6.4.2
+* 2024-05-02
+* Tested up to WordPress 6.5.2
+* BUGFIX: Cast variables to integers to avoid precision error in PHP 8.3
+* Update Freemius SDK

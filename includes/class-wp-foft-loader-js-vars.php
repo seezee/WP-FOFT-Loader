@@ -14,8 +14,7 @@ if ( !defined( 'ABSPATH' ) ) {
  * critical font load with data URI per
  * https://www.zachleat.com/web/comprehensive-webfonts/ .
  */
-class WP_FOFT_Loader_JS_Vars
-{
+class WP_FOFT_Loader_JS_Vars {
     /**
      * The single instance of WP_FOFT_Loader_JS_Vars.
      *
@@ -23,15 +22,15 @@ class WP_FOFT_Loader_JS_Vars
      * @access  private
      * @since   1.0.0
      */
-    private static  $instance = null ;
+    private static $instance = null;
+
     /**
      * Create variable output for /includes/js/fallback.js.
      *
      * @access  public
      * @since   1.0.0
      */
-    public function jsload()
-    {
+    public function jsload() {
         $arr = array();
         // Use this with wp_kses. Don't allow any HTML.
         // All options prefixed with WPFL_BASE constant; see wp-foft-loader.php.
@@ -51,8 +50,7 @@ class WP_FOFT_Loader_JS_Vars
         $headingload = null;
         $altload = null;
         $monoload = null;
-        
-        if ( isset( $body ) && !empty($body) ) {
+        if ( isset( $body ) && !empty( $body ) ) {
             $bobserver = 'var fontA = new FontFaceObserver(' . $body;
             if ( true === $body_sc ) {
                 $bobserver .= ', {font-variant: \'small-caps\'}';
@@ -72,9 +70,7 @@ class WP_FOFT_Loader_JS_Vars
             $bobserver .= '});';
             $bodyload = 'fontA.load(),fontB.load(),fontC.load(),fontD.load(),';
         }
-        
-        
-        if ( isset( $heading ) && !empty($heading) ) {
+        if ( isset( $heading ) && !empty( $heading ) ) {
             $hobserver = 'var fontE = new FontFaceObserver(' . $heading;
             if ( true === $heading_sc ) {
                 $hobserver .= ', {font-variant: \'small-caps\'}';
@@ -94,9 +90,7 @@ class WP_FOFT_Loader_JS_Vars
             $hobserver .= '});';
             $headingload = 'fontE.load(),fontF.load(),fontG.load(),fontH.load(),';
         }
-        
-        
-        if ( isset( $alt ) && !empty($alt) ) {
+        if ( isset( $alt ) && !empty( $alt ) ) {
             $aobserver = 'var fontI = new FontFaceObserver(' . $alt;
             if ( true === $alt_sc ) {
                 $aobserver .= ', {font-variant: \'small-caps\'}';
@@ -116,9 +110,7 @@ class WP_FOFT_Loader_JS_Vars
             $aobserver .= '});';
             $altload = 'fontI.load(),fontJ.load(),fontK.load(),fontL.load(),';
         }
-        
-        
-        if ( isset( $mono ) && !empty($mono) ) {
+        if ( isset( $mono ) && !empty( $mono ) ) {
             $mobserver = 'var fontM = new FontFaceObserver(' . $mono;
             if ( true === $mono_sc ) {
                 $mobserver .= ', {font-variant: \'small-caps\'}';
@@ -138,18 +130,17 @@ class WP_FOFT_Loader_JS_Vars
             $mobserver .= '});';
             $monoload = 'fontM.load(),fontN.load(),fontO.load(),fontP.load(),';
         }
-        
         $observers = $bobserver . $hobserver . $aobserver . $mobserver;
         $loaded = $bodyload . $headingload . $altload . $monoload;
         $loaded = rtrim( $loaded, ', ' );
         // Trim trailing comma & space.
         $output = $observers . 'Promise.all([' . $loaded . '])';
-        echo  '<script type="text/javascript">
+        echo '<script type="text/javascript">
 	var jsObs  = ' . wp_json_encode( $observers ) . ';
 	var jsLoad = ' . wp_json_encode( $loaded ) . ';
-</script>' ;
+</script>';
     }
-    
+
     /**
      * Main WP_FOFT_Loader_JS_Vars Instance
      *
@@ -161,14 +152,13 @@ class WP_FOFT_Loader_JS_Vars
      * @param object $parent Object instance.
      * @return Main WP_FOFT_Loader_JS_Vars instance
      */
-    public static function instance( $parent )
-    {
+    public static function instance( $parent ) {
         if ( is_null( self::$instance ) ) {
-            self::$instance = new self( $parent );
+            self::$instance = new self($parent);
         }
         return self::$instance;
     }
-    
+
     // End instance()
     /**
      * Place the CSS & JS in the head.
@@ -176,35 +166,34 @@ class WP_FOFT_Loader_JS_Vars
      * @access  public
      * @since   1.0.0
      */
-    public function foft_inline()
-    {
+    public function foft_inline() {
         $this->jsload();
     }
-    
+
     /**
      * Cloning is forbidden.
      *
      * @since 1.0.0
      */
-    public function __clone()
-    {
+    public function __clone() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_JS_Vars is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
     }
-    
+
     // End __clone()
     /**
      * Unserializing instances of this class is forbidden.
      *
      * @since 1.0.0
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_JS_Vars is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
     }
 
+    // End __wakeup()
 }
+
 /**
 * Place the @font declaration in the header.
 */
 $head = new WP_FOFT_Loader_JS_Vars();
-add_action( 'wp_head', array( $head, 'foft_inline' ) );
+add_action( 'wp_head', array($head, 'foft_inline') );

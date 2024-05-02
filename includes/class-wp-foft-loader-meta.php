@@ -11,8 +11,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Add links to plugin meta
  */
-class WP_FOFT_Loader_Meta
-{
+class WP_FOFT_Loader_Meta {
     /**
      * The single instance of WP_FOFT_Loader_Meta.
      *
@@ -20,7 +19,8 @@ class WP_FOFT_Loader_Meta
      * @access  private
      * @since   1.0.0
      */
-    private static  $instance = null ;
+    private static $instance = null;
+
     /**
      * The main plugin object.
      *
@@ -28,32 +28,30 @@ class WP_FOFT_Loader_Meta
      * @access  public
      * @since   1.0.0
      */
-    public  $parent = null ;
+    public $parent = null;
+
     /**
      * Constructor function.
      */
-    public function links()
-    {
+    public function links() {
         // Filter the plugin meta.
         add_filter(
             'plugin_row_meta',
-            array( $this, 'meta_links' ),
+            array($this, 'meta_links'),
             10,
             2
         );
     }
-    
+
     /**
      * Custom links.
      *
      * @param string $links Custom links.
      * @param string $file Path to main plugin file.
      */
-    public function meta_links( $links, $file )
-    {
+    public function meta_links( $links, $file ) {
         $plugin = 'wp-foft-loader.php';
         // Only for this plugin.
-        
         if ( strpos( $file, $plugin ) !== false ) {
             $supportlink = 'https://wordpress.org/support/plugin/wp-foft-loader/';
             $support_label = esc_attr_x( 'WP FOFT Loader Support', 'noun', 'fsrs' );
@@ -71,10 +69,9 @@ class WP_FOFT_Loader_Meta
                 '<a href="' . esc_url( $coffeelink ) . '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__( 'Buy the Developer a Coffee', 'wp-foft-loader' ) . '" aria-label="' . esc_attr__( 'Buy the Developer a Coffee', 'wp-foft-loader' ) . '"></span></a>',
             ) );
         }
-        
         return $links;
     }
-    
+
     /**
      * Main WP_FOFT_Loader_Meta Instance
      *
@@ -86,36 +83,35 @@ class WP_FOFT_Loader_Meta
      * @param object $parent Object instance.
      * @return Main WP_FOFT_Loader_Meta instance
      */
-    public static function instance( $parent )
-    {
+    public static function instance( $parent ) {
         if ( is_null( self::$instance ) ) {
-            self::$instance = new self( $parent );
+            self::$instance = new self($parent);
         }
         return self::$instance;
     }
-    
+
     // End instance()
     /**
      * Cloning is forbidden.
      *
      * @since 1.0.0
      */
-    public function __clone()
-    {
+    public function __clone() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of WP_FOFT_Loader_Meta is forbidden.', 'wp-foft-loader' ), esc_attr( WPFL_VERSION ) );
     }
-    
+
     // End __clone()
     /**
      * Unserializing instances of this class is forbidden.
      *
      * @since 1.0.0
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of WP_FOFT_Loader_Meta is forbidden.' ), esc_attr( WPFL_VERSION ) );
     }
 
+    // End __wakeup()
 }
+
 $meta = new WP_FOFT_Loader_Meta();
 $meta->links();
