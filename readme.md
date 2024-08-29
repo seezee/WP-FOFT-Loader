@@ -8,7 +8,7 @@ Requires at least: 4.6.0
 Tested up to: 6.6.1  
 Requires PHP: 7.0  
 Stable tag: 2.1.35  
-License: GNUv2 or later  
+License: GPLv2 or later  
 License URI: <https://www.gnu.org/licenses/gpl-2.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
 
