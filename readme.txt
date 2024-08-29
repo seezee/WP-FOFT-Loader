@@ -3,14 +3,13 @@ Contributors: seezee, freemius
 Donate link: https://messengerwebdesign.com/donate
 Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
-Tags: font,web font, performance, UX, speed, FOIT, FOUT, DOM reflow
+Tags: font ,web font, performance, speed
 Requires at least: 4.6.0
-Tested up to: 6.5.3
+Tested up to: 6.6.1
 Requires PHP: 7.0
-Stable tag: 2.1.34
-
-License: GNUv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: 2.1.35
+License: GNUv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 [//]: # (*********************************************************************          **********Short description: 150 characters or fewer; no markup! *****          *********************************************************************)
 Optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
@@ -289,6 +288,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.35 =
+
+* 2024-08-29
+* Tested up to WordPress 6.6.1
 
 = 2.1.34 =
 
@@ -918,7 +922,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.34 =
+= 2.1.35 =
 
-* 2024-05-07
-* Tested up to WordPress 6.5.3
+* 2024-08-29
+* Tested up to WordPress 6.6.1
