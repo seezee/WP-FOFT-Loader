@@ -5,18 +5,17 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
 Tags: font ,web font, performance, speed
 Requires at least: 4.6.0
-Tested up to: 6.6.1
+Tested up to: 6.6.2
 Requires PHP: 7.0
-Stable tag: 2.1.35
+Stable tag: 2.1.36
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-[//]: # (*********************************************************************          **********Short description: 150 characters or fewer; no markup! *****          *********************************************************************)
 Optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Description ==
 
-This plugin implements and automates Zach Leatherman’s “Critical FOFT with preload, with a polyfill fallback emulating font-display: optional” to optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow. See [https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional).
+This plugin implements and automates Zach Leatherman’s [“Critical FOFT with preload, with a polyfill fallback emulating font-display: optional”](https://github.com/zachleat/web-font-loading-recipes#the-compromise-critical-foft-with-preload-with-a-polyfill-fallback-emulating-font-display-optional) to optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
 
 == Acknowledgement ==
 
@@ -288,6 +287,12 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.36 =
+
+* 2024-10-23
+* Tested up to WordPress 6.6.2
+* Update Freemius SDK
 
 = 2.1.35 =
 
@@ -922,7 +927,8 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.35 =
+= 2.1.36 =
 
-* 2024-08-29
-* Tested up to WordPress 6.6.1
+* 2024-10-23
+* Tested up to WordPress 6.6.2
+* Update Freemius SDK
