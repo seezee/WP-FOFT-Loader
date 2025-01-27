@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.0
- * Tested up to: 6.6.2
+ * Tested up to: 6.7.1
  * PHP Version 7.0
  * Text Domain: wp-foft-loader
  * Domain Path: /lang/
