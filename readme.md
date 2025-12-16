@@ -5,9 +5,9 @@ Author URI: <https://github.com/seezee>
 Plugin URI: <https://wordpress.org/plugins/wp-foft-loader/>  
 Tags: font, web font, performance, speed  
 Requires at least: 4.6.0  
-Tested up to: 6.7.1  
+Tested up to: 6.9  
 Requires PHP: 7.0  
-Stable tag: 2.1.37  
+Stable tag: 2.1.38  
 License: GPLv2 or later  
 License URI: <https://www.gnu.org/licenses/gpl-2.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -294,6 +294,12 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.38 =
+
+* 2025-12-16
+* Tested up to WordPress 6.9
+* Update Freemius SDK
 
 = 2.1.37 =
 
@@ -1035,8 +1041,8 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.37 =
+= 2.1.38 =
 
-* 2025-01-27
-* Tested up to WordPress 6.7.1
+* 2025-12-16
+* Tested up to WordPress 6.9
 * Update Freemius SDK

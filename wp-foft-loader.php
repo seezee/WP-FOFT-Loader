@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.1.36
+ * Version: 2.1.38
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader
@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.0
- * Tested up to: 6.7.1
+ * Tested up to: 6.9
  * PHP Version 7.0
  * Text Domain: wp-foft-loader
  * Domain Path: /lang/
