@@ -2,12 +2,12 @@
 Contributors: seezee, freemius
 Donate link: https://messengerwebdesign.com/donate
 Author URI: https://github.com/seezee
-Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
+Plugin URI: https://messengerwebdesign.com/plugins/
 Tags: font ,web font, performance, speed
 Requires at least: 4.6.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 2.1.38
+Stable tag: 2.1.39
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -287,6 +287,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.39 =
+
+* 206-02-02
+* Update plugin URI
 
 = 2.1.38 =
 
@@ -938,8 +943,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.38 =
+= 2.1.39 =
 
-* 2025-12-16
-* Tested up to WordPress 6.9
-* Update Freemius SDK
+* 206-02-02
+* Update plugin URI

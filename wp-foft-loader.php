@@ -2,9 +2,9 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.1.38
+ * Version: 2.1.39
  * Author URI: https://github.com/seezee
- * Plugin URI: https://wordpress.org/plugins/wp-foft-loader/
+ * Plugin URI: https://messengerwebdesign.com/plugins/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader
  * Description: Optimize and speed up web font loading and improve UX by minimizing Flash of Invisible Text, Flash of Unstyled Text, and DOM Reflow.
  * Author: Chris J. Zähller / Messenger Web Design
