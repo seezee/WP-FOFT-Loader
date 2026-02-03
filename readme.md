@@ -7,7 +7,7 @@ Tags: font, web font, performance, speed
 Requires at least: 4.6.0  
 Tested up to: 6.9  
 Requires PHP: 7.0  
-Stable tag: 2.1.39  
+Stable tag: 2.1.40  
 License: GPLv2 or later  
 License URI: <https://www.gnu.org/licenses/gpl-2.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -295,9 +295,14 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 2.1.40 =
+
+* 2026-02-03
+* SECURITY: Proper check for file & MIME type
+
 = 2.1.39 =
 
-* 206-02-02
+* 2026-02-02
 * Update plugin URI
 
 = 2.1.38 =
@@ -1046,7 +1051,7 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.39 =
+= 2.1.40 =
 
-* 206-02-02
-* Update plugin URI
+* 2026-02-03
+* SECURITY: Proper check for file & MIME type

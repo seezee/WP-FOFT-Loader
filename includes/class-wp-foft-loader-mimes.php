@@ -42,26 +42,37 @@ class WP_FOFT_Loader_Mimes {
 	 * @param string $mimes Mimes to add.
 	 */
 	public function file_and_ext( $types, $file, $filename, $mimes ) {
-		if ( false !== strpos( $filename, '.woff' ) ) {
-			$types['ext']  = 'woff';
-			$types['type'] = 'font/woff|application/font-woff|application/x-font-woff|application/octet-stream';
-		}
-		if ( false !== strpos( $filename, '.woff2' ) ) {
-			$types['ext']  = 'woff2';
-			$types['type'] = 'font/woff2|application/octet-stream|font/x-woff2';
-		}
-
+		$ext                = pathinfo( $filename, PATHINFO_EXTENSION );
+		$allowed_ext        = array(
+			'woff',
+			'woff2',
+		);
+		$mime_type          = mime_content_type( $file );
+		$allowed_mime_types = array(
+			'font/woff',
+			'font/woff2',
+			'application/font-woff',
+			'application/font-woff2',
+		);
+		if ( ( in_array( $mime_type, $allowed_mime_types, true ) ) && ( in_array( $ext, $allowed_ext, true ) ) ) {
+			$types['ext']  = $ext;
+			if ( 'woff' === $ext ) {
+				$types['type'] = 'font/woff|application/font-woff';
+			} else if ( 'woff2' === $ext ) {
+				$types['type'] = 'font/woff2|application/font-woff2';
+			};
+		};
 		return $types;
 	}
 
 	/**
 	 * Add mime types.
 	 *
-	 * @param array $existing_mimes Array of existing mimes to modified.
+	 * @param array $existing_mimes Array of existing mimes to be modified.
 	 */
 	public function mime_types( $existing_mimes ) {
-		$existing_mimes['woff']  = 'font/woff|application/font-woff|application/x-font-woff|application/octet-stream';
-		$existing_mimes['woff2'] = 'font/woff2|application/octet-stream|font/x-woff2';
+		$existing_mimes['woff']  = 'font/woff|application/font-woff';
+		$existing_mimes['woff2'] = 'font/woff2|application/font-woff2';
 		return $existing_mimes;
 	}
 
