@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.1.41
+ * Version: 2.1.42
  * Author URI: https://github.com/seezee
  * Plugin URI: https://messengerwebdesign.com/plugins/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader

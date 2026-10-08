@@ -255,7 +255,7 @@ jQuery(document).ready(function($) {
         if ( empty( $c_arr ) ) {
             $c_arr = null;
         } else {
-            list( $c1, $c2, $c3, $c4, $c5 ) = array_pad( $c_arr, 5, null );
+            list( $c1, $c2, $c3, $c4, $c5 ) = array_pad( $c_arr, 5, '' );
             // Assign variables to the array values. Used below to assign $heading,
             // $body, $alt, & $mono. Use array_pad() to avoid undefined offset. See
             // https://stackoverflow.com/questions/24401788/php-undefined-offset-
