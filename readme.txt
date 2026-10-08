@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://messengerwebdesign.com/plugins/
 Tags: font ,web font, performance, speed
 Requires at least: 4.6.0
-Tested up to: 6.9
-Requires PHP: 7.0
-Stable tag: 2.1.40
+Tested up to: 7.1.3
+Requires PHP: 7.4
+Stable tag: 2.1.41
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -287,6 +287,12 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.41 =
+
+* 2026-10-08
+* Tested up to WordPress 7.1.3
+* Update Freemius SDK
 
 = 2.1.40 =
 
@@ -948,7 +954,8 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 2.1.40 =
+= 2.1.41 =
 
-* 2026-02-03
-* SECURITY: Proper check for file & MIME type
+* 2026-10-08
+* Tested up to WordPress 7.1.3
+* Update Freemius SDK

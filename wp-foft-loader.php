@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP FOFT Loader
- * Version: 2.1.40
+ * Version: 2.1.41
  * Author URI: https://github.com/seezee
  * Plugin URI: https://messengerwebdesign.com/plugins/
  * GitHub Plugin URI: seezee/WP-FOFT-Loader
@@ -10,8 +10,8 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.0
- * Tested up to: 6.9
- * PHP Version 7.0
+ * Tested up to: 7.1.3
+ * PHP Version 7.4
  * Text Domain: wp-foft-loader
  * Domain Path: /lang/
  *
@@ -30,29 +30,30 @@ if ( !function_exists( 'wpfl_fs' ) ) {
         global $wpfl_fs;
         if ( !isset( $wpfl_fs ) ) {
             // Include Freemius SDK.
-            require_once dirname( __FILE__ ) . '/freemius/start.php';
+            require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
             $wpfl_fs = fs_dynamic_init( array(
-                'id'              => '4955',
-                'slug'            => 'wp-foft-loader',
-                'premium_slug'    => 'wp-foft-loader-pro',
-                'type'            => 'plugin',
-                'public_key'      => 'pk_687d46aecb0d682d1bb34aa19e066',
-                'is_premium'      => false,
-                'premium_suffix'  => 'PRO',
-                'has_addons'      => false,
-                'has_paid_plans'  => true,
-                'trial'           => array(
+                'id'               => '4955',
+                'slug'             => 'wp-foft-loader',
+                'premium_slug'     => 'wp-foft-loader-pro',
+                'type'             => 'plugin',
+                'public_key'       => 'pk_687d46aecb0d682d1bb34aa19e066',
+                'is_premium'       => false,
+                'premium_suffix'   => 'PRO',
+                'has_addons'       => false,
+                'has_paid_plans'   => true,
+                'is_org_compliant' => true,
+                'trial'            => array(
                     'days'               => 14,
                     'is_require_payment' => false,
                 ),
-                'has_affiliation' => 'all',
-                'menu'            => array(
+                'has_affiliation'  => 'all',
+                'menu'             => array(
                     'slug'   => 'wp-foft-loader',
                     'parent' => array(
                         'slug' => 'options-general.php',
                     ),
                 ),
-                'is_live'         => true,
+                'is_live'          => true,
             ) );
         }
         return $wpfl_fs;
