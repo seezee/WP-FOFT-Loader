@@ -7,7 +7,7 @@ Tags: font, web font, performance, speed
 Requires at least: 4.6.0  
 Tested up to: 7.1.3  
 Requires PHP: 7.4  
-Stable tag: 2.1.42  
+Stable tag: 2.1.43  
 License: GPLv2 or later  
 License URI: <https://www.gnu.org/licenses/gpl-2.0.html>  
 GitHub Plugin URI: seezee/WP-FOFT-Loader  
@@ -294,6 +294,11 @@ This plugin includes these third-party libraries in its package.
 * [Fontawesome](https://fontawesome.com)
 
 == Changelog ==
+
+= 2.1.43 =
+
+* 2026-10-09
+* Update Freemius SDK
 
 = 2.1.42 =
 
@@ -1062,7 +1067,7 @@ This plugin includes these third-party libraries in its package.
 == Upgrade Notice ==
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 
-= 2.1.42 =
+= 2.1.43 =
 
-* 2026-10-08
-* HOTFIX: Fix PHP error
+* 2026-10-09
+* Update Freemius SDK
